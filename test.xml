@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
-<?xml version="1.0"?>
->>>>>>> bb36775adcc21e07c1f2039ed3491f6fa01953f3
+<?xml version="1.0" encoding="utf-16"?>
 <BorjesDashBoardInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<FileCreated>2018-03-28T13:20:02.7145798+02:00</FileCreated>
 	<Orders>
