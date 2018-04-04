@@ -9,9 +9,10 @@ export class CreateOrderService {
 
   order(goodsOwnerID,
         orderID,
+        CountryCode
+        /*
         GoodsOwnerOrderNumber,
         orderPickability
-        /*
         OrderStatusNumber,
         DeliveryDate,
         Created,
@@ -28,9 +29,11 @@ export class CreateOrderService {
     let order = {
       goodsOwnerID: goodsOwnerID,
       orderID: orderID,
+      CountryCode: CountryCode,
+
+      /*
       GoodsOwnerOrderNumber: GoodsOwnerOrderNumber,
       orderPickability: orderPickability
-      /*
       OrderStatusNumber: OrderStatusNumber,
       DeliveryDate: DeliveryDate,
       Created: Created,

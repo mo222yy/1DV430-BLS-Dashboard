@@ -17,12 +17,12 @@ export class OrdersService {
 
 
     filterOrders() {
-   // let orderArray: Array<Object> = []
+     let orderArr: Array<Object> = []
       // hämta fil
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHpXUsalyr-TOX60462liv-PHdQBLks5azfyawA%3D%3D', {responseType: 'text' }).subscribe(data => {
-    console.log(data)
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders3.xml?token=Ad3tHrXAE7BFRYUw3OUfpyt4KR6wnL6sks5azf0jwA%3D%3D', {responseType: 'text' })
+     .subscribe(data => {
       // splitta ordrar i xml string
-    let xml = data.split('<BorjesDashBoardOrder>', 100)
+    let xml = data.split('<BorjesDashBoardOrder>', 1000)
     
     //ta bort första, vet ej vad det är??
     xml.splice(0,1)
@@ -32,23 +32,19 @@ export class OrdersService {
     xml.forEach(el => {
       let goodsOwnerID = parseInt(el.slice(22,25))
       let orderID = parseInt(el.slice(57, 63))
-      let GoodsOwnerOrderNumber = parseInt(el.slice(104, 108))
-      let orderPickability = parseInt(el.slice(158,161))
+      let countryCode 
 
       let tempOrder = this.createOrder.order(
         goodsOwnerID,
         orderID,
-        GoodsOwnerOrderNumber,
-        orderPickability
+        countryCode
       )
-     this.orderArray.push(tempOrder)
+     orderArr.push(tempOrder)
     })
+   
+    this.orderArray = orderArr
+   
 
-    //FILTRERA ORDRAR OCH LÄGG TILL I ARRAYS
-    this.orderArray.forEach(el => {
-    })
-
-    });
   } 
 
 

@@ -11,6 +11,7 @@ import { OrdersService } from '../orders.service'
 
 export class UtleveransComponent implements OnInit {
  orderArray: Object[] = []
+ openOrders: number;
  abroad: number;
  rest: number;
  orderLines: number;
@@ -19,14 +20,28 @@ export class UtleveransComponent implements OnInit {
   constructor(private ordersService: OrdersService) { }
   
   ngOnInit() {
-    this.ordersService.filterOrders() 
-    this.updateNumbers() 
+    this.getOrders()
   }
 
+
+  //körs efter getOrders
   updateNumbers() {
-   this.orderArray =  this.ordersService.orderArray
-   console.log('yes')
-
+    return new Promise(resolve => {
+      setTimeout(() => {
+        this.orderArray = this.ordersService.orderArray
+        this.abroad = 14
+        console.log(this.orderArray)
+        resolve('resolved')
+      }, 1000) // kan behöva ändras vid större mängd data ?
+    })
+  }
+  //Hämtar ordrar och kör sedan updatenumbers()
+  async getOrders() {
+    this.ordersService.filterOrders()
+    let result = await this.updateNumbers()
   }
 
+
+
+ 
 }
