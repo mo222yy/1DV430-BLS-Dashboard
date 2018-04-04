@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CreateOrderService } from './create-order.service'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 // Service för att hämta info om ordrar och skapa objekt
 
@@ -8,17 +9,17 @@ import { CreateOrderService } from './create-order.service'
 export class OrdersService {
 
 
-  xmlOrderArray = [];
-  orderArray = []; 
-  orderAmount: number;
+  orderArray: Object[] = [];
 
   constructor(private http: HttpClient,
               private createOrder: CreateOrderService) { }
 
-  
+
+
     filterOrders() {
+   // let orderArray: Array<Object> = []
       // hämta fil
-    this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/test.xml?token=Ad3tHnht8mg3lplUZNXuXio2PiCSixwAks5ayfTHwA%3D%3D', {responseType: 'text' }).subscribe(data => {
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/test.xml?token=Ad3tHnht8mg3lplUZNXuXio2PiCSixwAks5ayfTHwA%3D%3D', {responseType: 'text' }).subscribe(data => {
     
       // splitta ordrar i xml string
     let xml = data.split('<BorjesDashBoardOrder>', 100)
@@ -39,13 +40,14 @@ export class OrdersService {
         orderID,
         GoodsOwnerOrderNumber,
         orderPickability
-        
       )
-      this.orderArray.push(tempOrder)
-      this.orderAmount = this.orderArray.length
-
-      
+     this.orderArray.push(tempOrder)
     })
+
+    //FILTRERA ORDRAR OCH LÄGG TILL I ARRAYS
+    this.orderArray.forEach(el => {
+    })
+
     });
   } 
 

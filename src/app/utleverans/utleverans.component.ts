@@ -10,23 +10,22 @@ import { OrdersService } from '../orders.service'
 })
 
 export class UtleveransComponent implements OnInit {
- orders: number;
+ orderArray: Object[] = []
  abroad: number;
  rest: number;
  orderLines: number;
 
 
   constructor(private ordersService: OrdersService) { }
-
-  ngOnInit() {
-    //ASYNC ? 
-    this.ordersService.filterOrders()
   
+  ngOnInit() {
+    this.ordersService.filterOrders() 
+    this.updateNumbers() 
   }
 
-
   updateNumbers() {
-    this.orders = this.ordersService.orderArray.length;
+   this.orderArray =  this.ordersService.orderArray
+   
 
   }
 
