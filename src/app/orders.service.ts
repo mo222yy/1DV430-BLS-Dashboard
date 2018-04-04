@@ -19,8 +19,8 @@ export class OrdersService {
     filterOrders() {
    // let orderArray: Array<Object> = []
       // hämta fil
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/test.xml?token=Ad3tHnht8mg3lplUZNXuXio2PiCSixwAks5ayfTHwA%3D%3D', {responseType: 'text' }).subscribe(data => {
-    
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHpXUsalyr-TOX60462liv-PHdQBLks5azfyawA%3D%3D', {responseType: 'text' }).subscribe(data => {
+    console.log(data)
       // splitta ordrar i xml string
     let xml = data.split('<BorjesDashBoardOrder>', 100)
     
