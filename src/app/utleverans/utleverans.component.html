@@ -1,8 +1,22 @@
 <div id="orderOverview">
-    <div class="orderOverviewParts" id="OrderOverview1"><p>Antal öppna</p></div>
-    <div class="orderOverviewParts" id="OrderOverview2"><p>Antal utland</p></div>
-    <div class="orderOverviewParts" id="OrderOverview3"><p>Antal restade</p></div>
-    <div class="orderOverviewParts" id="OrderOverview4"><p>plockade orderrader</p></div>
+    <div class="orderOverviewParts" id="OrderOverview1">
+        <p>Antal öppna</p>
+        <span class="numbers"> {{ orderArray.length }} </span>
+    </div>
+    <div class="orderOverviewParts" id="OrderOverview2">
+        <p>Antal utland</p>
+        <span class="numbers"> {{ abroad }} </span>
+
+    </div>
+    <div class="orderOverviewParts" id="OrderOverview3">
+        <p>Antal restade</p>
+        <span class="numbers"> {{ rest }} </span>
+
+    </div>
+    <div class="orderOverviewParts" id="OrderOverview4">
+        <p>antal orderrader</p>
+        <span class="numbers"> {{ orderLines }} </span>
+    </div>
 </div>
 
         

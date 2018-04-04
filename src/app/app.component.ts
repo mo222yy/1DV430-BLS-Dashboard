@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -10,15 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent  implements OnInit {
   title = 'app';
 
-  constructor(private http: HttpClient) {
 
-  }
+  constructor( ) {}
 
   ngOnInit(): void {
-    this.http.get('./test.xml').subscribe(data => {
-      console.log(data);
-
-    })
+  
   }
-
 }
