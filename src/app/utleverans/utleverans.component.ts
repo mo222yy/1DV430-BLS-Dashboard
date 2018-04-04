@@ -30,7 +30,6 @@ export class UtleveransComponent implements OnInit {
       setTimeout(() => {
         this.orderArray = this.ordersService.orderArray
         this.abroad = 14
-        console.log(this.orderArray)
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     })
