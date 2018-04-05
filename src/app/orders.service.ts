@@ -17,7 +17,7 @@ export class OrdersService {
 
 
     filterOrders() {
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHjRu6cV9gzan9LdAjXNxpABsWSRYks5az2EDwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHo4RXJWHsBpcEiQvAU0Jpob6HxpZks5az2TYwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        
     let json; // konvertera xml till json
