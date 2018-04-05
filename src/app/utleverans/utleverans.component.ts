@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrdersService } from '../orders.service'
+import { CustomerService } from '../customer.service'
 
 @Component({
   selector: 'app-utleverans',
@@ -17,12 +18,13 @@ export class UtleveransComponent implements OnInit {
  orderLines: number;
 
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService,
+              private customerService: CustomerService) { }
   
   ngOnInit() {
     this.getOrders()
+    this.customerService.CreateCustomers()
   }
-
 
   //körs efter getOrders
   updateNumbers() {
@@ -32,6 +34,8 @@ export class UtleveransComponent implements OnInit {
         this.abroadOrders = this.ordersService.abroadOrders
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
+        this.orderArray = this.ordersService.orderArray
+
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     })

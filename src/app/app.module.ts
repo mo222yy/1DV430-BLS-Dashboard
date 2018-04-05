@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './orders.service'
-import { CreateOrderService } from './create-order.service'
+import { CustomerService } from './customer.service'
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -31,7 +31,7 @@ import { KunderComponent } from './kunder/kunder.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [OrdersService, CreateOrderService],
+  providers: [OrdersService, CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

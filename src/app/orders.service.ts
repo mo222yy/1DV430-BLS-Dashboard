@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateOrderService } from './create-order.service'
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
-const xml2js = require('xml2js')
+
 // Service för att hämta info om ordrar och skapa objekt
 
 @Injectable()
@@ -14,8 +12,7 @@ export class OrdersService {
   restOrders: Object[] = []
   orderLines: number;
 
-  constructor(private http: HttpClient,
-              private createOrder: CreateOrderService) { }
+  constructor(private http: HttpClient) { }
 
 
 
@@ -34,6 +31,7 @@ export class OrdersService {
        }
        json = result
       })
+      console.log(json)
       //filtrerar json till endast ordrar
       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
       this.orderArray = orders
@@ -44,18 +42,20 @@ export class OrdersService {
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
           this.openOrders.push(el)
         } 
+
         //RESTADE, KOLLA UPP OM PICKABILITY ÄR RÄTT
         if(el.OrderPickability[0] === "1000") {
           this.restOrders.push(el)
         }      
       })
+
       //UTLANDSORDRAR 
       this.openOrders.forEach(el => {
        if(el.CountryCode[0] !== "SE") {
          this.abroadOrders.push(el)
        }
       })
-      console.log(orders)
+
       //ORDERRADER
       let orderLines = 0
       orders.forEach(el => {
