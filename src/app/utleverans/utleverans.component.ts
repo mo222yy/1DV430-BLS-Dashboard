@@ -23,7 +23,7 @@ export class UtleveransComponent implements OnInit {
   
   ngOnInit() {
     this.getOrders()
-    this.getList()
+    
   }
 
   //körs efter getOrders
@@ -35,8 +35,8 @@ export class UtleveransComponent implements OnInit {
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
         this.orderArray = this.ordersService.orderArray
-        console.log(this.orderArray)
-
+        this.customerService.CreateCustomers()
+        this.customerService.customerOrderArrays(this.orderArray)
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     })
@@ -49,7 +49,7 @@ export class UtleveransComponent implements OnInit {
 
   getList() {
     this.customerService.CreateCustomers()
-    
+    this.customerService.customerOrderArrays(this.orderArray)
   }
 
  

@@ -17,7 +17,7 @@ export class OrdersService {
 
 
     filterOrders() {
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders3.xml?token=Ad3tHrXAE7BFRYUw3OUfpyt4KR6wnL6sks5azf0jwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHjRu6cV9gzan9LdAjXNxpABsWSRYks5az2EDwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        
     let json; // konvertera xml till json
@@ -31,7 +31,6 @@ export class OrdersService {
        }
        json = result
       })
-      console.log(json)
       //filtrerar json till endast ordrar
       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
       this.orderArray = orders
