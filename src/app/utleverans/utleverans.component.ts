@@ -11,9 +11,9 @@ import { OrdersService } from '../orders.service'
 
 export class UtleveransComponent implements OnInit {
  orderArray: Object[] = []
- openOrders: number;
- abroad: number;
- rest: number;
+ openOrders: Object[] = [];
+ abroadOrders: Object[] = []
+ restOrders: Object[] = [];
  orderLines: number;
 
 
@@ -28,8 +28,10 @@ export class UtleveransComponent implements OnInit {
   updateNumbers() {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.orderArray = this.ordersService.orderArray
-        this.abroad = 14
+        this.openOrders = this.ordersService.openOrders
+        this.abroadOrders = this.ordersService.abroadOrders
+        this.restOrders = this.ordersService.restOrders
+        this.orderLines = this.ordersService.orderLines
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     })

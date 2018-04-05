@@ -7,9 +7,12 @@ const xml2js = require('xml2js')
 
 @Injectable()
 export class OrdersService {
+  orderArray: Object[] = []
 
-
-  orderArray: Object[] = [];
+  openOrders = []
+  abroadOrders: Object[] = []
+  restOrders: Object[] = []
+  orderLines: number;
 
   constructor(private http: HttpClient,
               private createOrder: CreateOrderService) { }
@@ -17,46 +20,63 @@ export class OrdersService {
 
 
     filterOrders() {
-     let orderArr: Array<Object> = []
-      // hämta fil
      this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders3.xml?token=Ad3tHrXAE7BFRYUw3OUfpyt4KR6wnL6sks5azf0jwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        
+    let json; // konvertera xml till json
     let parseString = require('xml2js').parseString
-     parseString(data, function(err, result) {
+    parseString(data, function(err, result) {
        if(err) {
          console.log('ERROR' + err)
          return;
        } else {
-        console.dir(JSON.stringify(result))
+        JSON.stringify(result)
        }
-        
+       json = result
       })
+      //filtrerar json till endast ordrar
+      let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
+      this.orderArray = orders
 
-      /*
-      // splitta ordrar i xml string
-    let xml = data.split('<BorjesDashBoardOrder>', 1000)
-   
+      //ÖPPNA + RESTADE 
+      orders.forEach(el => {
+        // 200 = öppen, 300 = plockning, 310 = på plockuppdrag 
+        if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
+          this.openOrders.push(el)
+        } 
+        //RESTADE, KOLLA UPP OM PICKABILITY ÄR RÄTT
+        if(el.OrderPickability[0] === "1000") {
+          this.restOrders.push(el)
+        }      
+      })
+      //UTLANDSORDRAR 
+      this.openOrders.forEach(el => {
+       if(el.CountryCode[0] !== "SE") {
+         this.abroadOrders.push(el)
+       }
+      })
+      console.log(orders)
+      //ORDERRADER
+      let orderLines = 0
+      orders.forEach(el => {
+        if('OrderLines' in el) {
+          let orderLineArray = el.OrderLines[0].BorjesDashBoardOrderLine
+
+          orderLineArray.forEach(element => {
+            if(element.DoPick[0] === "true") {
+              orderLines++
+            }
+          })
+        }
+      })
+      this.orderLines = orderLines
+      
   
-    //ta bort första, vet ej vad det är??
-    xml.splice(0,1)
 
-    //för varje xml element skapa en order
-    //fortsätt här, bättre sätt att plocka ut data?? funkar det med alla filer? har alla egenskaper samma antal siffror ?
-    xml.forEach(el => {
-      let goodsOwnerID = parseInt(el.slice(22,25))
-      let orderID = parseInt(el.slice(57, 63))
-      let countryCode 
-
-      let tempOrder = this.createOrder.order(
-        goodsOwnerID,
-        orderID,
-        countryCode
-      )
-     orderArr.push(tempOrder)
-    })
-    this.orderArray = orderArr
-  })
- }  
- */
+ })
 }
+}
+
+
+
+
