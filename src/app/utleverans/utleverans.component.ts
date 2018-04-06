@@ -17,13 +17,15 @@ export class UtleveransComponent implements OnInit {
  restOrders: Object[] = [];
  orderLines: number;
 
+   //Customer
+   customers = []
 
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService) { }
   
   ngOnInit() {
     this.getOrders()
-    
+    this.getList()
   }
 
   //körs efter getOrders
@@ -37,7 +39,9 @@ export class UtleveransComponent implements OnInit {
         this.orderArray = this.ordersService.orderArray
         this.customerService.CreateCustomers()
         this.customerService.customerOrderArrays(this.orderArray)
+        this.customerService.customers = this.customers
         resolve('resolved')
+        console.log(this.customers)
       }, 1000) // kan behöva ändras vid större mängd data ?
     })
   }

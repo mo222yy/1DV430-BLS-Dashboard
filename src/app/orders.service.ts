@@ -7,19 +7,19 @@ import { HttpClient } from '@angular/common/http';
 export class OrdersService {
   orderArray: Object[] = []
 
+  //Orders
   openOrders = []
   abroadOrders: Object[] = []
   restOrders: Object[] = []
-  orderLines: number;
+  orderLines: number;  
+  
 
   constructor(private http: HttpClient) { }
-
-
 
     filterOrders() {
      this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHo4RXJWHsBpcEiQvAU0Jpob6HxpZks5az2TYwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
-       
+
     let json; // konvertera xml till json
     let parseString = require('xml2js').parseString
     parseString(data, function(err, result) {

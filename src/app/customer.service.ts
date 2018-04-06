@@ -143,21 +143,31 @@ export class CustomerService {
 
     orderArray.forEach(el => {
       this.customers.forEach(customer => {
-        console.log(el.GoodsOwnerId[0], customer.goodsOwnerID)
-
+        //ÖPPNA + UTLANDS
         if(el.GoodsOwnerId[0] === customer.goodsOwnerID){
           customer.openOrders++
-          console.log(el.GoodsOwnerId[0], customer.goodsOwnerID)
           if(el.CountryCode[0] !== "SE") {
             customer.abroadOrders++
-          }
+          } 
+          //RESTADE
           if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300") {
             customer.restOrders++
+          } 
+          //ORDERLINES
+          if( 'OrderLines' in el ) {
+           el.OrderLines[0].BorjesDashBoardOrderLine.forEach(ol => {
+             if(ol.DoPick[0] === 'true') {
+               customer.orderLines++
+             }
+           })
           }
         }
       })
     });
 
+    this.customers.forEach(el => {
+    //  console.log(el.customerName, el.openOrders, el.abroadOrders,el.restOrders, el.orderLines)
+    })
   }
 
 
