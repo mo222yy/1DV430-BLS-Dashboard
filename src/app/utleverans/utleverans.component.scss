@@ -14,3 +14,40 @@
     font-size: 72px;
     margin-left: 40%;
 }
+
+#customerList {
+  width:80%;
+  border: 1px solid black;
+  list-style-type: none;
+
+}
+.listHeaders {
+    font-size: 200%;
+    display: inline-block;
+    width: 15%;
+}
+
+#nameHeader {
+    width: 30%;
+}
+
+
+
+
+.orderList {
+    font-size: 200%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    display: inline-block;
+    margin-left: 10px;
+    width: 15%;
+}
+
+#name {
+    width: 30%;
+    color: blue;
+    text-decoration: none;
+    margin-left: 0px;
+}
+
+
+

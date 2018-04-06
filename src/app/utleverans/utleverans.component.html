@@ -19,4 +19,22 @@
     </div>
 </div>
 
+<ul id="customerList">
+    <span id ="nameHeader" class ="listHeaders">Kund</span>
+    <span id ="openHeader"class ="listHeaders">Öppna</span>
+    <span id ="abroadHeader"class ="listHeaders">Utlands</span>
+    <span id ="restHeader"class ="listHeaders">Restade</span>
+    <span id ="cutOffHeader"class ="listHeaders">CutOff</span>
+
+    <li *ngFor="let customer of customersWithOpenOrders">
+   
+    <span id="name" class="orderList">{{customer.customerName}}</span>
+    <span id="openOrders" class="orderList">{{customer.openOrders}}</span>
+    <span id="abroadOrders" class="orderList">{{customer.abroadOrders}}</span>
+    <span id="restOrders" class="orderList">{{customer.restOrders}}</span>
+    <span id="cutOff" class="orderList">{{customer.cutOff}}</span>    
+ 
+    </li>
+</ul>
+
         

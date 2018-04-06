@@ -12,20 +12,20 @@ import { CustomerService } from '../customer.service'
 
 export class UtleveransComponent implements OnInit {
  orderArray: Object[] = []
- openOrders: Object[] = [];
+ openOrders: Object[] = []
  abroadOrders: Object[] = []
- restOrders: Object[] = [];
+ restOrders: Object[] = []
  orderLines: number;
 
    //Customer
    customers = []
+   customersWithOpenOrders = []
 
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService) { }
   
   ngOnInit() {
     this.getOrders()
-    this.getList()
   }
 
   //körs efter getOrders
@@ -37,12 +37,13 @@ export class UtleveransComponent implements OnInit {
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
         this.orderArray = this.ordersService.orderArray
-        this.customerService.CreateCustomers()
-        this.customerService.customerOrderArrays(this.orderArray)
-        this.customerService.customers = this.customers
         resolve('resolved')
-        console.log(this.customers)
       }, 1000) // kan behöva ändras vid större mängd data ?
+    }).then(v => {
+      this.customerService.CreateCustomers()
+      this.customerService.customerFillOrders(this.orderArray)
+      this.customers = this.customerService.customers
+      this.customersWithOpenOrders = this.customerService.customersWithOpenOrders
     })
   }
   //Hämtar ordrar och kör sedan updatenumbers()
@@ -51,10 +52,5 @@ export class UtleveransComponent implements OnInit {
     let result = await this.updateNumbers()
   }
 
-  getList() {
-    this.customerService.CreateCustomers()
-    this.customerService.customerOrderArrays(this.orderArray)
-  }
 
- 
 }

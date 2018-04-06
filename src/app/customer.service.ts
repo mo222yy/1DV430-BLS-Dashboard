@@ -4,13 +4,52 @@ import { Injectable } from '@angular/core';
 export class CustomerService {
   customers = []
 
-  customerOrderArray: Object[] = []
+  customersWithOpenOrders = []
+  
+  
   solsidan: Object[] = []
   dannes: Object[] = []
   bong: Object[] = []
 
   constructor() { }
-   
+
+
+  customerFillOrders(orderArray) {
+
+    orderArray.forEach(el => {
+      this.customers.forEach(customer => {
+        //ÖPPNA + UTLANDS
+        if(el.GoodsOwnerId[0] === customer.goodsOwnerID){
+          customer.openOrders++
+          if(el.CountryCode[0] !== "SE") {
+            customer.abroadOrders++
+          } 
+          //RESTADE
+          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300") {
+            customer.restOrders++
+          } 
+          //ORDERLINES
+          if( 'OrderLines' in el ) {
+           el.OrderLines[0].BorjesDashBoardOrderLine.forEach(ol => {
+             if(ol.DoPick[0] === 'true') {
+               customer.orderLines++
+             }
+           })
+          }
+        }
+      })
+    });
+
+    //FILTER LIST TO OPENORDERS AND SORT
+    this.customersWithOpenOrders = this.customers.filter(el => el.openOrders > 0)
+    this.customersWithOpenOrders.sort(function(a,b){
+      return b.openOrders - a.openOrders
+    })
+  }
+
+
+
+     
   Customer(goodsOwnerID, customerName, section, cutOff, contactName, phoneNumber, eMail, openOrders, abroadOrders, restOrders, orderLines)  {
     return {
       goodsOwnerID: goodsOwnerID,
@@ -139,36 +178,5 @@ export class CustomerService {
   }
 
   
-  customerOrderArrays(orderArray) {
-
-    orderArray.forEach(el => {
-      this.customers.forEach(customer => {
-        //ÖPPNA + UTLANDS
-        if(el.GoodsOwnerId[0] === customer.goodsOwnerID){
-          customer.openOrders++
-          if(el.CountryCode[0] !== "SE") {
-            customer.abroadOrders++
-          } 
-          //RESTADE
-          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300") {
-            customer.restOrders++
-          } 
-          //ORDERLINES
-          if( 'OrderLines' in el ) {
-           el.OrderLines[0].BorjesDashBoardOrderLine.forEach(ol => {
-             if(ol.DoPick[0] === 'true') {
-               customer.orderLines++
-             }
-           })
-          }
-        }
-      })
-    });
-
-    this.customers.forEach(el => {
-    //  console.log(el.customerName, el.openOrders, el.abroadOrders,el.restOrders, el.orderLines)
-    })
-  }
-
 
 }
