@@ -2699,8 +2699,8 @@
           <ArticleDefId>28368</ArticleDefId>
           <IsStockArticle>true</IsStockArticle>
           <ParentOrderLineId xsi:nil="true" />
-        </BorjesDashBoardOrderLine>
+      </BorjesDashBoardOrderLine>
       </OrderLines>
     </BorjesDashBoardOrder>
-	</Orders>
+   </Orders>
 </BorjesDashBoardInfo>
