@@ -7692,8 +7692,7 @@
           <ArticleDefId>10249</ArticleDefId>
           <IsStockArticle>true</IsStockArticle>
           <ParentOrderLineId xsi:nil="true" />
-        </BorjesD
-ashBoardOrderLine>
+        </BorjesDashBoardOrderLine>
         <BorjesDashBoardOrderLine>
           <OrderLineId>377894</OrderLineId>
           <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
