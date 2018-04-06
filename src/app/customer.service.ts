@@ -148,10 +148,12 @@ export class CustomerService {
         if(el.GoodsOwnerId[0] === customer.goodsOwnerID){
           customer.openOrders++
           console.log(el.GoodsOwnerId[0], customer.goodsOwnerID)
-
-        }
-        if(el.CountryCode[0] !== "SE") {
-          customer.abroadOrders++
+          if(el.CountryCode[0] !== "SE") {
+            customer.abroadOrders++
+          }
+          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300") {
+            customer.restOrders++
+          }
         }
       })
     });
