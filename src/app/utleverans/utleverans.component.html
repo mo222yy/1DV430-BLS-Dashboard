@@ -1,3 +1,15 @@
+<form name="Avdelning" id="avdelning">
+        <label>Solsidan:
+          <input type="radio" name="section" value="solsidan" (click)='getSolsidan'>
+        </label>
+        <label>Dannes: 
+          <input type="radio" name="section" value="dannes">
+        </label>
+        <label>Bong:
+          <input type="radio" name="section" value="bong">
+        </label>
+      </form>
+      
 <div id="orderOverview">
     <div class="orderOverviewParts" id="OrderOverview1">
         <p>Antal öppna</p>
@@ -26,7 +38,7 @@
     <span id ="restHeader"class ="listHeaders">Restade</span>
     <span id ="cutOffHeader"class ="listHeaders">CutOff</span>
 
-    <li *ngFor="let customer of customersWithOpenOrders">
+    <li *ngFor="let customer of customersWithOrders">
    
     <span id="name" class="orderList">{{customer.customerName}}</span>
     <span id="openOrders" class="orderList">{{customer.openOrders}}</span>

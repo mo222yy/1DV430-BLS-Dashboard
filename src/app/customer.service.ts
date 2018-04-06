@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class CustomerService {
   customers = []
 
-  customersWithOpenOrders = []
+  customersWithOrders = []
   
   
   solsidan: Object[] = []
@@ -16,33 +16,41 @@ export class CustomerService {
 
   customerFillOrders(orderArray) {
 
-    orderArray.forEach(el => {
+    orderArray.forEach(order => {
       this.customers.forEach(customer => {
         //ÖPPNA + UTLANDS
-        if(el.GoodsOwnerId[0] === customer.goodsOwnerID){
+        if(order.GoodsOwnerId[0] === customer.goodsOwnerID){
           customer.openOrders++
-          if(el.CountryCode[0] !== "SE") {
+          if(order.CountryCode[0] !== "SE") {
             customer.abroadOrders++
           } 
           //RESTADE
-          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300") {
+          if(order.OrderPickability[0] !== "200" || order.OrderPickability[0] !== "300") {
             customer.restOrders++
           } 
           //ORDERLINES
-          if( 'OrderLines' in el ) {
-           el.OrderLines[0].BorjesDashBoardOrderLine.forEach(ol => {
+          if( 'OrderLines' in order ) {
+           order.OrderLines[0].BorjesDashBoardOrderLine.forEach(ol => {
              if(ol.DoPick[0] === 'true') {
                customer.orderLines++
              }
            })
+           if(customer.section === 'Solsidan') {
+              this.solsidan.push(order)
+           } else if (customer.section === 'Dannes') {
+              this.dannes.push(order)
+           } else if (customer.section === 'Bong') {
+              this.bong.push(order)
+           }
           }
         }
       })
     });
+    console.log(this.solsidan)
 
     //FILTER LIST TO OPENORDERS AND SORT
-    this.customersWithOpenOrders = this.customers.filter(el => el.openOrders > 0)
-    this.customersWithOpenOrders.sort(function(a,b){
+    this.customersWithOrders = this.customers.filter(el => el.openOrders > 0)
+    this.customersWithOrders.sort(function(a,b){
       return b.openOrders - a.openOrders
     })
   }

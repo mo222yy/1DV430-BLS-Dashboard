@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-utleverans',
@@ -19,7 +21,7 @@ export class UtleveransComponent implements OnInit {
 
    //Customer
    customers = []
-   customersWithOpenOrders = []
+   customersWithOrders = []
 
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService) { }
@@ -43,7 +45,7 @@ export class UtleveransComponent implements OnInit {
       this.customerService.CreateCustomers()
       this.customerService.customerFillOrders(this.orderArray)
       this.customers = this.customerService.customers
-      this.customersWithOpenOrders = this.customerService.customersWithOpenOrders
+      this.customersWithOrders = this.customerService.customersWithOrders
     })
   }
   //Hämtar ordrar och kör sedan updatenumbers()
@@ -52,5 +54,16 @@ export class UtleveransComponent implements OnInit {
     let result = await this.updateNumbers()
   }
 
+  getSolsidan = function() {
+    console.log('solsidan')
+  }
+
+  getDannes() {
+    console.log('dannes')
+  }
+
+  getBong() {
+    console.log('bong')
+  }
 
 }
