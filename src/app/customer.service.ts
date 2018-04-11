@@ -3,19 +3,32 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CustomerService {
   customers = []
-
   customersWithOrders = []
   
   
-  solsidan: Object[] = []
-  dannes: Object[] = []
-  bong: Object[] = []
+  solsidan = []
+  dannes = []
+  bong = []
 
   constructor() { }
 
 
-  customerFillOrders(orderArray) {
+  customer(customerName, customerID, section, contacts, cutOffs) {
+    return {
+    customerName: customerName,
+    customerID: customerID,
+    section: section,
+    contacts: contacts,
+    cutOffs: cutOffs  
+  }
+  }
 
+
+}
+
+  /*
+  getOrders(orderArray) {
+  
     orderArray.forEach(order => {
       this.customers.forEach(customer => {
         //ÖPPNA + UTLANDS
@@ -45,17 +58,22 @@ export class CustomerService {
           }
         }
       })
-    });
-    console.log(this.solsidan)
-
+    })
     //FILTER LIST TO OPENORDERS AND SORT
+
     this.customersWithOrders = this.customers.filter(el => el.openOrders > 0)
     this.customersWithOrders.sort(function(a,b){
       return b.openOrders - a.openOrders
     })
+ 
   }
 
-
+  sortArrays(arr) {
+    arr = arr.filter(el => el.openOrders > 0) 
+    arr.sort(function(a,b) {
+      return b.openOrders - a.openOrders
+    })
+  }
 
      
   Customer(goodsOwnerID, customerName, section, cutOff, contactName, phoneNumber, eMail, openOrders, abroadOrders, restOrders, orderLines)  {
@@ -188,3 +206,4 @@ export class CustomerService {
   
 
 }
+*/

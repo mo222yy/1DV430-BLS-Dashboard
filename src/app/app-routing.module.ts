@@ -6,6 +6,7 @@ import { ReturComponent } from './retur/retur.component';
 import { StatistikComponent } from './statistik/statistik.component';
 import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
+import { SkapakundComponent } from './skapakund/skapakund.component'
 
 const routes: Routes = [
   {
@@ -31,8 +32,11 @@ const routes: Routes = [
   {
     path: 'kunder',
     component: KunderComponent
+  },
+  {
+    path: 'skapakund',
+    component: SkapakundComponent
   }
-  
 ];
 
 @NgModule({

@@ -5,10 +5,16 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class OrdersService {
-  orderArray: Object[] = []
+  orders = []  // alla ordrar
+  customerWithOrders = [] //filtrera alla kunder med ordrar till array
 
-  //Orders
-  openOrders = []
+  //sections
+  solsidan = []
+  dannes = []
+  bong = []
+
+  //numbersToShow
+  openOrders = [] // alla öppna ordrar
   abroadOrders: Object[] = []
   restOrders: Object[] = []
   orderLines: number;  
@@ -33,15 +39,19 @@ export class OrdersService {
       })
       //filtrerar json till endast ordrar
       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
-      this.orderArray = orders
+      this.orders = orders
 
       //ÖPPNA + RESTADE 
       orders.forEach(el => {
         // 200 = öppen, 300 = plockning, 310 = på plockuppdrag 
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
-          this.openOrders.push(el)
+          this.orders.push(el)
         } 
 
+        if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300"){
+          this.openOrders.push(el)
+        }
+        
         //RESTADE, KOLLA UPP OM PICKABILITY ÄR RÄTT
         if(el.OrderPickability[0] === "1000") {
           this.restOrders.push(el)
@@ -49,7 +59,7 @@ export class OrdersService {
       })
 
       //UTLANDSORDRAR 
-      this.openOrders.forEach(el => {
+      this.orders.forEach(el => {
        if(el.CountryCode[0] !== "SE") {
          this.abroadOrders.push(el)
        }

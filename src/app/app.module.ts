@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './orders.service'
 import { CustomerService } from './customer.service'
+import { ReactiveFormsModule } from '@angular/forms'
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -13,7 +16,8 @@ import { ReturComponent } from './retur/retur.component';
 import { StatistikComponent } from './statistik/statistik.component';
 import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
-
+import { SkapakundComponent } from './skapakund/skapakund.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -24,12 +28,15 @@ import { KunderComponent } from './kunder/kunder.component';
     StatistikComponent,
     InformationComponent,
     KunderComponent,
+    SkapakundComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [OrdersService, CustomerService],
   bootstrap: [AppComponent]

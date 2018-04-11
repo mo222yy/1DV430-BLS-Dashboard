@@ -1,12 +1,12 @@
 <form name="Avdelning" id="avdelning">
         <label>Solsidan:
-          <input type="radio" name="section" value="solsidan" (click)='getSolsidan'>
+          <input type="radio" name="section" (click)="selectedSection(solsidan)" value="solsidan">
         </label>
         <label>Dannes: 
-          <input type="radio" name="section" value="dannes">
+          <input type="radio" name="section" (click)="selectedSection(dannes)" value="dannes">
         </label>
         <label>Bong:
-          <input type="radio" name="section" value="bong">
+          <input type="radio" name="section" (click)="selectedSection(bong)" value="bong">
         </label>
       </form>
       

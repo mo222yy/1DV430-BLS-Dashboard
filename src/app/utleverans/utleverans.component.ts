@@ -13,39 +13,47 @@ import {NgForm} from '@angular/forms';
 })
 
 export class UtleveransComponent implements OnInit {
- orderArray: Object[] = []
- openOrders: Object[] = []
- abroadOrders: Object[] = []
- restOrders: Object[] = []
+ orderArray = []
+ openOrders = []
+ abroadOrders = []
+ restOrders = []
  orderLines: number;
 
    //Customer
    customers = []
    customersWithOrders = []
 
-  constructor(private ordersService: OrdersService,
+   //sections
+   solsidan = []
+   dannes = []
+   bong = []
+
+  constructor( private ordersService: OrdersService,
               private customerService: CustomerService) { }
   
   ngOnInit() {
-    this.getOrders()
+   // this.getOrders()
   }
 
   //körs efter getOrders
   updateNumbers() {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.openOrders = this.ordersService.openOrders
+        this.openOrders = this.ordersService.orders
         this.abroadOrders = this.ordersService.abroadOrders
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
-        this.orderArray = this.ordersService.orderArray
+        this.orderArray = this.ordersService.orders
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
-    }).then(v => {
-      this.customerService.CreateCustomers()
-      this.customerService.customerFillOrders(this.orderArray)
+    }).then(v => {  
+     // this.customerService.CreateCustomers()
+      //this.customerService.getOrders(this.orderArray)
       this.customers = this.customerService.customers
       this.customersWithOrders = this.customerService.customersWithOrders
+      this.solsidan = this.customerService.solsidan
+      this.dannes = this.customerService.dannes
+      this.bong = this.customerService.bong
     })
   }
   //Hämtar ordrar och kör sedan updatenumbers()
@@ -54,16 +62,19 @@ export class UtleveransComponent implements OnInit {
     let result = await this.updateNumbers()
   }
 
-  getSolsidan = function() {
-    console.log('solsidan')
-  }
 
-  getDannes() {
-    console.log('dannes')
-  }
+  selectedSection(arr) {
+    this.customersWithOrders = arr
+    this.openOrders = arr
 
-  getBong() {
-    console.log('bong')
+    let abroad = []
+    this.openOrders.forEach(el => {
+      console.log(el)
+      if(el.CountryCode[0] !== "SE") {
+        this.abroadOrders.push(el)
+      }
+    })
+    this.abroadOrders = abroad
   }
 
 }

@@ -1,0 +1,246 @@
+<div id="newCustomerForm">
+<form>
+
+  <!-- CustomerName -->
+  <div class="form-group">
+  <label for="customerName">Kunder</label>
+  <input 
+   required
+   minlength="3" 
+   ngModel
+   name="customerName" 
+   #customerName="ngModel" 
+   (change)="getCustomerName(customerName)" 
+   id="customerName"
+   type="text" 
+   class="form-control">
+  <div 
+  class="alert alert-danger" 
+  *ngIf="customerName.touched && !customerName.valid">
+  <div *ngIf="customerName.errors.required">
+    Customername is required
+  </div>
+  <div *ngIf="customerName.errors.minlength">
+    Customername should be minimum {{ customerName.errors.minlength.requiredLength }} characters
+  </div>
+  </div>
+</div>
+
+<!-- CustomerID -->
+<div class="form-group">
+    <label for="customerId">KundID</label>
+    <input 
+    required
+     minvalue="0"
+     minlength="2" 
+     maxlength="3" 
+     ngModel 
+     name="customerId" 
+     #customerId="ngModel" 
+     (change)="getCustomerId(customerId)" 
+     id="customerId" 
+     type="text" 
+     class="form-control">
+    <div class="alert alert-danger"
+    *ngIf="customerId.touched && !customerId.valid">
+    <div *ngIf="customerId.errors.required">
+      customerId is required
+    </div>
+    <div 
+      *ngIf="customerId.errors.minlength">
+      customerId should be {{ customerId.errors.minlength.requiredLength }} or 3 characters
+    </div>
+    </div>
+  </div>
+
+  <!-- Section -->
+  <label for="sections">Avdelning</label>
+  <div class="form-group" *ngFor="let section of sections" id="sections">
+    <input 
+    required
+    type="radio"
+    name="section"
+    id="{{section}}"
+    value="{{section}}"
+    (change)="getSection($event)">
+    <i>{{section}}</i>
+    </div>
+  
+<!-- Contacts -->
+<div class="form-group" id="contacts">
+    <label for="contacts">Kontakter</label>
+    
+    <br>
+
+    <!-- FirstName -->
+    <label for="contactFirstName">Förnamn</label>
+    <input 
+     required 
+     minvalue="0" 
+     minlength="3" 
+     maxlength="20" 
+     ngModel 
+     name="contactFirstName" 
+     #contactFirstName="ngModel" 
+     (change)="getFirstname(contactFirstName)" 
+     id="contactFirstName" 
+     type="text" 
+     class="form-control">
+    <div class="alert alert-danger"
+     *ngIf="contactFirstName.touched && !contactFirstName.valid">
+    <div *ngIf="contactFirstName.errors.required">
+      contactFirstName is required
+    </div>
+    <div
+     *ngIf="contactFirstName.errors.minlength">
+     contactFirstName should be atleast {{ contactFirstName.errors.minlength.requiredLength }} characters
+    </div>
+    </div>
+
+    <br>
+
+        <!-- LastName -->
+        <label for="contactLastName">Efternamn</label>
+        <input
+         required 
+         minvalue="0" 
+         minlength="3" 
+         maxlength="20" 
+         ngModel 
+         name="contactLastName" 
+         #contactLastName="ngModel" 
+         (change)="getLastname(contactLastName)" 
+         id="contactLastName" 
+         type="text" 
+         class="form-control">
+        <div class="alert alert-danger"
+         *ngIf="contactLastName.touched && !contactLastName.valid">
+        <div 
+        *ngIf="contactLastName.errors.required">
+          contactLastName is required
+        </div>
+        <div 
+        *ngIf="contactLastName.errors.minlength">
+        contactLastName should be atleast {{ contactLastName.errors.minlength.requiredLength }} characters
+        </div>
+        </div>
+
+        <br>
+    
+        <!-- Phone -->
+        <label for="phone">Telefon</label>
+        <input
+         required minvalue="0"
+         minlength="6" 
+         maxlength="20" 
+         ngModel 
+         name="phone" 
+         #phone="ngModel" 
+         (change)="getPhone(phone)" 
+         id="phone" 
+         type="text" 
+         class="form-control">
+        <div class="alert alert-danger"
+         *ngIf="phone.touched && !phone.valid">
+        <div 
+        *ngIf="phone.errors.required">
+          phone is required
+        </div>
+        <div 
+        *ngIf="phone.errors.minlength">
+          phone should be atleast {{ phone.errors.minlength.requiredLength }} characters
+        </div>
+        </div>
+
+        <br>
+
+         <!-- Email -->
+         <label for="eMail">Email</label>
+         <input
+          required 
+          minvalue="0" 
+          minlength="10" 
+          maxlength="20" 
+          ngModel 
+          name="eMail" 
+          #eMail="ngModel" 
+          (change)="getEmail(eMail)" 
+          id="eMail" 
+          type="text" 
+          class="form-control">
+         <div class="alert alert-danger"
+            *ngIf="eMail.touched && !eMail.valid">
+         <div 
+          *ngIf="eMail.errors.required">
+          eMail is required
+        </div>
+         <div
+          *ngIf="eMail.errors.minlength">
+          eMail should be atleast {{ eMail.errors.minlength.requiredLength }} characters
+          </div>
+         </div>
+         <button class="btn btn-primary">+</button>
+  </div>
+
+  <div class="form-group" id="cutOffs">
+      <p id="cutOffs">CutOffs</p>
+      <label for="cutOffSv">Sverige</label>
+      <input
+       required 
+       minlength="4" 
+       maxlength="4" 
+       ngModel name="cutOffSv" 
+       #cutOffSv="ngModel"
+       (change)="getSweden(cutOffSv)" 
+       id="cutOffSv"
+       type="text" 
+       class="form-control">
+      <div class="alert alert-danger"
+       *ngIf="cutOffSv.touched && !cutOffSv.valid">
+      <div
+       *ngIf="cutOffSv.errors.required">
+       Cutoff for sweden is required, format 1200
+      </div>
+      <div 
+      *ngIf="cutOffSv.errors.minlength">
+      Input example: 1200
+    </div>
+      </div>
+
+      <br>
+
+      <label for="cutOffAbroad">Utland</label>
+      <input 
+        minlength="4" 
+        maxlength="4" 
+        ngModel 
+        name="cutOffAbroad" 
+        #cutOffAbroad="ngModel"
+        (change)="getAbroad(cutOffAbroad)" 
+ 
+        id="cutOffAbroad"
+        type="text" 
+        class="form-control">
+      <div class="alert alert-danger"
+       *ngIf="cutOffAbroad.touched && !cutOffAbroad.valid">
+      <div 
+        *ngIf="cutOffAbroad.errors.minlength">
+        Input should be: 1200</div>
+      </div>
+
+      <br>
+
+      <label for="comments">Övriga kommentarer</label>
+      <textarea 
+      cols="30" 
+      rows="10"
+        id="comments"
+        ngModel 
+        name="comments" 
+        #comments="ngModel"
+        (change)="getComments(comments)"></textarea>
+    </div>
+    
+  <button class="btn btn-primary" (click)="onSubmit(customerName, customerId, contactFirstName )">Submit</button>
+</form>
+</div>
