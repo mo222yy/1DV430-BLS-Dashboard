@@ -16,7 +16,7 @@
 }
 
 #customerList {
-  width:80%;
+  width:100%;
   border: 1px solid black;
   list-style-type: none;
 
@@ -28,7 +28,7 @@
 }
 
 #nameHeader {
-    width: 30%;
+    width: 20%;
 }
 
 
@@ -42,11 +42,15 @@
     width: 15%;
 }
 
+.customerLine {
+    color: blue;
+}
 #name {
-    width: 30%;
+    width: 20%;
     color: blue;
     text-decoration: none;
     margin-left: 0px;
+    border:1px solid black;
 }
 
 

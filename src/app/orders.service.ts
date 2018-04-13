@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CustomerService } from './customer.service'
 
 // Service för att hämta info om ordrar och skapa objekt
 
@@ -20,10 +21,11 @@ export class OrdersService {
   orderLines: number;  
   
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private customerService: CustomerService) { }
 
     filterOrders() {
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHo4RXJWHsBpcEiQvAU0Jpob6HxpZks5az2TYwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHv2sFTi__XUr9sj3G0ajU-eZQa2oks5a2YQ5wA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
 
     let json; // konvertera xml till json
@@ -79,12 +81,12 @@ export class OrdersService {
         }
       })
       this.orderLines = orderLines
-      
-  
+     })
+    }
 
- })
-}
-}
+ 
+  
+  }
 
 
 

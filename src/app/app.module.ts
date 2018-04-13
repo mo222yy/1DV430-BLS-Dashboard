@@ -17,7 +17,8 @@ import { StatistikComponent } from './statistik/statistik.component';
 import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
 import { SkapakundComponent } from './skapakund/skapakund.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { EditCustomerComponent } from './editCustomer/editCustomer.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms'
     InformationComponent,
     KunderComponent,
     SkapakundComponent,
+    EditCustomerComponent,
 
   ],
   imports: [

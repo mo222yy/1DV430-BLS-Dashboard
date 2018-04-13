@@ -1,4 +1,38 @@
-<div  class="container">
-    <h3>Templated</h3>
-    <skapakund></skapakund>
-  </div>
+<h1>works</h1>
+<button id="createCustomerButton" (click)="createCustomer()">Ny kund</button>
+<ul>
+  <li class="customer" *ngFor="let customer of customers; let i = index">{{customer.customerName}}
+    <div id="showCustomerDropdDown">
+      <span id="index">{{i}}</span>
+      <br>
+      <span id="customerName" class="showCustomers">Kund: {{customer.customerName}}</span>
+      <br>
+      <span id="customerId" class="showCustomers">Kund ID: {{customer.customerID}}</span>
+      <br>
+      <span id="section" class="showCustomers">Avdelning: {{customer.section}}</span>
+      <br>
+      <span id="cOsweden" class="showCustomers">CutOff sverige: {{customer.cOsweden}}</span>
+      <br>
+      <span id="cOabroad" class="showCustomers">CutOff utland: {{customer.cOabroad}}</span>
+      <br>
+      <span id="firstname" class="showCustomers" *ngFor="let contact of customer.contacts; let j = index">Kontakt {{j}} Förnamn:{{contact.firstname}}
+      <span id="lastname" class="showCustomers">Efternamn: {{contact.lastname}}</span>
+      <span id="phone" class="showCustomers">Telefon: {{contact.phone}}</span>
+      <span id="eMail" class="shoCustomers">Email: {{contact.eMail}}</span>
+      <br>
+      </span>
+      <span id="comments" class="showCustomers">Övriga kommentarer: {{customer.cOcomments}}</span>
+      <br>
+
+
+      <button id="editCustomerButton" (click)="editCustomer(i)">Redigera kund</button>
+
+    </div>
+  </li>
+
+</ul>
+
+<template id="customerForm">
+  <div id="customerForm">
+</div>
+</template>

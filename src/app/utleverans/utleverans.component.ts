@@ -32,7 +32,7 @@ export class UtleveransComponent implements OnInit {
               private customerService: CustomerService) { }
   
   ngOnInit() {
-   // this.getOrders()
+   this.getOrders()
   }
 
   //körs efter getOrders
@@ -47,10 +47,12 @@ export class UtleveransComponent implements OnInit {
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
-     // this.customerService.CreateCustomers()
-      //this.customerService.getOrders(this.orderArray)
+      this.customerService.getCustomers()
+      this.customerService.getOrders(this.orderArray)
       this.customers = this.customerService.customers
+    }).then(a => {
       this.customersWithOrders = this.customerService.customersWithOrders
+      //Bug nedan
       this.solsidan = this.customerService.solsidan
       this.dannes = this.customerService.dannes
       this.bong = this.customerService.bong
@@ -60,21 +62,14 @@ export class UtleveransComponent implements OnInit {
   async getOrders() {
     this.ordersService.filterOrders()
     let result = await this.updateNumbers()
+
   }
 
 
   selectedSection(arr) {
-    this.customersWithOrders = arr
-    this.openOrders = arr
-
-    let abroad = []
-    this.openOrders.forEach(el => {
-      console.log(el)
-      if(el.CountryCode[0] !== "SE") {
-        this.abroadOrders.push(el)
-      }
-    })
-    this.abroadOrders = abroad
+   this.customerService.clearOrders()
+   this.customerService.getOrders(arr)
+   this.customersWithOrders = this.customerService.customersWithOrders
   }
 
 }

@@ -37,14 +37,18 @@
     <span id ="abroadHeader"class ="listHeaders">Utlands</span>
     <span id ="restHeader"class ="listHeaders">Restade</span>
     <span id ="cutOffHeader"class ="listHeaders">CutOff</span>
+    <span id ="orderLinesHeader"class ="listHeaders">Orderlines</span>
+
 
     <li *ngFor="let customer of customersWithOrders">
-   
+   <div class="customerLine">
     <span id="name" class="orderList">{{customer.customerName}}</span>
-    <span id="openOrders" class="orderList">{{customer.openOrders}}</span>
-    <span id="abroadOrders" class="orderList">{{customer.abroadOrders}}</span>
-    <span id="restOrders" class="orderList">{{customer.restOrders}}</span>
-    <span id="cutOff" class="orderList">{{customer.cutOff}}</span>    
+    <span id="openOrders" class="orderList">{{customer.openOrders.length}}</span>
+    <span id="abroadOrders" class="orderList">{{customer.abroadOrders.length}}</span>
+    <span id="restOrders" class="orderList">{{customer.restOrders.length}}</span>
+    <span id="cutOff" class="orderList">{{customer.cutOff}}</span>
+    <span id="orderLines" class="orderList">{{customer.orderLines.length}}</span>    
+    </div>
  
     </li>
 </ul>

@@ -8,6 +8,7 @@ import { CustomerService } from '../customer.service';
   encapsulation: ViewEncapsulation.None
 })
 export class SkapakundComponent{
+
   customerName: string;
   customerId: string;
   section: string;
@@ -25,11 +26,31 @@ export class SkapakundComponent{
   cOabroad: string;
   cOcomments: string;
 
+  //orders
+  openOrders = []
+  abroadOrders = []
+  restOrders = []
+  orderLines = []
+
+  constructor( private customerService: CustomerService) { }
+
 onSubmit() {
-let contact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail)
+let contact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail, )
 
-
-
+this.contacts.push(contact)
+let customer = this.customerService.customer(
+  this.customerName,
+  this.customerId,
+  this.section,
+  this.contacts,
+  this.cOsweden,
+  this.cOabroad,
+  this.cOcomments,
+  this.openOrders = [],
+  this.abroadOrders = [],
+  this.restOrders = [],
+  this.orderLines = []
+)
 }
 
 createContact(firstname, lastname, phone, eMail) {
@@ -40,6 +61,7 @@ createContact(firstname, lastname, phone, eMail) {
     eMail: eMail
   }
 }
+
 
 getCustomerName(name) {
   this.customerName = name.value
