@@ -17,7 +17,7 @@ export class UtleveransComponent implements OnInit {
  openOrders = []
  abroadOrders = []
  restOrders = []
- orderLines: number;
+ orderLines = []
 
    //Customer
    customers = []
@@ -35,10 +35,21 @@ export class UtleveransComponent implements OnInit {
    this.getOrders()
   }
 
+    //Hämtar ordrar och kör sedan updatenumbers()
+    async getOrders() {
+      this.ordersService.getOrders()
+      let result = await this.updateNumbers()
+  
+    }
   //körs efter getOrders
   updateNumbers() {
     return new Promise(resolve => {
       setTimeout(() => {
+        this.orderArray = this.ordersService.orders // hämta orderArray
+      
+        this.ordersService.filterOrders(this.orderArray) //filtrera ordrar
+        
+        //uppdatera siffrorna
         this.openOrders = this.ordersService.orders
         this.abroadOrders = this.ordersService.abroadOrders
         this.restOrders = this.ordersService.restOrders
@@ -48,28 +59,30 @@ export class UtleveransComponent implements OnInit {
       }, 1000) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
       this.customerService.getCustomers()
-      this.customerService.getOrders(this.orderArray)
-      this.customers = this.customerService.customers
+      this.ordersService.sortCustomerOrders(this.orderArray)
+      this.customers = this.ordersService.customers
     }).then(a => {
-      this.customersWithOrders = this.customerService.customersWithOrders
+      this.customersWithOrders = this.ordersService.customersWithOrders
       //Bug nedan
-      this.solsidan = this.customerService.solsidan
-      this.dannes = this.customerService.dannes
-      this.bong = this.customerService.bong
+      this.solsidan = this.ordersService.solsidan
+      this.dannes = this.ordersService.dannes
+      this.bong = this.ordersService.bong
     })
   }
-  //Hämtar ordrar och kör sedan updatenumbers()
-  async getOrders() {
-    this.ordersService.filterOrders()
-    let result = await this.updateNumbers()
 
-  }
 
 
   selectedSection(arr) {
-   this.customerService.clearOrders()
-   this.customerService.getOrders(arr)
-   this.customersWithOrders = this.customerService.customersWithOrders
+   this.ordersService.clearOrders()
+   this.ordersService.filterOrders(arr)
+   this.ordersService.sortCustomerOrders(arr)
+   this.customersWithOrders = this.ordersService.customersWithOrders
+
+   this.openOrders = this.ordersService.openOrders
+   this.abroadOrders = this.ordersService.abroadOrders
+   this.restOrders = this.ordersService.restOrders
+   this.orderLines = this.ordersService.orderLines
+   console.log(this.customers)
   }
 
 }
