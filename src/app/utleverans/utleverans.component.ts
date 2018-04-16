@@ -13,7 +13,6 @@ import {NgForm} from '@angular/forms';
 })
 
 export class UtleveransComponent implements OnInit {
- orderArray = []
  openOrders = []
  abroadOrders = []
  restOrders = []
@@ -24,6 +23,7 @@ export class UtleveransComponent implements OnInit {
    customersWithOrders = []
 
    //sections
+   allOrders = []
    solsidan = []
    dannes = []
    bong = []
@@ -33,6 +33,7 @@ export class UtleveransComponent implements OnInit {
   
   ngOnInit() {
    this.getOrders()
+  
   }
 
     //Hämtar ordrar och kör sedan updatenumbers()
@@ -45,25 +46,24 @@ export class UtleveransComponent implements OnInit {
   updateNumbers() {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.orderArray = this.ordersService.orders // hämta orderArray
+        this.allOrders = this.ordersService.allOrders // hämta orderArray
       
-        this.ordersService.filterOrders(this.orderArray) //filtrera ordrar
+        this.ordersService.filterOrders(this.allOrders) //filtrera ordrar
         
         //uppdatera siffrorna
-        this.openOrders = this.ordersService.orders
+        this.openOrders = this.ordersService.allOrders
         this.abroadOrders = this.ordersService.abroadOrders
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
-        this.orderArray = this.ordersService.orders
+        this.allOrders = this.ordersService.allOrders
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
       this.customerService.getCustomers()
-      this.ordersService.sortCustomerOrders(this.orderArray)
+      this.ordersService.distributeCustomerOrders(this.allOrders)
       this.customers = this.ordersService.customers
     }).then(a => {
       this.customersWithOrders = this.ordersService.customersWithOrders
-      //Bug nedan
       this.solsidan = this.ordersService.solsidan
       this.dannes = this.ordersService.dannes
       this.bong = this.ordersService.bong
@@ -75,14 +75,14 @@ export class UtleveransComponent implements OnInit {
   selectedSection(arr) {
    this.ordersService.clearOrders()
    this.ordersService.filterOrders(arr)
-   this.ordersService.sortCustomerOrders(arr)
+   this.ordersService.distributeCustomerOrders(arr)
    this.customersWithOrders = this.ordersService.customersWithOrders
 
+   
    this.openOrders = this.ordersService.openOrders
    this.abroadOrders = this.ordersService.abroadOrders
    this.restOrders = this.ordersService.restOrders
    this.orderLines = this.ordersService.orderLines
-   console.log(this.customers)
   }
 
 }

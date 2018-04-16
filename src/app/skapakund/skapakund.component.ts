@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CustomerService } from '../customer.service';
+import { Router } from '@angular/router';  
 
 @Component({
   selector: 'skapakund',
@@ -32,7 +33,8 @@ export class SkapakundComponent{
   restOrders = []
   orderLines = []
 
-  constructor( private customerService: CustomerService) { }
+  constructor( private customerService: CustomerService,
+               private router: Router) { }
 
 onSubmit() {
 let contact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail, )
@@ -51,6 +53,8 @@ let customer = this.customerService.customer(
   this.restOrders = [],
   this.orderLines = []
 )
+this.router.navigate(['kunder'])
+
 }
 
 createContact(firstname, lastname, phone, eMail) {
@@ -60,6 +64,10 @@ createContact(firstname, lastname, phone, eMail) {
     phone: phone,
     eMail: eMail
   }
+}
+
+stepBack() {
+  this.router.navigate(['kunder'])
 }
 
 

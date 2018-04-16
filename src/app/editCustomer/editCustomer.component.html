@@ -1,56 +1,58 @@
 <div id="newCustomerForm">
   <form>
   
-    <!-- CustomerName -->
+    <!-- CustomerName  -->
     <div class="form-group">
-    <label for="customerName">Kunder</label>
+    <label for="CustomerName">Kunder</label>
     <input 
      required
-     placeholder="{{ showCustomerName }}"
+     placeholder="{{ customerName }}"
      minlength="3" 
      ngModel
-     name="customerName" 
-     #customerName="ngModel" 
-     (change)="getCustomerName(customerName)" 
-     id="customerName"
+     name="CustomerName" 
+     #CustomerName="ngModel" 
+     (change)="getCustomerName(CustomerName)" 
+     id="CustomerNames"
      type="text" 
      class="form-control">
     <div 
     class="alert alert-danger" 
-    *ngIf="customerName.touched && !customerName.valid">
-    <div *ngIf="customerName.errors.required">
+    *ngIf="CustomerName.touched && !CustomerName.valid">
+    <div *ngIf="CustomerName.errors.required">
       Customername is required
     </div>
-    <div *ngIf="customerName.errors.minlength">
-      Customername should be minimum {{ customerName.errors.minlength.requiredLength }} characters
+    <div *ngIf="CustomerName.errors.minlength">
+      Customername should be minimum {{ CustomerName.errors.minlength.requiredLength }} characters
     </div>
     </div>
   </div>
   
+
+
   <!-- CustomerID -->
   <div class="form-group">
-      <label for="customerId">KundID</label>
+      <label for="customerID">KundID</label>
       <input 
       required
-      placeholder="{{ showCustomerId }}"
+      placeholder="{{ customerId }}"
        minvalue="0"
        minlength="2" 
        maxlength="3" 
        ngModel 
-       name="customerId" 
-       #customerId="ngModel" 
-       (change)="getCustomerId(customerId)" 
-       id="customerId" 
+       name="customerID" 
+       #customerID="ngModel" 
+       (change)="getCustomerId(customerID)" 
+       id="customerID" 
        type="text" 
        class="form-control">
       <div class="alert alert-danger"
-      *ngIf="customerId.touched && !customerId.valid">
-      <div *ngIf="customerId.errors.required">
+      *ngIf="customerID.touched && !customerID.valid">
+      <div *ngIf="customerID.errors.required">
         customerId is required
       </div>
       <div 
-        *ngIf="customerId.errors.minlength">
-        customerId should be {{ customerId.errors.minlength.requiredLength }} or 3 characters
+        *ngIf="customerID.errors.minlength">
+        customerId should be {{ customerID.errors.minlength.requiredLength }} or 3 characters
       </div>
       </div>
     </div>
@@ -78,7 +80,7 @@
       <label for="contactFirstName">Förnamn</label>
       <input 
        required
-       placeholder="{{ showFirstname }}" 
+       placeholder="{{ firstname }}" 
        minvalue="0" 
        minlength="3" 
        maxlength="20" 
@@ -106,7 +108,7 @@
           <label for="contactLastName">Efternamn</label>
           <input
            required 
-           placeholder="{{ showLastName }}"
+           placeholder="{{ lastname }}"
            minvalue="0" 
            minlength="3" 
            maxlength="20" 
@@ -132,61 +134,61 @@
           <br>
       
           <!-- Phone -->
-          <label for="phone">Telefon</label>
+          <label for="contactPhone">Telefon</label>
           <input
            required 
-           placeholder="{{ showPhone }}"
+           placeholder="{{ phone }}"
            minvalue="0"
            minlength="6" 
            maxlength="20" 
            ngModel 
            name="phone" 
-           #phone="ngModel" 
-           (change)="getPhone(phone)" 
-           id="phone" 
+           #contactPhone="ngModel" 
+           (change)="getPhone(contactPhone)" 
+           id="contactPhone" 
            type="text" 
            class="form-control">
           <div class="alert alert-danger"
-           *ngIf="phone.touched && !phone.valid">
+           *ngIf="contactPhone.touched && !contactPhone.valid">
           <div 
-          *ngIf="phone.errors.required">
+          *ngIf="contactPhone.errors.required">
             phone is required
           </div>
           <div 
-          *ngIf="phone.errors.minlength">
-            phone should be atleast {{ phone.errors.minlength.requiredLength }} characters
+          *ngIf="contactPhone.errors.minlength">
+            phone should be atleast {{ contactPhone.errors.minlength.requiredLength }} characters
           </div>
           </div>
   
           <br>
   
            <!-- Email -->
-           <label for="eMail">Email</label>
+           <label for="contacteMail">Email</label>
            <input
             required 
-            placeholder="{{ showEmail }}"
+            placeholder="{{ eMail }}"
             minvalue="0" 
             minlength="10" 
             maxlength="20" 
             ngModel 
-            name="eMail" 
-            #eMail="ngModel" 
-            (change)="getEmail(eMail)" 
-            id="eMail" 
+            name="contacteMail" 
+            #contacteMail="ngModel" 
+            (change)="getEmail(contacteMail)" 
+            id="contacteMail" 
             type="text" 
             class="form-control">
            <div class="alert alert-danger"
-              *ngIf="eMail.touched && !eMail.valid">
+              *ngIf="contacteMail.touched && !contacteMail.valid">
            <div 
-            *ngIf="eMail.errors.required">
+            *ngIf="contacteMail.errors.required">
             eMail is required
           </div>
            <div
-            *ngIf="eMail.errors.minlength">
-            eMail should be atleast {{ eMail.errors.minlength.requiredLength }} characters
+            *ngIf="contacteMail.errors.minlength">
+            eMail should be atleast {{ contacteMail.errors.minlength.requiredLength }} characters
             </div>
            </div>
-           <button class="btn btn-primary">+</button>
+           <button class="btn btn-primary" (click)="newContact()">+</button>
     </div>
   
     <div class="form-group" id="cutOffs">
@@ -194,7 +196,7 @@
         <label for="cutOffSv">Sverige</label>
         <input
          required
-         placeholder="{{ showCoSweden }}" 
+         placeholder="{{ cOsweden }}" 
          minlength="4" 
          maxlength="4" 
          ngModel name="cutOffSv" 
@@ -219,7 +221,7 @@
   
         <label for="cutOffAbroad">Utland</label>
         <input 
-          placeholder="{{ showCoAbroad }}"
+          placeholder="{{ cOabroad }}"
           minlength="4" 
           maxlength="4" 
           ngModel 
@@ -241,7 +243,7 @@
   
         <label for="comments">Övriga kommentarer</label>
         <textarea 
-        placeholder=" {{ showCoComments }}"
+        placeholder=" {{ cOcomments }}"
         cols="40" 
         rows="10"
           id="comments"
@@ -251,6 +253,9 @@
           (change)="getComments(comments)"></textarea>
       </div>
       
-    <button class="btn btn-primary" (click)="onSubmit(customerName, customerId, contactFirstName )">Submit</button>
+    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    <button id="stepBackButton" class="stepBackButton" (click)="stepBack()">Tillbaka</button>
+    <button id="deleteButton" class="deleteButton" (click)="deleteCustomer()">Radera kund</button>
+  
   </form>
   </div>

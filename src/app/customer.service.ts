@@ -11,6 +11,7 @@ export class CustomerService {
 
 
   customer(customerName, customerID, section, contacts, cOsweden, cOabroad, cOcomments, openOrders, abroadOrders, restOrders, orderLines) {
+
     this.customers.push({
     customerName: customerName,
     customerID: customerID,
@@ -29,35 +30,19 @@ export class CustomerService {
     localStorage.setItem("savedCustomers", JSON.stringify(this.customers))
   }
 
+  setCustomers() {
+    localStorage.setItem("savedCustomers", JSON.stringify(this.customers))
+  }
+
   getCustomers() {
     let savedCustomers = localStorage.getItem("savedCustomers")
-    this.customers = JSON.parse(savedCustomers)
-  }
-
-
-  
-
-  sortArrays(arr) {
-    arr = arr.filter(el => el.openOrders > 0) 
-    arr.sort(function(a,b) {
-      return b.openOrders - a.openOrders
+    let customers = JSON.parse(savedCustomers)
+    customers.sort(function(a,b){
+      if(a.customerName < b.customerName) return -1
+      if(a.customerName > b.customerName) return 1
+      return 0
     })
-  }
+    this.customers = customers
 
-  
-  Customer(goodsOwnerID, customerName, section, cutOff, contactName, phoneNumber, eMail, openOrders, abroadOrders, restOrders, orderLines)  {
-    return {
-      goodsOwnerID: goodsOwnerID,
-      customerName: customerName,
-      section: section,
-      cutOff: cutOff,
-      contactName: contactName,
-      phoneNumber: phoneNumber,
-      eMail: eMail,
-      openOrders: openOrders,
-      abroadOrders: abroadOrders,
-      restOrders: restOrders,
-      orderLines: orderLines
-    }
   }
 }

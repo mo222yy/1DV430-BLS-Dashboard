@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersService } from './orders.service'
 import { CustomerService } from './customer.service'
+import { TimeService } from './time.service'
 import { ReactiveFormsModule } from '@angular/forms'
 
 
@@ -40,7 +41,7 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [OrdersService, CustomerService],
+  providers: [OrdersService, CustomerService, TimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

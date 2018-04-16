@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CustomerService } from './customer.service'
-
+import { TimeService } from './time.service'
 // Service för att hämta info om ordrar och skapa objekt
 
 @Injectable()
 export class OrdersService {
-  orders = []  // alla ordrar
-
   customers = []
   customersWithOrders = [] //filtrera alla kunder med ordrar till array
 
@@ -17,6 +15,7 @@ export class OrdersService {
   bong = []
 
   //numbersToShow
+  allOrders = []  // alla ordrar
   openOrders = [] // alla öppna ordrar
   abroadOrders = []
   restOrders = []
@@ -24,9 +23,14 @@ export class OrdersService {
   
 
   constructor(private http: HttpClient,
-              private customerService: CustomerService) { }
+              private customerService: CustomerService,
+              private TimeService: TimeService) { }
 
+    //Hämtar och skapar en array med alla ordrar
     getOrders() {
+
+     this.clearOrders() // rensar ordrar för att undvika duplicering
+
      this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHv2sFTi__XUr9sj3G0ajU-eZQa2oks5a2YQ5wA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
 
@@ -43,19 +47,18 @@ export class OrdersService {
       })
       //filtrerar json till endast ordrar
       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
-      this.orders = orders
+      this.allOrders = orders
     })
   }
 
     //Filtrerar ordrar som ska visas
     filterOrders(arr) {
-
   
       //ÖPPNA + RESTADE 
       arr.forEach(el => {
         // 200 = öppen, 300 = plockning, 310 = på plockuppdrag 
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
-          this.orders.push(el)
+          this.allOrders.push(el)
         } 
         if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300"){
           this.openOrders.push(el)
@@ -83,11 +86,10 @@ export class OrdersService {
           })
         }
       })
-      console.log(this.orderLines.length)
     }
 
     //Lägger till ordrar till respektive kund
-    sortCustomerOrders(orderArray) {
+    distributeCustomerOrders(orderArray) {
       this.customers = this.customerService.customers
       orderArray.forEach(order => {
         this.customers.forEach(customer => {
@@ -98,7 +100,7 @@ export class OrdersService {
             customer.abroadOrders.push(order)
             } 
             //RESTADE
-            if(order.OrderPickability[0] !== "200" || order.OrderPickability[0] !== "300") {
+            if(order.OrderPickability[0] === "1000") {
               customer.restOrders.push(order)
             } 
             //ORDERLINES
@@ -120,15 +122,21 @@ export class OrdersService {
           }
         })
       })
-      //FILTER LIST TO OPENORDERS AND SORT
-      this.customersWithOrders = this.customers.filter(el => el.openOrders.length > 0)
-      this.customersWithOrders.sort(function(a,b){
-        return b.openOrders - a.openOrders
-      })
+      this.sortByOpenOrders()
   }
 
-    //rensar alla ordra i kundobjekten
+
+    //filter customerlist by openOrders and sort list by openOrders
+    sortByOpenOrders() {
+      this.customersWithOrders = this.customers.filter(el => el.openOrders.length > 0)
+      this.customersWithOrders.sort(function(a,b){
+        return b.openOrders.length - a.openOrders.length
+      })  
+    }
+
+    //rensar alla orderArrays i kundobjekten
     clearOrders() {
+      this.allOrders = []
       this.solsidan = []
       this.dannes = []
       this.bong = []
@@ -137,7 +145,7 @@ export class OrdersService {
       this.restOrders = []
       this.orderLines = []
       
-   
+      //rensar ordrar i kundobjekten
       this.customers.forEach(customer => {
         customer.openOrders = []
         customer.abroadOrders = []
@@ -145,7 +153,6 @@ export class OrdersService {
         customer.orderLines = []
       })
     }
-  
-
+  }
 
 

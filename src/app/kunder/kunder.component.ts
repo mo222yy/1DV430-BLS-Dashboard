@@ -16,8 +16,11 @@ export class KunderComponent implements OnInit {
              ) { }
 
   ngOnInit() {
-    let savedCustomers = localStorage.getItem("savedCustomers")
-    this.customers = JSON.parse(savedCustomers)
+    this.CustomerService.getCustomers()
+    this.CustomerService.setCustomers()
+
+
+    this.customers = this.CustomerService.customers
   }
 
   editCustomer(ev) {
@@ -28,6 +31,4 @@ export class KunderComponent implements OnInit {
   createCustomer() {
     this.router.navigate(['skapakund'])
   }
-  
-  
 }

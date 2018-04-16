@@ -32,8 +32,6 @@
 }
 
 
-
-
 #logga {
     background-image: url(../images/borjes-logga-jpg.jpg);
     background-repeat: no-repeat;
@@ -41,8 +39,18 @@
     width: 300px;
     display: inline-block;
     margin-left: 8%;
+    border:1px solid black;
 }
 
-#avdelning {
+
+#dateDiv {
+   float: right; 
+   font-size: 24px;
+   height: 100%;
+   width: 400px;
+   border: 1px solid black;
+}
+
+.dateDivLines {
     float: right;
 }
