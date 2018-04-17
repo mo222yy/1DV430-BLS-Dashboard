@@ -1,18 +1,36 @@
+
+<div id="sections">
 <form name="Avdelning" id="avdelning">
         <label>Solsidan:
-          <input type="radio" name="section" (click)="selectedSection(solsidan)" value="solsidan">
+          <input type="radio" name="section" (click)="selectedSection(solsidan, 'Solsidan')" value="solsidan">
         </label>
         <label>Dannes: 
-          <input type="radio" name="section" (click)="selectedSection(dannes)" value="dannes">
+          <input type="radio" name="section" (click)="selectedSection(dannes, 'Dannes')" value="dannes">
         </label>
         <label>Bong:
-          <input type="radio" name="section" (click)="selectedSection(bong)" value="bong">
+          <input type="radio" name="section" (click)="selectedSection(bong, 'Bong')" value="bong">
         </label>
         <label>Alla:
-            <input type="radio" name="section" (click)="selectedSection(todaysOrders)" value="all">
+            <input type="radio" name="section" (click)="selectedSection(todaysOrders, 'All')" value="all">
           </label>
       </form>
-      
+      <h2>{{sectionHeader}}</h2>
+    </div>
+
+    <div id="transporters">
+        <ul>
+            <li class ="transporter" *ngFor="let transporter of nextPickUp">Nästa hämtning:
+                <span id="transporterTime">{{transporter.time}}</span>
+                <img src="{{transporter.logo}}">
+                </li>
+    
+        </ul>
+
+
+    </div>
+
+
+
 <div id="orderOverview">
     <div class="orderOverviewParts" id="OrderOverview1">
         <p>Antal öppna</p>

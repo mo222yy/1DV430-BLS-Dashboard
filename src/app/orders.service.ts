@@ -153,12 +153,14 @@ export class OrdersService {
           }
         })
       })
-     // this.sortByOpenOrders()
   }
 
 
-    //filter customerlist by openOrders and sort list by openOrders
-    sortByOpenOrders(arr) {
+    /**
+     * Filtrerar customers 
+     * @param arr 
+     */
+    setCustomerList() {
       this.customerList = this.customers.filter(el => el.openOrders.length > 0)
       this.customerList.sort(function(a,b){
         return b.openOrders.length - a.openOrders.length

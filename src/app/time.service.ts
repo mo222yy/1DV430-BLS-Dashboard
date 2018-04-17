@@ -6,9 +6,11 @@ export class TimeService {
   month: string;
   date: string;
 
-  hours: string;
-  minutes: string;
+  hours: string = '07';
+  minutes: string = '00';
   seconds: string;
+
+  currentTime: number; //ex. 1430
 
   constructor() { }
   
@@ -34,8 +36,13 @@ export class TimeService {
     this.seconds = this.get2digits(seconds)
   }
 
+  getCurrentTime() {
+    let currentTime = this.hours + this.minutes
+    this.currentTime = parseInt(currentTime)
 
-
+    return this.currentTime
+  }
+  
   get2digits(num) {
     if(num.toString().length < 2) {
       num = '0' + num
@@ -44,5 +51,6 @@ export class TimeService {
     return num.toString()
   }
   }
+
 }
 

@@ -5,6 +5,7 @@ import { OrdersService } from './orders.service'
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
 import { ReactiveFormsModule } from '@angular/forms'
+import { TransporterService } from './transporter.service'
 
 
 
@@ -41,7 +42,7 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [OrdersService, CustomerService, TimeService],
+  providers: [OrdersService, CustomerService, TimeService, TransporterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

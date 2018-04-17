@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
-import {NgForm} from '@angular/forms';
-
+import { TransporterService } from '../transporter.service'
 
 @Component({
   selector: 'app-utleverans',
@@ -30,14 +29,24 @@ export class UtleveransComponent implements OnInit {
    dannes = []
    bong = []
 
+   sectionHeader: string;
+
+   nextPickUp = []
+
   constructor( private ordersService: OrdersService,
-              private customerService: CustomerService) { }
+               private customerService: CustomerService,
+               private transporterService: TransporterService) { }
   
   ngOnInit() {
    this.getOrders()
-  
+   this.getNextPickUp()
   }
 
+    //TRANSPORTÖR
+    getNextPickUp() {
+      this.nextPickUp =  this.transporterService.getNextPickUp()
+      console.log(this.nextPickUp)
+    }
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
       this.ordersService.getOrders()
@@ -69,7 +78,7 @@ export class UtleveransComponent implements OnInit {
       //fördela ordrar till kunder
       this.ordersService.distributeCustomerOrders(this.todaysOrders)
     }).then(a => {
-      this.ordersService.sortByOpenOrders(this.todaysOrders)
+      this.ordersService.setCustomerList()
       //hämta avdelningsarrays för filtrering
       this.customerList = this.ordersService.customerList
       this.solsidan = this.ordersService.solsidan
@@ -87,19 +96,33 @@ export class UtleveransComponent implements OnInit {
     this.restOrders = this.ordersService.restOrders
     this.orderLines = this.ordersService.orderLines
     this.allOrders = this.ordersService.allOrders
-
   }
 
-  selectedSection(arr) {
+  selectedSection(arr, section) {
    this.ordersService.clearOrders()
    this.ordersService.getOrderStatus(arr)
    this.ordersService.distributeCustomerOrders(arr)
+   this.ordersService.setCustomerList()
    this.customerList = this.ordersService.customerList
 
    this.openOrders = this.ordersService.openOrders
    this.abroadOrders = this.ordersService.abroadOrders
    this.restOrders = this.ordersService.restOrders
    this.orderLines = this.ordersService.orderLines
+
+   //Section Header
+   if(section === 'Solsidan') {
+     this.sectionHeader = 'Solsidan'
+   } else if (section === 'Dannes') {
+     this.sectionHeader = 'Dannes'
+   } else if(section === 'Bong') {
+     this.sectionHeader ='Bong'
+   } else if (section === 'All') {
+     this.sectionHeader = 'Alla'
+   }
+   console.log(this.sectionHeader)
+
   }
+
 
 }
