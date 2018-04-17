@@ -13,7 +13,6 @@ export class EditCustomerComponent implements OnInit {
   customerToEdit: number; //index number
 
   //Skapa kund
-  test: string = 'hej'
   customerName: string;
   customerId: string;
   section: string;
@@ -46,6 +45,13 @@ export class EditCustomerComponent implements OnInit {
     this.customers = this.customerService.customers
     this.getCustomerToEdit()
     this.customerToEdit = this.customerService.editCustomer
+    console.log(this.contacts)
+  }
+
+  deleteContact(index) {
+    this.contacts.splice(index, 1)
+    console.log(this.contacts)
+    this.customerService.setCustomers()
   }
 
 
@@ -56,22 +62,20 @@ export class EditCustomerComponent implements OnInit {
     this.customerName = customers[customer].customerName
     this.customerId = customers[customer].customerID
     
+    this.contacts = customers[customer].contacts
+
+    if(customers[customer].contacts.length !== 0) {
     this.firstname = customers[customer].contacts[0].firstname
     this.lastname = customers[customer].contacts[0].lastname
     this.phone = customers[customer].contacts[0].phone
     this.eMail = customers[customer].contacts[0].eMail
+  }
 
     this.cOsweden = customers[customer].cOsweden
     this.cOabroad = customers[customer].cOabroad
     this.cOcomments = customers[customer].cOcomments
   }
 
-    //for radiobuttons
-    sections: any = [
-      'solsidan',
-      'dannes',
-      'bong'
-    ]
 
 
 
