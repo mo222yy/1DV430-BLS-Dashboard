@@ -18,9 +18,11 @@ export class UtleveransComponent implements OnInit {
  restOrders = []
  orderLines = []
 
+ todaysOrders = []
+
    //Customer
    customers = []
-   customersWithOrders = []
+   customerList = []
 
    //sections
    allOrders = []
@@ -36,50 +38,64 @@ export class UtleveransComponent implements OnInit {
   
   }
 
-    //Hämtar ordrar och kör sedan updatenumbers()
+    //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
       this.ordersService.getOrders()
-      let result = await this.updateNumbers()
+      let result = await this.sortOrders()
   
     }
   //körs efter getOrders
-  updateNumbers() {
+    sortOrders() {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.allOrders = this.ordersService.allOrders // hämta orderArray
-      
-        this.ordersService.filterOrders(this.allOrders) //filtrera ordrar
-        
-        //uppdatera siffrorna
-        this.openOrders = this.ordersService.allOrders //ej korrekt
-        this.abroadOrders = this.ordersService.abroadOrders
-        this.restOrders = this.ordersService.restOrders
-        this.orderLines = this.ordersService.orderLines
-        this.allOrders = this.ordersService.allOrders
+
+      //hämta dagens ordrar
+      this.ordersService.getTodaysOrders(this.ordersService.allOrders)
+      this.todaysOrders = this.ordersService.todaysOrders
+
+      //hämta och filtrera alla ordrar efter status
+      this.ordersService.getOrderStatus(this.todaysOrders)
+
+      this.updateNumbers()
+
         resolve('resolved')
       }, 1000) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
+
+      //hämta kunder
       this.customerService.getCustomers()
-      this.ordersService.distributeCustomerOrders(this.allOrders)
       this.customers = this.ordersService.customers
+
+      //fördela ordrar till kunder
+      this.ordersService.distributeCustomerOrders(this.todaysOrders)
     }).then(a => {
-      this.customersWithOrders = this.ordersService.customersWithOrders
+      this.ordersService.sortByOpenOrders(this.todaysOrders)
+      //hämta avdelningsarrays för filtrering
+      this.customerList = this.ordersService.customerList
       this.solsidan = this.ordersService.solsidan
       this.dannes = this.ordersService.dannes
       this.bong = this.ordersService.bong
-      console.log(this.ordersService.todaysOrders)
     })
   }
 
+  /**
+   * Uppdaterar alla listor
+   */
+  updateNumbers() {
+    this.openOrders = this.ordersService.openOrders //ej korrekt
+    this.abroadOrders = this.ordersService.abroadOrders
+    this.restOrders = this.ordersService.restOrders
+    this.orderLines = this.ordersService.orderLines
+    this.allOrders = this.ordersService.allOrders
 
+  }
 
   selectedSection(arr) {
    this.ordersService.clearOrders()
-   this.ordersService.filterOrders(arr)
+   this.ordersService.getOrderStatus(arr)
    this.ordersService.distributeCustomerOrders(arr)
-   this.customersWithOrders = this.ordersService.customersWithOrders
+   this.customerList = this.ordersService.customerList
 
-   
    this.openOrders = this.ordersService.openOrders
    this.abroadOrders = this.ordersService.abroadOrders
    this.restOrders = this.ordersService.restOrders

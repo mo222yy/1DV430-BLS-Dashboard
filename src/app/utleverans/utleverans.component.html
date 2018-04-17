@@ -9,7 +9,7 @@
           <input type="radio" name="section" (click)="selectedSection(bong)" value="bong">
         </label>
         <label>Alla:
-            <input type="radio" name="section" (click)="selectedSection(allOrders)" value="all">
+            <input type="radio" name="section" (click)="selectedSection(todaysOrders)" value="all">
           </label>
       </form>
       
@@ -43,7 +43,7 @@
     <span id ="orderLinesHeader"class ="listHeaders">Orderlines</span>
 
 
-    <li *ngFor="let customer of customersWithOrders">
+    <li *ngFor="let customer of customerList">
    <div class="customerLine">
     <span id="name" class="orderList">{{customer.customerName}}</span>
     <span id="openOrders" class="orderList">{{customer.openOrders.length}}</span>
