@@ -21,6 +21,9 @@ export class OrdersService {
   restOrders = []
   orderLines = []  
   
+  todaysOrders = []
+  
+
 
   constructor(private http: HttpClient,
               private customerService: CustomerService,
@@ -53,7 +56,31 @@ export class OrdersService {
 
     //Filtrerar ordrar som ska visas
     filterOrders(arr) {
-  
+
+      /**
+       * Lägger till ordrar med dagens datum som deliveryDate
+       * Läggs i todaysOrders[]
+       */
+      let year = parseInt(this.TimeService.year)
+      let month = parseInt(this.TimeService.month) + 1 //+1 för rätt månad
+      let date = parseInt(this.TimeService.date)
+      console.log('tsyear' , year)
+      console.log('tsmonth' , month)
+      console.log('tsdate' , date)
+      arr.forEach(el => {
+        let orderDeliveryDate = el.DeliveryDate[0]
+        let dateSplit = orderDeliveryDate.split('T')
+        let dateString = dateSplit[0]
+        
+        let deliveryYear = parseInt(dateString.substring(0, 4))
+        let deliveryMonth = parseInt(dateString.substring(5,7))
+        let deliveryDate = parseInt(dateString.substring(8,10))
+
+        if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
+          this.todaysOrders.push(el)
+        }
+      })
+
       //ÖPPNA + RESTADE 
       arr.forEach(el => {
         // 200 = öppen, 300 = plockning, 310 = på plockuppdrag 
@@ -86,9 +113,15 @@ export class OrdersService {
           })
         }
       })
+
+      //todaysOrders
+ 
     }
 
-    //Lägger till ordrar till respektive kund
+    /**
+     * Fördelar ordrarna i orderArray till respektive kund
+     * @param orderArray 
+     */
     distributeCustomerOrders(orderArray) {
       this.customers = this.customerService.customers
       orderArray.forEach(order => {
@@ -136,6 +169,7 @@ export class OrdersService {
 
     //rensar alla orderArrays i kundobjekten
     clearOrders() {
+      this.todaysOrders = []
       this.allOrders = []
       this.solsidan = []
       this.dannes = []

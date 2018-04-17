@@ -51,7 +51,7 @@ export class UtleveransComponent implements OnInit {
         this.ordersService.filterOrders(this.allOrders) //filtrera ordrar
         
         //uppdatera siffrorna
-        this.openOrders = this.ordersService.allOrders
+        this.openOrders = this.ordersService.allOrders //ej korrekt
         this.abroadOrders = this.ordersService.abroadOrders
         this.restOrders = this.ordersService.restOrders
         this.orderLines = this.ordersService.orderLines
@@ -67,6 +67,7 @@ export class UtleveransComponent implements OnInit {
       this.solsidan = this.ordersService.solsidan
       this.dannes = this.ordersService.dannes
       this.bong = this.ordersService.bong
+      console.log(this.ordersService.todaysOrders)
     })
   }
 
