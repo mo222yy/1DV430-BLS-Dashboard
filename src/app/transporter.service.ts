@@ -27,12 +27,16 @@ export class TransporterService {
   }
 
   createTransporters(){
-    this.Transporter('Schenker', 1600, './transporterLogos/schenker.gif')
-    this.Transporter('UPS', 1400, './transporterLogos/ups.png')
+    this.Transporter('Schenker', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.gif?token=Ad3tHigzL_gPcdz3nDskSSbSaDCHgck1ks5a36JAwA%3D%3D')
+    this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHhvdjd2SUVK4XN8F2hSHejOA9BKOks5a36IKwA%3D%3D')
   }
 
 
   getNextPickUp() {
+    //clear arrays
+    this.nextTransport = []
+    this.transporters = []
+    
     this.createTransporters()
     let currentTime = this.TimeService.getCurrentTime()
 

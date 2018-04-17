@@ -1,4 +1,5 @@
-
+<div id="sectionTransporter">
+    
 <div id="sections">
 <form name="Avdelning" id="avdelning">
         <label>Solsidan:
@@ -14,21 +15,20 @@
             <input type="radio" name="section" (click)="selectedSection(todaysOrders, 'All')" value="all">
           </label>
       </form>
-      <h2>{{sectionHeader}}</h2>
     </div>
 
-    <div id="transporters">
-        <ul>
-            <li class ="transporter" *ngFor="let transporter of nextPickUp">Nästa hämtning:
-                <span id="transporterTime">{{transporter.time}}</span>
-                <img src="{{transporter.logo}}" alt="transportLogo" >
-                </li>
-    
+    <span id="sectionHeader">{{sectionHeader}}</span>
+
+    <div id ="nextPickUp">
+        <ul id="transporterUl">
+            <li class ="transporter" *ngFor="let transporter of nextPickUp">
+                <img id="transporterImage" src="{{transporter.logo}}" alt="transportLogo" >
+            </li>
+            <li class="pickUpTime">Nästa hämtning: <span id="nextPickUpTime">{{nextPickUp[0].time}}</span></li>
+
         </ul>
-
-
     </div>
-
+</div>
 
 
 <div id="orderOverview">

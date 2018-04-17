@@ -29,7 +29,7 @@ export class UtleveransComponent implements OnInit {
    dannes = []
    bong = []
 
-   sectionHeader: string;
+   sectionHeader: string = 'Alla'
 
    nextPickUp = []
 
@@ -42,11 +42,6 @@ export class UtleveransComponent implements OnInit {
    this.getNextPickUp()
   }
 
-    //TRANSPORTÖR
-    getNextPickUp() {
-      this.nextPickUp =  this.transporterService.getNextPickUp()
-      console.log(this.nextPickUp)
-    }
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
       this.ordersService.getOrders()
@@ -120,9 +115,10 @@ export class UtleveransComponent implements OnInit {
    } else if (section === 'All') {
      this.sectionHeader = 'Alla'
    }
-   console.log(this.sectionHeader)
-
   }
-
-
+    //TRANSPORTÖR
+    getNextPickUp() {
+      this.nextPickUp =  this.transporterService.getNextPickUp()
+      console.log(this.nextPickUp)
+    }
 }
