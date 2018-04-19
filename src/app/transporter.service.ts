@@ -27,7 +27,7 @@ export class TransporterService {
   }
 
   createTransporters(){
-    this.Transporter('Schenker', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.gif?token=Ad3tHigzL_gPcdz3nDskSSbSaDCHgck1ks5a36JAwA%3D%3D')
+    this.Transporter('Schenker', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHkNO96yzJdcp3B62nzo0RR9jZgKKks5a37B6wA%3D%3D')
     this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHhvdjd2SUVK4XN8F2hSHejOA9BKOks5a36IKwA%3D%3D')
   }
 
@@ -36,7 +36,7 @@ export class TransporterService {
     //clear arrays
     this.nextTransport = []
     this.transporters = []
-    
+
     this.createTransporters()
     let currentTime = this.TimeService.getCurrentTime()
 

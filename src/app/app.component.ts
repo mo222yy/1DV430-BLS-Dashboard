@@ -21,8 +21,8 @@ export class AppComponent  implements OnInit {
   constructor(private TimeService: TimeService ) {}
 
   ngOnInit(): void {
-  //this.getDate()
-  //setInterval(this.getTime(), 1000)
+  this.getDate()
+  setInterval(this.getTime(), 1000)
   }
 
   getDate() {
