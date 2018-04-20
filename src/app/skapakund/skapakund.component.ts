@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SkapakundComponent{
 
+
   customerName: string;
   customerId: string;
   section: string;
@@ -56,6 +57,18 @@ let customer = this.customerService.customer(
 this.router.navigate(['kunder'])
 
 }
+
+
+newContact() {
+  let newContact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail)
+  this.contacts.push(newContact)
+}
+
+deleteContact(index) {
+  this.contacts.splice(index, 1)
+  console.log(this.contacts)
+}
+
 
 createContact(firstname, lastname, phone, eMail) {
   return {
