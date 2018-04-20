@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
+import {Parser} from 'xml2js';
 // Service för att hämta info om ordrar och skapa objekt
 
 @Injectable()

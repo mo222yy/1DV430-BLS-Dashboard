@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getLocaleTimeFormat } from '@angular/common';
 
 @Injectable()
 export class TimeService {
@@ -6,8 +7,8 @@ export class TimeService {
   month: string;
   date: string;
 
-  hours: string = '07';
-  minutes: string = '00';
+  hours: string;
+  minutes: string; 
   seconds: string;
 
   currentTime: number; //ex. 1430
@@ -25,6 +26,10 @@ export class TimeService {
 
     let date = d.getDate()
     this.date = this.get2digits(date)
+  }
+
+    getTime() {
+    let d = new Date()
 
     let hours = d.getHours()
     this.hours = this.get2digits(hours)
@@ -37,6 +42,7 @@ export class TimeService {
   }
 
   getCurrentTime() {
+    this.getTime()
     let currentTime = this.hours + this.minutes
     this.currentTime = parseInt(currentTime)
 

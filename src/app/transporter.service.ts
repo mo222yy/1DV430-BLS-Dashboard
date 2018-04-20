@@ -3,11 +3,9 @@ import { TimeService } from './time.service'
 
 @Injectable()
 export class TransporterService {
-  transporters = [] // array med alla transportörer
 
   nextTransport = [] //object som ska visas
 
-  currentDiff: number//jämför tider
 
   constructor(private TimeService: TimeService) { }
 
@@ -19,28 +17,53 @@ export class TransporterService {
    * @param logo 
    */
   Transporter(name, time, logo) {
-    this.transporters.push({
+    return({
       name: name,
       time: time,
       logo: logo
     })
   }
 
-  createTransporters(){
-    this.Transporter('Schenker', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHkNO96yzJdcp3B62nzo0RR9jZgKKks5a37B6wA%3D%3D')
-    this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHhvdjd2SUVK4XN8F2hSHejOA9BKOks5a36IKwA%3D%3D')
-  }
-
 
   getNextPickUp() {
+    let bring = this.Transporter('Bring', 1800, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/Bring.png?token=Ad3tHouWvaf_O3mHFnvwgtX7OZs716Cbks5a4iYxwA%3D%3D' )
+    let schenker = this.Transporter('Schenker', 1600, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHkNO96yzJdcp3B62nzo0RR9jZgKKks5a37B6wA%3D%3D')
+    let ups = this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHhvdjd2SUVK4XN8F2hSHejOA9BKOks5a36IKwA%3D%3D')
+    let dhl = this.Transporter('DHL', 1200, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/dhl.png?token=Ad3tHulukBZrPuJzG0wtov-yHRPa-Calks5a4iX-wA%3D%3D' )
     //clear arrays
     this.nextTransport = []
-    this.transporters = []
 
-    this.createTransporters()
     let currentTime = this.TimeService.getCurrentTime()
+    console.log(currentTime)
+    
+    if (currentTime <= 1200) {
+      this.nextTransport.push(dhl)
+      return this.nextTransport
 
-    this.currentDiff = 700
+    } else if(currentTime > 1200 || currentTime < 1400) {
+      this.nextTransport = []
+      this.nextTransport.push(ups)
+      return this.nextTransport
+
+    } else if(currentTime > 1400 || currentTime < 1600) {
+      this.nextTransport = []
+      this.nextTransport.push(schenker)
+      return this.nextTransport
+
+    } else if (currentTime > 1600 || currentTime < 1800) {
+      this.nextTransport = []
+      this.nextTransport.push(bring)
+      return this.nextTransport
+
+    }
+    /*
+    this.nextTransport = []
+    this.transporters = []
+   
+    let currentTime = this.TimeService.getCurrentTime()
+   
+    this.createTransporters()
+    this.currentDiff = 0
 
     this.transporters.forEach(el => {
       if(el.time - currentTime === this.currentDiff) {
@@ -48,10 +71,15 @@ export class TransporterService {
       } else if (el.time - currentTime < this.currentDiff) {
         this.nextTransport = []
         this.nextTransport.push(el)
+        this.currentDiff = el.time - currentTime
       }
     })
+    console.log(this.currentDiff)
+    console.log('time', currentTime)
+    console.log(this.nextTransport)
     return this.nextTransport
-   }
+  */ 
+  }
 
 
 

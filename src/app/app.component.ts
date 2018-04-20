@@ -13,6 +13,7 @@ export class AppComponent  implements OnInit {
   year: string;
   month: string;
   date: string;
+
   hours: string;
   minutes: string;
   seconds: string;
@@ -22,20 +23,26 @@ export class AppComponent  implements OnInit {
 
   ngOnInit(): void {
   this.getDate()
-  setInterval(this.getTime(), 1000)
-  }
+  this.getTime()
+}
 
   getDate() {
-    this.TimeService.getDate()
-    this.year = this.TimeService.year
-    this.month = this.TimeService.month
-    this.date = this.TimeService.date
-
+      this.TimeService.getDate()
+      this.year = this.TimeService.year
+      this.month = this.TimeService.month
+      this.date = this.TimeService.date  
   }
 
+  
   getTime() {
-    this.hours = this.TimeService.hours
-    this.minutes = this.TimeService.minutes
-    this.seconds = this.TimeService.seconds
+    let d = new Date()
+    let hours = d.getHours()
+    this.hours = this.TimeService.get2digits(hours)
+
+    let minutes = d.getMinutes()
+    this.minutes = this.TimeService.get2digits(minutes)
+
+    let seconds = d.getSeconds()
+    this.seconds = this.TimeService.get2digits(seconds)
   }
 }
