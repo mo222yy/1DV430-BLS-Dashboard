@@ -33,9 +33,9 @@ export class OrdersService {
     //Hämtar och skapar en array med alla ordrar
     getOrders() {
      this.clearOrders() // rensar ordrar för att undvika duplicering
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHv2sFTi__XUr9sj3G0ajU-eZQa2oks5a2YQ5wA%3D%3D', {responseType: 'text' })
+     this.http.get('https://00e9e64bac95997271bce223f1a51fc0895f7873258cfa109f-apidata.googleusercontent.com/download/storage/v1/b/orders-xml/o/Orders_20180420_120036.xml?qk=AD5uMEvcw9SjViUYFgOtpDN3C3Tk0IAXuXF6f9RaVDt43fmZZi9bvHWw38MvAkZvbzAI0KSIRsPuXTRtrIJxbBPf-pExXttZEK8hEEoCX2PKGrI_MEyuw7e8pwWmqMJfdsgqA290kpMBUMJLMEVDsKmxNRLtHrAgomJ_yryNr0ONhTLIxqAKMX4PhrjIkJmbbOUfq2WQC-CNDR96Z8JNCHkDtnFvWQVnriWFA9ax4Ai21BW0kU-hA4c5wuvbnJxAbKVPpmpHBgFoaR6yC1F5TlA0g-Bopa8ZuBBUWmiOVOW_6_1pVvogXVfuNPoKS9Gv4AhcsutJC0iJeHrXEu02TKjXpD_iafrSKtt4vrRBGn0o0oYshAug5n8bjIxgciVW8DMKOviz6ceemA93KZHPy7OLzyoDO_M8R1YDHGMn9bhjfmo-fCSXT9JDUVKLFyH8VXbWfw4VoZNHyO0PGW6gCZRNB99a0ziRB0V-cJUw8_MnMStAzlk2lv0AioaQQH6sOxkcLPafBr-YnRFtobK1Y0Tfec0b87amCt6Ng024i5vablUhCgKnt5JHzdVDAA0Wm7BhzpGICAPmBeTuswntZ9hayqbvnI2XXcYsfoDcvhNb6FKcePPuhtlMuFMYDTTxVW7jLCp0OUD3pZJciGc0-lTRlAODIOIZC9sRId_FOkpbjPj8ZykThZbcIiSoZG8yUT2XToRdMwXI14kYa5BQj_IHiTETgntSWXslX8TeK4lFEnvs_JM1HpZ7JzISRcHbFKuzWmWlypOJ', {responseType: 'text' })
      .subscribe(data => {
-
+      console.log('data', data)
     let json; // konvertera xml till json
     let parseString = require('xml2js').parseString
     parseString(data, function(err, result) {
@@ -50,6 +50,7 @@ export class OrdersService {
       //filtrerar json till endast ordrar
       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
       this.allOrders = orders
+      console.log('allorders', this.allOrders)
     })
   }
 

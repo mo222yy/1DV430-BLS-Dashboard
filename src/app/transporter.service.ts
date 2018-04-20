@@ -34,7 +34,6 @@ export class TransporterService {
     this.nextTransport = []
 
     let currentTime = this.TimeService.getCurrentTime()
-    console.log(currentTime)
     
     if (currentTime <= 1200) {
       this.nextTransport.push(dhl)
@@ -55,35 +54,8 @@ export class TransporterService {
       this.nextTransport.push(bring)
       return this.nextTransport
 
-    }
-    /*
-    this.nextTransport = []
-    this.transporters = []
-   
-    let currentTime = this.TimeService.getCurrentTime()
-   
-    this.createTransporters()
-    this.currentDiff = 0
 
-    this.transporters.forEach(el => {
-      if(el.time - currentTime === this.currentDiff) {
-        this.nextTransport.push(el)
-      } else if (el.time - currentTime < this.currentDiff) {
-        this.nextTransport = []
-        this.nextTransport.push(el)
-        this.currentDiff = el.time - currentTime
-      }
-    })
-    console.log(this.currentDiff)
-    console.log('time', currentTime)
-    console.log(this.nextTransport)
-    return this.nextTransport
-  */ 
   }
-
-
-
-
 }
 
 

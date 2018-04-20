@@ -119,6 +119,5 @@ export class UtleveransComponent implements OnInit {
     //TRANSPORTÖR
     getNextPickUp() {
       this.nextPickUp =  this.transporterService.getNextPickUp()
-      console.log(this.nextPickUp)
     }
 }
