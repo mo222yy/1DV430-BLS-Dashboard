@@ -38,9 +38,6 @@ export class SkapakundComponent{
                private router: Router) { }
 
 onSubmit() {
-let contact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail, )
-
-this.contacts.push(contact)
 let customer = this.customerService.customer(
   this.customerName,
   this.customerId,
@@ -124,13 +121,5 @@ getComments(cm) {
   this.cOcomments = cm.value
 }
 
-
-
-//for radiobuttons
-  sections: any = [
-    'solsidan',
-    'dannes',
-    'bong'
-  ]
 
 }

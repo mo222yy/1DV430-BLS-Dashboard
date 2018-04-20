@@ -21,7 +21,7 @@ export class TimeService {
     
     this.year = d.getFullYear().toString()
     
-    let month = d.getMonth()
+    let month = d.getMonth() + 1
     this.month = this.get2digits(month)
 
     let date = d.getDate()
