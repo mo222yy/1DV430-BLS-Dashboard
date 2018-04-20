@@ -3,7 +3,7 @@ import { TimeService } from './time.service'
 
 @Injectable()
 export class TransporterService {
-
+ 
   nextTransport = [] //object som ska visas
 
 
