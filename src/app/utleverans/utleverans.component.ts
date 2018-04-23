@@ -38,10 +38,12 @@ export class UtleveransComponent implements OnInit {
                private transporterService: TransporterService) { }
   
   ngOnInit() {
-   this.getOrders()
-   this.getNextPickUp()
+    this.getOrders()
+    this.getNextPickUp()
+  
   }
 
+ 
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
       this.ordersService.getOrders()

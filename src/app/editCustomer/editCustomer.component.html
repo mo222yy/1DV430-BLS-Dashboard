@@ -1,7 +1,6 @@
 <div id="newCustomerForm">
-    <form>
+  <form>
 
- 
     <div id="leftColumn">
     <!-- LeftColumn -->  
     <!-- CustomerName  -->
@@ -214,7 +213,7 @@
               </div>
              </div>
              </div>
-             <button class="btn btn-primary" (click)="newContact()">Lägg till kontakt</button>
+             <button (click)="newContact()">Lägg till kontakt</button>
     </div>  
   
 
@@ -286,7 +285,7 @@
 
 
     <div id="buttons">
-        <button class="btn btn-primary" (click)="onSubmit()">Spara</button>
+        <button type="submit" class="btn btn-success">Spara kund</button>     
         <button id="stepBackButton" class="stepBackButton" (click)="stepBack()">Tillbaka</button>
         <button id="deleteButton" class="deleteButton" (click)="deleteCustomer()">Radera kund</button>
         </div>  
