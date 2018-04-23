@@ -111,12 +111,6 @@ export class EditCustomerComponent implements OnInit {
     customer.customerID = this.customerId
     customer.section = this.section
 
-
-    customer.contacts[0].firstname = this.firstname
-    customer.contacts[0].lastname = this.lastname
-    customer.contacts[0].phone = this.phone
-    customer.contacts[0].eMail = this.eMail
-
     customer.cOsweden = this.cOsweden
     customer.cOabroad = this.cOabroad
     customer.cOcomments = this.cOcomments

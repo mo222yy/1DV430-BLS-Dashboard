@@ -11855,5 +11855,7 @@
           <IsStockArticle>true</IsStockArticle>
           <ParentOrderLineId xsi:nil="true" />
         </BorjesDashBoardOrderLine>	
+ 	</OrderLines>
+    </BorjesDashBoardOrder>
    </Orders>
 </BorjesDashBoardInfo>
