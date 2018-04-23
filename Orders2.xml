@@ -14800,8 +14800,7 @@
         </BorjesDashBoardOrderLine>
         <BorjesDashBoardOrderLine>
           <OrderLineId>30375</OrderLineId>
-          <OrderedN
-umberOfItems>10.000</OrderedNumberOfItems>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
           <Picked>0.000</Picked>
           <LastPickingTime xsi:nil="true" />
           <DoPick>true</DoPick>
