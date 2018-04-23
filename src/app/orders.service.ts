@@ -63,7 +63,7 @@ export class OrdersService {
          let today = "2018-04-23T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
-       
+       console.log(orders)
        this.allOrders = orders
       })
     }
