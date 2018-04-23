@@ -8844,6 +8844,1836 @@
           <ParentOrderLineId xsi:nil="true" />
         </BorjesDashBoardOrderLine>
       </OrderLines>
+    </BorjesDashBoardOrder>
+<BorjesDashBoardOrder>
+      <GoodsOwnerId>64</GoodsOwnerId>
+      <OrderId>14651</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2013-01-25T00:00:00</DeliveryDate>
+      <Created>2013-01-25T13:45:50.88</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>50</GoodsOwnerId>
+      <OrderId>14653</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>100</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2013-04-05T00:00:00</DeliveryDate>
+      <Created>2013-04-05T14:55:13.13</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>11.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>2</NumberOfOrderLines>
+      <Transporter>Schenker</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23342</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3779</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23343</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3576</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>68</GoodsOwnerId>
+      <OrderId>14809</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2013-10-21T00:00:00</DeliveryDate>
+      <Created>2013-10-21T16:17:33.403</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter>PostNord Logistics</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>68</GoodsOwnerId>
+      <OrderId>14810</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2013-10-21T00:00:00</DeliveryDate>
+      <Created>2013-10-21T16:18:02.483</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>130.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>13</NumberOfOrderLines>
+      <Transporter>PostNord Logistics</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23667</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3818</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23668</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3820</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23669</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3819</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23670</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3823</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23671</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3822</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23672</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3821</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23673</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3824</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23674</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3826</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23675</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3829</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23676</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3828</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23677</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3817</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23678</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3825</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>23679</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>3827</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>83</GoodsOwnerId>
+      <OrderId>15016</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-01-29T00:00:00</DeliveryDate>
+      <Created>2014-01-31T09:56:14.983</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>180.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>180.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>1</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24015</OrderLineId>
+          <OrderedNumberOfItems>180.000</OrderedNumberOfItems>
+          <Picked>180.000</Picked>
+          <LastPickingTime>2014-01-31T09:57:46.497</LastPickingTime>
+          <DoPick>true</DoPick>
+          <ArticleDefId>4334</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15395</OrderId>
+      <GoodsOwnerOrderNumber>116966</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T11:00:25.933</DeliveryDate>
+      <Created>2014-04-30T14:39:45.387</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24765</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4694</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15396</OrderId>
+      <GoodsOwnerOrderNumber>117127</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-04-30T15:13:55.287</DeliveryDate>
+      <Created>2014-04-30T15:14:05.493</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24766</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4695</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15401</OrderId>
+      <GoodsOwnerOrderNumber>116963</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-05-01T00:00:00</DeliveryDate>
+      <Created>2014-05-01T07:48:27.033</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>5.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24781</OrderLineId>
+          <OrderedNumberOfItems>5.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4697</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15402</OrderId>
+      <GoodsOwnerOrderNumber>117123</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-01T08:10:35.47</DeliveryDate>
+      <Created>2014-05-01T07:55:14.117</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24782</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4698</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15403</OrderId>
+      <GoodsOwnerOrderNumber>117083</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-01T08:13:09.503</DeliveryDate>
+      <Created>2014-05-01T08:13:17.82</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>22.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24783</OrderLineId>
+          <OrderedNumberOfItems>22.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4699</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15501</OrderId>
+      <GoodsOwnerOrderNumber>116725</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-15T21:34:58.177</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24969</OrderLineId>
+          <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7943</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15505</OrderId>
+      <GoodsOwnerOrderNumber>116365</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-16T10:15:07.23</DeliveryDate>
+      <Created>2014-05-16T10:15:07.6</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>9900.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24978</OrderLineId>
+          <OrderedNumberOfItems>9900.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7944</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15506</OrderId>
+      <GoodsOwnerOrderNumber>117160</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-05-16T00:00:00</DeliveryDate>
+      <Created>2014-05-16T10:35:53.387</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>553.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>19</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24979</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7945</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24980</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7946</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24981</OrderLineId>
+          <OrderedNumberOfItems>50.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7947</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24982</OrderLineId>
+          <OrderedNumberOfItems>40.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7948</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24983</OrderLineId>
+          <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7949</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24984</OrderLineId>
+          <OrderedNumberOfItems>50.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7950</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24985</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7951</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24986</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7952</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24987</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7953</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24988</OrderLineId>
+          <OrderedNumberOfItems>30.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7954</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24989</OrderLineId>
+          <OrderedNumberOfItems>40.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7955</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24990</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7956</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24991</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7957</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24992</OrderLineId>
+          <OrderedNumberOfItems>40.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7958</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24993</OrderLineId>
+          <OrderedNumberOfItems>40.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7959</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24994</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7960</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24995</OrderLineId>
+          <OrderedNumberOfItems>30.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7961</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24996</OrderLineId>
+          <OrderedNumberOfItems>35.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7962</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24997</OrderLineId>
+          <OrderedNumberOfItems>30.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7963</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15507</OrderId>
+      <GoodsOwnerOrderNumber>117165</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-16T11:00:07.053</DeliveryDate>
+      <Created>2014-05-16T11:00:06.34</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>318.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>6</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24998</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4661</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>24999</OrderLineId>
+          <OrderedNumberOfItems>48.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7964</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25000</OrderLineId>
+          <OrderedNumberOfItems>30.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7965</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25001</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7966</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25002</OrderLineId>
+          <OrderedNumberOfItems>200.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7967</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25003</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7968</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15510</OrderId>
+      <GoodsOwnerOrderNumber>100776</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-16T11:32:50.43</DeliveryDate>
+      <Created>2014-05-16T11:32:49.59</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>6.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>DSV utrikes</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25006</OrderLineId>
+          <OrderedNumberOfItems>6.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7970</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15529</OrderId>
+      <GoodsOwnerOrderNumber>116600</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T13:42:49.213</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>50.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25083</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7943</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25084</OrderLineId>
+          <OrderedNumberOfItems>20.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7972</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25085</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7973</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15533</OrderId>
+      <GoodsOwnerOrderNumber>116780</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T14:49:01.513</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>775.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>4</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25090</OrderLineId>
+          <OrderedNumberOfItems>400.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7979</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25091</OrderLineId>
+          <OrderedNumberOfItems>250.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7980</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25092</OrderLineId>
+          <OrderedNumberOfItems>75.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7981</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25093</OrderLineId>
+          <OrderedNumberOfItems>50.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7982</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15534</OrderId>
+      <GoodsOwnerOrderNumber>117024</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T14:53:11.08</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>86.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25094</OrderLineId>
+          <OrderedNumberOfItems>80.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>4678</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25095</OrderLineId>
+          <OrderedNumberOfItems>4.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7983</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25096</OrderLineId>
+          <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7984</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15535</OrderId>
+      <GoodsOwnerOrderNumber>116549</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T14:56:21.213</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>160.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>2</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25097</OrderLineId>
+          <OrderedNumberOfItems>80.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7985</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25098</OrderLineId>
+          <OrderedNumberOfItems>80.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7986</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15536</OrderId>
+      <GoodsOwnerOrderNumber>116836</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T15:27:03.953</Created>
+      <CountryCode />
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1374.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>2</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25099</OrderLineId>
+          <OrderedNumberOfItems>1368.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7987</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25100</OrderLineId>
+          <OrderedNumberOfItems>6.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>7988</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>87</GoodsOwnerId>
+      <OrderId>15538</OrderId>
+      <GoodsOwnerOrderNumber>117168</GoodsOwnerOrderNumber>
+      <OrderPickability>100</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-05-19T00:00:00</DeliveryDate>
+      <Created>2014-05-19T16:36:48.677</Created>
+      <CountryCode />
+      <PickedNumberOfItems>350.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>400.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>1</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25104</OrderLineId>
+          <OrderedNumberOfItems>400.000</OrderedNumberOfItems>
+          <Picked>350.000</Picked>
+          <LastPickingTime>2014-09-03T08:32:51.55</LastPickingTime>
+          <DoPick>true</DoPick>
+          <ArticleDefId>4665</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>15663</OrderId>
+      <GoodsOwnerOrderNumber>50112311-4bea-e311-825d-7ce9d3be1367</GoodsOwnerOrderNumber>
+      <OrderPickability>100</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-03T13:43:09.29</DeliveryDate>
+      <Created>2014-06-02T13:43:12.08</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25450</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8036</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>15667</OrderId>
+      <GoodsOwnerOrderNumber>be2fb3a9-05eb-e311-825d-7ce9d3be1367</GoodsOwnerOrderNumber>
+      <OrderPickability>100</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-04T11:58:51.72</DeliveryDate>
+      <Created>2014-06-03T11:58:53.547</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25459</OrderLineId>
+          <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8036</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>15669</OrderId>
+      <GoodsOwnerOrderNumber>548d7d42-06eb-e311-825d-7ce9d3be1367</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-04T12:03:07.923</DeliveryDate>
+      <Created>2014-06-03T12:03:09.573</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25465</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8062</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>15696</OrderId>
+      <GoodsOwnerOrderNumber>746684af-91ec-e311-825d-7ce9d3be1367</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-06T11:13:42.07</DeliveryDate>
+      <Created>2014-06-05T11:13:46.137</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25515</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8065</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25516</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8066</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>25517</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>8067</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16077</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-07-23T00:00:00</DeliveryDate>
+      <Created>2014-07-07T21:43:53.103</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16078</OrderId>
+      <GoodsOwnerOrderNumber />
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-07-24T00:00:00</DeliveryDate>
+      <Created>2014-07-07T21:44:22.26</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16842</OrderId>
+      <GoodsOwnerOrderNumber>53384394823</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-03T00:00:00</DeliveryDate>
+      <Created>2014-09-12T15:08:14.257</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28160</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16848</OrderId>
+      <GoodsOwnerOrderNumber>1001</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-03T00:00:00</DeliveryDate>
+      <Created>2014-09-14T20:05:25.7</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28161</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16849</OrderId>
+      <GoodsOwnerOrderNumber>1002</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-06-03T00:00:00</DeliveryDate>
+      <Created>2014-09-14T20:17:00.37</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28162</OrderLineId>
+          <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16851</OrderId>
+      <GoodsOwnerOrderNumber>1003</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-14T22:43:04.993</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>31.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Schenker</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28164</OrderLineId>
+          <OrderedNumberOfItems>17.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28165</OrderLineId>
+          <OrderedNumberOfItems>9.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28166</OrderLineId>
+          <OrderedNumberOfItems>5.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16865</OrderId>
+      <GoodsOwnerOrderNumber>123</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-15T16:17:38.29</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28195</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28196</OrderLineId>
+          <OrderedNumberOfItems>4.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28197</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16866</OrderId>
+      <GoodsOwnerOrderNumber>10001</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>300</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-15T16:19:32.98</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>3.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>1</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28198</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>3.000</Picked>
+          <LastPickingTime>2014-09-15T16:53:29.393</LastPickingTime>
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28199</OrderLineId>
+          <OrderedNumberOfItems>4.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28200</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16867</OrderId>
+      <GoodsOwnerOrderNumber>10002</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-15T16:30:16.64</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28201</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28202</OrderLineId>
+          <OrderedNumberOfItems>4.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28203</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16870</OrderId>
+      <GoodsOwnerOrderNumber>10010</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-15T19:14:30.35</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>8.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28210</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28211</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28212</OrderLineId>
+          <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16948</OrderId>
+      <GoodsOwnerOrderNumber>c4e0c9fe-243f-e411-bebe-c48508496dd9</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-19T13:14:46.423</DeliveryDate>
+      <Created>2014-09-18T13:15:27.057</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16950</OrderId>
+      <GoodsOwnerOrderNumber>46a67d9e-253f-e411-bebe-c48508496dd9</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-19T13:19:14.367</DeliveryDate>
+      <Created>2014-09-18T13:19:53.053</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16951</OrderId>
+      <GoodsOwnerOrderNumber>59a2ada3-293f-e411-bebe-c48508496dd9</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-19T13:48:01.05</DeliveryDate>
+      <Created>2014-09-18T13:48:28.26</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28611</OrderLineId>
+          <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10454</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>92</GoodsOwnerId>
+      <OrderId>16954</OrderId>
+      <GoodsOwnerOrderNumber>999888</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-08-03T00:00:00</DeliveryDate>
+      <Created>2014-09-18T13:56:21.537</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>10.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>3</NumberOfOrderLines>
+      <Transporter>Börjes Logistik &amp; Spedition</Transporter>
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28615</OrderLineId>
+          <OrderedNumberOfItems>3.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10432</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28616</OrderLineId>
+          <OrderedNumberOfItems>5.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10431</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28617</OrderLineId>
+          <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10430</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16956</OrderId>
+      <GoodsOwnerOrderNumber>0d48d973-2c3f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:08:10.307</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16958</OrderId>
+      <GoodsOwnerOrderNumber>88274315-2f3f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:27:36.72</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16959</OrderId>
+      <GoodsOwnerOrderNumber>a0021c58-2f3f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:29:37.84</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16961</OrderId>
+      <GoodsOwnerOrderNumber>4c96b170-313f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>1000</OrderPickability>
+      <OrderStatusNumber>150</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:44:44.467</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>0.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>0</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16962</OrderId>
+      <GoodsOwnerOrderNumber>53cd927d-323f-e411-bebe-c48508496dd9</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-19T14:51:22.59</DeliveryDate>
+      <Created>2014-09-18T14:52:16.26</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28645</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10455</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16963</OrderId>
+      <GoodsOwnerOrderNumber>f5a275f7-323f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:54:59.42</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28646</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10458</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16964</OrderId>
+      <GoodsOwnerOrderNumber>05809d0a-333f-e411-bebe-c48508496dd9</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-19T14:55:19.197</DeliveryDate>
+      <Created>2014-09-18T14:55:34.597</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28647</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10459</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16965</OrderId>
+      <GoodsOwnerOrderNumber>3e8d595c-333f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T14:57:50.443</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28648</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10456</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16966</OrderId>
+      <GoodsOwnerOrderNumber>840b7fc2-333f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T15:00:32.09</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28649</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10461</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16967</OrderId>
+      <GoodsOwnerOrderNumber>dcc05778-343f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T15:05:55.12</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>2.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>2</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28650</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10462</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28651</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10458</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
+    </BorjesDashBoardOrder>
+    <BorjesDashBoardOrder>
+      <GoodsOwnerId>88</GoodsOwnerId>
+      <OrderId>16968</OrderId>
+      <GoodsOwnerOrderNumber>d0872c69-353f-e411-bef1-c48508921bec</GoodsOwnerOrderNumber>
+      <OrderPickability>400</OrderPickability>
+      <OrderStatusNumber>200</OrderStatusNumber>
+      <DeliveryDate>2014-09-18T00:00:00</DeliveryDate>
+      <Created>2014-09-18T15:12:28.693</Created>
+      <CountryCode>SE</CountryCode>
+      <PickedNumberOfItems>0.000</PickedNumberOfItems>
+      <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+      <NumberOfOrderLines>1</NumberOfOrderLines>
+      <Transporter />
+      <NumberOfPickedOrderLines>0</NumberOfPickedOrderLines>
+      <OrderLines>
+        <BorjesDashBoardOrderLine>
+          <OrderLineId>28652</OrderLineId>
+          <OrderedNumberOfItems>1.000</OrderedNumberOfItems>
+          <Picked>0.000</Picked>
+          <LastPickingTime xsi:nil="true" />
+          <DoPick>true</DoPick>
+          <ArticleDefId>10462</ArticleDefId>
+          <IsStockArticle>true</IsStockArticle>
+          <ParentOrderLineId xsi:nil="true" />
+        </BorjesDashBoardOrderLine>
+      </OrderLines>
     </BorjesDashBoardOrder>	
    </Orders>
 </BorjesDashBoardInfo>

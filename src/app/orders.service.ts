@@ -43,7 +43,7 @@ export class OrdersService {
       let json;
 
       this.clearOrders() // rensar ordrar för att undvika duplicering
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHjMSMYgJNwK0PiMrh3-pBmYnXS4cks5a5w2EwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHn4Cib25rLkhnILxWsfwsu_ovIj2ks5a5xilwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        parseString(data, function(err, result) {
         if(err) {
