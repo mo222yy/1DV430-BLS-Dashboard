@@ -4,7 +4,15 @@
   <li class="customer" *ngFor="let customer of customers; let i = index">{{customer.customerName}}
     <div id="showCustomerDropdDown">
       <span id="index">{{i}}</span>
-      <br>
+      <button id="editCustomerButton" (click)="editCustomer(i)">Redigera kund</button>
+    </div>
+  </li>
+</ul>
+
+
+
+
+<!--       <br>
       <span id="customerName" class="showCustomers">Kund: {{customer.customerName}}</span>
       <br>
       <span id="customerId" class="showCustomers">Kund ID: {{customer.customerID}}</span>
@@ -23,16 +31,4 @@
       </span>
       <span id="comments" class="showCustomers">Övriga kommentarer: {{customer.cOcomments}}</span>
       <br>
-
-
-      <button id="editCustomerButton" (click)="editCustomer(i)">Redigera kund</button>
-
-    </div>
-  </li>
-
-</ul>
-
-<template id="customerForm">
-  <div id="customerForm">
-</div>
-</template>
+-->

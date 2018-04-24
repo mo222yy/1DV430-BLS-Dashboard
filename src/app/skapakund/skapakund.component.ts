@@ -34,6 +34,8 @@ export class SkapakundComponent{
   restOrders = []
   orderLines = []
 
+  sections = ['Solsidan', 'Dannes', 'Bong']
+
   constructor( private customerService: CustomerService,
                private router: Router) { }
 
@@ -63,7 +65,6 @@ newContact() {
 
 deleteContact(index) {
   this.contacts.splice(index, 1)
-  console.log(this.contacts)
 }
 
 
@@ -85,12 +86,13 @@ getCustomerName(name) {
   this.customerName = name.value
 }
 
+
 getCustomerId(Id) {
   this.customerId = Id.value
 }
 
 getSection(event) {
-  this.section = event.target.value
+  this.section = event.source._value
 }
 
 getFirstname(fn) {

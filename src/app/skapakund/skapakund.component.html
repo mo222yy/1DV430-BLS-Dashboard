@@ -1,301 +1,280 @@
 <div id="newCustomerForm">
-   <form #createCustomerForm="ngForm">
-      
 
-
-  <div id="leftColumn">
-  <!-- LeftColumn -->  
-  <!-- CustomerName  -->
-  <div class="form-group">
-  <label for="CustomerName">Kund</label>
-  <input 
-   required
-   minlength="3" 
-   ngModel
-   name="CustomerName" 
-   #CustomerName="ngModel" 
-   (change)="getCustomerName(CustomerName)" 
-   id="CustomerNames"
-   type="text" 
-   class="form-control">
-  <div 
-  class="alert alert-danger" 
-  *ngIf="CustomerName.touched && !CustomerName.valid">
-  <div *ngIf="CustomerName.errors.required">
-    Customername is required
-  </div>
-  <div *ngIf="CustomerName.errors.minlength">
-    Customername should be minimum {{ CustomerName.errors.minlength.requiredLength }} characters
-  </div>
-  </div>
-
-  </div>
-
-
-
-
-
-<!-- CustomerID -->
-<div class="form-group">
-    <label for="customerID">KundID</label>
-    <input 
-    required
-     minvalue="0"
-     minlength="2" 
-     maxlength="3" 
-     ngModel 
-     name="customerID" 
-     #customerID="ngModel" 
-     (change)="getCustomerId(customerID)" 
-     id="customerID" 
-     type="text" 
-     class="form-control">
-    <div class="alert alert-danger"
-    *ngIf="customerID.touched && !customerID.valid">
-    <div *ngIf="customerID.errors.required">
-      customerId is required
-    </div>
-    <div 
-      *ngIf="customerID.errors.minlength">
-      customerId should be {{ customerID.errors.minlength.requiredLength }} or 3 characters
-    </div>
-    </div>
-  </div>
-
-
-  <!-- SECTIONS -->
-  <div class="form-group" id="sections">
-    <label for="solsidan">Solsidan</label>
-    <input required
-     type="radio"
-     name="section" 
-     id="solsidan"
-     value="Solsidan"
-     (change)="getSection($event)">
-
-     <label for="dannes">Dannes</label>
-     <input required
-      type="radio"
-      name="section" 
-      id="dannes"
-      value="dannes"
-      (change)="getSection($event)">
-
-     <label for="bong">Bong</label>
-     <input required
-      type="radio"
-      name="section" 
-      id="bong"
-      value="bong"
-      (change)="getSection($event)">
-  </div>
-</div>
-
- <!-- MiddleColumn -->  
-<!-- Contacts -->
-<div id="middleColumn">
-      <p id="kontakter">Kontakt</p>
+    <h2>Skapa ny kund</h2>
+    <form #createCustomerForm="ngForm">
   
-      <!-- FirstName -->
-      <div class="form-group">
-      <label for="contactFirstName">Förnamn</label>
+      <div id="leftColumn">
+      <!-- LeftColumn -->  
+      <!-- CustomerName  -->
+      <mat-form-field class="form-group">
       <input 
+       matInput placeholder="Kundnamn"
+  
        required
-       minvalue="0" 
        minlength="3" 
-       maxlength="20" 
-       ngModel 
-       name="contactFirstName" 
-       #contactFirstName="ngModel" 
-       (change)="getFirstname(contactFirstName)" 
-       id="contactFirstName" 
+       ngModel
+       name="CustomerName" 
+       #CustomerName="ngModel" 
+       (change)="getCustomerName(CustomerName)" 
+       id="CustomerNames"
        type="text" 
        class="form-control">
-      <div class="alert alert-danger"
-       *ngIf="contactFirstName.touched && !contactFirstName.valid">
-      <div *ngIf="contactFirstName.errors.required">
-        contactFirstName is required
-      </div>
-      <div
-       *ngIf="contactFirstName.errors.minlength">
-       contactFirstName should be atleast {{ contactFirstName.errors.minlength.requiredLength }} characters
-      </div>
-      </div>
-      </div>
+       <mat-error *ngIf="CustomerName.touched && !CustomerName.valid ">
+        Fyll i kundnamn
+       <mat-error *ngIf="CustomerName.errors.minlength && !CustomerName.valid">
+          Ska bestå av minst {{ CustomerName.errors.minlength.requiredLength }} tecken
+        </mat-error>
   
-      <br>
-          <!-- LastName -->
-          <div class="form-group">
-          <label for="contactLastName">Efternamn</label>
-          <input
-           required 
-           minvalue="0" 
-           minlength="3" 
-           maxlength="20" 
-           ngModel 
-           name="contactLastName" 
-           #contactLastName="ngModel" 
-           (change)="getLastname(contactLastName)" 
-           id="contactLastName" 
-           type="text" 
-           class="form-control">
-          <div class="alert alert-danger"
-           *ngIf="contactLastName.touched && !contactLastName.valid">
-          <div 
-          *ngIf="contactLastName.errors.required">
-            contactLastName is required
-          </div>
-          <div 
-          *ngIf="contactLastName.errors.minlength">
-          contactLastName should be atleast {{ contactLastName.errors.minlength.requiredLength }} characters
-          </div>
-          </div>
-          </div>
-      
-          <!-- Phone -->
-          <div class="form-group">
-          <label for="contactPhone">Telefon</label>
-          <input
-           required 
-           minvalue="0"
-           minlength="6" 
-           maxlength="20" 
-           ngModel 
-           name="phone" 
-           #contactPhone="ngModel" 
-           (change)="getPhone(contactPhone)" 
-           id="contactPhone" 
-           type="text" 
-           class="form-control">
-          <div class="alert alert-danger"
-           *ngIf="contactPhone.touched && !contactPhone.valid">
-          <div 
-          *ngIf="contactPhone.errors.required">
-            phone is required
-          </div>
-          <div 
-          *ngIf="contactPhone.errors.minlength">
-            phone should be atleast {{ contactPhone.errors.minlength.requiredLength }} characters
-          </div>
-          </div>
-          </div>
+      </mat-error>
   
-          <br>
+    </mat-form-field>
   
-           <!-- Email -->
-           <div class="form-group">
-           <label for="contacteMail">Email</label>
-           <input
-            required 
-            minvalue="0" 
-            minlength="10" 
-            maxlength="20" 
-            ngModel 
-            name="contacteMail" 
-            #contacteMail="ngModel" 
-            (change)="getEmail(contacteMail)" 
-            id="contacteMail" 
-            type="text" 
-            class="form-control">
-           <div class="alert alert-danger"
-              *ngIf="contacteMail.touched && !contacteMail.valid">
-           <div 
-            *ngIf="contacteMail.errors.required">
-            eMail is required
-          </div>
-           <div
-            *ngIf="contacteMail.errors.minlength">
-            eMail should be atleast {{ contacteMail.errors.minlength.requiredLength }} characters
-            </div>
-           </div>
-           </div>
-           <button (click)="newContact()">Lägg till kontakt</button>
-  </div>  
-
-
-     <!--RightColumn-->
-  <!--Cutoffs-->
-<div id="rightColumn">
-      <p id="cutOffs">CutOffs</p>
-      <div class="form-group">
-      <label for="cutOffSv">Sverige</label>
-      <input
-       required
-       minlength="4" 
-       maxlength="4" 
-       ngModel name="cutOffSv" 
-       #cutOffSv="ngModel"
-       (change)="getSweden(cutOffSv)" 
-       id="cutOffSv"
-       type="text" 
-       class="form-control">
-      <div class="alert alert-danger"
-       *ngIf="cutOffSv.touched && !cutOffSv.valid">
-      <div
-       *ngIf="cutOffSv.errors.required">
-       Cutoff for sweden is required, format 1200
-      </div>
-      <div 
-      *ngIf="cutOffSv.errors.minlength">
-      Input example: 1200
+    
+    
+  
+  
+  
+    <!-- CustomerID -->
+    <mat-form-field class="form-group">
+        <input 
+        matInput 
+        placeholder="KundID"
+  
+        required
+         minvalue="0"
+         minlength="2" 
+         maxlength="3" 
+         ngModel 
+         name="customerID" 
+         #customerID="ngModel" 
+         (change)="getCustomerId(customerID)" 
+         id="customerID" 
+         type="text" 
+         class="form-control">
+        <mat-error *ngIf="customerID.touched && !customerID.valid">
+          Fyll i KundID, 2 eller 3 siffror
+        </mat-error>
+     
+    </mat-form-field>
+    
+    <br>  
+  
+      <!-- SECTIONS -->
+      <mat-radio-group class="sectionGroup">
+        <mat-radio-button class="sectionButton" *ngFor="let section of sections" [value]="section" (change)="getSection($event)">
+        <label id="{{section}}" >
+         {{section}}
+        </label>
+        </mat-radio-button>
+      </mat-radio-group>
     </div>
-  </div>
-  </div>
-
-  <div class="form-group">
-  <label for="cutOffAbroad">Utland</label>
-      <input 
-        minlength="4" 
-        maxlength="4" 
-        ngModel 
-        name="cutOffAbroad" 
-        #cutOffAbroad="ngModel"
-        (change)="getAbroad(cutOffAbroad)" 
- 
-        id="cutOffAbroad"
-        type="text" 
-        class="form-control">
-      <div class="alert alert-danger"
-       *ngIf="cutOffAbroad.touched && !cutOffAbroad.valid">
-      <div 
-        *ngIf="cutOffAbroad.errors.minlength">
-        Input should be: 1200</div>
-      </div>
-      </div>
-
-      <div class="form-group">
-      <label for="comments">Övriga kommentarer</label>
-      <textarea 
-      cols="40" 
-      rows="10"
-        id="comments"
-        ngModel 
-        name="comments" 
-        #comments="ngModel"
-        (change)="getComments(comments)"></textarea>
-        </div>
-  </div>
-
-
-  <div id="buttons">
-      <button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid">Spara kund</button>   
-      <button id="stepBackButton" class="stepBackButton" (click)="stepBack()">Tillbaka</button>
+  
+     <!-- MiddleColumn -->  
+    <!-- Contacts -->
+  <div id="middleColumn">
+          <!-- FirstName -->
+          <mat-form-field class="form-group">
+          <input 
+          matInput 
+          placeholder="Förnamn"
+  
+           required
+           minvalue="0" 
+           minlength="2" 
+           maxlength="20" 
+           ngModel 
+           name="contactFirstName" 
+           #contactFirstName="ngModel" 
+           (change)="getFirstname(contactFirstName)" 
+           id="contactFirstName" 
+           type="text" 
+           class="form-control">
+          <mat-error
+           *ngIf="contactFirstName.touched && !contactFirstName.valid">
+           Fyll i förnamn
+          <mat-error
+           *ngIf="contactFirstName.errors.minlength">
+           Förnamn ska innehålla minst {{ contactFirstName.errors.minlength.requiredLength }} bokstäver
+          </mat-error>
+        </mat-error>
+  
+      </mat-form-field>
+  
+          
+              <!-- LastName -->
+              <mat-form-field class="form-group">
+                  <input 
+                  matInput 
+                  placeholder="Efternamn"
+          
+                   required
+                   minvalue="0" 
+                   minlength="2" 
+                   maxlength="20" 
+                   ngModel 
+                   name="contactLastName" 
+                   #contactLastName="ngModel" 
+                   (change)="getLastname(contactLastName)" 
+                   id="contactLastName" 
+                   type="text" 
+                   class="form-control">
+                  <mat-error
+                   *ngIf="contactLastName.touched && !contactLastName.valid">
+                   Fyll i Efternamn
+                  <mat-error
+                   *ngIf="contactLastName.errors.minlength">
+                   Efternamn ska innehålla minst {{ contactLastName.errors.minlength.requiredLength }} bokstäver
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+          
+              <!-- Phone -->
+              <mat-form-field class="form-group">
+                  <input 
+                  matInput 
+                  placeholder="Telefon"
+          
+                   required
+                   minvalue="0" 
+                   minlength="10" 
+                   maxlength="10" 
+                   ngModel 
+                   name="phone" 
+                   #phone="ngModel" 
+                   (change)="getPhone(phone)" 
+                   id="phone" 
+                   type="text" 
+                   class="form-control">
+                  <mat-error
+                   *ngIf="phone.touched && !phone.valid">
+                  <mat-error
+                   *ngIf="phone.errors.minlength">
+                   Telefonnumret ska innehålla  {{ phone.errors.minlength.requiredLength }} siffror
+                  </mat-error>
+                </mat-error>
+              </mat-form-field>
+  
+                    <!-- Email -->
+                    <mat-form-field class="form-group">
+                        <input 
+                        matInput 
+                        placeholder="Email"
+                
+                         required
+                         minvalue="0" 
+                         minlength="5" 
+                         maxlength="30" 
+                         ngModel 
+                         name="eMail" 
+                         #eMail="ngModel" 
+                         (change)="getEmail(eMail)" 
+                         id="eMail" 
+                         type="text" 
+                         class="form-control">
+                        <mat-error
+                         *ngIf="eMail.touched && !eMail.valid">
+                        <mat-error
+                         *ngIf="eMail.errors.minlength">
+                          Fyll i email
+                        </mat-error>
+                      </mat-error>
+                    </mat-form-field>
+                    
+                    <br>
+            
+               <button mat-raised-button color="primary" (click)="newContact()" id="contactButton">Lägg till kontakt</button>
+  
       </div>  
-
-
-  <div id="contacts">
-    <ul>
-      <li class="contacts" *ngFor="let contact of contacts; let i = index">{{i+1}}.
-        <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
-        <span id="listLastname" class="listElement">{{contact.lastname}}</span>
-        <span id="listPhone" class="listElement">{{contact.phone}}</span>
-        <span id="listEmail" class="listElement">{{contact.eMail}}</span>
-        <button id="deleteContact" (click)="deleteContact(i)">X</button>
-      </li>
-    </ul>
+    
+  
+         <!--RightColumn-->
+      <!--Cutoffs-->
+  <div id="rightColumn">
+      <mat-form-field class="form-group">
+          <input 
+          matInput 
+          placeholder="Cut off Sverige"
+  
+           required
+           minvalue="0" 
+           minlength="4" 
+           maxlength="4" 
+           ngModel 
+           name="cOsv" 
+           #cOsv="ngModel" 
+           (change)="getSweden(cOsv)" 
+           id="cOsv" 
+           type="text" 
+           class="form-control">
+          <mat-error
+           *ngIf="cOsv.touched && !cOsv.valid">
+           Fyll i Cut off för svenska leveranser
+          <mat-error
+           *ngIf="cOsv.errors.minlength">
+            4 siffror. Exempel: 0930 
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+  
+    
+      <mat-form-field class="form-group">
+          <input 
+          matInput 
+          placeholder="Cut off Utomlands"
+  
+           required
+           minvalue="0" 
+           minlength="4" 
+           maxlength="4" 
+           ngModel 
+           name="cOab" 
+           #cOab="ngModel" 
+           (change)="getAbroad(cOab)" 
+           id="cOab" 
+           type="text" 
+           class="form-control">
+          <mat-error
+           *ngIf="cOab.touched && !cOab.valid">
+           Fyll i Cut off för utländska leveranser
+          <mat-error
+           *ngIf="cOab.errors.minlength">
+            4 siffror. Exempel: 0930 
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+  
+  
+      <mat-form-field class="form-group">
+          <textarea matInput placeholder="Övrigt om cut off" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+  
+  
+      </div>
+  
+  
+      <div id="buttons">
+  
+          <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
+          <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
+          <button mat-raised-button color="primary" (click)="deleteCustomer()" >Radera kund</button>
+  
+          </div>  
+  
+  
+      <div id="contacts">
+        <ul>
+          <li class="contacts" *ngFor="let contact of contacts; let i = index">{{i+1}}.
+            <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
+            <span id="listLastname" class="listElement">{{contact.lastname}}</span>
+            <span id="listPhone" class="listElement">{{contact.phone}}</span>
+            <span id="listEmail" class="listElement">{{contact.eMail}}</span>
+            <button id="deleteContact" (click)="deleteContact(i)">X</button>
+          </li>
+        </ul>
+      </div>
+  
+   
+  </form>  
+  
   </div>
-
-
-</form>  
-
-</div>

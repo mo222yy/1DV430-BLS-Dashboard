@@ -36,6 +36,7 @@ export class EditCustomerComponent implements OnInit {
   restOrders = []
   orderLines = []
 
+  sections = ['Solsidan', 'Dannes', 'Bong']
 
   constructor(private customerService: CustomerService,
               private router: Router) { }
@@ -50,7 +51,6 @@ export class EditCustomerComponent implements OnInit {
 
   deleteContact(index) {
     this.contacts.splice(index, 1)
-    console.log(this.contacts)
     this.customerService.setCustomers()
   }
 
@@ -147,7 +147,7 @@ export class EditCustomerComponent implements OnInit {
   }
   
   getSection(event) {
-    this.section = event.target.value
+    this.section = event.source._value
     console.log(this.section)
 
   }

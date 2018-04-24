@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../customer.service'
 import { SkapakundComponent } from '../skapakund/skapakund.component'
 import { Router } from '@angular/router';  
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @Component({
   selector: 'app-kunder',

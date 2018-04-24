@@ -69,3 +69,19 @@
     display:inline-block;
     border: 10px solid orange;
 }
+
+
+.sectionGroup {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.sectionButton {
+    margin: 5px;
+}
+
+.cn {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}

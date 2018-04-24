@@ -6,6 +6,13 @@ import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
 import { ReactiveFormsModule } from '@angular/forms'
 import { TransporterService } from './transporter.service'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -40,7 +47,13 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule
+
   ],
   providers: [OrdersService, CustomerService, TimeService, TransporterService],
   bootstrap: [AppComponent]
