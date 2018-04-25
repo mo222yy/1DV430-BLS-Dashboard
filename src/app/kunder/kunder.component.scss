@@ -1,4 +1,29 @@
+#blueList {
+    background-color: blue;
+    height: 60px;
+    text-align: center;
 
-.customer:hover + #showCustomerDropdDown {
-    visibility: hidden;
 }
+#blueListHeader {
+    color: white;
+    font-size: 36px;
+    text-align: center;
+}
+
+#newCustomerButton {
+    background-color:blue;
+    color:white;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.customerButton {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.customer button:hover {
+    background-color: blue;
+    color: white;
+}
+

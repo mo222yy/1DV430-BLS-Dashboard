@@ -1,34 +1,22 @@
 
 #menuList {
     width: 100%;
-    border-bottom: 2px solid blue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 80px;
 }
 
-#menuList a {
-    color: black;
-    text-decoration: none;
-    font-size: 150%;
-    padding: 20px;
-    height: 40px;
-}
 
-#menuList a:hover {
+#menuList button:hover {
     color: white;
     background-color: blue;
-    border-radius: 20px;
     height: 35%;
 }
 
-.navL {
-    float: left;
-    margin-left: 20px;
-}
 
 #pages {
     width: 35%;
     float: left;
+    margin-top: 25px;
 }
 
 #logga {
@@ -46,7 +34,6 @@
    font-size: 24px;
    height: 100%;
    width: 400px;
-   border: 1px solid black;
 }
 
 .dateDivLines {

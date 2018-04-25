@@ -37,6 +37,7 @@ export class EditCustomerComponent implements OnInit {
   orderLines = []
 
   sections = ['Solsidan', 'Dannes', 'Bong']
+  previousSection: string; //visar tidigare vald avdelning
 
   constructor(private customerService: CustomerService,
               private router: Router) { }
@@ -46,7 +47,11 @@ export class EditCustomerComponent implements OnInit {
     this.customers = this.customerService.customers
     this.getCustomerToEdit()
     this.customerToEdit = this.customerService.editCustomer
-    console.log(this.contacts)
+    this.firstname = undefined
+    this.lastname = undefined
+    this.phone = undefined
+    this.eMail = undefined
+    this.previousSection = this.customers[this.customerToEdit].section
   }
 
   deleteContact(index) {
@@ -80,10 +85,14 @@ export class EditCustomerComponent implements OnInit {
 
 
   newContact() {
+    if(this.firstname === undefined || this.lastname === undefined) {
+      return
+    }
     let customer = this.customerService.customers[this.customerToEdit]
     let newContact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail)
     customer.contacts.push(newContact)
     this.customerService.setCustomers()
+
   }
 
 
@@ -117,7 +126,7 @@ export class EditCustomerComponent implements OnInit {
 
     this.customerService.customers.splice(this.customerToEdit, 1, customer)
     this.customerService.setCustomers()
-  
+    
     this.router.navigate(['kunder'])
   }
   
@@ -184,7 +193,7 @@ export class EditCustomerComponent implements OnInit {
   
   getComments(cm) {
     this.cOcomments = cm.value
-    console.log(this.cOcomments)
+    console.log(cm)
   }
 
 }

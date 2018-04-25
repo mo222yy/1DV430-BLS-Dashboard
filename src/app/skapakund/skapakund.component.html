@@ -1,6 +1,8 @@
-<div id="newCustomerForm">
+<div id="blueList">
+    <span id="blueListHeader">Skapa kund</span>
+</div>
 
-    <h2>Skapa ny kund</h2>
+<div id="newCustomerForm">
     <form #createCustomerForm="ngForm">
   
       <div id="leftColumn">
@@ -182,8 +184,19 @@
                     
                     <br>
             
-               <button mat-raised-button color="primary" (click)="newContact()" id="contactButton">Lägg till kontakt</button>
+               <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
   
+               <mat-list role="list" *ngFor="let contact of contacts; let i = index">
+                  <mat-list-item role="listitem">
+                      <span id="contactNumber" class="listElement">{{i+1}}. </span>
+                      <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
+                      <span id="listLastname" class="listElement">{{contact.lastname}}</span>
+                      <span id="listPhone" class="listElement">{{contact.phone}}</span>
+                      <span id="listEmail" class="listElement">{{contact.eMail}}</span>
+                      <button mat-mini-fab color="primary"(click)="deleteContact(i)" id="contactDeleteButton">X</button>
+                    </mat-list-item>
+              </mat-list>
+      
       </div>  
     
   
@@ -246,7 +259,13 @@
   
       <mat-form-field class="form-group">
           <textarea matInput placeholder="Övrigt om cut off" matTextareaAutosize matAutosizeMinRows="2"
-                    matAutosizeMaxRows="5"></textarea>
+                    matAutosizeMaxRows="5"
+                    id="comments"
+                    ngModel 
+                    name="comments" 
+                    #comments="ngModel"
+                    (change)="getComments(comments)"
+                    ></textarea>
         </mat-form-field>
   
   
@@ -254,27 +273,10 @@
   
   
       <div id="buttons">
-  
-          <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
           <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-          <button mat-raised-button color="primary" (click)="deleteCustomer()" >Radera kund</button>
-  
-          </div>  
-  
-  
-      <div id="contacts">
-        <ul>
-          <li class="contacts" *ngFor="let contact of contacts; let i = index">{{i+1}}.
-            <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
-            <span id="listLastname" class="listElement">{{contact.lastname}}</span>
-            <span id="listPhone" class="listElement">{{contact.phone}}</span>
-            <span id="listEmail" class="listElement">{{contact.eMail}}</span>
-            <button id="deleteContact" (click)="deleteContact(i)">X</button>
-          </li>
-        </ul>
-      </div>
-  
-   
+          <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
+
+        </div>  
   </form>  
   
   </div>

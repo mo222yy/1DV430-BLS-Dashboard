@@ -1,14 +1,17 @@
-<div id="newCustomerForm">
+<div id="blueList">
+    <span id="blueListHeader">Redigera {{customerName}}</span>
+</div>
 
-  <h2>Redigera {{customerName}}</h2>
+<div id="newCustomerForm">
   <form>
 
     <div id="leftColumn">
     <!-- LeftColumn -->  
     <!-- CustomerName  -->
+    
     <mat-form-field class="form-group">
     <input 
-     matInput placeholder="Kundnamn"
+     matInput placeholder="{{customerName}}"
 
      required
      minlength="3" 
@@ -38,7 +41,7 @@
   <mat-form-field class="form-group">
       <input 
       matInput 
-      placeholder="KundID"
+      placeholder="{{customerId}}"
 
       required
        minvalue="0"
@@ -67,9 +70,14 @@
       </label>
       </mat-radio-button>
     </mat-radio-group>
+    <p id="currentSection">Tidigare vald avdelning: {{previousSection}}</p>
   </div>
 
-   <!-- MiddleColumn -->  
+
+
+  <!-- MiddleColumn -->  
+
+
   <!-- Contacts -->
 <div id="middleColumn">
         <!-- FirstName -->
@@ -182,8 +190,18 @@
                   
                   <br>
           
-             <button mat-raised-button color="primary" (click)="newContact()" id="contactButton">Lägg till kontakt</button>
+             <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
 
+             <mat-list role="list" *ngFor="let contact of contacts; let i = index">
+                <mat-list-item role="listitem" class="li">
+                    <span id="contactNumber" class="listElement">{{i+1}}. </span>
+                    <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
+                    <span id="listLastname" class="listElement">{{contact.lastname}}</span>
+                    <span id="listPhone" class="listElement">{{contact.phone}}</span>
+                    <span id="listEmail" class="listElement">{{contact.eMail}}</span>
+                    <button mat-mini-fab color="primary"(click)="deleteContact(i)" class="listElement" id="contactDeleteButton">X</button>
+                  </mat-list-item>
+            </mat-list>
     </div>  
   
 
@@ -193,8 +211,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="Cut off Sverige"
-
+        placeholder="{{cOsweden}}"
          required
          minvalue="0" 
          minlength="4" 
@@ -206,6 +223,7 @@
          id="cOsv" 
          type="text" 
          class="form-control">
+         <mat-hint align="end">Cut off sverige</mat-hint>
         <mat-error
          *ngIf="cOsv.touched && !cOsv.valid">
          Fyll i Cut off för svenska leveranser
@@ -220,7 +238,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="Cut off Utomlands"
+        placeholder="{{cOabroad}}"
 
          required
          minvalue="0" 
@@ -233,6 +251,8 @@
          id="cOab" 
          type="text" 
          class="form-control">
+         <mat-hint align="end">Cut off utomlands</mat-hint>
+
         <mat-error
          *ngIf="cOab.touched && !cOab.valid">
          Fyll i Cut off för utländska leveranser
@@ -245,8 +265,19 @@
 
 
     <mat-form-field class="form-group">
-        <textarea matInput placeholder="Övrigt om cut off" matTextareaAutosize matAutosizeMinRows="2"
-                  matAutosizeMaxRows="5"></textarea>
+        <textarea matInput
+                placeholder="Övrigt om cut off"
+                name="comments"
+                matTextareaAutosize matAutosizeMinRows="2"
+                matAutosizeMaxRows="5"
+                id="comments"
+                ngModel 
+                name="comments" 
+                #comments="ngModel"
+                (change)="getComments(comments)"
+                >
+                {{cOcomments}}
+              </textarea>
       </mat-form-field>
 
 
@@ -254,25 +285,12 @@
 
 
     <div id="buttons">
-
-        <button mat-raised-button color="primary" (click)="onSubmit()" >Spara kund</button>
-        <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
         <button mat-raised-button color="primary" (click)="deleteCustomer()" >Radera kund</button>
+        <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" >Spara kund</button>
 
-        </div>  
+     </div>  
 
-
-    <div id="contacts">
-      <ul>
-        <li class="contacts" *ngFor="let contact of contacts; let i = index">{{i+1}}.
-          <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
-          <span id="listLastname" class="listElement">{{contact.lastname}}</span>
-          <span id="listPhone" class="listElement">{{contact.phone}}</span>
-          <span id="listEmail" class="listElement">{{contact.eMail}}</span>
-          <button id="deleteContact" (click)="deleteContact(i)">X</button>
-        </li>
-      </ul>
-    </div>
 
  
 </form>  

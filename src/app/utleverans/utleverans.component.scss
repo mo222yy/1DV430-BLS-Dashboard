@@ -1,32 +1,31 @@
 #sectionTransporter {
-    height: 100px;
+    height: 60px;
     width: 100%;
     background-color: blue;
     color:black;
     border-radius: 5px;
     font-size:24px;
     display:inline-block;
-
 }
 
 #sections {
  float:left;
  width: 30%;
  color: white;
- margin-top: 40px;   
+ margin-top: 20px;   
 }
 
 #sectionHeader {
     text-align: center;
     margin-left: 5%;
+    margin-top: 8px;
     float:left;
     width: 30%;
-    font-size: 72px;
+    font-size: 36px;
     color: white;
 }
 
 #nextPickup {
-    border: 2px solid black;
     float:right;
     width:35%;
 }
@@ -34,6 +33,7 @@
 .pickUpTime {
     float: right;
     color:white;
+    margin-top: -15px;
 }
 
 #nextPickUpTime {
@@ -52,8 +52,9 @@
 }
 
 #transporterImage {
-    height: 80px;
-    width: 100px
+    height: 61px;
+    width: 80px;
+    margin-top: -6px;
 }
 
 #orderOverview {

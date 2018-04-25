@@ -54,7 +54,6 @@ let customer = this.customerService.customer(
   this.orderLines = []
 )
 this.router.navigate(['kunder'])
-
 }
 
 
@@ -121,6 +120,7 @@ getAbroad(ab) {
 
 getComments(cm) {
   this.cOcomments = cm.value
+  console.log(cm.value)
 }
 
 

@@ -1,5 +1,22 @@
-<h1>works</h1>
-<button id="createCustomerButton" (click)="createCustomer()">Ny kund</button>
+<div id="blueList">
+    <span id="blueListHeader">Kunder</span>
+</div>
+
+<button mat-raised-button id="newCustomerButton" (click)="createCustomer()">Skapa kund</button>
+
+
+
+<mat-list class="customer" *ngFor="let customer of customers; let i = index">
+    <button mat-raised-button  class="customerButton">{{customer.customerName}}</button>
+    <button class="editButton" (click)="editCustomer(i)" >+</button>
+
+
+   </mat-list>
+
+
+
+
+<!-- 
 <ul>
   <li class="customer" *ngFor="let customer of customers; let i = index">{{customer.customerName}}
     <div id="showCustomerDropdDown">
@@ -12,7 +29,7 @@
 
 
 
-<!--       <br>
+      <br>
       <span id="customerName" class="showCustomers">Kund: {{customer.customerName}}</span>
       <br>
       <span id="customerId" class="showCustomers">Kund ID: {{customer.customerID}}</span>
