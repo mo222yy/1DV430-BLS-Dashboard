@@ -34,7 +34,7 @@ export class SkapakundComponent{
   restOrders = []
   orderLines = []
 
-  sections = ['Solsidan', 'Dannes', 'Bong']
+  sections = ['solsidan', 'dannes', 'bong']
 
   constructor( private customerService: CustomerService,
                private router: Router) { }
@@ -53,6 +53,7 @@ let customer = this.customerService.customer(
   this.restOrders = [],
   this.orderLines = []
 )
+console.log(customer)
 this.router.navigate(['kunder'])
 }
 
@@ -92,6 +93,8 @@ getCustomerId(Id) {
 
 getSection(event) {
   this.section = event.source._value
+  console.log(event)
+  console.log('this', this.section)
 }
 
 getFirstname(fn) {

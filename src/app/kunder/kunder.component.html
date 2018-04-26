@@ -1,18 +1,79 @@
 <div id="blueList">
     <span id="blueListHeader">Kunder</span>
+    <button mat-raised-button id="newCustomerButton" (click)="createCustomer()">Skapa kund</button>
+
 </div>
 
-<button mat-raised-button id="newCustomerButton" (click)="createCustomer()">Skapa kund</button>
+
+<div id="allLists">
+
+<div id="solsidan">
+  <p class="sectionHeader">Solsidan</p>
+<mat-accordion>
+  <mat-list class="customer" *ngFor="let customer of solsidan; let i = index">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         class="panels">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="customerName">
+            {{customer.customerName}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span class="expansionContactFirstName">{{customer.customerName}}</span>
+      <button class="editButton" (click)="editCustomer(i)" >+</button>
+    </mat-expansion-panel>
+  </mat-list>
+</mat-accordion>
+</div>
+
+<div id="dannes">
+    <p class="sectionHeader">Dannes</p>
+    <mat-accordion>
+      <mat-list class="customer" *ngFor="let customer of dannes; let i = index">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+              <mat-panel-title class="customerName">
+                  {{customer.customerName}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <span class="expansionContactFirstName">{{customer.customerName}}</span>
+          <span class="expansionContactFirstName">{{customer.customerName}}</span>
+        </mat-expansion-panel>
+      </mat-list>
+    </mat-accordion>
+    </div>
+    
+
+    <div id="bong">
+        <p class="sectionHeader">Bong</p>
+        <mat-accordion>
+          <mat-list class="customer" *ngFor="let customer of bong; let i = index">
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="customerName">
+                  {{customer.customerName}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <span class="expansionContactFirstName">{{customer.customerName}}</span>
+              <span class="expansionContactFirstName">{{customer.customerName}}</span>
+            </mat-expansion-panel>
+          </mat-list>
+        </mat-accordion>
+    </div>
+  </div>
 
 
 
+<!--
 <mat-list class="customer" *ngFor="let customer of customers; let i = index">
     <button mat-raised-button  class="customerButton">{{customer.customerName}}</button>
     <button class="editButton" (click)="editCustomer(i)" >+</button>
 
 
    </mat-list>
-
+-->
 
 
 

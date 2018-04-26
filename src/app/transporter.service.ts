@@ -26,9 +26,9 @@ export class TransporterService {
 
 
   getNextPickUp() {
-    let bring = this.Transporter('Bring', 1800, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/Bring.png?token=Ad3tHouWvaf_O3mHFnvwgtX7OZs716Cbks5a4iYxwA%3D%3D' )
-    let schenker = this.Transporter('Schenker', 1600, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHkNO96yzJdcp3B62nzo0RR9jZgKKks5a37B6wA%3D%3D')
-    let ups = this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHhvdjd2SUVK4XN8F2hSHejOA9BKOks5a36IKwA%3D%3D')
+    let bring = this.Transporter('Bring', 1800, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/Bring.png?token=Ad3tHszP-ki1jJ2PIVvF_1HRBAn0QjHpks5a6vPPwA%3D%3D' )
+    let schenker = this.Transporter('Schenker', 1600, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHi8L2NumWj9hv3wqQ014dyhFpcEZks5a6vQTwA%3D%3D')
+    let ups = this.Transporter('UPS', 1400, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHp4Chg8etij0wWq4tG4RW1zI7Uxlks5a6vSKwA%3D%3D')
     let dhl = this.Transporter('DHL', 1200, 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/dhl.png?token=Ad3tHulukBZrPuJzG0wtov-yHRPa-Calks5a4iX-wA%3D%3D' )
     //clear arrays
     this.nextTransport = []

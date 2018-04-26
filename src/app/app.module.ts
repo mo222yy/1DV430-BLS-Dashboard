@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -57,7 +57,8 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     MatInputModule,
     MatButtonModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule
 
   ],
   providers: [OrdersService, CustomerService, TimeService, TransporterService],

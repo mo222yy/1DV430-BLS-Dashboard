@@ -11,10 +11,9 @@
 }
 
 #newCustomerButton {
-    background-color:blue;
-    color:white;
-    margin-top: 20px;
-    margin-left: 20px;
+    color:black;
+  
+    float: right;
 }
 
 .customerButton {
@@ -27,3 +26,26 @@
     color: white;
 }
 
+#allLists {
+    margin-top: 5px;
+}
+
+#solsidan {
+    width: 33%;
+    float:left;
+}
+
+
+#dannes {
+    width: 33%;
+    float:left;
+}
+
+#bong {
+    width: 33%;
+    float:left;
+}
+
+.customerName {
+    margin-left: 45%;
+}

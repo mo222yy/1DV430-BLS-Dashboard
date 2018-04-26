@@ -36,7 +36,7 @@ export class EditCustomerComponent implements OnInit {
   restOrders = []
   orderLines = []
 
-  sections = ['Solsidan', 'Dannes', 'Bong']
+  sections = ['solsidan', 'dannes', 'bong']
   previousSection: string; //visar tidigare vald avdelning
 
   constructor(private customerService: CustomerService,

@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CustomerService {
   customers = []
+
+  solsidan = []
+  dannes = []
+  bong = []
   
   editCustomer: number; // index number
 
@@ -12,7 +16,7 @@ export class CustomerService {
 
   customer(customerName, customerID, section, contacts, cOsweden, cOabroad, cOcomments, openOrders, abroadOrders, restOrders, orderLines) {
 
-    this.customers.push({
+    let customer = this.customers.push({
     customerName: customerName,
     customerID: customerID,
     section: section,
@@ -44,5 +48,18 @@ export class CustomerService {
     })
     this.customers = customers
 
+    //Lägg till i section arrays
+    this.solsidan = []
+    this.dannes = []
+    this.bong = []
+    customers.forEach(el => {
+      if(el.section === 'solsidan') {
+        this.solsidan.push(el)
+      } else if (el.section === 'dannes') {
+        this.dannes.push(el)
+      } else if (el.section === 'bong') {
+        this.bong.push(el)
+      }
+    })
   }
 }
