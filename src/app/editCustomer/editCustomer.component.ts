@@ -10,21 +10,19 @@ import { Router } from '@angular/router';
 })
 export class EditCustomerComponent implements OnInit {
   customers = []
-  customerToEdit: number; //index number
+  customer;
+  
 
   //Skapa kund
-  customerName: string;
+  customerName: string
   customerId: string;
   section: string;
   contacts = []
-
-
   //for contacts
   firstname: string;
   lastname: string;
   phone: string;
   eMail: string;
-
   //for cutOffs
   cOsweden: string;
   cOabroad: string;
@@ -43,42 +41,26 @@ export class EditCustomerComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.customerService.getCustomers() // hämta kunder
-    this.customers = this.customerService.customers
-    this.getCustomerToEdit()
-    this.customerToEdit = this.customerService.editCustomer
-    this.firstname = undefined
-    this.lastname = undefined
-    this.phone = undefined
-    this.eMail = undefined
-    this.previousSection = this.customers[this.customerToEdit].section
+    this.customer = this.customerService.editCustomer
+    this.getPreviousValues()
+    
   }
 
   deleteContact(index) {
-    this.contacts.splice(index, 1)
+    this.customer.contacts.splice(index, 1)
     this.customerService.setCustomers()
   }
 
 
-  getCustomerToEdit() {
-    let customers = this.customerService.customers // customer Array
-    let customer = this.customerService.editCustomer // index number
-
-    this.customerName = customers[customer].customerName
-    this.customerId = customers[customer].customerID
-    
-    this.contacts = customers[customer].contacts
-
-    if(customers[customer].contacts.length !== 0) {
-    this.firstname = customers[customer].contacts[0].firstname
-    this.lastname = customers[customer].contacts[0].lastname
-    this.phone = customers[customer].contacts[0].phone
-    this.eMail = customers[customer].contacts[0].eMail
-  }
-
-    this.cOsweden = customers[customer].cOsweden
-    this.cOabroad = customers[customer].cOabroad
-    this.cOcomments = customers[customer].cOcomments
+  //tilldela värden så att orörda fält sparas till det gamla värdet
+  getPreviousValues() {
+    this.customerName = this.customer.customerName
+    this.customerId = this.customer.customerId
+    this.section = this.customer.section
+    this.contacts = this.customer.contacts
+    this.cOsweden = this.customer.cOsweden
+    this.cOabroad = this.customer.cOabroad
+    this.cOcomments = this.customer.cOcomments
   }
 
 
@@ -88,9 +70,9 @@ export class EditCustomerComponent implements OnInit {
     if(this.firstname === undefined || this.lastname === undefined) {
       return
     }
-    let customer = this.customerService.customers[this.customerToEdit]
+    let customer = this.customer.contacts
     let newContact = this.createContact(this.firstname, this.lastname, this.phone, this.eMail)
-    customer.contacts.push(newContact)
+    this.customer.contacts.push(newContact)
     this.customerService.setCustomers()
 
   }
@@ -98,35 +80,37 @@ export class EditCustomerComponent implements OnInit {
 
 
   deleteCustomer() {
+    let count = 0;
     this.router.navigate(['kunder'])
-
-    //använd dig av customerService som mellanhand
-    let index = this.customerService.editCustomer
-    this.customerService.customers.splice(index, 1)
-    this.customerService.setCustomers()
-    this.customers = this.customerService.customers
-
-    console.log(index)
-    console.log(this.customerService.customers)
-    console.log(this.customers)
+    this.customerService.customers.forEach(customer => {
+      if (customer.customerName === this.customer.customerName) {
+        this.customerService.customers.splice(count, 1)
+        this.customerService.setCustomers()
+      }
+      count++
+    })
   }
 
 
 
  
   onSubmit() {
-    let customer = this.customerService.customers[this.customerService.editCustomer]
-    customer.customerName = this.customerName
-    customer.customerID = this.customerId
-    customer.section = this.section
+    let count = 0;
+    this.customerService.customers.forEach( customer => {
+      if (customer.customerName === this.customer.customerName) {
+        customer.customerName = this.customerName
+        customer.customerID = this.customerId
+        customer.section = this.section
+        customer.contacts = this.contacts
+        customer.cOsweden = this.cOsweden
+        customer.cOabroad = this.cOabroad
+        customer.cOcomments = this.cOcomments
+        this.customerService.customers.splice(count, 1, customer)
+        this.customerService.setCustomers()
+      }
+      count++
+    })
 
-    customer.cOsweden = this.cOsweden
-    customer.cOabroad = this.cOabroad
-    customer.cOcomments = this.cOcomments
-
-    this.customerService.customers.splice(this.customerToEdit, 1, customer)
-    this.customerService.setCustomers()
-    
     this.router.navigate(['kunder'])
   }
   
@@ -145,8 +129,7 @@ export class EditCustomerComponent implements OnInit {
   
 
   getCustomerName(name) {
-    this.customerName = name.viewModel
-    console.log(this.customerName)
+    this.customerName = name.value
   }
   
   

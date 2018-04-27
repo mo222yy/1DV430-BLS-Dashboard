@@ -60,7 +60,7 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-04-26T"+ date[1]
+         let today = "2018-04-27T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
        console.log(orders)

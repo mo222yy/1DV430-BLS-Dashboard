@@ -53,7 +53,6 @@ let customer = this.customerService.customer(
   this.restOrders = [],
   this.orderLines = []
 )
-console.log(customer)
 this.router.navigate(['kunder'])
 }
 
@@ -93,8 +92,6 @@ getCustomerId(Id) {
 
 getSection(event) {
   this.section = event.source._value
-  console.log(event)
-  console.log('this', this.section)
 }
 
 getFirstname(fn) {
@@ -123,7 +120,6 @@ getAbroad(ab) {
 
 getComments(cm) {
   this.cOcomments = cm.value
-  console.log(cm.value)
 }
 
 

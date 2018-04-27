@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CustomerService {
   customers = []
+  index: number = 0;
 
   solsidan = []
   dannes = []
   bong = []
   
-  editCustomer: number; // index number
+  editCustomer;
 
   constructor() { }
 
@@ -27,8 +28,10 @@ export class CustomerService {
     openOrders: openOrders,
     abroadOrders: abroadOrders,
     restOrders: restOrders,
-    orderLines: orderLines
+    orderLines: orderLines,
+    index: this.index 
     })
+    this.index++
     console.log('kund skapad', this.customers[this.customers.length-1])
     //Save to localstorage
     localStorage.setItem("savedCustomers", JSON.stringify(this.customers))

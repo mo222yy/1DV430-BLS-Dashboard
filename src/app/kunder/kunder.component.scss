@@ -12,29 +12,25 @@
 
 #newCustomerButton {
     color:black;
-  
-    float: right;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+
 }
 
-.customerButton {
-    width: 200px;
-    margin-top: 20px;
-}
-
-.customer button:hover {
-    background-color: blue;
-    color: white;
-}
 
 #allLists {
     margin-top: 5px;
+    
 }
 
 #solsidan {
     width: 33%;
     float:left;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
 }
-
 
 #dannes {
     width: 33%;
@@ -46,6 +42,40 @@
     float:left;
 }
 
-.customerName {
-    margin-left: 45%;
+#customerName {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 200;
+    text-decoration: underline;
+}
+
+.editButton {
+    float:right;
+}
+
+.contactListItem {
+    margin-right: 5px;
+    text-align: center;
+}
+
+.contactListItem span {
+    margin-right: 20px;
+}
+
+
+.cutoffs {
+    width: 100%;
+    text-align: left;
+}
+
+.subHeader {
+    text-align: center;
+    margin-right: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cop {
+    font-weight: bold;
 }

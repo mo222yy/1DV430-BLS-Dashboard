@@ -33,8 +33,15 @@ export class KunderComponent implements OnInit {
     this.customers = this.CustomerService.customers
   }
 
-  editCustomer(ev) {
-    this.CustomerService.editCustomer = ev
+  editCustomer(customerName) {
+    console.log(customerName)
+    this.CustomerService.customers.forEach(customer => {
+      if (customer.customerName === customerName) {
+        this.CustomerService.editCustomer = customer
+      }
+    })
+    
+    //this.CustomerService.editCustomer = ev
     this.router.navigate(['editCustomer'])
   }
 

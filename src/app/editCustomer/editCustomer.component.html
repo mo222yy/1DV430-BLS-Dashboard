@@ -1,5 +1,5 @@
 <div id="blueList">
-    <span id="blueListHeader">Redigera {{customerName}}</span>
+    <span id="blueListHeader">Redigera {{customer.customerName}}</span>
 </div>
 
 <div id="newCustomerForm">
@@ -11,7 +11,7 @@
     
     <mat-form-field class="form-group">
     <input 
-     matInput placeholder="{{customerName}}"
+     matInput placeholder="{{customer.customerName}}"
 
      required
      minlength="3" 
@@ -41,7 +41,7 @@
   <mat-form-field class="form-group">
       <input 
       matInput 
-      placeholder="{{customerId}}"
+      placeholder="{{customer.customerID}}"
 
       required
        minvalue="0"
@@ -70,7 +70,7 @@
       </label>
       </mat-radio-button>
     </mat-radio-group>
-    <p id="currentSection">Tidigare vald avdelning: {{previousSection}}</p>
+    <p id="currentSection">Tidigare vald avdelning: {{customer.section}}</p>
   </div>
 
 
@@ -192,7 +192,7 @@
           
              <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
 
-             <mat-list role="list" *ngFor="let contact of contacts; let i = index">
+             <mat-list role="list" *ngFor="let contact of customer.contacts; let i = index">
                 <mat-list-item role="listitem" class="li">
                     <span id="contactNumber" class="listElement">{{i+1}}. </span>
                     <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
@@ -211,7 +211,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="{{cOsweden}}"
+        placeholder="{{customer.cOsweden}}"
          required
          minvalue="0" 
          minlength="4" 
@@ -238,7 +238,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="{{cOabroad}}"
+        placeholder="{{customer.cOabroad}}"
 
          required
          minvalue="0" 

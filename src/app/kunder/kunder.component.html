@@ -10,103 +10,45 @@
 <div id="solsidan">
   <p class="sectionHeader">Solsidan</p>
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of solsidan; let i = index">
+  <mat-list class="customer" *ngFor="let customer of customers">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">
-      <mat-expansion-panel-header>
-        <mat-panel-title class="customerName">
+    
+       <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div id="customerName">
             {{customer.customerName}}
+          </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <span class="expansionContactFirstName">{{customer.customerName}}</span>
-      <button class="editButton" (click)="editCustomer(i)" >+</button>
+      <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
+      <p class="subHeader">Kontakter</p>
+      <!--KONTAKTLISTA-->
+      <mat-list class="contactList" *ngFor="let contact of customer.contacts">
+        <mat-list-item class="contactListItem">
+          <span class="customerFirstname">{{contact.firstname}}</span>
+          <span class="customerLastname">{{contact.lastname}}</span>
+          <span class="customerPhone">{{contact.phone}}</span>
+          <span class="customerEmail">{{contact.eMail}}</span>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+
+      <div class="cutoffs">
+        <p class="subHeader">Cut offs</p>
+        <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
+        <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
+        <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
+      </div>  
+
+
+
     </mat-expansion-panel>
   </mat-list>
 </mat-accordion>
 </div>
 
-<div id="dannes">
-    <p class="sectionHeader">Dannes</p>
-    <mat-accordion>
-      <mat-list class="customer" *ngFor="let customer of dannes; let i = index">
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-              <mat-panel-title class="customerName">
-                  {{customer.customerName}}
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <span class="expansionContactFirstName">{{customer.customerName}}</span>
-          <span class="expansionContactFirstName">{{customer.customerName}}</span>
-        </mat-expansion-panel>
-      </mat-list>
-    </mat-accordion>
-    </div>
-    
-
-    <div id="bong">
-        <p class="sectionHeader">Bong</p>
-        <mat-accordion>
-          <mat-list class="customer" *ngFor="let customer of bong; let i = index">
-            <mat-expansion-panel (opened)="panelOpenState = true"
-                                 (closed)="panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title class="customerName">
-                  {{customer.customerName}}
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <span class="expansionContactFirstName">{{customer.customerName}}</span>
-              <span class="expansionContactFirstName">{{customer.customerName}}</span>
-            </mat-expansion-panel>
-          </mat-list>
-        </mat-accordion>
-    </div>
-  </div>
 
 
-
-<!--
-<mat-list class="customer" *ngFor="let customer of customers; let i = index">
-    <button mat-raised-button  class="customerButton">{{customer.customerName}}</button>
-    <button class="editButton" (click)="editCustomer(i)" >+</button>
-
-
-   </mat-list>
--->
-
-
-
-<!-- 
-<ul>
-  <li class="customer" *ngFor="let customer of customers; let i = index">{{customer.customerName}}
-    <div id="showCustomerDropdDown">
-      <span id="index">{{i}}</span>
-      <button id="editCustomerButton" (click)="editCustomer(i)">Redigera kund</button>
-    </div>
-  </li>
-</ul>
-
-
-
-
-      <br>
-      <span id="customerName" class="showCustomers">Kund: {{customer.customerName}}</span>
-      <br>
-      <span id="customerId" class="showCustomers">Kund ID: {{customer.customerID}}</span>
-      <br>
-      <span id="section" class="showCustomers">Avdelning: {{customer.section}}</span>
-      <br>
-      <span id="cOsweden" class="showCustomers">CutOff sverige: {{customer.cOsweden}}</span>
-      <br>
-      <span id="cOabroad" class="showCustomers">CutOff utland: {{customer.cOabroad}}</span>
-      <br>
-      <span id="firstname" class="showCustomers" *ngFor="let contact of customer.contacts; let j = index">Kontakt {{j}} Förnamn:{{contact.firstname}}
-      <span id="lastname" class="showCustomers">Efternamn: {{contact.lastname}}</span>
-      <span id="phone" class="showCustomers">Telefon: {{contact.phone}}</span>
-      <span id="eMail" class="shoCustomers">Email: {{contact.eMail}}</span>
-      <br>
-      </span>
-      <span id="comments" class="showCustomers">Övriga kommentarer: {{customer.cOcomments}}</span>
-      <br>
--->
+</div> <!--All lists-->
