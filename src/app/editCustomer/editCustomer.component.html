@@ -199,7 +199,7 @@
                     <span id="listLastname" class="listElement">{{contact.lastname}}</span>
                     <span id="listPhone" class="listElement">{{contact.phone}}</span>
                     <span id="listEmail" class="listElement">{{contact.eMail}}</span>
-                    <button mat-mini-fab color="warn" id="contactDeleteButton">X</button>
+                    <button mat-mini-fab color="warn" id="contactDeleteButton" (click)="deleteContact(i)">X</button>
                     <mat-divider></mat-divider>
                   </mat-list-item>
             </mat-list>
