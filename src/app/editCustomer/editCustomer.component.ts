@@ -55,7 +55,7 @@ export class EditCustomerComponent implements OnInit {
   //tilldela värden så att orörda fält sparas till det gamla värdet
   getPreviousValues() {
     this.customerName = this.customer.customerName
-    this.customerId = this.customer.customerId
+    this.customerId = this.customer.customerID
     this.section = this.customer.section
     this.contacts = this.customer.contacts
     this.cOsweden = this.customer.cOsweden

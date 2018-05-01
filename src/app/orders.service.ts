@@ -43,7 +43,7 @@ export class OrdersService {
       let json;
 
       this.clearOrders() // rensar ordrar för att undvika duplicering
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHn4Cib25rLkhnILxWsfwsu_ovIj2ks5a5xilwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHj77oq0MVBHnOEwoEPp_1XixP6B-ks5a8F6UwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        parseString(data, function(err, result) {
         if(err) {
@@ -60,7 +60,7 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-04-27T"+ date[1]
+         let today = "2018-05-01T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
        console.log(orders)
@@ -177,9 +177,11 @@ export class OrdersService {
      */
     setCustomerList() {
       this.customerList = this.customers.filter(el => el.openOrders.length > 0)
+   
       this.customerList.sort(function(a,b){
         return b.openOrders.length - a.openOrders.length
-      })  
+      })
+     
     }
 
     //rensar alla orderArrays i kundobjekten

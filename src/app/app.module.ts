@@ -16,6 +16,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+
+
 
 
 
@@ -30,7 +36,9 @@ import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
 import { SkapakundComponent } from './skapakund/skapakund.component';
 import { FormsModule } from '@angular/forms';
-import { EditCustomerComponent } from './editCustomer/editCustomer.component'
+import { EditCustomerComponent } from './editCustomer/editCustomer.component';
+import { ClockComponent } from './clock/clock.component'
+
 
 @NgModule({
   declarations: [
@@ -43,6 +51,7 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     KunderComponent,
     SkapakundComponent,
     EditCustomerComponent,
+    ClockComponent,
 
   ],
   imports: [
@@ -58,7 +67,12 @@ import { EditCustomerComponent } from './editCustomer/editCustomer.component'
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatTableModule,
+    MatSortModule
+    
 
   ],
   providers: [OrdersService, CustomerService, TimeService, TransporterService],

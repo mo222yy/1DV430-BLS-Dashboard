@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
 import { TransporterService } from '../transporter.service'
+import {MatTableModule, MatTableDataSource} from '@angular/material/table';
+import {MatSortModule, MatSort} from '@angular/material/sort';
+
+
 
 @Component({
   selector: 'app-utleverans',
@@ -21,28 +25,32 @@ export class UtleveransComponent implements OnInit {
 
    //Customer
    customers = []
-   customerList = []
+   customerList = [] // array som ska visas
 
    //sections
+   currentSection: string = 'Alla';
    allOrders = []
    solsidan = []
    dannes = []
    bong = []
 
-   sectionHeader: string = 'Alla'
-
    nextPickUp = []
 
+   dataSource = this.customerList
+   displayedColumns = ['customerName', 'openOrders', 'abroadOrders', 'restOrders', 'orderLines'];
+
+   
+   
+   @ViewChild(MatSort) sort: MatSort;
+   
   constructor( private ordersService: OrdersService,
                private customerService: CustomerService,
                private transporterService: TransporterService) { }
-  
+               
   ngOnInit() {
     this.getOrders()
-    this.getNextPickUp()
-  
+    this.getNextPickUp()  
   }
-
  
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
@@ -84,11 +92,13 @@ export class UtleveransComponent implements OnInit {
     })
   }
 
+
+  
   /**
    * Uppdaterar alla listor
    */
   updateNumbers() {
-    this.openOrders = this.ordersService.openOrders //ej korrekt
+    this.openOrders = this.ordersService.openOrders 
     this.abroadOrders = this.ordersService.abroadOrders
     this.restOrders = this.ordersService.restOrders
     this.orderLines = this.ordersService.orderLines
@@ -108,18 +118,21 @@ export class UtleveransComponent implements OnInit {
    this.orderLines = this.ordersService.orderLines
 
    //Section Header
-   if(section === 'Solsidan') {
-     this.sectionHeader = 'Solsidan'
-   } else if (section === 'Dannes') {
-     this.sectionHeader = 'Dannes'
-   } else if(section === 'Bong') {
-     this.sectionHeader ='Bong'
-   } else if (section === 'All') {
-     this.sectionHeader = 'Alla'
-   }
+   if(section === 'solsidan') {
+    this.currentSection = 'Solsidan'
+  } else if (section === 'dannes') {
+    this.currentSection = 'Dannes'
+  } else if (section === 'bong') {
+    this.currentSection = 'Bong'
+  } else if (section === 'alla') {
+    this.currentSection = 'Alla'  
   }
+}
+
+
     //TRANSPORTÖR
     getNextPickUp() {
       this.nextPickUp =  this.transporterService.getNextPickUp()
     }
 }
+

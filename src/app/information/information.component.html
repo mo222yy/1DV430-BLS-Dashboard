@@ -1,3 +1,92 @@
-<p>
-  information works!
-</p>
+<div id="blueList">
+          <button mat-button id="sectionButton"  [matMenuTriggerFor]="menu">Avdelning </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="selectedSection('solsidan')">Solsidan</button>
+            <button mat-menu-item (click)="selectedSection('dannes')">Dannes</button>
+            <button mat-menu-item (click)="selectedSection('bong')">Bong</button>
+            <button mat-menu-item (click)="selectedSection('all')">Alla</button>
+          </mat-menu>
+      <span id="sectionHeader">{{currentSection}}</span>
+  </div>
+
+  <mat-expansion-panel id="newMessagePanel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       <span id="newMessageHeader"> Nytt meddelande </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="newMessage">
+    <form #createMessageForm="ngForm">
+      <mat-form-field>
+        <input  
+        matInput
+        required
+        placeholder="Rubrik"
+        name="header"
+        id="header"
+        ngModel 
+        name="header" 
+        #header="ngModel"
+        (change)="getHeader(header)">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea
+        matInput
+        required
+        placeholder="Meddelande"
+        name="message"
+        id="message"
+        ngModel 
+        name="message" 
+        #message="ngModel"
+        (change)="getMessage(message)"
+        matTextareaAutosize
+        matAutosizeMinRows="2"
+        matAutosizeMaxRows="5"
+         >
+        </textarea>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-select
+         placeholder="Avdelning"
+         required>
+          <mat-option value="option" (click)="getSection('all')">Alla</mat-option>
+          <mat-option value="option" (click)="getSection('solsidan')">Solsidan</mat-option>
+          <mat-option value="option" (click)="getSection('dannes')">Dannes</mat-option>
+          <mat-option value="option" (click)="getSection('bong')">Bong</mat-option>
+        
+        </mat-select>
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="addMessage()" type="submit"  id="addMessageButton" [disabled]="!createMessageForm.form.valid" >+</button>           
+      </form>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-divider></mat-divider>
+
+
+  <mat-accordion>
+    <mat-list class="messageList" *ngFor="let message of messagesToShow">
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           class="panels">
+      
+         <mat-expansion-panel-header>
+          <mat-panel-title class="messageHeaderTitle">
+            <div id="messageHeader">
+              {{message.header}}
+            </div>
+          </mat-panel-title>
+          <mat-panel-description>
+           <span class="sectionDescription"> {{message.section}} </span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>      
+        <p id="messageContent">{{message.message}}</p>
+        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteMessage(message)">-</button>
+
+      </mat-expansion-panel>
+    </mat-list>
+  </mat-accordion>

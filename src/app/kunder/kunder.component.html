@@ -10,7 +10,7 @@
 <div id="solsidan">
   <p class="sectionHeader">Solsidan</p>
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of customers">
+  <mat-list class="customer" *ngFor="let customer of solsidan">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">
@@ -41,9 +41,86 @@
         <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
         <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
       </div>  
+    </mat-expansion-panel>
+  </mat-list>
+</mat-accordion>
+</div>
 
 
+<div id="solsidan">
+  <p class="sectionHeader">Dannes</p>
+<mat-accordion>
+  <mat-list class="customer" *ngFor="let customer of dannes">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         class="panels">
+    
+       <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div id="customerName">
+            {{customer.customerName}}
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
+      <p class="subHeader">Kontakter</p>
+      <!--KONTAKTLISTA-->
+      <mat-list class="contactList" *ngFor="let contact of customer.contacts">
+        <mat-list-item class="contactListItem">
+          <span class="customerFirstname">{{contact.firstname}}</span>
+          <span class="customerLastname">{{contact.lastname}}</span>
+          <span class="customerPhone">{{contact.phone}}</span>
+          <span class="customerEmail">{{contact.eMail}}</span>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
 
+      <div class="cutoffs">
+        <p class="subHeader">Cut offs</p>
+        <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
+        <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
+        <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
+      </div>  
+    </mat-expansion-panel>
+  </mat-list>
+</mat-accordion>
+</div>
+
+
+<div id="solsidan">
+  <p class="sectionHeader">Solsidan</p>
+<mat-accordion>
+  <mat-list class="customer" *ngFor="let customer of bong">
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+                         class="panels">
+    
+       <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div id="customerName">
+            {{customer.customerName}}
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
+      <p class="subHeader">Kontakter</p>
+      <!--KONTAKTLISTA-->
+      <mat-list class="contactList" *ngFor="let contact of customer.contacts">
+        <mat-list-item class="contactListItem">
+          <span class="customerFirstname">{{contact.firstname}}</span>
+          <span class="customerLastname">{{contact.lastname}}</span>
+          <span class="customerPhone">{{contact.phone}}</span>
+          <span class="customerEmail">{{contact.eMail}}</span>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+
+      <div class="cutoffs">
+        <p class="subHeader">Cut offs</p>
+        <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
+        <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
+        <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
+      </div>  
     </mat-expansion-panel>
   </mat-list>
 </mat-accordion>

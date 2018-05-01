@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { getLocaleTimeFormat } from '@angular/common';
+import { DatePipe } from '@angular/common';
+
 
 @Injectable()
 export class TimeService {

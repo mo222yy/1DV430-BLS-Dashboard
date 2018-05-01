@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TimeService } from './time.service'
+import { ClockComponent } from './clock/clock.component'
+
 
 @Component({
   selector: 'app-root',
@@ -25,6 +27,7 @@ export class AppComponent  implements OnInit {
   this.getDate()
   this.getTime()
 }
+
 
   getDate() {
       this.TimeService.getDate()
