@@ -6,8 +6,10 @@ import { ClockComponent } from './clock/clock.component'
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<app-clock></app-clock',
+  templateUrl: './app.component.html', 
   styleUrls: ['./app.component.scss']
+  
 })
 export class AppComponent  implements OnInit {
   title = 'app';

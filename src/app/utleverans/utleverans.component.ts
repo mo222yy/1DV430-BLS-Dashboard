@@ -1,17 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
 import { TransporterService } from '../transporter.service'
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import {MatSortModule, MatSort} from '@angular/material/sort';
-
-
+import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
   selector: 'app-utleverans',
   templateUrl: './utleverans.component.html',
-  styleUrls: ['./utleverans.component.scss']
+  styleUrls: ['./utleverans.component.scss'],
+  providers: [OrdersService, HttpClientModule, HttpClient ]
 
 })
 
@@ -105,7 +107,7 @@ export class UtleveransComponent implements OnInit {
     this.allOrders = this.ordersService.allOrders
   }
 
-  selectedSection(arr, section) {
+  selectedSection(arr) {
    this.ordersService.clearOrders()
    this.ordersService.getOrderStatus(arr)
    this.ordersService.distributeCustomerOrders(arr)
@@ -116,17 +118,15 @@ export class UtleveransComponent implements OnInit {
    this.abroadOrders = this.ordersService.abroadOrders
    this.restOrders = this.ordersService.restOrders
    this.orderLines = this.ordersService.orderLines
+}
 
-   //Section Header
-   if(section === 'solsidan') {
-    this.currentSection = 'Solsidan'
-  } else if (section === 'dannes') {
-    this.currentSection = 'Dannes'
-  } else if (section === 'bong') {
-    this.currentSection = 'Bong'
-  } else if (section === 'alla') {
-    this.currentSection = 'Alla'  
-  }
+/**
+ * 
+ * @param section argument from html
+ */
+updateSectionHeader(section) {
+  this.currentSection = section
+  return section
 }
 
 

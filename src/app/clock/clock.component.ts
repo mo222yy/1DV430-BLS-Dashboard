@@ -5,6 +5,7 @@ import { DatePipe } from '@angular/common';
   selector: 'app-clock',
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.scss']
+  
 })
 export class ClockComponent implements OnInit {
   year: string;
@@ -23,8 +24,7 @@ export class ClockComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    //setInterval(this.getCurrentTime(), 1000)
-    //this.getDate()
+  
     this.currentTime()
   }
 

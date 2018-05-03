@@ -2,9 +2,9 @@
     <span id="blueListHeader">Skapa kund</span>
 </div>
 
-<div id="newCustomerForm">
     <form #createCustomerForm="ngForm">
-  
+      <div id="newCustomerForm">
+
       <div id="leftColumn">
       <!-- LeftColumn -->  
       <!-- CustomerName  -->
@@ -277,6 +277,6 @@
           <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
 
         </div>  
+      </div>
   </form>  
   
-  </div>

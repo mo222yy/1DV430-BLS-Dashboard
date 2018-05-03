@@ -1,13 +1,20 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';  
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule , FormGroup} from '@angular/forms';
+
+
 
 @Component({
   selector: 'skapakund',
   templateUrl: './skapakund.component.html',
   styleUrls: ['./skapakund.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
+
 export class SkapakundComponent{
 
 

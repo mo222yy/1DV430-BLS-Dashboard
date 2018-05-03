@@ -2,12 +2,12 @@
     
 <div id="sections">
 
-        <button mat-button id="sectionButton"  [matMenuTriggerFor]="menu">Avdelning </button>
+        <button mat-button id="sectionButton"  [mat-menu-trigger-for]="menu">Avdelning </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="selectedSection(solsidan, 'solsidan')">Solsidan</button>
-          <button mat-menu-item (click)="selectedSection(dannes, 'dannes')">Dannes</button>
-          <button mat-menu-item (click)="selectedSection(bong, 'bong')">Bong</button>
-          <button mat-menu-item (click)="selectedSection(allOrders, 'alla')">Alla</button>
+          <button mat-menu-item (click)="selectedSection(solsidan)" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
+          <button mat-menu-item (click)="selectedSection(dannes)" (click)="updateSectionHeader('Dannes')">Dannes</button>
+          <button mat-menu-item (click)="selectedSection(bong)" (click)="updateSectionHeader('Bong')">Bong</button>
+          <button mat-menu-item (click)="selectedSection(allOrders)" (click)="updateSectionHeader('Alla')">Alla</button>
         </mat-menu>
 
 </div>

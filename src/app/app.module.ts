@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule, Routes } from '@angular/router';
+
+
+import { HttpHandler } from '@angular/common/http';
 import { OrdersService } from './orders.service'
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
@@ -8,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { TransporterService } from './transporter.service'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
+import { FormsModule } from '@angular/forms';
+
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
@@ -20,6 +28,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 
@@ -35,7 +46,6 @@ import { StatistikComponent } from './statistik/statistik.component';
 import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
 import { SkapakundComponent } from './skapakund/skapakund.component';
-import { FormsModule } from '@angular/forms';
 import { EditCustomerComponent } from './editCustomer/editCustomer.component';
 import { ClockComponent } from './clock/clock.component'
 
@@ -52,12 +62,13 @@ import { ClockComponent } from './clock/clock.component'
     SkapakundComponent,
     EditCustomerComponent,
     ClockComponent,
+    
 
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,    
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -71,10 +82,15 @@ import { ClockComponent } from './clock/clock.component'
     MatSelectModule,
     MatMenuModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatFormFieldModule,
+    RouterModule,
+    RouterTestingModule,
+    MatDividerModule
     
-
+    
   ],
+
   providers: [OrdersService, CustomerService, TimeService, TransporterService],
   bootstrap: [AppComponent]
 })

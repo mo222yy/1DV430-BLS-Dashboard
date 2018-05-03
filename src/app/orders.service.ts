@@ -4,7 +4,6 @@ import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
 import {Parser} from 'xml2js';
 import { Observable } from 'rxjs/Observable';
-//var Parser = require('xml-streamer')
 
 
 // Service för att hämta info om ordrar och skapa objekt
@@ -60,7 +59,7 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-01T"+ date[1]
+         let today = "2018-05-03T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
        console.log(orders)
@@ -74,9 +73,9 @@ export class OrdersService {
      */
     getTodaysOrders(arr) {
       let year = parseInt(this.TimeService.year)
-      let month = parseInt(this.TimeService.month) + 1 //+1 för rätt månad
+      let month = parseInt(this.TimeService.month) //+1 för rätt månad
       let date = parseInt(this.TimeService.date)
-     
+  
       arr.forEach(el => {
         let orderDeliveryDate = el.DeliveryDate[0]
         let dateSplit = orderDeliveryDate.split('T')
@@ -85,11 +84,12 @@ export class OrdersService {
         let deliveryYear = parseInt(dateString.substring(0, 4))
         let deliveryMonth = parseInt(dateString.substring(5,7))
         let deliveryDate = parseInt(dateString.substring(8,10))
-
-        if(deliveryYear === year && deliveryMonth+1 === month && deliveryDate === date) {
+      
+        if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
           this.todaysOrders.push(el)
         }
       })
+      return this.todaysOrders
     }
 
 

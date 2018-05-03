@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 
 import { ClockComponent } from './clock.component';
 
@@ -8,7 +8,8 @@ describe('ClockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClockComponent ]
+      declarations: [ ClockComponent ],
+      providers: [ClockComponent]
     })
     .compileComponents();
   }));
@@ -17,9 +18,14 @@ describe('ClockComponent', () => {
     fixture = TestBed.createComponent(ClockComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
+  it('should inject ClockComponent', inject([ClockComponent], (service: ClockComponent) => {
+    expect(service).toBeTruthy();
+  }))
+
+  it('should return 2 digits', inject([ClockComponent], (service: ClockComponent) => {
+    let test = service.get2digits(2)
+    expect(test).toEqual('02')
+  }))
 });

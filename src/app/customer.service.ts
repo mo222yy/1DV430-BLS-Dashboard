@@ -17,7 +17,7 @@ export class CustomerService {
 
   customer(customerName, customerID, section, contacts, cOsweden, cOabroad, cOcomments, openOrders, abroadOrders, restOrders, orderLines) {
 
-    let customer = this.customers.push({
+    let customer = {
     customerName: customerName,
     customerID: customerID,
     section: section,
@@ -29,12 +29,12 @@ export class CustomerService {
     abroadOrders: abroadOrders,
     restOrders: restOrders,
     orderLines: orderLines,
-    index: this.index 
-    })
-    this.index++
+    }
+    this.customers.push(customer)
     console.log('kund skapad', this.customers[this.customers.length-1])
     //Save to localstorage
     localStorage.setItem("savedCustomers", JSON.stringify(this.customers))
+    return customer
   }
 
   setCustomers() {
@@ -64,5 +64,7 @@ export class CustomerService {
         this.bong.push(el)
       }
     })
+    console.log(customers)
+    return customers
   }
 }
