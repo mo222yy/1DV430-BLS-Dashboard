@@ -26,10 +26,10 @@ export class TransporterService {
 
 
   getNextPickUp() {
-    let bring = this.Transporter('Bring', '18.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/Bring.png?token=Ad3tHszP-ki1jJ2PIVvF_1HRBAn0QjHpks5a6vPPwA%3D%3D' )
-    let schenker = this.Transporter('Schenker', '16.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHi8L2NumWj9hv3wqQ014dyhFpcEZks5a6vQTwA%3D%3D')
-    let ups = this.Transporter('UPS', '14.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHp4Chg8etij0wWq4tG4RW1zI7Uxlks5a6vSKwA%3D%3D')
-    let dhl = this.Transporter('DHL', '12.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/dhl.png?token=Ad3tHrN8v2PTSUOQQmLYHivioRvrqOQIks5a8Sk8wA%3D%3D' )
+    let bring = this.Transporter('Bring', '18.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/Bring.png?token=Ad3tHjDm3MCrp--LcVhyptruJqhGuAyOks5a9YFgwA%3D%3D' )
+    let schenker = this.Transporter('Schenker', '16.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/schenker.png?token=Ad3tHvXGeJhdvZfXlGfIT3pyMB-NFEEUks5a9YFSwA%3D%3D')
+    let ups = this.Transporter('UPS', '14.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHsDZvqt3ITmXuboZqMXGB9qf6v-Xks5a9YFBwA%3D%3D')
+    let dhl = this.Transporter('DHL', '12.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/dhl.png?token=Ad3tHgsAHxY2BHJXGdr7Vfpn_zE62JQwks5a9YFmwA%3D%3D' )
     //clear arrays
     this.nextTransport = []
 

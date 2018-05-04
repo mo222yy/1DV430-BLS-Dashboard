@@ -48,8 +48,6 @@ describe('UtleveransComponent', () => {
     const comp = component
     let expected = 'TEST'
     expect(comp.updateSectionHeader(expected)).toBe(expected)
-
-
   })
 
 });

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
-import {Parser} from 'xml2js';
+import { Parser } from 'xml2js';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -59,11 +59,12 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-03T"+ date[1]
+         let today = "2018-05-04T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
-       console.log(orders)
+     
        this.allOrders = orders
+       return this.allOrders
       })
     }
 
