@@ -75,7 +75,7 @@ export class UtleveransComponent implements OnInit {
       this.updateNumbers()
 
         resolve('resolved')
-      }, 1000) // kan behöva ändras vid större mängd data ?
+      }, 500) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
 
       //hämta kunder

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../orders.service'
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-retur',
@@ -10,6 +11,7 @@ import { OrdersService } from '../orders.service'
 })
 export class ReturComponent implements OnInit {
   currentSection: string;
+  customers = []
   
   solsidan = []
   dannes = []
@@ -19,7 +21,11 @@ export class ReturComponent implements OnInit {
   allOrders = []
   restOrders = []
 
-  constructor(private ordersService: OrdersService) { }
+  today: number;
+  week: number;
+
+  constructor(private ordersService: OrdersService,
+              private customerService: CustomerService) { }
 
   ngOnInit() {
     this.getOrders()
@@ -29,23 +35,37 @@ export class ReturComponent implements OnInit {
   async getOrders() {
     this.ordersService.getOrders()
     let result = await this.getReturns()
+    this.customerService.getCustomers()
+    this.distributeToCustomers()
+
   }
 
+  /**
+   * Går igenom all ordrar och
+   * Pushar alla restorders till this.restOrder
+   */
   getReturns() {
     return new Promise(resolve => {
       setTimeout(() => {
         this.allOrders = this.ordersService.allOrders
         console.log(this.allOrders)
         this.allOrders.forEach(order => {
-          if(order.OrderPickability[0] === 600) {
-            console.log(order)
+          if(order.OrderStatusNumber[0] === "600") {
             this.restOrders.push(order)
           }
         })
-       
+        this.today = this.restOrders.length //siffran som visas
         resolve('resolved')
-      }, 1000) // kan behöva ändras vid större mängd data ?
-      console.log('rest', this.restOrders)
+      }, 500) // kan behöva ändras vid större mängd data ?
+   })
+  }  
+
+  distributeToCustomers() {
+    this.customers = this.customerService.customers
+    this.customers.forEach(customer => {
+      console.log(customer)
+    })
   }
-  }
+
+
 }

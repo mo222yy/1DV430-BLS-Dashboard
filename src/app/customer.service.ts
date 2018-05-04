@@ -64,7 +64,6 @@ export class CustomerService {
         this.bong.push(el)
       }
     })
-    console.log(customers)
     return customers
   }
 }
