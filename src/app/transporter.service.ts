@@ -34,22 +34,22 @@ export class TransporterService {
     this.nextTransport = []
 
     let currentTime = this.TimeService.getCurrentTime()
-    
+    console.log(currentTime)    
     if (currentTime <= 1200) {
       this.nextTransport.push(dhl)
       return this.nextTransport
 
-    } else if(currentTime > 1200 || currentTime < 1400) {
+    } else if(currentTime > 1200 && currentTime < 1400) {
       this.nextTransport = []
       this.nextTransport.push(ups)
       return this.nextTransport
 
-    } else if(currentTime > 1400 || currentTime < 1600) {
+    } else if(currentTime > 1400 && currentTime < 1600) {
       this.nextTransport = []
       this.nextTransport.push(schenker)
       return this.nextTransport
 
-    } else if (currentTime > 1600 || currentTime < 1800) {
+    } else if (currentTime > 1600 && currentTime < 1800) {
       this.nextTransport = []
       this.nextTransport.push(bring)
       return this.nextTransport

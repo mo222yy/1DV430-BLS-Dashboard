@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service';
+import { TimeService } from '../time.service'
 
 @Component({
   selector: 'app-retur',
@@ -12,6 +13,7 @@ import { CustomerService } from '../customer.service';
 export class ReturComponent implements OnInit {
   currentSection: string;
   customers = []
+  customersWithReturns = []
   
   solsidan = []
   dannes = []
@@ -19,53 +21,70 @@ export class ReturComponent implements OnInit {
   alla = []
 
   allOrders = []
-  restOrders = []
+  returns = []
 
   today: number;
   week: number;
 
   constructor(private ordersService: OrdersService,
-              private customerService: CustomerService) { }
+              private customerService: CustomerService,
+              private TimeService: TimeService) { }
 
   ngOnInit() {
     this.getOrders()
-
+   
   }
 
   async getOrders() {
     this.ordersService.getOrders()
-    let result = await this.getReturns()
     this.customerService.getCustomers()
-    this.distributeToCustomers()
+    await this.setArrays()
+    await this.distributeOrders()
+    await this.getReturnsFromCustomers()
+    await this.getTodaysOrders()
 
   }
 
   /**
-   * Går igenom all ordrar och
-   * Pushar alla restorders till this.restOrder
+   * hämtar ordrar och kunder från services
+   * Sätter sen this.arrays
    */
-  getReturns() {
+  setArrays() {
     return new Promise(resolve => {
       setTimeout(() => {
         this.allOrders = this.ordersService.allOrders
-        console.log(this.allOrders)
-        this.allOrders.forEach(order => {
-          if(order.OrderStatusNumber[0] === "600") {
-            this.restOrders.push(order)
-          }
-        })
-        this.today = this.restOrders.length //siffran som visas
+        this.customers = this.customerService.customers
         resolve('resolved')
       }, 500) // kan behöva ändras vid större mängd data ?
-   })
-  }  
-
-  distributeToCustomers() {
-    this.customers = this.customerService.customers
-    this.customers.forEach(customer => {
-      console.log(customer)
     })
   }
 
+  /**
+   * Fördelar ordrar till kunder för att komma åt kunder med returer
+   */
+  distributeOrders() {
+    this.ordersService.distributeCustomerOrders(this.allOrders)
+  }
 
+  /**
+   * Går igenom alla ordrar för att hitta kunder med ordrar
+   * Kund pushas till this.customers
+   * Order pushas till this.returns
+   */
+  getReturnsFromCustomers() {
+    this.customers.forEach(customer => {
+      if(customer.returns.length > 0){
+        this.customersWithReturns.push(customer)
+        customer.returns.forEach(ret => {
+          this.returns.push(ret)
+        })
+      }
+    })
+
+  }
+
+  getTodaysOrders() {
+    this.today = this.returns.length
+   
+  }
 }

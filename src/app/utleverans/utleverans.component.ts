@@ -66,8 +66,8 @@ export class UtleveransComponent implements OnInit {
       setTimeout(() => {
 
       //hämta dagens ordrar
-      this.ordersService.getTodaysOrders(this.ordersService.allOrders)
-      this.todaysOrders = this.ordersService.todaysOrders
+      this.todaysOrders = this.ordersService.getTodaysOrders(this.ordersService.allOrders)
+      //this.todaysOrders = this.ordersService.todaysOrders
 
       //hämta och filtrera alla ordrar efter status
       this.ordersService.getOrderStatus(this.todaysOrders)
@@ -77,15 +77,15 @@ export class UtleveransComponent implements OnInit {
         resolve('resolved')
       }, 500) // kan behöva ändras vid större mängd data ?
     }).then(v => {  
-
-      //hämta kunder
+      //hämta kunder 
       this.customerService.getCustomers()
-      this.customers = this.ordersService.customers
-
       //fördela ordrar till kunder
       this.ordersService.distributeCustomerOrders(this.todaysOrders)
     }).then(a => {
+      this.customers = this.ordersService.customers
+      console.log(this.customers)
       this.ordersService.setCustomerList()
+
       //hämta avdelningsarrays för filtrering
       this.customerList = this.ordersService.customerList
       this.solsidan = this.ordersService.solsidan

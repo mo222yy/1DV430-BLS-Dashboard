@@ -1,3 +1,49 @@
-<p>
-  statistik works!
-</p>
+<div id="blueList">
+  <button mat-button id="sectionButton" class="blueListButtons"  [matMenuTriggerFor]="menu">{{ currentSection }} </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="selectedSection('solsidan')">Solsidan</button>
+    <button mat-menu-item (click)="selectedSection('dannes')">Dannes</button>
+    <button mat-menu-item (click)="selectedSection('bong')">Bong</button>
+    <button mat-menu-item (click)="selectedSection('alla')">Alla</button>
+  </mat-menu>
+
+
+  <button mat-button id="timeSpanButton"  class="blueListButtons" [matMenuTriggerFor]="timeSpan">{{ currentTimeSpan }} </button>
+  <mat-menu #timeSpan="matMenu">
+    <button mat-menu-item (click)="selectedTimeSpan('Idag')">Idag</button>
+    <button mat-menu-item (click)="selectedTimeSpan('Denna månad')">Denna månad</button>
+  </mat-menu>
+</div>
+
+<div id="leftSide" class="leftAndRight">
+  <p id="returnsToday"  class="orderHeader">Ordrar plockade idag</p>
+  <br>
+  <p id="todayNumber" class ="orderNumber">{{ orderNumberToShow }}</p>
+ 
+
+  <p class="top5header">Top 5</p> 
+  <mat-list *ngFor="let customer of top5orders; let i = index">
+    <mat-list-item> <p class="cmName">{{i+1 + ". " }} {{ customer.customerName }}</p>  
+    <span class="ordersPicked">{{ customer.completedOrdersToShow.length }}</span>
+    </mat-list-item>
+    
+   </mat-list>
+
+</div>
+  
+  
+  <div id="rightSide" class="leftAndRight">
+    <p id="returnsToday" class="orderHeader">Orderrader plockade idag</p>
+    <br>
+    <p id="todayNumber" class ="orderNumber">{{ orderLinesToShow }}</p>
+  
+
+  <p class="top5header">Top 5</p> 
+  <mat-list *ngFor="let customer of top5orderLines; let i = index">
+    <mat-list-item> <p class="cmName"> {{i+1 + ". " }} {{ customer.customerName }}</p>  
+    <span class="ordersPicked">{{ customer.completedOrderLinesToShow }}</span>
+    </mat-list-item>
+    
+   </mat-list>
+    
+  </div>

@@ -40,6 +40,8 @@ export class SkapakundComponent{
   abroadOrders = []
   restOrders = []
   orderLines = []
+  returns = []
+  completedOrders = []
 
   sections = ['solsidan', 'dannes', 'bong']
 
@@ -58,7 +60,9 @@ let customer = this.customerService.customer(
   this.openOrders = [],
   this.abroadOrders = [],
   this.restOrders = [],
-  this.orderLines = []
+  this.orderLines = [],
+  this.returns = [],
+  this.completedOrders = []
 )
 this.router.navigate(['kunder'])
 }

@@ -15,7 +15,7 @@ export class CustomerService {
 
 
 
-  customer(customerName, customerID, section, contacts, cOsweden, cOabroad, cOcomments, openOrders, abroadOrders, restOrders, orderLines) {
+  customer(customerName, customerID, section, contacts, cOsweden, cOabroad, cOcomments, openOrders, abroadOrders, restOrders, orderLines, returns, completedOrders) {
 
     let customer = {
     customerName: customerName,
@@ -29,6 +29,8 @@ export class CustomerService {
     abroadOrders: abroadOrders,
     restOrders: restOrders,
     orderLines: orderLines,
+    returns: returns,
+    completedOrders: completedOrders
     }
     this.customers.push(customer)
     console.log('kund skapad', this.customers[this.customers.length-1])

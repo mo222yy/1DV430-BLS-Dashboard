@@ -32,6 +32,11 @@
     margin-left: 42%;
 }
 
+.leftAndRight {
+    width: 49%;
+    float: left;
+    
+}
 .newMessage {
     display: flex;
     flex-direction: column;
@@ -54,9 +59,14 @@
 }
 
 .sectionDescription {
-    float: right;
+    margin-left: 400px;
 }
 
 .messageHeaderTitle {
     width: 200px;
+    font-weight: bold;
+}
+
+.confirmName {
+    width: 40%;
 }

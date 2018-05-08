@@ -9,10 +9,11 @@
       <span id="sectionHeader">{{currentSection}}</span>
   </div>
 
+  <div id="leftSide" class="leftAndRight">
   <mat-expansion-panel id="newMessagePanel">
     <mat-expansion-panel-header>
       <mat-panel-title>
-       <span id="newMessageHeader"> Nytt meddelande </span>
+       <span id="newMessageHeader"> Meddelande </span>
       </mat-panel-title>
     </mat-expansion-panel-header>
 
@@ -57,9 +58,10 @@
           <mat-option value="option" (click)="getSection('solsidan')">Solsidan</mat-option>
           <mat-option value="option" (click)="getSection('dannes')">Dannes</mat-option>
           <mat-option value="option" (click)="getSection('bong')">Bong</mat-option>
-        
         </mat-select>
       </mat-form-field>
+      <mat-checkbox class="example-margin" (click)="getConfirmation()">Kräv bekräftelse</mat-checkbox>
+
       <button mat-mini-fab color="primary" (click)="addMessage()" type="submit"  id="addMessageButton" [disabled]="!createMessageForm.form.valid" >+</button>           
       </form>
     </div>
@@ -85,8 +87,122 @@
           </mat-panel-description>
         </mat-expansion-panel-header>      
         <p id="messageContent">{{message.message}}</p>
+
+        <mat-divider></mat-divider>
+
+
+        <div class="confirm" *ngIf="message.confirmation">
+          <form #confirmMessageForm="ngForm">
+            <mat-form-field class="confirmName">
+              <input  
+              matInput
+              required
+              placeholder="Bekräfta att du sett meddelandet"
+              name="confirmName"
+              id="confirmName"
+              ngModel 
+              name="confirmName" 
+              #confirmName="ngModel"
+              (change)="getConfirmName(confirmName)">
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="confirm(message)" type="submit"  id="confirmButton" [disabled]="!confirmMessageForm.form.valid" >+</button>           
+            <p class ="shownBy">Visats av:</p>
+            <li class="confirmed" *ngFor="let confirmed of message.confirmed"> {{ confirmed }}</li>
+            </form>
+        </div>
         <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteMessage(message)">-</button>
+
 
       </mat-expansion-panel>
     </mat-list>
   </mat-accordion>
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div id="rightSide" class="leftAndRight">
+  <mat-expansion-panel id="newMessagePanel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+       <span id="newMessageHeader"> To DO </span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="newMessage">
+    <form #createTodoForm="ngForm">
+      <mat-form-field>
+        <input  
+        matInput
+        required
+        placeholder="Rubrik"
+        name="headerTodo"
+        id="headerTodo"
+        ngModel 
+        name="headerTodo" 
+        #headerTodo="ngModel"
+        (change)="getHeaderTodo(headerTodo)">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <textarea
+        matInput
+        required
+        placeholder="Meddelande"
+        name="messageTodo"
+        id="messageTodo"
+        ngModel 
+        name="messageTodo" 
+        #messageTodo="ngModel"
+        (change)="getMessageTodo(messageTodo)"
+        matTextareaAutosize
+        matAutosizeMinRows="2"
+        matAutosizeMaxRows="5"
+         >
+        </textarea>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-select
+         placeholder="Avdelning"
+         required>
+          <mat-option value="option" (click)="getSectionTodo('all')">Alla</mat-option>
+          <mat-option value="option" (click)="getSectionTodo('solsidan')">Solsidan</mat-option>
+          <mat-option value="option" (click)="getSectionTodo('dannes')">Dannes</mat-option>
+          <mat-option value="option" (click)="getSectionTodo('bong')">Bong</mat-option>
+        
+        </mat-select>
+      </mat-form-field>
+      <button mat-mini-fab color="primary" (click)="addTodo()" type="submit"  id="addMessageButton" [disabled]="!createTodoForm.form.valid" >+</button>           
+      </form>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-divider></mat-divider>
+
+
+  <mat-accordion>
+    <mat-list class="messageList" *ngFor="let toDo of toDoToShow">
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false"
+                           class="panels">
+      
+         <mat-expansion-panel-header>
+          <mat-panel-title class="messageHeaderTitle">
+            <div id="messageHeader">
+              {{toDo.header}}
+            </div>
+          </mat-panel-title>
+          <mat-panel-description>
+           <span class="sectionDescription"> {{toDo.section}} </span>
+          </mat-panel-description>
+        </mat-expansion-panel-header>      
+        <p id="messageContent">{{toDo.message}}</p>
+        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteToDos(toDo)">-</button>
+
+      </mat-expansion-panel>
+    </mat-list>
+  </mat-accordion>
+
+</div>
+

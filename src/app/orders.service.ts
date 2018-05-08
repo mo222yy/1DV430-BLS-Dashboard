@@ -25,9 +25,12 @@ export class OrdersService {
   abroadOrders = []
   restOrders = []
   orderLines = []  
+
+  returns = []
   
   todaysOrders = []
-  
+
+  completedOrders = [] 
 
   constructor(private http: HttpClient,
               private customerService: CustomerService,
@@ -42,7 +45,7 @@ export class OrdersService {
       let json;
 
       this.clearOrders() // rensar ordrar för att undvika duplicering
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHj77oq0MVBHnOEwoEPp_1XixP6B-ks5a8F6UwA%3D%3D', {responseType: 'text' })
+     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHpbXtGTarLzbBFBZo18Va3tNOY5Lks5a-l0mwA%3D%3D', {responseType: 'text' })
      .subscribe(data => {
        parseString(data, function(err, result) {
         if(err) {
@@ -59,7 +62,7 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-04T"+ date[1]
+         let today = "2018-05-01T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
      
@@ -67,6 +70,7 @@ export class OrdersService {
        return this.allOrders
       })
     }
+
 
     /**
      * Lägger till ordrar med dagens datum som deliveryDate
@@ -77,6 +81,8 @@ export class OrdersService {
       let month = parseInt(this.TimeService.month) //+1 för rätt månad
       let date = parseInt(this.TimeService.date)
   
+      let today = []
+
       arr.forEach(el => {
         let orderDeliveryDate = el.DeliveryDate[0]
         let dateSplit = orderDeliveryDate.split('T')
@@ -87,12 +93,36 @@ export class OrdersService {
         let deliveryDate = parseInt(dateString.substring(8,10))
       
         if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
-          this.todaysOrders.push(el)
+          today.push(el)
         }
       })
-      return this.todaysOrders
+      return today
     }
 
+      //hämta ordrar som är gjorda denna månad
+getMonthOrders(arr) {
+
+  let year = parseInt(this.TimeService.year)
+  let month = parseInt(this.TimeService.month) 
+  let date = parseInt(this.TimeService.date)
+
+  let monthOrders = []
+
+    arr.forEach(order => {
+    let orderDeliveryDate = order.DeliveryDate[0]
+    let dateSplit = orderDeliveryDate.split('T')
+    let dateString = dateSplit[0]
+
+    let deliveryYear = parseInt(dateString.substring(0, 4))
+    let deliveryMonth = parseInt(dateString.substring(5,7))
+    let deliveryDate = parseInt(dateString.substring(8,10))
+
+    if(deliveryYear === year && deliveryMonth === month && deliveryDate <= date){
+      monthOrders.push(order)
+    }
+  })
+  return monthOrders
+ }
 
 
     /**
@@ -108,7 +138,7 @@ export class OrdersService {
     getOrderStatus(arr) {
       arr.forEach(el => {
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
-          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "300"){
+          if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "100"){
             this.openOrders.push(el)
               if('OrderLines' in el) {
               let orderLineArray = el.OrderLines[0].BorjesDashBoardOrderLine
@@ -122,8 +152,12 @@ export class OrdersService {
               this.abroadOrders.push(el)
             }
           } 
-        } else {
+        } else { //från första if
           this.restOrders.push(el)
+        }
+        //hämta skickade ordrar
+        if(el.OrderStatusNumber[0] === "400" || el.OrderStatusNumber[0] === "450") {
+          this.completedOrders.push(el)
         }
       })
     }
@@ -141,10 +175,11 @@ export class OrdersService {
           //ÖPPNA + UTLANDS
           if(order.GoodsOwnerId[0] === customer.customerID){
             customer.openOrders.push(order)
+
             if(order.CountryCode[0] !== "SE") {
             customer.abroadOrders.push(order)
             } 
-            //RESTADE
+            //RESTADE  (pickability klar blir den fortfarande restad?)
             if(order.OrderPickability[0] === "1000") {
               customer.restOrders.push(order)
             } 
@@ -155,9 +190,19 @@ export class OrdersService {
                  customer.orderLines.push(ol)
                }
              })
+             //Returer
+             if(order.OrderStatusNumber[0] === "600") {
+               customer.returns.push(order)
+             }
+
+             //Klara
+            if(order.OrderStatusNumber[0] === "400" || order.OrderStatusNumber[0] === "450") {
+              customer.completedOrders.push(order)
+            }
+
+             //Sections
              if(customer.section === 'solsidan') {
               this.solsidan.push(order)
-                
              } else if (customer.section === 'dannes') {
                 this.dannes.push(order)
              } else if (customer.section === 'bong') {
@@ -195,13 +240,16 @@ export class OrdersService {
       this.openOrders = []
       this.abroadOrders = []
       this.restOrders = []
+      this.returns
       this.orderLines = [] 
+      this.completedOrders = []
       //rensar ordrar i kundobjekten
       this.customers.forEach(customer => {
         customer.openOrders = []
         customer.abroadOrders = []
         customer.restOrders = []
         customer.orderLines = []
+        customer.completedOrders = []
       })
     }
   }

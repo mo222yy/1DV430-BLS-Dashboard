@@ -138,8 +138,8 @@
           
                    required
                    minvalue="0" 
-                   minlength="10" 
-                   maxlength="10" 
+                   minlength="7" 
+                   maxlength="12" 
                    ngModel 
                    name="phone" 
                    #phone="ngModel" 
@@ -151,7 +151,7 @@
                    *ngIf="phone.touched && !phone.valid">
                   <mat-error
                    *ngIf="phone.errors.minlength">
-                   Telefonnumret ska innehålla  {{ phone.errors.minlength.requiredLength }} siffror
+                   Telefonnumret ska innehålla minst  {{ phone.errors.minlength.requiredLength }} siffror
                   </mat-error>
                 </mat-error>
               </mat-form-field>
@@ -234,8 +234,7 @@
           <input 
           matInput 
           placeholder="Cut off Utomlands"
-  
-           required
+
            minvalue="0" 
            minlength="4" 
            maxlength="4" 

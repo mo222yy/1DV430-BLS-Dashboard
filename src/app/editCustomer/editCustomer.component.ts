@@ -28,11 +28,7 @@ export class EditCustomerComponent implements OnInit {
   cOabroad: string;
   cOcomments: string;
 
-  //orders
-  openOrders = []
-  abroadOrders = []
-  restOrders = []
-  orderLines = []
+
 
   sections = ['solsidan', 'dannes', 'bong']
   previousSection: string; //visar tidigare vald avdelning
