@@ -43,52 +43,26 @@ export class OrdersService {
     //Hämtar och skapar en array med alla ordrar
   
     async getOrders() {
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHrLNC2sDrK_eImkXFjb3IdS-BDDCks5a-9RWwA%3D%3D'
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHk7xIFyAXHRtpHevgkKh-hbHQzq0ks5a--lHwA%3D%3D'
+      const url2 = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHmFHPRpY7HLk35iVu04x8SLPDHPdks5a--mYwA%3D%3D'
       let parseString = require('xml2js').parseString
       let json;
       this.clearOrders() // rensar ordrar för att undvika duplicering
 
-      try {
-      let xml = await this.http.get(url, {responseType: 'text' })
-
-      await parseString(xml, function(err, res) {
-        if(err) {
-          console.log(err)
-        } else {
-          json =  res
-        }
-      })
-      
-      let orders = await json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
-      console.log(orders)
-
-    } catch(err) {
-      console.log(err)
-    }
-
-
-
-    }
-
-      /*
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHrLNC2sDrK_eImkXFjb3IdS-BDDCks5a-9RWwA%3D%3D'
-      let parseString = require('xml2js').parseString
-      let json;
-      this.clearOrders() // rensar ordrar för att undvika duplicering
-
-     this.http.get(url {responseType: 'text' })
-     .subscribe(data => {
+      this.http.get(url, {responseType: 'text' })
+     .subscribe( data => {
        parseString(data, function(err, result) {
         if(err) {
           console.log('ERROR' + err)
           return;
         } else {
           json = result
+
          }
        })
        //filtrerar json till endast ordrar
-       
-       let orders = json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
+       let orders =  json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
+
        
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
@@ -104,7 +78,7 @@ export class OrdersService {
       })
      
     }
-    */
+   
 
     /**
      * Kollar orderstatus på alla ordrar i arr och lägger till i 

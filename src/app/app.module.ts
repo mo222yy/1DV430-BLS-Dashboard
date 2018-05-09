@@ -40,8 +40,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { UtleveransComponent } from './utleverans/utleverans.component';
-import { InleveransComponent } from './inleverans/inleverans.component';
-import { ReturComponent } from './retur/retur.component';
 import { StatistikComponent } from './statistik/statistik.component';
 import { InformationComponent } from './information/information.component';
 import { KunderComponent } from './kunder/kunder.component';
@@ -54,8 +52,6 @@ import { ClockComponent } from './clock/clock.component'
   declarations: [
     AppComponent,
     UtleveransComponent,
-    InleveransComponent,
-    ReturComponent,
     StatistikComponent,
     InformationComponent,
     KunderComponent,

@@ -57,7 +57,7 @@ export class UtleveransComponent implements OnInit {
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
      try {
-      this.ordersService.getOrders()
+      await this.ordersService.getOrders()
       await this.getTodaysOrders()
       await this.filterOrders()
       await this.updateNumbers()
