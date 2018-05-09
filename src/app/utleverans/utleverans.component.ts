@@ -56,45 +56,69 @@ export class UtleveransComponent implements OnInit {
  
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {
+     try {
       this.ordersService.getOrders()
-      let result = await this.sortOrders()
-  
+      await this.getTodaysOrders()
+      await this.filterOrders()
+      await this.updateNumbers()
+      this.getCustomers()
+      await this.distributeCustomerOrders()
+      await this.setCustomers()
+      await this.setCustomerList()
+     } catch(e) {
+       console.log(e)
+     }
     }
-  //körs efter getOrders
-    sortOrders() {
-    return new Promise(resolve => {
-      setTimeout(() => {
 
-      //hämta dagens ordrar
-      this.todaysOrders = this.ordersService.getTodaysOrders(this.ordersService.allOrders)
-      //this.todaysOrders = this.ordersService.todaysOrders
+    getTodaysOrders() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.todaysOrders = this.ordersService.getTodaysOrders(this.ordersService.allOrders)
+          resolve('resolved')
+        }, 500) // kan behöva ändras vid större mängd data ?
+      }).catch(e => {
+        console.log(e)
+      })
+    }
 
-      //hämta och filtrera alla ordrar efter status
+    filterOrders() {
+      try {
       this.ordersService.getOrderStatus(this.todaysOrders)
+      } catch(error) {
+        console.log(error)
+      }
+    }
 
-      this.updateNumbers()
 
-        resolve('resolved')
-      }, 500) // kan behöva ändras vid större mängd data ?
-    }).then(v => {  
-      //hämta kunder 
+    getCustomers() {
       this.customerService.getCustomers()
-      //fördela ordrar till kunder
+    }
+
+    distributeCustomerOrders() {
+      try {
       this.ordersService.distributeCustomerOrders(this.todaysOrders)
-    }).then(a => {
+      } catch(error) {
+        console.log(error)
+      }
+    }
+    
+    setCustomers() {
+      try {
       this.customers = this.ordersService.customers
-      console.log(this.customers)
       this.ordersService.setCustomerList()
+      } catch (error) {
+        console.log(error)
+      }
+    }
 
-      //hämta avdelningsarrays för filtrering
+    setCustomerList() {
+      try {
       this.customerList = this.ordersService.customerList
-      this.solsidan = this.ordersService.solsidan
-      this.dannes = this.ordersService.dannes
-      this.bong = this.ordersService.bong
-    })
-  }
-
-
+      } catch (error) { 
+        console.log(error)
+      }
+    }
+   
   
   /**
    * Uppdaterar alla listor
@@ -125,13 +149,14 @@ export class UtleveransComponent implements OnInit {
  * @param section argument from html
  */
 updateSectionHeader(section) {
+  console.log(section)
   this.currentSection = section
   return section
 }
 
 
     //TRANSPORTÖR
-    getNextPickUp() {
+getNextPickUp() {
       this.nextPickUp =  this.transporterService.getNextPickUp()
     }
 }

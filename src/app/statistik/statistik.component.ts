@@ -15,17 +15,17 @@ export class StatistikComponent implements OnInit {
   allOrders = []
   allCompletedOrders = []
 
-  currentSection: string = 'Alla'
+  currentSection =  []
   currentTimeSpan: string = 'Idag'
+
+  currentSectionToShow:string = 'Alla'
+  currentTimeSpanToShow: string = 'Idag'
 
   ordersCompletedToday  = []
   ordersCompletedMonth = []
 
   orderNumberToShow: number = 0;
   orderLinesToShow: number = 0;
-
-
-  customers = []
 
   top5orders = []
   top5orderLines = []
@@ -46,37 +46,175 @@ export class StatistikComponent implements OnInit {
   async getOrders() {
     this.ordersService.getOrders()
     this.customerService.getCustomers()
-    await this.setArrays()
-    console.log(this.customers)
-    await this.getCompletedOrders()
-    await this.distributeToCustomers(this.allOrders)
-    await this.getNumbersToShow(this.customers, 'today')
-    await this.getTop5(this.customers, 'today');
+    await this.distributeCompletedOrders()
+    this.currentSection = this.customerService.customers //startsidan, (alla idag)
+    await this.getNumbersToShow(this.currentSection)
+    await this.getTop5(this.currentSection)
+
+ 
   }
 
-  setArrays() {
+    distributeCompletedOrders() {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.allOrders = this.ordersService.allOrders
-        this.customers = this.customerService.customers
+        this.ordersService.distributeCustomerOrders(this.ordersService.allOrders)
         resolve('resolved')
 
       }, 500) // kan behöva ändras vid större mängd data ?
     })
   }
 
-  /**
-   * Sätter orderstatus på alla ordrar för att kunna hämta completedOrders[]
-   */
-  getCompletedOrders() {
-    this.ordersService.getOrderStatus(this.allOrders)
-    this.allCompletedOrders = this.ordersService.completedOrders
+  getNumbersToShow(section) {
+    this.orderNumberToShow = 0
+    this.orderLinesToShow = 0
+
+    if(this.currentTimeSpan === 'Idag') {
+      section.forEach(customer => {
+        if(customer.hasOwnProperty('completedToday')){
+          this.orderNumberToShow += customer.completedToday.length
+          customer.completedToday.forEach(order => {
+            this.orderLinesToShow += parseInt(order.NumberOfPickedOrderLines)
+          })
+        }
+      })
+    
+    } else if (this.currentTimeSpan === 'Denna månad') {
+      section.forEach(customer => {
+        if(customer.hasOwnProperty('completedMonth')) {
+          this.orderNumberToShow += customer.completedMonth.length
+          customer.completedMonth.forEach(order => {
+            this.orderLinesToShow += parseInt(order.NumberOfPickedOrderLines)
+          })
+        }
+      })
+    }
+
   }
+
+  getTop5(section) {
+    let top5orders = []
+
+    if(this.currentTimeSpan === 'Idag') {
+      section.forEach(customer => {
+        //nollställ för att undvika duplicering
+        if(customer.hasOwnProperty('completedOrderLines')) {
+          customer.completedOrderLines = 0
+        }
+        if(customer.hasOwnProperty('completedToday')) {
+          console.log(customer)
+          top5orders.push(customer)
+          if(!customer.hasOwnProperty('completedOrderLines')) {
+            customer.completedOrderLines = 0
+          }
+          customer.completedToday.forEach(order => {
+            customer.completedOrderLines += parseInt(order.NumberOfPickedOrderLines)
+          })
+        }
+      })
+      top5orders.sort(function(a,b) {
+        return b.completedMonth.length - a.completedMonth.length
+      })
+    
+    } else if ( this.currentTimeSpan === 'Denna månad') {
+      section.forEach(customer => {
+        if(customer.hasOwnProperty('completedMonth')) {
+          top5orders.push(customer)
+          if(!customer.hasOwnProperty('completedOrderLines')) {
+            customer.completedOrderLines = 0
+          }
+          customer.completedMonth.forEach(order => {
+            customer.completedOrderLines += parseInt(order.NumberOfPickedOrderLines)
+          })
+        }
+      })
+      top5orders.sort(function(a,b) {
+        return b.completedMonth.length - a.completedMonth.length
+      })
+    }
+
+    let top5orderLines = top5orders.slice()
+    top5orderLines.sort(function(a,b) {
+      return b.completedOrderLines - a.completedOrderLines
+    })
+
+    this.top5orders = top5orders
+    this.top5orderLines = top5orderLines
+   
+  }
+ 
+  setSection(section) {
+    if (section === 'solsidan') {
+      this.currentSection = this.customerService.solsidan
+      this.currentSectionToShow  = 'Solsidan'
+    
+    } else if (section === 'dannes') {
+      this.currentSection = this.customerService.dannes
+      this.currentSectionToShow  = 'Dannes'
+
+    } else if (section === 'bong') {
+      this.currentSection = this.customerService.bong
+      this.currentSectionToShow  = 'Bong'
+
+    } else if (section === 'alla') {
+      this.currentSection = this.customerService.customers
+      this.currentSectionToShow  = 'Alla'
+
+    } 
+
+    this.getNumbersToShow(this.currentSection)
+    this.getTop5(this.currentSection)
+  }
+
+  setTimeSpan(timeSpan) {
+    this.currentTimeSpan = timeSpan
+    this.currentTimeSpanToShow = timeSpan
+    console.log(this.currentTimeSpan)
+    console.log(this.currentSection)
+    this.getNumbersToShow(this.currentSection)
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /**
    * Filtrerar till dagens ordrar via ordersservice
    * går igenom dagens ordrar och pushar orderrader till orderLinesCompletedToday
-   */
+  
   getNumbersToShow(section, timeSpan) {
     this.orderLinesToShow = 0
 
@@ -114,19 +252,19 @@ export class StatistikComponent implements OnInit {
   
   }
 
-  /**
+
    * Fördelar dagens ordrar till kunder för att hämta top5 lista
-   */
+ 
   distributeToCustomers(arr) {
     this.ordersService.distributeCustomerOrders(arr)
     this.customers = this.customerService.customers
   }
 
-  /**
+  
    * 
    * @param customers customer list to iterate
    * @param timeSpan decides if filter todays or months orders
-   */
+  
   getTop5(customers, timeSpan) {
    // let ordersCompleted: number = 0;
     let top5orders = []
@@ -218,32 +356,6 @@ export class StatistikComponent implements OnInit {
     }
   }
   
-  /*
-
-
-   // MONTH
-    if(timeSpan === 'month'){
-      customers.forEach(customer => {
-        if(customer.hasOwnProperty('completedOrders')){
-          if(customer.completedOrders.length > 0) {
-          customer.completedThisMonth = this.ordersService.getMonthOrders(customer.completedOrders)
-          }
-        }
-
-        if (customer.hasOwnProperty('completedThisMonth')){
-          top5orders.push(customer)
-          customer.completedOrderLines = 0
-        }
-
-        customer.completedOrdersToday.forEach(order => {
-          let ol = parseInt(order.NumberOfpickedOrderLines)
-          customer.completedOrderLinesMonth += ol
-          orderLinesCompleted += ol
-        })
-      })
-    }
-  */
-
-
+*/
 
 }

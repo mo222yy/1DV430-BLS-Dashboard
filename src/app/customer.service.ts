@@ -44,12 +44,11 @@ export class CustomerService {
   }
 
   getCustomers() {
+    try {
     let savedCustomers = localStorage.getItem("savedCustomers")
     let customers = JSON.parse(savedCustomers)
     customers.sort(function(a,b){
-      if(a.customerName < b.customerName) return -1
-      if(a.customerName > b.customerName) return 1
-      return 0
+      return a.customerName - b.customerName 
     })
     this.customers = customers
 
@@ -67,5 +66,9 @@ export class CustomerService {
       }
     })
     return customers
+  
+    } catch(error) {
+      console.log(error)
+    }
   }
 }

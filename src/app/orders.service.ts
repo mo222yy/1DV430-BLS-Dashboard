@@ -4,6 +4,7 @@ import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
 import { Parser } from 'xml2js';
 import { Observable } from 'rxjs/Observable';
+const fetch = require("node-fetch");
 
 
 // Service för att hämta info om ordrar och skapa objekt
@@ -29,6 +30,7 @@ export class OrdersService {
   returns = []
   
   todaysOrders = []
+  monthOrders = []
 
   completedOrders = [] 
 
@@ -41,11 +43,40 @@ export class OrdersService {
     //Hämtar och skapar en array med alla ordrar
   
     async getOrders() {
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHrLNC2sDrK_eImkXFjb3IdS-BDDCks5a-9RWwA%3D%3D'
       let parseString = require('xml2js').parseString
       let json;
-
       this.clearOrders() // rensar ordrar för att undvika duplicering
-     this.http.get('https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHpbXtGTarLzbBFBZo18Va3tNOY5Lks5a-l0mwA%3D%3D', {responseType: 'text' })
+
+      try {
+      let xml = await this.http.get(url, {responseType: 'text' })
+
+      await parseString(xml, function(err, res) {
+        if(err) {
+          console.log(err)
+        } else {
+          json =  res
+        }
+      })
+      
+      let orders = await json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
+      console.log(orders)
+
+    } catch(err) {
+      console.log(err)
+    }
+
+
+
+    }
+
+      /*
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHrLNC2sDrK_eImkXFjb3IdS-BDDCks5a-9RWwA%3D%3D'
+      let parseString = require('xml2js').parseString
+      let json;
+      this.clearOrders() // rensar ordrar för att undvika duplicering
+
+     this.http.get(url {responseType: 'text' })
      .subscribe(data => {
        parseString(data, function(err, result) {
         if(err) {
@@ -62,68 +93,18 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-01T"+ date[1]
+         let today = "2018-05-09T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
      
        this.allOrders = orders
        return this.allOrders
+      }, (error) => {
+        console.log(error)
       })
+     
     }
-
-
-    /**
-     * Lägger till ordrar med dagens datum som deliveryDate
-     * Läggs i todaysOrders[]
-     */
-    getTodaysOrders(arr) {
-      let year = parseInt(this.TimeService.year)
-      let month = parseInt(this.TimeService.month) //+1 för rätt månad
-      let date = parseInt(this.TimeService.date)
-  
-      let today = []
-
-      arr.forEach(el => {
-        let orderDeliveryDate = el.DeliveryDate[0]
-        let dateSplit = orderDeliveryDate.split('T')
-        let dateString = dateSplit[0]
-        
-        let deliveryYear = parseInt(dateString.substring(0, 4))
-        let deliveryMonth = parseInt(dateString.substring(5,7))
-        let deliveryDate = parseInt(dateString.substring(8,10))
-      
-        if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
-          today.push(el)
-        }
-      })
-      return today
-    }
-
-      //hämta ordrar som är gjorda denna månad
-getMonthOrders(arr) {
-
-  let year = parseInt(this.TimeService.year)
-  let month = parseInt(this.TimeService.month) 
-  let date = parseInt(this.TimeService.date)
-
-  let monthOrders = []
-
-    arr.forEach(order => {
-    let orderDeliveryDate = order.DeliveryDate[0]
-    let dateSplit = orderDeliveryDate.split('T')
-    let dateString = dateSplit[0]
-
-    let deliveryYear = parseInt(dateString.substring(0, 4))
-    let deliveryMonth = parseInt(dateString.substring(5,7))
-    let deliveryDate = parseInt(dateString.substring(8,10))
-
-    if(deliveryYear === year && deliveryMonth === month && deliveryDate <= date){
-      monthOrders.push(order)
-    }
-  })
-  return monthOrders
- }
-
+    */
 
     /**
      * Kollar orderstatus på alla ordrar i arr och lägger till i 
@@ -162,6 +143,28 @@ getMonthOrders(arr) {
       })
     }
 
+    getTodaysOrders(arr) {
+      let year = parseInt(this.TimeService.year)
+      let month = parseInt(this.TimeService.month) //+1 för rätt månad
+      let date = parseInt(this.TimeService.date)
+  
+      let today = []
+
+      arr.forEach(el => {
+        let orderDeliveryDate = el.DeliveryDate[0]
+        let dateSplit = orderDeliveryDate.split('T')
+        let dateString = dateSplit[0]
+        
+        let deliveryYear = parseInt(dateString.substring(0, 4))
+        let deliveryMonth = parseInt(dateString.substring(5,7))
+        let deliveryDate = parseInt(dateString.substring(8,10))
+      
+        if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
+          today.push(el)
+        }
+      })
+      return today
+    }
     /**
      * Fördelar ordrarna i arr till respektive kund
      * @param arr 
@@ -197,7 +200,35 @@ getMonthOrders(arr) {
 
              //Klara
             if(order.OrderStatusNumber[0] === "400" || order.OrderStatusNumber[0] === "450") {
-              customer.completedOrders.push(order)
+              let year = parseInt(this.TimeService.year)
+              let month = parseInt(this.TimeService.month) //+1 för rätt månad
+              let date = parseInt(this.TimeService.date)
+  
+              let today = []
+              let monthOrders = []
+            
+                let orderDeliveryDate = order.DeliveryDate[0]
+                let dateSplit = orderDeliveryDate.split('T')
+                let dateString = dateSplit[0]
+                
+                let deliveryYear = parseInt(dateString.substring(0, 4))
+                let deliveryMonth = parseInt(dateString.substring(5,7))
+                let deliveryDate = parseInt(dateString.substring(8,10))
+              
+                if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
+                  if(!customer.hasOwnProperty('completedToday')) {
+                    customer.completedToday = []
+                    } 
+                    customer.completedToday.push(order)
+                  }
+          
+        
+                if(deliveryYear === year && deliveryMonth === month && deliveryDate <= date){
+                  if(!customer.hasOwnProperty('completedMonth')) {
+                    customer.completedMonth = []
+                  }
+                  customer.completedMonth.push(order)
+                }
             }
 
              //Sections

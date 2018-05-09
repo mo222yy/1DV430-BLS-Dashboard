@@ -11,6 +11,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 describe('InformationComponent', () => {
@@ -19,7 +21,7 @@ describe('InformationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatButtonModule, MatMenuModule, MatInputModule, BrowserAnimationsModule, MatListModule, MatDividerModule, MatSelectModule, MatExpansionModule, MatFormFieldModule, FormsModule,],
+      imports: [MatButtonModule, MatMenuModule, MatCheckboxModule, MatInputModule, BrowserAnimationsModule, MatListModule, MatDividerModule, MatSelectModule, MatExpansionModule, MatFormFieldModule, FormsModule,],
       declarations: [ InformationComponent ],
       providers: [InformationComponent]
     })
@@ -37,10 +39,12 @@ describe('InformationComponent', () => {
     expect(service).toBeTruthy();
   }))
 
+  
   it('created message should be added to messages',
   inject([InformationComponent], (service: InformationComponent) => {
-    let msg = service.createMessage('test', 'test', 'test')
+    let msg = service.createMessage('test', 'test', 'test', 'test')
     let msgs = service.messages
     expect(msgs.length).toBe(1)
   }))
+  
 });

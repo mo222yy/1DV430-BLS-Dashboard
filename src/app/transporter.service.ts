@@ -34,7 +34,6 @@ export class TransporterService {
     this.nextTransport = []
 
     let currentTime = this.TimeService.getCurrentTime()
-    console.log(currentTime)    
     if (currentTime <= 1200) {
       this.nextTransport.push(dhl)
       return this.nextTransport
@@ -53,9 +52,13 @@ export class TransporterService {
       this.nextTransport = []
       this.nextTransport.push(bring)
       return this.nextTransport
+    
+    } else if ( currentTime > 1800) {
+      this.nextTransport.push(dhl)
+      return this.nextTransport
+    }
 
 
-  }
 }
 }
 

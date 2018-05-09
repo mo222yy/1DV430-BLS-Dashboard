@@ -106,10 +106,13 @@ export class InformationComponent implements OnInit {
 
   //hämtar meddelanden från localStorage
   getMessages() {
+    try {
     let savedMessages = localStorage.getItem("savedMessages")
     let messages = JSON.parse(savedMessages)
     this.messages = messages
-
+    } catch(error) {
+      console.log(error)
+    }
   }
 
   deleteMessage(event) {
