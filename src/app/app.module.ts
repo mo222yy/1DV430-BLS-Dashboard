@@ -82,8 +82,7 @@ import { ClockComponent } from './clock/clock.component'
     MatFormFieldModule,
     RouterModule,
     RouterTestingModule,
-    MatDividerModule
-    
+    MatDividerModule,
     
   ],
 
