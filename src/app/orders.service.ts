@@ -53,7 +53,7 @@ export class OrdersService {
 
       this.http.get(url, {responseType: 'text' })
      .subscribe( data => {
-
+      
        parseString(data, function(err, result) {
         if(err) {
           console.log('ERROR' + err)
