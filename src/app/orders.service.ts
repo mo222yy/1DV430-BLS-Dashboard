@@ -72,7 +72,7 @@ export class OrdersService {
        //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-10T"+ date[1]
+         let today = "2018-05-01T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
      
@@ -97,6 +97,7 @@ export class OrdersService {
      * @param arr 
      */
     getOrderStatus(arr) {
+      console.log('orderstatus', arr)
       arr.forEach(el => {
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
           if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "100"){
@@ -229,16 +230,11 @@ export class OrdersService {
 
 
     /**
-     * Filtrerar customers 
+     * Filtrerar customers, customerlist [] innehåller kunder som har öppna ordrar
      * @param arr 
      */
     setCustomerList() {
       this.customerList = this.customers.filter(el => el.openOrders.length > 0)
-   
-      this.customerList.sort(function(a,b){
-        return b.openOrders.length - a.openOrders.length
-      })
-     
     }
 
     //rensar alla orderArrays i kundobjekten

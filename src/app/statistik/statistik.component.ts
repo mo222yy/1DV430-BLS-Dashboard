@@ -137,8 +137,8 @@ export class StatistikComponent implements OnInit {
       return b.completedOrderLines - a.completedOrderLines
     })
 
-    this.top5orders = top5orders
-    this.top5orderLines = top5orderLines
+    this.top5orders = top5orders.splice(0,5)
+    this.top5orderLines = top5orderLines.splice(0,5)
    
   }
  

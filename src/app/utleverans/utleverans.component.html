@@ -4,10 +4,10 @@
 
         <button mat-button id="sectionButton"  [mat-menu-trigger-for]="menu">Avdelning </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="selectedSection(solsidan)" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
-          <button mat-menu-item (click)="selectedSection(dannes)" (click)="updateSectionHeader('Dannes')">Dannes</button>
-          <button mat-menu-item (click)="selectedSection(bong)" (click)="updateSectionHeader('Bong')">Bong</button>
-          <button mat-menu-item (click)="selectedSection(allOrders)" (click)="updateSectionHeader('Alla')">Alla</button>
+          <button mat-menu-item (click)="selectedSection('solsidan')" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
+          <button mat-menu-item (click)="selectedSection('dannes')" (click)="updateSectionHeader('Dannes')">Dannes</button>
+          <button mat-menu-item (click)="selectedSection('bong')" (click)="updateSectionHeader('Bong')">Bong</button>
+          <button mat-menu-item (click)="selectedSection('all')" (click)="updateSectionHeader('Alla')">Alla</button>
         </mat-menu>
 
 </div>
@@ -29,21 +29,21 @@
 <div id="orderOverview">
     <div class="orderOverviewParts" id="OrderOverview1">
         <p class="orderNumberHeaders">Öppna</p>
-        <p class="orderNumbers"> {{ openOrders.length }} </p>
+        <p class="orderNumbers"> {{ openOrders }} </p>
     </div>
     <div class="orderOverviewParts" id="OrderOverview2">
         <p class="orderNumberHeaders">Utland</p>
-        <p class="orderNumbers"> {{ abroadOrders.length }} </p>
+        <p class="orderNumbers"> {{ abroadOrders }} </p>
 
     </div>
     <div class="orderOverviewParts" id="OrderOverview3">
         <p class="orderNumberHeaders">Restade</p>
-        <p class="orderNumbers"> {{ restOrders.length }} </p>
+        <p class="orderNumbers"> {{ restOrders }} </p>
 
     </div>
     <div class="orderOverviewParts" id="OrderOverview4">
         <p class="orderNumberHeaders">Orderrader</p>
-        <p class="orderNumbers"> {{ orderLines.length }} </p>
+        <p class="orderNumbers"> {{ orderLines }} </p>
     </div>
 </div>
 

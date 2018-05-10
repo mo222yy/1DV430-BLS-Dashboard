@@ -18,10 +18,10 @@ import {MatMenuModule} from '@angular/material/menu';
 })
 
 export class UtleveransComponent implements OnInit {
- openOrders = []
- abroadOrders = []
- restOrders = []
- orderLines = []
+ openOrders: number;
+ abroadOrders: number;
+ restOrders: number;
+ orderLines: number;
 
  todaysOrders = []
 
@@ -31,7 +31,7 @@ export class UtleveransComponent implements OnInit {
 
    //sections
    currentSection: string = 'Alla';
-   allOrders = []
+   allCustomers = []
    solsidan = []
    dannes = []
    bong = []
@@ -60,11 +60,10 @@ export class UtleveransComponent implements OnInit {
       await this.ordersService.getOrders()
       await this.getTodaysOrders()
       await this.filterOrders()
-      await this.updateNumbers()
-      this.getCustomers()
+      this.customerService.getCustomers()
       await this.distributeCustomerOrders()
       await this.setCustomers()
-      await this.setCustomerList()
+      await this.selectedSection(this.customers)
      } catch(e) {
        console.log(e)
      }
@@ -89,11 +88,6 @@ export class UtleveransComponent implements OnInit {
       }
     }
 
-
-    getCustomers() {
-      this.customerService.getCustomers()
-    }
-
     distributeCustomerOrders() {
       try {
       this.ordersService.distributeCustomerOrders(this.todaysOrders)
@@ -104,44 +98,54 @@ export class UtleveransComponent implements OnInit {
     
     setCustomers() {
       try {
-      this.customers = this.ordersService.customers
-      this.ordersService.setCustomerList()
+      this.customers = this.customerService.customers
+      this.solsidan = this.customerService.solsidan
+      this.dannes = this.customerService.dannes
+      this.bong = this.customerService.bong
+      this.allCustomers = this.customerService.customers
+
       } catch (error) {
         console.log(error)
       }
+      console.log(this.solsidan)
     }
 
-    setCustomerList() {
-      try {
-      this.customerList = this.ordersService.customerList
-      } catch (error) { 
-        console.log(error)
-      }
-    }
+   
    
   
   /**
    * Uppdaterar alla listor
    */
-  updateNumbers() {
-    this.openOrders = this.ordersService.openOrders 
-    this.abroadOrders = this.ordersService.abroadOrders
-    this.restOrders = this.ordersService.restOrders
-    this.orderLines = this.ordersService.orderLines
-    this.allOrders = this.ordersService.allOrders
+  clearNumbers() {
+    this.openOrders = 0
+    this.abroadOrders = 0
+    this.restOrders = 0
+    this.orderLines = 0
   }
 
-  selectedSection(arr) {
-   this.ordersService.clearOrders()
-   this.ordersService.getOrderStatus(arr)
-   this.ordersService.distributeCustomerOrders(arr)
-   this.ordersService.setCustomerList()
-   this.customerList = this.ordersService.customerList
+  async selectedSection(section) {
+    this.clearNumbers()
 
-   this.openOrders = this.ordersService.openOrders
-   this.abroadOrders = this.ordersService.abroadOrders
-   this.restOrders = this.ordersService.restOrders
-   this.orderLines = this.ordersService.orderLines
+    if (section === 'solsidan') {
+      this.customerList = this.solsidan
+    } else if (section === 'dannes') {
+      this.customerList = this.dannes
+    } else if (section === 'bong') {
+      this.customerList = this.bong
+    } else if ( section = 'all') {
+      this.customerList = this.allCustomers
+    }
+
+    this.customerList.forEach(customer => {
+      this.openOrders += customer.openOrders.length
+      this.abroadOrders += customer.abroadOrders.length 
+      this.restOrders += customer.restOrders.length 
+      this.orderLines += customer.orderLines.length
+    })
+
+    this.customerList.sort(function(a,b){
+      return b.openOrders.length - a.openOrders.length
+    })
 }
 
 /**
@@ -149,7 +153,6 @@ export class UtleveransComponent implements OnInit {
  * @param section argument from html
  */
 updateSectionHeader(section) {
-  console.log(section)
   this.currentSection = section
   return section
 }
