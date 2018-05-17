@@ -73,6 +73,7 @@ export class OrdersService {
       let orders = JSON.parse(data)
     */
       //ändrar alla ordrar till dagens datum, för utv syfte.
+      
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
          let today = "2018-05-17T"+ date[1]
@@ -197,7 +198,7 @@ export class OrdersService {
                 let deliveryYear = parseInt(dateString.substring(0, 4))
                 let deliveryMonth = parseInt(dateString.substring(5,7))
                 let deliveryDate = parseInt(dateString.substring(8,10))
-              
+
                 if(deliveryYear === year && deliveryMonth === month && deliveryDate === date) {
                   if(!customer.hasOwnProperty('completedToday')) {
                     customer.completedToday = []
