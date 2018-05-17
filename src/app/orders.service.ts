@@ -43,15 +43,14 @@ export class OrdersService {
     //Hämtar och skapar en array med alla ordrar
   
     async getOrders() {
-      const fs = require('fs');
-      let parseString = require('xml2js').parseString
       this.clearOrders() // rensar ordrar för att undvika duplicering
-  
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHmIc9XrBdBcxK_8dkuD-f2vFKW5Sks5a_QxMwA%3D%3D'
+      let parseString = require('xml2js').parseString
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHr0pYSIT5GbeqFoC54bN0-r_UA7Xks5bBmhbwA%3D%3D'
       const url2 = 'https://00e9e64bac3beb78fc214b69b672a9577d546ecd9674642f86-apidata.googleusercontent.com/download/storage/v1/b/orders-xml/o/Orders_20180509_143020.xml?qk=AD5uMEs4FhcR9xshoxeLhv1oVgsyJUzRNql8btHHUhfoG5ABGy0JjsH9of0ZC5m5mhW6C6MNyVbYhCYO7yn6-72vl5vNUc31s5tDzE_B3fnawmx3j0jS4VZYDqikzrOBrWVoufwmLTvlrg5sx-KYcdJuOqWUFtrm_1ILRpQmfhUoDqft-3qcc-5o6Qa_0kkBxmUDCDl-SFZC7zXqP1G_7AOloUUMDNccJ1yGoi-v-hb082LF0pTL0-emMS61uUt4qNRSkkN-h-7E8TxLYvKzQ9ZFMktchTkPkYP0iLeygfswzhTwQE1ZDtjPkE0VRsbvwu8fNfvbA8Dm-3AZbxKjTR0UnEoy5tpeWyp5MlL1IKXajhY7qFweVT6C36dt-jlpOAf3gmxxLITTTZAS_Gwg8ywQuRLjh7R_I8aA5kWqx3Ck5U2NGe7AhSE7oJAzF20iN-sG8yVnGjllTPmLiCAL4aOaLwOuEj6wSlUlottANGepDJdKpaLe5ZLonmdpn3ieSw0CVA1heoNo_8BeBC8ITKmarXbrOGlYrH8eekSOoYvwNjc7vFUJ_Ifw-PaHCcG8YlwLQlKtt77cYqzXRgxk66LinP-p2rCgY9sDX6r2GMr_JVjx8DIze66LZNxmd5vHOQQ5XZA1-vfdhTQttjLCaGaq75pEESeRznqeln-xGfM6LZ4rWShDXNf7Yl8zfdV9114GYYEsKXiMiNKEgF-lyfe-4BH1uP5vEXzYmcxGxcS6FGAcpxhqE9omhYtGbrl4UarVQG8MsFdn'
       let json;
 
-      this.http.get(url, {responseType: 'text' })
+      try {
+      let getXml = this.http.get(url, {responseType: 'text' })
      .subscribe( data => {
       
        parseString(data, function(err, result) {
@@ -68,22 +67,26 @@ export class OrdersService {
        //filtrerar json till endast ordrar
        let orders =  json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
 
-       
-       //ändrar alla ordrar till dagens datum, för utv syfte.
+    
+   /*
+      let data = localStorage.getItem('orders')
+      let orders = JSON.parse(data)
+    */
+      //ändrar alla ordrar till dagens datum, för utv syfte.
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-01T"+ date[1]
+         let today = "2018-05-17T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
-     
+    
        this.allOrders = orders
        return this.allOrders
-      }, (error) => {
-        console.log(error)
-       
-      })
-    
+     })
+    } catch (error) {
+      console.log(error)
     }
+    }
+    
    
 
     /**
@@ -97,7 +100,6 @@ export class OrdersService {
      * @param arr 
      */
     getOrderStatus(arr) {
-      console.log('orderstatus', arr)
       arr.forEach(el => {
         if(el.OrderStatusNumber[0] === "200" || el.OrderStatusNumber[0] === "300" || el.OrderStatusNumber[0] === "310") {
           if(el.OrderPickability[0] !== "200" || el.OrderPickability[0] !== "100"){
@@ -233,8 +235,9 @@ export class OrdersService {
      * Filtrerar customers, customerlist [] innehåller kunder som har öppna ordrar
      * @param arr 
      */
-    setCustomerList() {
-      this.customerList = this.customers.filter(el => el.openOrders.length > 0)
+    setCustomerList(customers) {
+      this.customerList = customers.filter(el => el.openOrders.length > 0)
+      return this.customerList
     }
 
     //rensar alla orderArrays i kundobjekten

@@ -17,9 +17,11 @@ export class StatistikComponent implements OnInit {
 
   currentSection =  []
   currentTimeSpan: string = 'Idag'
+  currentCustomer = {}
 
   currentSectionToShow:string = 'Alla'
   currentTimeSpanToShow: string = 'Idag'
+  currentCustomerToShow: string = 'Välj kund'
 
   ordersCompletedToday  = []
   ordersCompletedMonth = []
@@ -32,15 +34,22 @@ export class StatistikComponent implements OnInit {
 
   completedThisMonth = []
 
+  chart: any;
+
+
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService,
               private TimeService: TimeService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getOrders()
+    this.currentSection = this.customerService.customers
 
-  }
+     
+
+  
+}
 
 
   async getOrders() {
@@ -50,7 +59,6 @@ export class StatistikComponent implements OnInit {
     this.currentSection = this.customerService.customers //startsidan, (alla idag)
     await this.getNumbersToShow(this.currentSection)
     await this.getTop5(this.currentSection)
-
  
   }
 
@@ -92,6 +100,8 @@ export class StatistikComponent implements OnInit {
   }
 
   getTop5(section) {
+    this.top5orderLines = []
+    this.top5orders = []
     let top5orders = []
 
     if(this.currentTimeSpan === 'Idag') {
@@ -100,8 +110,7 @@ export class StatistikComponent implements OnInit {
         if(customer.hasOwnProperty('completedOrderLines')) {
           customer.completedOrderLines = 0
         }
-        if(customer.hasOwnProperty('completedToday')) {
-          console.log(customer)
+        if(customer.hasOwnProperty('completedToday')) { 
           top5orders.push(customer)
           if(!customer.hasOwnProperty('completedOrderLines')) {
             customer.completedOrderLines = 0
@@ -117,7 +126,9 @@ export class StatistikComponent implements OnInit {
     
     } else if ( this.currentTimeSpan === 'Denna månad') {
       section.forEach(customer => {
-        if(customer.hasOwnProperty('completedMonth')) {
+        if(customer.hasOwnProperty('completedOrderLines')) {
+          customer.completedOrderLines = 0
+        } if(customer.hasOwnProperty('completedMonth')) {
           top5orders.push(customer)
           if(!customer.hasOwnProperty('completedOrderLines')) {
             customer.completedOrderLines = 0
@@ -168,13 +179,14 @@ export class StatistikComponent implements OnInit {
   setTimeSpan(timeSpan) {
     this.currentTimeSpan = timeSpan
     this.currentTimeSpanToShow = timeSpan
-    console.log(this.currentTimeSpan)
-    console.log(this.currentSection)
     this.getNumbersToShow(this.currentSection)
+    this.getTop5(this.currentSection)
 
   }
 
-
+  setCustomer(event) {
+    console.log(event)
+  }
 
 
 

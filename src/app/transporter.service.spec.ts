@@ -29,6 +29,11 @@ describe('TransporterService', () => {
     ])
   }))
 
-
+  it('should return nextTransport as an object',
+  inject([TransporterService, TimeService], (service: TransporterService, time: TimeService) => {
+    let next = service.getNextPickUp()
+    let expected = typeof next
+    expect(expected).toBe('object')
+  }))
 
 });

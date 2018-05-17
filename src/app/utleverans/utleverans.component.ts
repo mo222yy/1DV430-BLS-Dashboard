@@ -5,9 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
 import { TransporterService } from '../transporter.service'
-import {MatTableModule, MatTableDataSource} from '@angular/material/table';
+import {MatTableModule, MatTableDataSource, MatTable} from '@angular/material/table';
 import {MatSortModule, MatSort} from '@angular/material/sort';
 import {MatMenuModule} from '@angular/material/menu';
+import { CdkTableModule} from '@angular/cdk/table';
+import {DataSource} from '@angular/cdk/collections';
+
 
 @Component({
   selector: 'app-utleverans',
@@ -38,7 +41,7 @@ export class UtleveransComponent implements OnInit {
 
    nextPickUp = []
 
-   dataSource = this.customerList
+   dataSource = new MatTableDataSource(this.customerList)
    displayedColumns = ['customerName', 'openOrders', 'abroadOrders', 'restOrders', 'orderLines'];
 
    
@@ -52,7 +55,10 @@ export class UtleveransComponent implements OnInit {
   ngOnInit() {
     this.getOrders()
     this.getNextPickUp()  
+
+    this.dataSource.sort = this.sort;
   }
+
  
     //Hämtar ordrar och kör sedan sortOrders()
     async getOrders() {

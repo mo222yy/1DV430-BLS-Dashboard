@@ -31,7 +31,6 @@ describe('UtleveransComponent', () => {
   
   });
 
-/*
   it('should inject CustomerService', inject([CustomerService], (service: CustomerService) => {
     expect(service).toBeTruthy();
   }))
@@ -40,7 +39,7 @@ describe('UtleveransComponent', () => {
   it('should inject TransporterService', inject([TransporterService], (service: TransporterService) => {
     expect(service).toBeTruthy();
   }))
- 
+
   
   it('should inject HttpHandler', inject([HttpHandler], (service: HttpHandler) => {
     expect(HttpHandler).toBeTruthy();
@@ -53,21 +52,5 @@ describe('UtleveransComponent', () => {
     expect(comp.updateSectionHeader(expected)).toBe(expected)
   })
  
- 
-  it('sortOrders() should sort orders and push to arrays', inject([OrdersService, HttpClient], (OrdersService: OrdersService, HttpClient: HttpClient) => {
-    let allorders = OrdersService.getOrders()
-    console.log('all',allorders)
-    //expect(expected.length).toBe(120)
-  }))
- 
-  
-  it('sortOrders() should sort orders and push to arrays', inject([OrdersService, HttpClient], (OrdersService: OrdersService, HttpClient: HttpClient) => {
-    component.ngOnInit()
- 
-    expect(component.customerList.length).toBe(1)
-    expect(component.solsidan.length).toBe(84)
-    expect(component.dannes.length).toBe(9)
-    expect(component.bong.length).toBe(12)
-  })) 
-  */
+
 });

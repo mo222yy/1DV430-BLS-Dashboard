@@ -1,3 +1,4 @@
+ 
 <div id="blueList">
   <button mat-button id="sectionButton" class="blueListButtons"  [matMenuTriggerFor]="menu">{{ currentSectionToShow }} </button>
   <mat-menu #menu="matMenu">
@@ -13,10 +14,13 @@
     <button mat-menu-item (click)="setTimeSpan('Idag')">Idag</button>
     <button mat-menu-item (click)="setTimeSpan('Denna månad')">Denna månad</button>
   </mat-menu>
+
+
 </div>
 
 <div id="leftSide" class="leftAndRight">
-  <p id="returnsToday"  class="orderHeader">Ordrar plockade idag</p>
+  <p id="returnsToday" *ngIf="currentTimeSpanToShow === 'Idag'" class="orderHeader">Ordrar plockade idag</p>
+  <p id="returnsToday" *ngIf="currentTimeSpanToShow === 'Denna månad'" class="orderHeader">Ordrar plockade denna månad</p>
   <br>
   <p id="todayNumber" class ="orderNumber">{{ orderNumberToShow }}</p>
  
@@ -35,8 +39,8 @@
   
   
   <div id="rightSide" class="leftAndRight">
-    <p id="returnsToday" class="orderHeader">Orderrader plockade idag</p>
-    <br>
+    <p id="returnsToday" *ngIf="currentTimeSpanToShow === 'Idag'" class="orderHeader">Orderrader plockade idag</p>
+    <p id="returnsToday" *ngIf="currentTimeSpanToShow === 'Denna månad'" class="orderHeader">Orderrader plockade denna månad</p>    <br>
     <p id="todayNumber" class ="orderNumber">{{ orderLinesToShow }}</p>
   
 

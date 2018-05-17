@@ -5,10 +5,12 @@ import { CustomerService } from './customer.service';
 import { TimeService } from './time.service';
 import { toBase64String } from '@angular/compiler/src/output/source_map';
 
+
 describe('OrdersService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [OrdersService, HttpClient, HttpHandler, CustomerService, TimeService]
+      
     });
   });
 
@@ -17,7 +19,7 @@ describe('OrdersService', () => {
     expect(service).toBeTruthy();
   }))
 
-  it('should not return any orders due to wrong date',
+  it('getOrdersToday should not return any orders due to wrong date',
   inject([OrdersService, TimeService], (orders: OrdersService, time: TimeService) => {
     let ts = time.getDate()
 
@@ -31,6 +33,23 @@ describe('OrdersService', () => {
   }))
 
 
+  it('setCustomerList should return 0 due to no open orders', 
+    inject([OrdersService], (service: OrdersService) => {
+      let testObj = [
+        {
+          customerName: 'Flattered',
+          openOrders: []
+        },
+        {
+          customerName: 'Watt & Veke',
+          openOrders: []
+        }
+      ]
+
+      let test = service.setCustomerList(testObj)
+      expect(test.length).toBe(0)
+      }))
+    
 
   
  

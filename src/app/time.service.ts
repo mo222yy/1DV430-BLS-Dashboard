@@ -28,6 +28,10 @@ export class TimeService {
 
     let date = d.getDate()
     this.date = this.get2digits(date)
+
+    let todaysDate = this.year + this.month + this.date
+    return todaysDate
+    
   }
 
     getTime() {
@@ -41,6 +45,9 @@ export class TimeService {
 
     let seconds = d.getSeconds()
     this.seconds = this.get2digits(seconds)
+
+    let time = this.hours + this.minutes + this.seconds
+    return time
   }
 
   getCurrentTime() {

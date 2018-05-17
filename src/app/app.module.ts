@@ -30,6 +30,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
+import {CdkTableModule} from '@angular/cdk/table';
+import {DataSource} from '@angular/cdk/collections';
 
 
 
@@ -83,6 +85,8 @@ import { ClockComponent } from './clock/clock.component'
     RouterModule,
     RouterTestingModule,
     MatDividerModule,
+    CdkTableModule,
+        
     
   ],
 
