@@ -46,5 +46,31 @@ describe('InformationComponent', () => {
     let msgs = service.messages
     expect(msgs.length).toBe(1)
   }))
+
+  it('created message should be added to messages',
+  inject([InformationComponent], (service: InformationComponent) => {
+    let msg = service.createMessage('test', 'test', 'test', true)
+    console.log('msg', msg)
+    let delMsg = service.deleteMessage(msg)
+    let msgs = service.messages
+    expect(msgs.length).toBe(0)
+  }))
   
+  it('created todos should be added to todo',
+  inject([InformationComponent], (service: InformationComponent) => {
+    let todo = service.createToDo('test', 'test', 'test')
+    let todos = service.toDo
+    expect(todos.length).toBe(1)
+  }))
+
+  it('Todos should be deleted',
+  inject([InformationComponent], (service: InformationComponent) => {
+    let todo = service.createToDo('test', 'test', 'test')
+    console.log('todo', todo)
+    let todos = service.toDo
+    let deleteTodo = service.deleteToDos(todo)
+    expect(todos.length).toBe(0)
+
+  }))
+
 });

@@ -8,9 +8,8 @@
 <div id="allLists">
 
 <div id="solsidan">
-  <p class="sectionHeader">Solsidan</p>
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of solsidan">
+  <mat-list class="customer" *ngFor="let customer of left">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">
@@ -48,9 +47,8 @@
 
 
 <div id="solsidan">
-  <p class="sectionHeader">Dannes</p>
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of dannes">
+  <mat-list class="customer" *ngFor="let customer of middle">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">
@@ -88,9 +86,8 @@
 
 
 <div id="solsidan">
-  <p class="sectionHeader">Bong</p>
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of bong">
+  <mat-list class="customer" *ngFor="let customer of right">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">

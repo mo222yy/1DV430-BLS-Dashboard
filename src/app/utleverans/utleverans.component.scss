@@ -55,9 +55,14 @@
     margin-right: 20px;
 }
 
-#transporterImage {
+#transporterLogoDiv {
     height: 61px;
-    width: 70px;
+    width: 180px;
+}
+#transporterImage {
+    float: right;
+    height: 61px;
+    //width: 180px;
     margin-top: -6px;
 }
 

@@ -113,7 +113,6 @@ export class UtleveransComponent implements OnInit {
       } catch (error) {
         console.log(error)
       }
-      console.log(this.solsidan)
     }
 
    
@@ -149,9 +148,15 @@ export class UtleveransComponent implements OnInit {
       this.orderLines += customer.orderLines.length
     })
 
-    this.customerList.sort(function(a,b){
+    console.log('cl', this.customerList)
+    let cl = this.customerList.filter(order => order.openOrders.length > 0)
+    
+
+    cl.sort(function(a,b){
       return b.openOrders.length - a.openOrders.length
     })
+
+    this.customerList = cl
 }
 
 /**

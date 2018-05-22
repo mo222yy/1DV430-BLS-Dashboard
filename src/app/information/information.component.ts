@@ -86,14 +86,16 @@ export class InformationComponent implements OnInit {
   }
   
   createMessage(header, message, section, confirmation) {
-   this.messages.push({
+   let msg = {
     header: header,
     message: message,
     section: section,
     confirmation: this.checked
-   })
-   console.log(this.messages)
+  }
+  console.log('msg', msg)
+   this.messages.push(msg)
    this.setMessages()
+   return msg
   } 
 
 
@@ -116,6 +118,7 @@ export class InformationComponent implements OnInit {
   }
 
   deleteMessage(event) {
+    console.log(event)
     let count = 0
     this.messages.forEach(message => {
       if(message.header === event.header && message.message === event.message && message.section === event.section) {
@@ -154,8 +157,9 @@ export class InformationComponent implements OnInit {
       message: this.messageTodo,
       section: this.sectionTodo
     })
+    
     this.setToDos()
-
+    return this.toDo
   }
 
   // TODOS

@@ -15,6 +15,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 export class KunderComponent implements OnInit {
   customers = []
 
+  left = []
+  middle = []
+  right = []
+
   solsidan = []
   dannes = []
   bong = []
@@ -29,8 +33,29 @@ export class KunderComponent implements OnInit {
     this.solsidan = this.CustomerService.solsidan
     this.dannes = this.CustomerService.dannes
     this.bong = this.CustomerService.bong
+    this.divideLists()
 
     this.customers = this.CustomerService.customers
+  }
+
+  divideLists() {
+    let customers = this.CustomerService.customers
+    let sorted = customers.sort(function(a,b) {
+      var nameA= a.customerName.toLowerCase(), nameB= b.customerName.toLowerCase();
+      if (nameA < nameB) 
+       return -1;
+      if (nameA > nameB)
+       return 1;
+      return 0;
+    })
+    console.log(customers)
+    console.log(sorted)
+    let customersDivided = customers.length / 3
+
+    this.left = customers.slice(0, customersDivided)
+    this.middle = customers.slice(customersDivided, customersDivided * 2)
+    this.right = customers.slice(customersDivided *2, customersDivided * 3)
+    
   }
 
   editCustomer(customerName) {
@@ -47,5 +72,13 @@ export class KunderComponent implements OnInit {
 
   createCustomer() {
     this.router.navigate(['skapakund'])
+  }
+
+  sortCustomers(arr) {
+    arr.sort(function(a, b) {
+      return b- a
+    })
+    console.log(arr)
+
   }
 }

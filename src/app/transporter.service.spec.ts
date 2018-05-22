@@ -34,6 +34,7 @@ describe('TransporterService', () => {
     let next = service.getNextPickUp()
     let expected = typeof next
     expect(expected).toBe('object')
+
   }))
 
 });

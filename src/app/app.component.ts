@@ -23,13 +23,17 @@ export class AppComponent  implements OnInit {
   minutes: string;
   seconds: string;
 
+  chart = []
 
   constructor(private TimeService: TimeService ) {}
+
 
   ngOnInit(): void {
   this.getDate()
   this.getTime()
 }
+
+
 
 
   getDate() {

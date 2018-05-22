@@ -26,7 +26,7 @@ describe('TimeService', () => {
     expect(expected.length).toBe(8)
   }))
 
-  it('getTime should return time with 8 numbers',
+  it('getTime should return time with 6 numbers',
   inject([TimeService], (service: TimeService) => {
    
     let expected = service.getTime()

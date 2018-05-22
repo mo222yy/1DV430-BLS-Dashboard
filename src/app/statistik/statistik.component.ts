@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { OrdersService } from '../orders.service'
 import { TimeService } from '../time.service'
 import {MatTableModule} from '@angular/material/table';
+import * as Chart from 'chart.js'
 
 
 
@@ -11,7 +12,7 @@ import {MatTableModule} from '@angular/material/table';
   templateUrl: './statistik.component.html',
   styleUrls: ['./statistik.component.scss']
 })
-export class StatistikComponent implements OnInit {
+export class StatistikComponent implements OnInit, AfterViewInit {
   allOrders = []
   allCompletedOrders = []
 
@@ -34,7 +35,7 @@ export class StatistikComponent implements OnInit {
 
   completedThisMonth = []
 
-  chart: any;
+  doughnutChart: any;
 
 
   constructor(private ordersService: OrdersService,
@@ -44,11 +45,7 @@ export class StatistikComponent implements OnInit {
 
   async ngOnInit() {
     this.getOrders()
-    this.currentSection = this.customerService.customers
-
-     
-
-  
+    this.currentSection = this.customerService.customers  
 }
 
 
@@ -59,6 +56,7 @@ export class StatistikComponent implements OnInit {
     this.currentSection = this.customerService.customers //startsidan, (alla idag)
     await this.getNumbersToShow(this.currentSection)
     await this.getTop5(this.currentSection)
+    this.charts()
  
   }
 
@@ -150,6 +148,7 @@ export class StatistikComponent implements OnInit {
 
     this.top5orders = top5orders.splice(0,5)
     this.top5orderLines = top5orderLines.splice(0,5)
+    this.charts()
    
   }
  
@@ -187,187 +186,58 @@ export class StatistikComponent implements OnInit {
   setCustomer(event) {
     console.log(event)
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /**
-   * Filtrerar till dagens ordrar via ordersservice
-   * går igenom dagens ordrar och pushar orderrader till orderLinesCompletedToday
   
-  getNumbersToShow(section, timeSpan) {
-    this.orderLinesToShow = 0
-
-    if (timeSpan === 'today') {
-      this.ordersCompletedToday = this.ordersService.getTodaysOrders(this.allCompletedOrders)
-      this.orderNumberToShow = this.ordersCompletedToday.length
-
-      this.ordersCompletedToday.forEach(order => {
-        let pickedLines = order.NumberOfPickedOrderLines[0]
-        let pl = parseInt(pickedLines)
-        this.orderLinesToShow += pl  
-      })
-
-    if (timeSpan === 'month') {
-      section.forEach(customer => {
-        console.log(customer)
-      })
+  charts() {
+    console.log('top5',this.top5orders)
+    let labels = this.top5orders.map(x => x.customerName + " " + x.completedMonth.length)
+  
+    let data;
+    if(this.currentTimeSpan === 'Idag') {
+      data = this.top5orders.map(x => x.completedToday.length)
+    } else if (this.currentTimeSpan === 'Denna månad') {
+      data = this.top5orders.map(x => x.completedMonth.length)
     }
-  
-    }
-
-    else if(timeSpan === 'month') {
-      this.ordersCompletedMonth = this.ordersService.getMonthOrders(this.allCompletedOrders)
-      this.orderNumberToShow = this.ordersCompletedMonth.length
-
-
-      this.ordersCompletedMonth.forEach(order => {
-        let pickedLines = order.NumberOfPickedOrderLines[0]
-        let pl = parseInt(pickedLines)
-        this.orderLinesToShow += pl
-        
-      })
-  
-    } 
-  
-  }
-
-
-   * Fördelar dagens ordrar till kunder för att hämta top5 lista
- 
-  distributeToCustomers(arr) {
-    this.ordersService.distributeCustomerOrders(arr)
-    this.customers = this.customerService.customers
-  }
-
-  
-   * 
-   * @param customers customer list to iterate
-   * @param timeSpan decides if filter todays or months orders
-  
-  getTop5(customers, timeSpan) {
-   // let ordersCompleted: number = 0;
-    let top5orders = []
-    let top5orderLines = []
-    let orderLinesCompleted: number = 0;
-
-    customers.forEach(customer => {
-      if(customer.hasOwnProperty('completedOrders')){
-        if (customer.completedOrders.length > 0){
-          if(timeSpan === 'today') {
-            customer.completedOrdersToShow = this.ordersService.getTodaysOrders(customer.completedOrders)
-          } else if (timeSpan === 'month') {
-            customer.completedOrdersToShow = this.ordersService.getMonthOrders(customer.completedOrders)
+    console.log('labels', labels)
+    console.log('data', data)
+    this.doughnutChart = new Chart('doughnutChartLeft', {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: '# of votes',
+          data: data,
+          backgroundColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(233, 244, 10, 1)',
+            'rgba(21, 10, 244, 1)',
+            'rgba(244, 21, 10, 1)',
+            'rgba(117, 222, 223, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          text: 'Ordrar idag',
+          display: false
+        },
+        responsive: false,
+        legend: {
+          display: true,
+          position: 'left',
+          labels: {
+            usePointStyle: true,
+            fontSize: 24
           }
+          
         }
       }
-     
-      if (customer.hasOwnProperty('completedOrdersToShow')){
-          top5orders.push(customer)  
-          customer.completedOrderLinesToShow = 0
-
-          customer.completedOrdersToShow.forEach(order => {
-            let ol = parseInt(order.NumberOfPickedOrderLines)
-            customer.completedOrderLinesToShow += ol
-            orderLinesCompleted += ol
-          })
-        }             
-    }) 
-  
-    top5orders.sort(function(a,b){
-      return b.completedOrdersToShow.length - a.completedOrdersToShow.length
-    }) 
-
-    top5orderLines = top5orders.slice()
-    top5orderLines.sort(function(a,b) {
-      return b.completedOrderLinesToShow.length - a.completedOrderLinesToShow.length
     })
-    top5orders.splice(5)
-    this.top5orders = top5orders;
     
-    top5orderLines.splice(5)
-    this.top5orderLines = top5orderLines
-
-
   }
-
-  getMonth() {
-    console.log(this.currentSection)
-  
-    if(this.currentSection === 'Solsidan') {
-      this.getTop5(this.customerService.solsidan, 'month')
-      this.getNumbersToShow(this.customerService.solsidan, 'month')
-      console.log(this.customerService.solsidan)
-
-    } else if(this.currentSection  === 'Dannes') {
-      this.getTop5(this.customerService.dannes, 'month')
-      this.getNumbersToShow(this.customerService.dannes, 'month')
-
-    } else if(this.currentSection  === 'Bong') {
-      this.getTop5(this.customerService.bong, 'month')
-      this.getNumbersToShow(this.customerService.bong, 'month')
-
-    } else if(this.currentSection  === 'Alla') {
-      this.getTop5(this.customerService.customers, 'month')
-      this.getNumbersToShow(this.customerService.customers, 'month')
+  ngAfterViewInit() {
+    
     }
-  }
   
- 
 
-  selectedTimeSpan(timeSpan) {
-    this.currentTimeSpan = timeSpan
   }
-  
-  selectedSection(section) {
-    this.currentSection = section.charAt(0).toUpperCase() + section.slice(1)
-
-    if(section === 'solsidan') {
-      this.getTop5(this.customerService.solsidan, 'today')
-
-    } else if(section === 'dannes') {
-      this.getTop5(this.customerService.dannes, 'today')
-
-    } else if(section === 'bong') {
-      this.getTop5(this.customerService.bong, 'today')
-
-    } else if(section === 'alla') {
-    this.getTop5(this.customerService.customers, 'today')
-    }
-  }
-  
-*/
-
-}
