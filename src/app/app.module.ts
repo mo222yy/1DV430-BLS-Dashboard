@@ -34,6 +34,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDividerModule} from '@angular/material/divider';
 import {CdkTableModule} from '@angular/cdk/table';
 import {DataSource} from '@angular/cdk/collections';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 
@@ -92,7 +93,7 @@ import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'an
     RouterTestingModule,
     MatDividerModule,
     CdkTableModule,
-    
+    MatButtonToggleModule
         
     
   ],

@@ -7,15 +7,23 @@
   <button mat-raised-button routerLink="information">Information</button>
   <button mat-raised-button routerLink="kunder">Kunder</button>
   <a mat-raised-button href="https://borjes.ongoingsystems.se/borjes/index.aspx">WMS</a>
-
+  <button mat-button [matMenuTriggerFor]="menu">Play</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="play('alla')">Alla</button>
+    <button mat-menu-item (click)="play('solsidan')">Solsidan</button>
+    <button mat-menu-item (click)="play('dannes')">Dannes</button>
+    <button mat-menu-item (click)="play('bong')">Bong</button>
+    <button mat-menu-item (click)="stopFunction()">Stop</button>
+  </mat-menu>
   </div>
   
   
-  <div id="logga"></div>
-  
-
+  <div id="logga">
+  <p>{{playSection}}</p>
+  </div>
 
   <div id="dateDiv">
+
   <app-clock></app-clock>
   </div>
 

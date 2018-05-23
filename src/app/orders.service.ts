@@ -62,7 +62,6 @@ export class OrdersService {
 
          }
        })
-       console.log(json)
      
        //filtrerar json till endast ordrar
        let orders =  json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
@@ -76,7 +75,7 @@ export class OrdersService {
       
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-22T"+ date[1]
+         let today = "2018-05-23T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
     

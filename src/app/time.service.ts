@@ -15,6 +15,8 @@ export class TimeService {
 
   currentTime: number; //ex. 1430
 
+  playSection: string; //fuling för "bildspel"
+
   constructor() { }
   
 

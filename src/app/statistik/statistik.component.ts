@@ -53,7 +53,19 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     this.ordersService.getOrders()
     this.customerService.getCustomers()
     await this.distributeCompletedOrders()
-    this.currentSection = this.customerService.customers //startsidan, (alla idag)
+    
+
+    // för "bildspel"
+    if(this.TimeService.playSection === undefined || this.TimeService.playSection === 'alla') {
+      this.currentSection = this.customerService.customers //startsidan, (alla idag)
+    } else if (this.TimeService.playSection === 'solsidan') {
+      this.currentSection = this.customerService.solsidan
+    } else if (this.TimeService.playSection === 'dannes') {
+      this.currentSection = this.customerService.dannes
+    } else if (this.TimeService.playSection === 'bong') {
+      this.currentSection = this.customerService.bong
+    }
+    
     await this.getNumbersToShow(this.currentSection)
     await this.getTop5(this.currentSection)
     this.charts()
@@ -183,12 +195,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
 
   }
 
-  setCustomer(event) {
-    console.log(event)
-  }
-  
   charts() {
-    console.log('top5',this.top5orders)
     let labels = this.top5orders.map(x => x.customerName + " " + x.completedMonth.length)
   
     let data;
@@ -197,8 +204,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     } else if (this.currentTimeSpan === 'Denna månad') {
       data = this.top5orders.map(x => x.completedMonth.length)
     }
-    console.log('labels', labels)
-    console.log('data', data)
+  
     this.doughnutChart = new Chart('doughnutChartLeft', {
       type: 'doughnut',
       data: {
@@ -207,10 +213,10 @@ export class StatistikComponent implements OnInit, AfterViewInit {
           label: '# of votes',
           data: data,
           backgroundColor: [
-            'rgba(255, 99, 132, 1)',
             'rgba(233, 244, 10, 1)',
             'rgba(21, 10, 244, 1)',
             'rgba(244, 21, 10, 1)',
+            'rgba(0, 0, 0, 1)',
             'rgba(117, 222, 223, 1)',
           ],
           borderWidth: 1
@@ -227,7 +233,8 @@ export class StatistikComponent implements OnInit, AfterViewInit {
           position: 'left',
           labels: {
             usePointStyle: true,
-            fontSize: 24
+            fontSize: 16,
+            padding: 50
           }
           
         }

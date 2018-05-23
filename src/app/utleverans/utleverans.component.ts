@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { TimeService } from '../time.service'
 
 import { OrdersService } from '../orders.service'
 import { CustomerService } from '../customer.service'
@@ -43,18 +44,24 @@ export class UtleveransComponent implements OnInit {
 
    dataSource = new MatTableDataSource(this.customerList)
    displayedColumns = ['customerName', 'openOrders', 'abroadOrders', 'restOrders', 'orderLines'];
-
-   
    
    @ViewChild(MatSort) sort: MatSort;
    
-  constructor( private ordersService: OrdersService,
+  constructor( 
+               private TimeService: TimeService,
+               private ordersService: OrdersService,
                private customerService: CustomerService,
                private transporterService: TransporterService) { }
                
-  ngOnInit() {
+   ngOnInit() {
+     if(this.TimeService.playSection !== undefined) {
+       this.currentSection = this.TimeService.playSection.charAt(0).toUpperCase() + this.TimeService.playSection.slice(1)
+       
+     }
     this.getOrders()
     this.getNextPickUp()  
+
+
 
     this.dataSource.sort = this.sort;
   }
@@ -69,7 +76,19 @@ export class UtleveransComponent implements OnInit {
       this.customerService.getCustomers()
       await this.distributeCustomerOrders()
       await this.setCustomers()
-      await this.selectedSection(this.customers)
+      
+
+      
+      //för "bildspelet"
+      console.log('TS',this.TimeService.playSection)
+
+      if(this.TimeService.playSection === undefined || this.TimeService.playSection === 'alla') {
+        await this.selectedSection('alla')
+      } else {
+        await this.selectedSection(this.TimeService.playSection)
+      }
+      
+
      } catch(e) {
        console.log(e)
      }
@@ -89,6 +108,7 @@ export class UtleveransComponent implements OnInit {
     filterOrders() {
       try {
       this.ordersService.getOrderStatus(this.todaysOrders)
+
       } catch(error) {
         console.log(error)
       }
@@ -137,7 +157,7 @@ export class UtleveransComponent implements OnInit {
       this.customerList = this.dannes
     } else if (section === 'bong') {
       this.customerList = this.bong
-    } else if ( section = 'all') {
+    } else if ( section = 'alla') {
       this.customerList = this.allCustomers
     }
 
@@ -148,7 +168,6 @@ export class UtleveransComponent implements OnInit {
       this.orderLines += customer.orderLines.length
     })
 
-    console.log('cl', this.customerList)
     let cl = this.customerList.filter(order => order.openOrders.length > 0)
     
 
