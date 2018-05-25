@@ -10,7 +10,7 @@
   
   <div id="slidShow">
   <mat-form-field>
-    <mat-select placeholder="Starta Slide" [(value)]="selected" [disabled]="stop === true">
+    <mat-select placeholder="Starta Slide" [(value)]="selected" [disabled]="stop === false">
       <mat-option (click)="play('alla')" value="Alla">Alla</mat-option>
       <mat-option (click)="play('solsidan')" value="Solsidan">Solsidan</mat-option>
       <mat-option (click)="play('dannes')" value="Dannes">Dannes</mat-option>

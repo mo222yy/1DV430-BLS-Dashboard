@@ -26,7 +26,7 @@ export class AppComponent  implements OnInit {
   minutes: string;
   seconds: string;
 
-  stop: boolean = false;
+  stop: boolean;
 
   //Timers
   start;
@@ -46,39 +46,30 @@ export class AppComponent  implements OnInit {
 }
 
   play(playStatus) {
-   this.TimeService.playSection = playStatus
-
-   if(this.stop === true) {
-    this.stop = false
+    this.TimeService.playSection = playStatus
+    this.stop = false;
+    this.playSlide()
   }
-
-  this.start = setTimeout( () => {
-    if(this.stop === false) {
-      this.router.navigate(['statistik'])
-    }
-
-  }, 500)
-
- 
+   
+  
+  playSlide() {
+     
+    this.start = setTimeout( () => {
+        this.router.navigate(['statistik'])
+    }, 500)
 
     this.stats = setTimeout( () => {
-      if(this.stop === false) {
       this.router.navigate(['utleverans'])
-      }
     }, 5000)
  
 
     this.info = setTimeout( () => {
-      if(this.stop === false) {
       this.router.navigate(['information'])
-      }
     }, 10000)
 
   
     this.recurse = setTimeout( () => {
-      if(this.stop === false) {
-      this.play(playStatus)
-      }
+      this.playSlide()
     }, 15000)
 
 }
