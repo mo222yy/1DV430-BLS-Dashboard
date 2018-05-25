@@ -1,8 +1,8 @@
 #sectionTransporter {
     height: 60px;
-    width: 100%;
+    width: 105%;
+    margin-left: -30px;
     background-color: blue;
-    border-radius: 5px;
     font-size:24px;
     display:inline-block;
 }
@@ -11,13 +11,18 @@
  float:left;
  width: 30%;
  color: white;
- margin-top: 20px; 
+ margin-top: 10px; 
+ font-family: 'Questrial', sans-serif;
+
 }
+
 
 #sectionButton {
     margin-left: 10px;
     font-size: 18px;
     font-weight: bold;
+    font-family: 'Questrial', sans-serif;
+
 }
 #sectionHeader {
     text-align: center;
@@ -29,9 +34,10 @@
     color: white;
 }
 
-#nextPickup {
+#nextPickUp {
     float:right;
-    width:35%;
+    width: 25%;
+    margin-right: 30px;
 }
 
 .pickUpTime {
@@ -80,6 +86,7 @@
 
 .orderNumbers {
     font-size: 72px;
+    font-weight: bold;
     text-align: center;
     margin-top: -20px;
 }
@@ -107,16 +114,32 @@
 }
 
 
-.orderList {
+#orderList {
     font-size: 200%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     display: inline-block;
     margin-left: 10px;
-    width: 15%;
+    width: 95%;
+    margin-left: 2%;
+}
+
+mat-header-cell {
+    font-size: 24px;
+    color: black;
+
 }
 
 .customerLine {
     color: blue;
 }
 
+.customerName  {
+    font-size: 20px;
+    color: black;
+}
 
+.openOrders {
+    text-align: center;
+    font-size: 18px;
+    color: red;
+}

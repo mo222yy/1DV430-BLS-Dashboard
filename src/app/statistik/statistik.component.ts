@@ -35,7 +35,8 @@ export class StatistikComponent implements OnInit, AfterViewInit {
 
   completedThisMonth = []
 
-  doughnutChart: any;
+  doughnutChartLeft: any;
+  doughnutChartRight: any;
 
 
   constructor(private ordersService: OrdersService,
@@ -165,6 +166,9 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   }
  
   setSection(section) {
+    this.doughnutChartLeft.destroy()
+    this.doughnutChartRight.destroy()
+    
     if (section === 'solsidan') {
       this.currentSection = this.customerService.solsidan
       this.currentSectionToShow  = 'Solsidan'
@@ -196,27 +200,28 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   }
 
   charts() {
+    
     let labels = this.top5orders.map(x => x.customerName + " " + x.completedMonth.length)
   
-    let data;
+    let orders;
     if(this.currentTimeSpan === 'Idag') {
-      data = this.top5orders.map(x => x.completedToday.length)
+      orders = this.top5orders.map(x => x.completedToday.length)
     } else if (this.currentTimeSpan === 'Denna månad') {
-      data = this.top5orders.map(x => x.completedMonth.length)
+      orders = this.top5orders.map(x => x.completedMonth.length)
     }
   
-    this.doughnutChart = new Chart('doughnutChartLeft', {
+    this.doughnutChartLeft = new Chart('doughnutChartLeft', {
       type: 'doughnut',
       data: {
         labels: labels,
         datasets: [{
           label: '# of votes',
-          data: data,
+          data: orders,
           backgroundColor: [
-            'rgba(233, 244, 10, 1)',
-            'rgba(21, 10, 244, 1)',
-            'rgba(244, 21, 10, 1)',
-            'rgba(0, 0, 0, 1)',
+            'rgba(102, 99, 191, 1)',
+            'rgba(44, 43, 73, 1)',
+            'rgba(55, 50, 50, 1)',
+            'rgba(147, 208, 62, 1)',
             'rgba(117, 222, 223, 1)',
           ],
           borderWidth: 1
@@ -227,21 +232,66 @@ export class StatistikComponent implements OnInit, AfterViewInit {
           text: 'Ordrar idag',
           display: false
         },
-        responsive: false,
+        responsive: true,
         legend: {
           display: true,
-          position: 'left',
+          position: 'right',
           labels: {
             usePointStyle: true,
-            fontSize: 16,
-            padding: 50
+            fontSize: 20,
+            padding: 40,
+            fontStyle: 'bold',
+            fontColor: 'black'
+
           }
           
         }
       }
     })
-    
+
+    let orderLineLabel = this.top5orders.map(x => x.customerName + " " + x.completedOrderLines )
+    console.log('top5lines', this.top5orderLines)
+    let orderLines = this.top5orderLines.map(x => x.completedOrderLines)
+
+    this.doughnutChartRight = new Chart('doughnutChartRight', {
+      type: 'doughnut',
+      data: {
+        labels: orderLineLabel,
+        datasets: [{
+          label: '# of votes',
+          data: orderLines,
+          backgroundColor: [
+            'rgba(102, 99, 191, 1)',
+            'rgba(44, 43, 73, 1)',
+            'rgba(55, 50, 50, 1)',
+            'rgba(147, 208, 62, 1)',
+            'rgba(117, 222, 223, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          text: 'Ordrar idag',
+          display: false
+        },
+        responsive: true,
+        legend: {
+          display: true,
+          position: 'right',
+          labels: {
+            usePointStyle: true,
+            fontSize: 20,
+            fontStyle: 'bold',
+            padding: 40,
+            fontColor: 'black'
+          }
+          
+        }
+      }
+    })
   }
+
   ngAfterViewInit() {
     
     }

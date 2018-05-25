@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule, Routes } from '@angular/router';
-import * as d3 from 'd3';
 import { Chart } from 'chart.js'
 
 
@@ -52,7 +51,6 @@ import { SkapakundComponent } from './skapakund/skapakund.component';
 import { EditCustomerComponent } from './editCustomer/editCustomer.component';
 import { ClockComponent } from './clock/clock.component';
 import { ChartsComponent } from './charts/charts.component'
-import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'angular-d3-charts'; // this is needed!
 
 
 @NgModule({
@@ -66,7 +64,7 @@ import { DoughnutChartComponent, PieChartComponent, BarChartComponent } from 'an
     EditCustomerComponent,
     ClockComponent,
     ChartsComponent,
-    DoughnutChartComponent
+    
 
 
   ],

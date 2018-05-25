@@ -1,17 +1,19 @@
 
 #menuList {
     width: 100%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     height: 80px;
 }
 
+#menuList button {
+    font-family: 'Questrial', sans-serif;
+}
 
 #menuList button:hover {
     color: white;
     background-color: blue;
     height: 35%;
-}
 
+}
 
 #pages {
     width: 40%;
@@ -20,42 +22,53 @@
 }
 
 
+
 #logga {
     background-image: url(../images/borjes-logga-jpg.jpg);
     background-repeat: no-repeat;
     height: 100%;
-    width: 30%;
+    width: 300px;
     display: inline-block;
-    margin-left: 2%;
+    margin-left: 1%;
+    margin-top: 10px;
 }
 
+#slideShow {
+    float:right;
+    width: 15%;
+    margin-right: 30px;
+}
 
 #dateDiv {
    float: right; 
    font-size: 24px;
    height: 100%;
-   width: 400px;
+   width: 250px;
 }
 
 .dateDivLines {
     float: right;
 }
 
-
-
 a:hover {
     background-color: blue;
     color: white;
 }
 
-#chart_div {
-    background-color: yellow;
-    height: 400px;
-    width: 400px;
+button#stop.mat-fab.mat-warn {
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 25px;
+    width: 25px;
 }
 
-#testdiv {
-    background-color: blue;
-    width: 200px;
-    height: 200px;
+
+button#stop.mat-fab.mat-warn:hover {
+    height: 30px;
+    width: 30px;
+    background-color: red;
+}
+
+#startSlide {
+    width: 120px;
 }

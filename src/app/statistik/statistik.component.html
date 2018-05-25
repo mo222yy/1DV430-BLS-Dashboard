@@ -24,7 +24,7 @@
   <br>
   <p id="todayNumber" class ="orderNumber">{{ orderNumberToShow }}</p>
  
-  <canvas id="doughnutChartLeft" width="800" height="450" style="display: block;"></canvas>
+  <canvas id="doughnutChartLeft"></canvas>
 
   <!--
   <p class="top5header">Top 5</p> 
@@ -46,12 +46,16 @@
     <p id="todayNumber" class ="orderNumber">{{ orderLinesToShow }}</p>
   
 
+    <canvas id="doughnutChartRight"></canvas>
+
+
+
+  <!--   
   <p class="top5header">Top 5</p> 
   <mat-list *ngFor="let customer of top5orderLines; let i = index">
     <mat-list-item> <p class="cmName"> {{i+1 + ". " }} {{ customer.customerName }}</p>  
     <span class="ordersPicked">{{ customer.completedOrderLines }}</span>
     </mat-list-item>
-    
    </mat-list>
-    
+  -->
   </div>

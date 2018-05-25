@@ -3,6 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
+import { JSONP_ERR_WRONG_RESPONSE_TYPE } from '@angular/common/http/src/jsonp';
 
 
 @Component({
@@ -102,8 +103,6 @@ export class InformationComponent implements OnInit {
   //sätter meddelanden i localStorage
   setMessages() {
     localStorage.setItem("savedMessages", JSON.stringify(this.messages))
-    console.log('set.messages', this.messages)
-
   }
 
   //hämtar meddelanden från localStorage

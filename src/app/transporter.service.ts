@@ -28,7 +28,7 @@ export class TransporterService {
   getNextPickUp() {
     let bring = this.Transporter('Bring', '18.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/Bring.png?raw=true' )
     let schenker = this.Transporter('Schenker', '16.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/schenker.png?raw=true')
-    let ups = this.Transporter('UPS', '14.00', 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/src/app/transporterLogos/ups.png?token=Ad3tHsDZvqt3ITmXuboZqMXGB9qf6v-Xks5a9YFBwA%3D%3D')
+    let ups = this.Transporter('UPS', '14.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/ups.png?raw=true')
     let dhl = this.Transporter('DHL', '12.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/dhl.png?raw=true' )
     //clear arrays
     this.nextTransport = []

@@ -1,7 +1,7 @@
+<body>
 <div id="sectionTransporter">
     
 <div id="sections">
-
         <button mat-button id="sectionButton"  [mat-menu-trigger-for]="menu">Avdelning </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="selectedSection('solsidan')" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
@@ -9,12 +9,11 @@
           <button mat-menu-item (click)="selectedSection('bong')" (click)="updateSectionHeader('Bong')">Bong</button>
           <button mat-menu-item (click)="selectedSection('alla')" (click)="updateSectionHeader('Alla')">Alla</button>
         </mat-menu>
-
 </div>
 
     <span id="sectionHeader">{{currentSection}}</span>
 
-    <div id ="nextPickUp">
+    <div id="nextPickUp">
         <ul id="transporterUl">
             <li class ="transporter" *ngFor="let transporter of nextPickUp">
                 <img id="transporterImage" src="{{transporter.logo}}" alt="transportLogo" >
@@ -51,13 +50,13 @@
   <mat-table #table [dataSource]="customerList" matSort>
 
     <ng-container matColumnDef="customerName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
-        <mat-cell *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
+        <mat-header-cell  *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
+        <mat-cell class="customerName" *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="openOrders">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Öppna </mat-header-cell>
-        <mat-cell *matCellDef="let customer"> {{customer.openOrders.length}} </mat-cell>
+        <mat-cell class="openOrders" *matCellDef="let customer"> {{customer.openOrders.length}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="abroadOrders">
@@ -81,3 +80,4 @@
 
   </mat-table>
 </div>
+</body>
