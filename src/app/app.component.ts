@@ -28,6 +28,11 @@ export class AppComponent  implements OnInit {
 
   stop: boolean = false;
 
+  //Timers
+  start;
+  stats;
+  info;
+  recurse;
 
   constructor(private TimeService: TimeService,
               private router: Router,
@@ -42,38 +47,35 @@ export class AppComponent  implements OnInit {
 
   play(playStatus) {
    this.TimeService.playSection = playStatus
-   let stats;
-   let info;
-   let recurse;
 
    if(this.stop === true) {
     this.stop = false
   }
 
-  setTimeout( () => {
+  this.start = setTimeout( () => {
     if(this.stop === false) {
-      this.router.navigate(['utleverans'])
+      this.router.navigate(['statistik'])
     }
 
-  }, 0)
+  }, 500)
 
  
 
-    stats = setTimeout( () => {
+    this.stats = setTimeout( () => {
       if(this.stop === false) {
-      this.router.navigate(['statistik'])
+      this.router.navigate(['utleverans'])
       }
     }, 5000)
  
 
-    info = setTimeout( () => {
+    this.info = setTimeout( () => {
       if(this.stop === false) {
       this.router.navigate(['information'])
       }
     }, 10000)
 
   
-    recurse = setTimeout( () => {
+    this.recurse = setTimeout( () => {
       if(this.stop === false) {
       this.play(playStatus)
       }
@@ -86,6 +88,9 @@ stopFunction () {
   this.TimeService.playSection = undefined
   console.log('stopfunc',this.TimeService.playSection)
   this.router.navigate(['utleverans'])
+  clearTimeout(this.stats)
+  clearTimeout(this.info)
+  clearTimeout(this.recurse)
 
 }
 

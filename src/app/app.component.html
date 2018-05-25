@@ -7,14 +7,34 @@
   <button mat-raised-button routerLink="information">Information</button>
   <button mat-raised-button routerLink="kunder">Kunder</button>
   <a mat-raised-button href="https://borjes.ongoingsystems.se/borjes/index.aspx">WMS</a>
-  <button mat-button [matMenuTriggerFor]="menu">Play</button>
-  <mat-menu #menu="matMenu">
+  
+  <div id="slidShow">
+  <mat-form-field>
+    <mat-select placeholder="Starta Slide" [(value)]="selected" [disabled]="stop === true">
+      <mat-option (click)="play('alla')" value="Alla">Alla</mat-option>
+      <mat-option (click)="play('solsidan')" value="Solsidan">Solsidan</mat-option>
+      <mat-option (click)="play('dannes')" value="Dannes">Dannes</mat-option>
+      <mat-option (click)="play('bong')" value="Bong">Bong</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-fab (click)="stopFunction()" color="warn">Stop</button>
+
+
+</div>
+
+
+  <!--  <mat-menu #menu="matMenu">
+    <button mat-button [matMenuTriggerFor]="menu">Play</button>
     <button mat-menu-item (click)="play('alla')">Alla</button>
     <button mat-menu-item (click)="play('solsidan')">Solsidan</button>
     <button mat-menu-item (click)="play('dannes')">Dannes</button>
     <button mat-menu-item (click)="play('bong')">Bong</button>
-    <button mat-menu-item (click)="stopFunction()">Stop</button>
   </mat-menu>
+  <button mat-raised-button (click)="stopFunction()">Stop</button>
+
+  -->
+
   </div>
   
   
