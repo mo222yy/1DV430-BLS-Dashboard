@@ -229,8 +229,10 @@ export class StatistikComponent implements OnInit, AfterViewInit {
       },
       options: {
         title: {
-          text: 'Ordrar idag',
-          display: false
+          text: 'Top 5',
+          fontSize: 24,
+          fontColor: 'black',
+          display: true
         },
         responsive: true,
         legend: {
@@ -272,8 +274,10 @@ export class StatistikComponent implements OnInit, AfterViewInit {
       },
       options: {
         title: {
-          text: 'Ordrar idag',
-          display: false
+          text: 'Top 5',
+          fontSize: 24,
+          fontColor: 'black',
+          display: true
         },
         responsive: true,
         legend: {

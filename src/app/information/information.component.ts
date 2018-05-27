@@ -22,7 +22,7 @@ export class InformationComponent implements OnInit {
 
   header: string;
   message: string;
-  section: string = 'all'; //om ingen section väljs - all as default
+  section: string = 'Alla'; //om ingen section väljs - all as default
   checked = false;
 
   headerTodo: string;

@@ -1,5 +1,5 @@
 <div id="blueList">
-    <span id="blueListHeader">Skapa kund</span>
+    <p id="blueListHeader">Skapa kund</p>
 </div>
 
     <form #createCustomerForm="ngForm">
@@ -273,7 +273,7 @@
   
       <div id="buttons">
           <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-          <button mat-raised-button type="submit" class="btn btn-success" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
+          <button mat-raised-button type="submit" class="btn btn-success" id="saveCustomer" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
 
         </div>  
       </div>

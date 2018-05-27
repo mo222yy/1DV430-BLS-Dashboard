@@ -50,28 +50,28 @@
   <mat-table #table [dataSource]="customerList" matSort>
 
     <ng-container matColumnDef="customerName">
-        <mat-header-cell  *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
-        <mat-cell class="customerName" *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
+        <mat-cell class="name" *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="openOrders">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Öppna </mat-header-cell>
-        <mat-cell class="openOrders" *matCellDef="let customer"> {{customer.openOrders.length}} </mat-cell>
+        <mat-cell class="open" *matCellDef="let customer"> {{customer.openOrders.length}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="abroadOrders">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Utlands </mat-header-cell>
-        <mat-cell *matCellDef="let customer"> {{customer.abroadOrders.length}} </mat-cell>
+        <mat-cell class="abroad" *matCellDef="let customer"> {{customer.abroadOrders.length}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="restOrders">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Rest </mat-header-cell>
-        <mat-cell *matCellDef="let customer"> {{customer.restOrders.length}} </mat-cell>
+        <mat-cell class="rest" *matCellDef="let customer"> {{customer.restOrders.length}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="orderLines">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Orderrader </mat-header-cell>
-        <mat-cell *matCellDef="let customer"> {{customer.orderLines.length}} </mat-cell>
+        <mat-cell class="orderLines" *matCellDef="let customer"> {{customer.orderLines.length}} </mat-cell>
     </ng-container>
 
 

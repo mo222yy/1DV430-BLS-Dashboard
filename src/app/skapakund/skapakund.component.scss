@@ -1,3 +1,4 @@
+
 #newCustomerForm {
     width: 100%;
     height: 1000px;
@@ -9,14 +10,20 @@
     background-color: blue;
     height: 60px;
     text-align: center;
+    width: 105%;
+    margin-left: -25px;
 
 }
+
 #blueListHeader {
     color: white;
     font-size: 36px;
     text-align: center;
+    margin-left: 27%;
+    margin-top: 10px;
+    width: 25%;
+    display: inline-block;
 }
-
 
 
 #leftColumn {
@@ -34,7 +41,6 @@
     float: left;
     vertical-align: top;
     height: 500px;
-    border-left: 1px solid black;
 
 
 }
@@ -43,7 +49,6 @@
     width: 30%;
     float: left;
     height: 500px;
-    border-left: 1px solid black;
 
 }
 
@@ -111,6 +116,39 @@
 
 }
 
+#contactDeleteButton:hover {
+    
+    background-color: red;
+
+}
+
 #contactButton {
     margin-left: 45%;
+}
+#contactButton:hover {
+    background-color: green;
+}
+
+.btn-success {
+    background-color: blue;
+    color: white;
+}
+
+
+.btn-success:hover {
+    background-color: green;
+    color: white;
+}
+
+.mat-radio-outer-circle {
+    border-color: blue;
+} 
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: blue;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color: blue;
+ 
+
 }

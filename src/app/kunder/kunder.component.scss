@@ -2,65 +2,80 @@
     background-color: blue;
     height: 60px;
     text-align: center;
+    width: 105%;
+    margin-left: -25px;
 
 }
 #blueListHeader {
     color: white;
     font-size: 36px;
     text-align: center;
+    width: 150px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: - 200px;
 }
 
 #newCustomerButton {
-    color:black;
+    color:white;
+    font-weight: bold;
+    background-color: blue;
     float: left;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-left: 15px;
+    margin-top: 12px;
+    border: 1px solid white;
 
 }
-
 
 #allLists {
     margin-top: 5px;
     
 }
 
-#solsidan {
+.columns {
     width: 33%;
     float:left;
     font-weight: bold;
-    font-size: 24px;
     text-align: center;
+
 }
 
-#dannes {
-    width: 33%;
-    float:left;
-}
-
-#bong {
-    width: 33%;
-    float:left;
-}
 
 #customerName {
     width: 100%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 200;
-    text-decoration: underline;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Questrial', sans-serif;
 }
 
 .editButton {
     float:right;
+    margin-top: 10px;
 }
 
 .contactListItem {
     margin-right: 5px;
-    text-align: center;
+
 }
 
-.contactListItem span {
-    margin-right: 20px;
+
+.contactName {
+    width: 30%;
+    text-align:left;
+    font-weight: bold;
+
+}
+
+.contactPhone {
+    width: 25%;
+
+}
+
+.contactEmail {
+    text-align:right;
+    width: 40%;
+    float: right;
+
 }
 
 
@@ -78,4 +93,5 @@
 
 .cop {
     font-weight: bold;
+    width: 35%;
 }

@@ -1,3 +1,4 @@
+<body>
 <div id="blueList">
           <button mat-button id="sectionButton"  [matMenuTriggerFor]="menu">Avdelning </button>
           <mat-menu #menu="matMenu">
@@ -6,7 +7,7 @@
             <button mat-menu-item (click)="selectedSection('bong')">Bong</button>
             <button mat-menu-item (click)="selectedSection('all')">Alla</button>
           </mat-menu>
-      <span id="sectionHeader">{{currentSection}}</span>
+      <p id="sectionHeader">{{currentSection}}</p>
   </div>
 
   <div id="leftSide" class="leftAndRight">
@@ -206,3 +207,4 @@
 
 </div>
 
+</body>

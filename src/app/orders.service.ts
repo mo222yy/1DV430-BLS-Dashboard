@@ -45,7 +45,7 @@ export class OrdersService {
     async getOrders() {
       this.clearOrders() // rensar ordrar för att undvika duplicering
       let parseString = require('xml2js').parseString
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHhkFjfP7VtzyYB6bYEkcvqriACLtks5bCmAkwA%3D%3D'
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHriEZ_CoW12UzGOObqJtHjnTkowrks5bFAB4wA%3D%3D'
       const url2 = 'https://00e9e64bac3beb78fc214b69b672a9577d546ecd9674642f86-apidata.googleusercontent.com/download/storage/v1/b/orders-xml/o/Orders_20180509_143020.xml?qk=AD5uMEs4FhcR9xshoxeLhv1oVgsyJUzRNql8btHHUhfoG5ABGy0JjsH9of0ZC5m5mhW6C6MNyVbYhCYO7yn6-72vl5vNUc31s5tDzE_B3fnawmx3j0jS4VZYDqikzrOBrWVoufwmLTvlrg5sx-KYcdJuOqWUFtrm_1ILRpQmfhUoDqft-3qcc-5o6Qa_0kkBxmUDCDl-SFZC7zXqP1G_7AOloUUMDNccJ1yGoi-v-hb082LF0pTL0-emMS61uUt4qNRSkkN-h-7E8TxLYvKzQ9ZFMktchTkPkYP0iLeygfswzhTwQE1ZDtjPkE0VRsbvwu8fNfvbA8Dm-3AZbxKjTR0UnEoy5tpeWyp5MlL1IKXajhY7qFweVT6C36dt-jlpOAf3gmxxLITTTZAS_Gwg8ywQuRLjh7R_I8aA5kWqx3Ck5U2NGe7AhSE7oJAzF20iN-sG8yVnGjllTPmLiCAL4aOaLwOuEj6wSlUlottANGepDJdKpaLe5ZLonmdpn3ieSw0CVA1heoNo_8BeBC8ITKmarXbrOGlYrH8eekSOoYvwNjc7vFUJ_Ifw-PaHCcG8YlwLQlKtt77cYqzXRgxk66LinP-p2rCgY9sDX6r2GMr_JVjx8DIze66LZNxmd5vHOQQ5XZA1-vfdhTQttjLCaGaq75pEESeRznqeln-xGfM6LZ4rWShDXNf7Yl8zfdV9114GYYEsKXiMiNKEgF-lyfe-4BH1uP5vEXzYmcxGxcS6FGAcpxhqE9omhYtGbrl4UarVQG8MsFdn'
       let json;
 
@@ -75,7 +75,7 @@ export class OrdersService {
       
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-25T"+ date[1]
+         let today = "2018-05-27T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
     

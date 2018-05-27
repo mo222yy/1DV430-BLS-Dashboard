@@ -1,18 +1,13 @@
 #blueList {
     height: 60px;
-    width: 100%;
+    width: 105%;
     background-color: blue;
-    border-radius: 5px;
     font-size:24px;
+    margin-left: -25px;
     display:inline-block;
 }
 
-#sections {
- float:left;
- width: 30%;
- color: white;
- margin-top: 20px;   
-}
+
 
 #sectionButton {
     margin-left: 10px;
@@ -22,14 +17,13 @@
     float:left;
     margin-top: 10px;
 }
+
 #sectionHeader {
     text-align: center;
-    margin-left: 5%;
-    margin-top: 15px;
-    width: 30%;
+    margin-top: 10px;
+    margin-right: 210px;
     font-size: 36px;
     color: white;
-    margin-left: 42%;
 }
 
 .leftAndRight {

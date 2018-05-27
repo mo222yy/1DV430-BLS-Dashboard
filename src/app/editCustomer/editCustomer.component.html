@@ -1,5 +1,5 @@
 <div id="blueList">
-    <span id="blueListHeader">Redigera {{customer.customerName}}</span>
+    <p id="blueListHeader">Redigera {{customer.customerName}}</p>
 </div>
 
 <div id="newCustomerForm">
@@ -194,12 +194,10 @@
 
              <mat-list role="list" *ngFor="let contact of customer.contacts; let i = index">
                 <mat-list-item role="listitem" class="li">
-                    <span id="contactNumber" class="listElement">{{i+1}}. </span>
-                    <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
-                    <span id="listLastname" class="listElement">{{contact.lastname}}</span>
-                    <span id="listPhone" class="listElement">{{contact.phone}}</span>
-                    <span id="listEmail" class="listElement">{{contact.eMail}}</span>
-                    <button mat-mini-fab color="warn" id="contactDeleteButton" (click)="deleteContact(i)">X</button>
+                    <p id="contactName" class="listElement">{{i+1}}.{{contact.firstname}} {{contact.lastname}}</p>
+                    <p id="listPhone" class="listElement">{{contact.phone}}</p>
+                    <p id="listEmail" class="listElement">{{contact.eMail}}</p>
+                      <button mat-mini-fab color="warn" id="contactDeleteButton" (click)="deleteContact(i)">X</button>
                     <mat-divider></mat-divider>
                   </mat-list-item>
             </mat-list>
@@ -285,9 +283,9 @@
 
 
     <div id="buttons">
-        <button mat-raised-button color="primary" (click)="deleteCustomer()" >Radera kund</button>
+        <button mat-raised-button color="primary" (click)="deleteCustomer()" id="deleteCustomer" >Radera kund</button>
         <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()" >Spara kund</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()" id="saveCustomer" >Spara kund</button>
 
      </div>  
 

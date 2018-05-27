@@ -50,7 +50,6 @@ import { KunderComponent } from './kunder/kunder.component';
 import { SkapakundComponent } from './skapakund/skapakund.component';
 import { EditCustomerComponent } from './editCustomer/editCustomer.component';
 import { ClockComponent } from './clock/clock.component';
-import { ChartsComponent } from './charts/charts.component'
 
 
 @NgModule({
@@ -63,7 +62,6 @@ import { ChartsComponent } from './charts/charts.component'
     SkapakundComponent,
     EditCustomerComponent,
     ClockComponent,
-    ChartsComponent,
     
 
 

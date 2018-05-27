@@ -1,3 +1,4 @@
+
 #sectionTransporter {
     height: 60px;
     width: 105%;
@@ -29,14 +30,14 @@
     margin-left: 5%;
     margin-top: 8px;
     float:left;
-    width: 30%;
+    width: 25%;
     font-size: 36px;
     color: white;
 }
 
 #nextPickUp {
     float:right;
-    width: 25%;
+    width: 35%;
     margin-right: 30px;
 }
 
@@ -73,8 +74,15 @@
 }
 
 #orderOverview {
-    width: 100%;
+    width: 105%;
     height: 120px;
+    border-bottom: 2px solid blue;
+    margin-left: -25px;
+}
+
+.orderNumberHeaders {
+    width: 100%;
+    text-align: center;
 }
 
 .orderOverviewParts {
@@ -92,7 +100,6 @@
 }
 
 .orderNumberHeaders {
-    text-align: center;
     font-size: 24px;
     margin-top: -3px;
 }
@@ -103,43 +110,76 @@
   list-style-type: none;
 
 }
-.listHeaders {
-    font-size: 200%;
-    display: inline-block;
-    width: 15%;
-}
-
-#nameHeader {
-    width: 20%;
-}
 
 
 #orderList {
     font-size: 200%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     display: inline-block;
-    margin-left: 10px;
     width: 95%;
+}
+
+.name {
+    margin-left: 12px;
+    font-weight: bold;
+}
+
+.open {
+    margin-left: 30px;
+    text-align: center;
+}
+
+.abroad {
+    margin-left: 110px;
+    text-align: center;
+
+}
+
+.rest {
+    margin-left: 110px;
+    text-align: center;
+}
+
+.orderLines {
+    margin-left: 160px;
+    text-align: center;
+}
+
+
+mat-header-row {
+    border-bottom: 2px solid blue;
+    width: 110%;
+    margin-left: -25px;
+
+}
+mat-header-cell {
+    font-size:24px;
+    font-weight: bold;
+    width: 110%;
+    color: black;
     margin-left: 2%;
 }
 
-mat-header-cell {
-    font-size: 24px;
-    color: black;
-
-}
-
-.customerLine {
-    color: blue;
-}
-
-.customerName  {
+mat-cell {
     font-size: 20px;
     color: black;
 }
 
-.openOrders {
-    text-align: center;
-    font-size: 18px;
-    color: red;
+
+.customerName  {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-left: 5px;
 }
+
+
+
+
+mat-header-row mat-sort-header-button {
+    border:2px solid red;
+}
+mat-row:hover {
+    background-color: rgba(172, 165, 204, 0.2);
+}
+

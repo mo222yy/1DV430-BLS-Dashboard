@@ -1,5 +1,6 @@
+<body>
 <div id="blueList">
-    <span id="blueListHeader">Kunder</span>
+    <p id="blueListHeader">Kunder</p>
     <button mat-raised-button id="newCustomerButton" (click)="createCustomer()">Skapa kund</button>
 
 </div>
@@ -7,7 +8,7 @@
 
 <div id="allLists">
 
-<div id="solsidan">
+<div id="left" class="columns">
 <mat-accordion>
   <mat-list class="customer" *ngFor="let customer of left">
     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -21,15 +22,16 @@
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+
       <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
       <p class="subHeader">Kontakter</p>
       <!--KONTAKTLISTA-->
       <mat-list class="contactList" *ngFor="let contact of customer.contacts">
         <mat-list-item class="contactListItem">
-          <span class="customerFirstname">{{contact.firstname}}</span>
-          <span class="customerLastname">{{contact.lastname}}</span>
-          <span class="customerPhone">{{contact.phone}}</span>
-          <span class="customerEmail">{{contact.eMail}}</span>
+          <p class="contactName">{{contact.firstname}} {{contact.lastname}}</p>
+          <p class="contactPhone">{{contact.phone}}</p>
+          <p class="contactEmail">{{contact.eMail}}</p>
           <mat-divider></mat-divider>
         </mat-list-item>
       </mat-list>
@@ -46,7 +48,7 @@
 </div>
 
 
-<div id="solsidan">
+<div id="middle" class="columns">
 <mat-accordion>
   <mat-list class="customer" *ngFor="let customer of middle">
     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -60,32 +62,34 @@
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+
       <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
       <p class="subHeader">Kontakter</p>
       <!--KONTAKTLISTA-->
       <mat-list class="contactList" *ngFor="let contact of customer.contacts">
-        <mat-list-item class="contactListItem">
-          <span class="customerFirstname">{{contact.firstname}}</span>
-          <span class="customerLastname">{{contact.lastname}}</span>
-          <span class="customerPhone">{{contact.phone}}</span>
-          <span class="customerEmail">{{contact.eMail}}</span>
-          <mat-divider></mat-divider>
-        </mat-list-item>
+          <mat-list-item class="contactListItem">
+              <p class="contactName">{{contact.firstname}} {{contact.lastname}}</p>
+              <p class="contactPhone">{{contact.phone}}</p>
+              <p class="contactEmail">{{contact.eMail}}</p>
+              <mat-divider></mat-divider>
+            </mat-list-item>
       </mat-list>
 
+   
       <div class="cutoffs">
-        <p class="subHeader">Cut offs</p>
-        <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
-        <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
-        <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
-      </div>  
+          <p class="subHeader">Cut offs</p>
+          <p class="cop">Cut off sverige: {{customer.cOsweden}}</p>
+          <p class="cop">Cut off utomlands: {{customer.cOabroad}}</p>
+          <p class="cocomments">Övrigt: {{customer.cOcomments}}</p>
+        </div>  
     </mat-expansion-panel>
   </mat-list>
 </mat-accordion>
 </div>
 
 
-<div id="solsidan">
+<div id="right" class="columns">
 <mat-accordion>
   <mat-list class="customer" *ngFor="let customer of right">
     <mat-expansion-panel (opened)="panelOpenState = true"
@@ -99,25 +103,26 @@
           </div>
         </mat-panel-title>
       </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+
       <button class="editButton" (click)="editCustomer(customer.customerName)" >+</button>
       <p class="subHeader">Kontakter</p>
       <!--KONTAKTLISTA-->
       <mat-list class="contactList" *ngFor="let contact of customer.contacts">
-        <mat-list-item class="contactListItem">
-          <span class="customerFirstname">{{contact.firstname}}</span>
-          <span class="customerLastname">{{contact.lastname}}</span>
-          <span class="customerPhone">{{contact.phone}}</span>
-          <span class="customerEmail">{{contact.eMail}}</span>
-          <mat-divider></mat-divider>
-        </mat-list-item>
+          <mat-list-item class="contactListItem">
+              <p class="contactName">{{contact.firstname}} {{contact.lastname}}</p>
+              <p class="contactPhone">{{contact.phone}}</p>
+              <p class="contactEmail">{{contact.eMail}}</p>
+              <mat-divider></mat-divider>
+            </mat-list-item>
       </mat-list>
 
       <div class="cutoffs">
-        <p class="subHeader">Cut offs</p>
-        <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
-        <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
-        <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
-      </div>  
+          <p class="subHeader">Cut offs</p>
+          <p class="cosv"><span class="cop">Cut off sverige:</span> {{customer.cOsweden}}</p>
+          <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.cOabroad}}</p>
+          <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.cOcomments}}</p>
+        </div>  
     </mat-expansion-panel>
   </mat-list>
 </mat-accordion>
@@ -126,3 +131,4 @@
 
 
 </div> <!--All lists-->
+</body>

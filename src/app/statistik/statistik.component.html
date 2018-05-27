@@ -26,17 +26,7 @@
  
   <canvas id="doughnutChartLeft"></canvas>
 
-  <!--
-  <p class="top5header">Top 5</p> 
-  <mat-list *ngFor="let customer of top5orders; let i = index">
-    <mat-list-item> <p class="cmName">{{i+1 + ". " }} {{ customer.customerName }}</p>  
-    <span class="ordersPicked" *ngIf="currentTimeSpanToShow === 'Idag'">{{ customer.completedToday.length }}</span>
-    <span class="ordersPicked" *ngIf="currentTimeSpanToShow === 'Denna månad'">{{ customer.completedMonth.length }}</span>
-  
-  </mat-list-item>
-    
-   </mat-list>
-  -->
+
 </div>
   
   
@@ -45,17 +35,7 @@
     <p id="returnsToday" *ngIf="currentTimeSpanToShow === 'Denna månad'" class="orderHeader">Orderrader plockade denna månad</p>    <br>
     <p id="todayNumber" class ="orderNumber">{{ orderLinesToShow }}</p>
   
-
     <canvas id="doughnutChartRight"></canvas>
-
-
-
-  <!--   
-  <p class="top5header">Top 5</p> 
-  <mat-list *ngFor="let customer of top5orderLines; let i = index">
-    <mat-list-item> <p class="cmName"> {{i+1 + ". " }} {{ customer.customerName }}</p>  
-    <span class="ordersPicked">{{ customer.completedOrderLines }}</span>
-    </mat-list-item>
-   </mat-list>
-  -->
   </div>
+
+  
