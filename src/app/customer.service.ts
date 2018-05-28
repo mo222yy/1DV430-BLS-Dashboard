@@ -30,7 +30,7 @@ export class CustomerService {
     restOrders: restOrders,
     orderLines: orderLines,
     returns: returns,
-    completedOrders: completedOrders
+    completedOrders: completedOrders,
     }
     this.customers.push(customer)
     console.log('kund skapad', this.customers[this.customers.length-1])

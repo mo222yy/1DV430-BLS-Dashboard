@@ -38,4 +38,53 @@
     <canvas id="doughnutChartRight"></canvas>
   </div>
 
-  
+ <div id="customerTable">
+      <mat-table #table [dataSource]="currentSection" >
+
+          <ng-container matColumnDef="customerName">
+            <mat-header-cell *matHeaderCellDef> Kund </mat-header-cell>>
+            <mat-cell *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="ordersToday">
+              <mat-header-cell *matHeaderCellDef> Klara ordrar idag </mat-header-cell>
+              <mat-cell *matCellDef="let customer">
+                <p *ngIf="customer.completedToday === undefined">0</p>
+                <p *ngIf="customer.completedToday !== undefined">{{customer.completedToday.length}}</p>
+              </mat-cell>
+          </ng-container>
+
+
+
+          <ng-container matColumnDef="ordersMonth">
+              <mat-header-cell *matHeaderCellDef> Klara ordrar denna månad </mat-header-cell>
+              <mat-cell *matCellDef="let customer">
+                <p *ngIf="customer.completedMonth === undefined">0</p>
+                <p *ngIf="customer.completedMonth !== undefined">{{customer.completedMonth.length}}</p>
+              </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="orderLinesToday">
+              <mat-header-cell *matHeaderCellDef> Klara orderrader idag </mat-header-cell>
+              <mat-cell *matCellDef="let customer">
+                <p *ngIf="customer.completedOrderLines === undefined">0</p>
+                <p *ngIf="customer.completedOrderLines !== undefined">{{customer.completedOrderLines}}</p>
+              </mat-cell>
+          </ng-container>
+       
+        
+          <ng-container matColumnDef="orderLinesMonth">
+              <mat-header-cell *matHeaderCellDef> Klara orderrader denna månad </mat-header-cell>
+              <mat-cell *matCellDef="let customer">
+                <p *ngIf="customer.completedOrderLinesMonth === undefined">0</p>
+                <p *ngIf="customer.completedOrderLinesMonth !== undefined">{{customer.completedOrderLinesMonth}}</p>
+              </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        
+  </div>
+

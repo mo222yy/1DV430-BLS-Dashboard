@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { OrdersService } from '../orders.service'
 import { TimeService } from '../time.service'
-import {MatTableModule} from '@angular/material/table';
+import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import * as Chart from 'chart.js'
 
 
@@ -38,6 +38,9 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   doughnutChartLeft: any;
   doughnutChartRight: any;
 
+
+  dataSource = new MatTableDataSource(this.currentSection)
+  displayedColumns = ['customerName', 'ordersToday', 'ordersMonth', 'orderLinesToday', 'orderLinesMonth'];
 
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService,
@@ -110,6 +113,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
 
   }
 
+  
   getTop5(section) {
     this.top5orderLines = []
     this.top5orders = []
