@@ -1,4 +1,5 @@
  
+<body>
 <div id="blueList">
   <button mat-button id="sectionButton" class="blueListButtons"  [matMenuTriggerFor]="menu">{{ currentSectionToShow }} </button>
   <mat-menu #menu="matMenu">
@@ -14,6 +15,10 @@
     <button mat-menu-item (click)="setTimeSpan('Idag')">Idag</button>
     <button mat-menu-item (click)="setTimeSpan('Denna månad')">Denna månad</button>
   </mat-menu>
+
+  <button mat-button id="customerListButton"  class="blueListButtons" (click)="scrollToList()">Visa lista för {{currentSectionToShow}} kunder </button>
+
+  <button mat-button id="backToTopButton"  (click)="backToTop()"><div id="upArrow"></div></button>
 
 
 </div>
@@ -69,7 +74,7 @@
               <mat-header-cell *matHeaderCellDef> Klara orderrader idag </mat-header-cell>
               <mat-cell *matCellDef="let customer">
                 <p *ngIf="customer.completedOrderLines === undefined">0</p>
-                <p *ngIf="customer.completedOrderLines !== undefined">{{customer.completedOrderLines}}</p>
+                <p *ngIf="customer.completedOrderLines !== undefined">{{customer.completedOrderLinesToday}}</p>
               </mat-cell>
           </ng-container>
        
@@ -88,3 +93,4 @@
         
   </div>
 
+</body>

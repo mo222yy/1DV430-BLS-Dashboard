@@ -76,6 +76,17 @@ export class StatistikComponent implements OnInit, AfterViewInit {
  
   }
 
+  scrollToList() {
+    let element = document.querySelector('#customerTable')
+    element.scrollIntoView();
+    }
+
+  backToTop() {
+    let element = document.querySelector('#blueList')
+    element.scrollIntoView();
+
+  }
+
     distributeCompletedOrders() {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -89,6 +100,18 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   getNumbersToShow(section) {
     this.orderNumberToShow = 0
     this.orderLinesToShow = 0
+    
+
+    //Adds customer.completedOrderLinesMonth
+    section.forEach(customer => {
+      if(customer.hasOwnProperty('completedMonth')) {
+        customer.completedOrderLinesMonth = 0
+      customer.completedMonth.forEach(order => {
+        customer.completedOrderLinesMonth += parseInt(order.NumberOfPickedOrderLines)
+      })
+     }
+    })
+ 
 
     if(this.currentTimeSpan === 'Idag') {
       section.forEach(customer => {
@@ -120,21 +143,27 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     let top5orders = []
 
     if(this.currentTimeSpan === 'Idag') {
+      
       section.forEach(customer => {
         //nollställ för att undvika duplicering
         if(customer.hasOwnProperty('completedOrderLines')) {
           customer.completedOrderLines = 0
+          customer.completedOrderLinesToday = 0
         }
         if(customer.hasOwnProperty('completedToday')) { 
           top5orders.push(customer)
           if(!customer.hasOwnProperty('completedOrderLines')) {
             customer.completedOrderLines = 0
+            //for the customerList
+            customer.completedOrderLinesToday = 0
           }
           customer.completedToday.forEach(order => {
             customer.completedOrderLines += parseInt(order.NumberOfPickedOrderLines)
+            customer.completedOrderLinesToday  += parseInt(order.NumberOfPickedOrderLines)
           })
-        }
-      })
+      }
+    })
+      
       top5orders.sort(function(a,b) {
         return b.completedMonth.length - a.completedMonth.length
       })
@@ -144,12 +173,14 @@ export class StatistikComponent implements OnInit, AfterViewInit {
         if(customer.hasOwnProperty('completedOrderLines')) {
           customer.completedOrderLines = 0
         } if(customer.hasOwnProperty('completedMonth')) {
+
           top5orders.push(customer)
           if(!customer.hasOwnProperty('completedOrderLines')) {
             customer.completedOrderLines = 0
           }
           customer.completedMonth.forEach(order => {
             customer.completedOrderLines += parseInt(order.NumberOfPickedOrderLines)
+
           })
         }
       })
@@ -256,7 +287,6 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     })
 
     let orderLineLabel = this.top5orders.map(x => x.customerName + " " + x.completedOrderLines )
-    console.log('top5lines', this.top5orderLines)
     let orderLines = this.top5orderLines.map(x => x.completedOrderLines)
 
     this.doughnutChartRight = new Chart('doughnutChartRight', {
@@ -299,6 +329,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
       }
     })
   }
+
 
   ngAfterViewInit() {
     

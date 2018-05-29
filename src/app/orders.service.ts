@@ -75,7 +75,7 @@ export class OrdersService {
       
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = "2018-05-28T"+ date[1]
+         let today = "2018-05-29T"+ date[1]
          el.DeliveryDate.splice(0, 1, today)
        })
     
