@@ -30,12 +30,13 @@ export class TransporterService {
     let schenker = this.Transporter('Schenker', '16.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/schenker.png?raw=true')
     let ups = this.Transporter('UPS', '14.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/ups.png?raw=true')
     let dhl = this.Transporter('DHL', '12.00', 'https://github.com/1dv430/mo222yy-project/blob/master/src/app/transporterLogos/dhl.png?raw=true' )
+    let postnord = this.Transporter('postNord', '15.30', '../../images/postnord2.png')
     //clear arrays
     this.nextTransport = []
 
     let currentTime = this.TimeService.getCurrentTime()
     if (currentTime <= 1200) {
-      this.nextTransport.push(dhl)
+      this.nextTransport.push(postnord)
       return this.nextTransport
 
     } else if(currentTime > 1200 && currentTime < 1400) {

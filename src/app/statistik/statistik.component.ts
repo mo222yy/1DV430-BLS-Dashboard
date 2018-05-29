@@ -82,7 +82,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     }
 
   backToTop() {
-    let element = document.querySelector('#blueList')
+    let element = document.querySelector('#logga')
     element.scrollIntoView();
 
   }
