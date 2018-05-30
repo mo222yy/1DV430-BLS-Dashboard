@@ -56,21 +56,21 @@ export class AppComponent  implements OnInit {
      
     this.start = setTimeout( () => {
         this.router.navigate(['statistik'])
-    }, 500)
+    }, 50)
 
     this.stats = setTimeout( () => {
       this.router.navigate(['utleverans'])
-    }, 5000)
+    }, 10000)
  
 
     this.info = setTimeout( () => {
       this.router.navigate(['information'])
-    }, 10000)
+    }, 30000)
 
   
     this.recurse = setTimeout( () => {
       this.playSlide()
-    }, 15000)
+    }, 40000)
 
 }
 
