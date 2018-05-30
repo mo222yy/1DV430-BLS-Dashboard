@@ -11,7 +11,6 @@ import { InformationComponent } from './information/information.component';
 
 @Component({
   selector: 'app-root',
-  template: '<app-clock></app-clock',
   templateUrl: './app.component.html', 
   styleUrls: ['./app.component.scss']
   

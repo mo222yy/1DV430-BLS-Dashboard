@@ -14,22 +14,10 @@
   
 
 
-  <!--  <mat-menu #menu="matMenu">
-    <button mat-button [matMenuTriggerFor]="menu">Play</button>
-    <button mat-menu-item (click)="play('alla')">Alla</button>
-    <button mat-menu-item (click)="play('solsidan')">Solsidan</button>
-    <button mat-menu-item (click)="play('dannes')">Dannes</button>
-    <button mat-menu-item (click)="play('bong')">Bong</button>
-  </mat-menu>
-  <button mat-raised-button (click)="stopFunction()">Stop</button>
-
-  -->
-
   </div>
   
   
   <div id="logga">
-  <p>{{playSection}}</p>
   </div>
 
   
@@ -40,7 +28,7 @@
 
   <div id="slideShow">
     <mat-form-field id="startSlide">
-      <mat-select placeholder="Starta Slide" [(value)]="selected" [disabled]="stop === false">
+      <mat-select placeholder="Starta Slide" [disabled]="stop === false">
         <mat-option (click)="play('alla')" value="Alla">Alla</mat-option>
         <mat-option (click)="play('solsidan')" value="Solsidan">Solsidan</mat-option>
         <mat-option (click)="play('dannes')" value="Dannes">Dannes</mat-option>
@@ -54,18 +42,5 @@
 </div>
 <router-outlet></router-outlet>
 
-<!--
-<div id="slideShow">
-  <mat-form-field>
-    <mat-select placeholder="Starta Slide" [(value)]="selected" [disabled]="stop === false">
-      <mat-option (click)="play('alla')" value="Alla">Alla</mat-option>
-      <mat-option (click)="play('solsidan')" value="Solsidan">Solsidan</mat-option>
-      <mat-option (click)="play('dannes')" value="Dannes">Dannes</mat-option>
-      <mat-option (click)="play('bong')" value="Bong">Bong</mat-option>
-    </mat-select>
-  </mat-form-field>
 
-  <button mat-fab (click)="stopFunction()" color="warn">Stop</button>
-</div>
-  -->
 </body>

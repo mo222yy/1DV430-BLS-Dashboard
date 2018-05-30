@@ -18,7 +18,7 @@ export class ClockComponent implements OnInit {
 
   //currentTime: number; //ex. 1430
 
-  private dateVal: Date = new Date();
+  dateVal: Date = new Date();
   private current = Date.now()
 
   constructor() { }
