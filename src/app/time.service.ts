@@ -13,6 +13,8 @@ export class TimeService {
   minutes: string; 
   seconds: string;
 
+  dateForOrders: string;
+
   currentTime: number; //ex. 1430
 
   playSection: string; //fuling för "bildspel"
@@ -31,6 +33,7 @@ export class TimeService {
     let date = d.getDate()
     this.date = this.get2digits(date)
 
+    this.dateForOrders = this.year +'-'+ this.month +'-'+ this.date
     let todaysDate = this.year + this.month + this.date
     return todaysDate
     

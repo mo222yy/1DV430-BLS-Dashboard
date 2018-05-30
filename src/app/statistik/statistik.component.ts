@@ -4,6 +4,7 @@ import { OrdersService } from '../orders.service'
 import { TimeService } from '../time.service'
 import {MatTableModule, MatTableDataSource} from '@angular/material/table';
 import * as Chart from 'chart.js'
+import {DataSource} from '@angular/cdk/collections';
 
 
 
@@ -42,6 +43,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource(this.currentSection)
   displayedColumns = ['customerName', 'ordersToday', 'ordersMonth', 'orderLinesToday', 'orderLinesMonth'];
 
+
   constructor(private ordersService: OrdersService,
               private customerService: CustomerService,
               private TimeService: TimeService
@@ -50,6 +52,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   async ngOnInit() {
     this.getOrders()
     this.currentSection = this.customerService.customers  
+    this.dataSource = this.sortCurrent(this.currentSection)
 }
 
 
@@ -72,9 +75,11 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     
     await this.getNumbersToShow(this.currentSection)
     await this.getTop5(this.currentSection)
+
     this.charts()
  
   }
+
 
   scrollToList() {
     let element = document.querySelector('#customerTable')
@@ -84,6 +89,21 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   backToTop() {
     let element = document.querySelector('#logga')
     element.scrollIntoView();
+
+  }
+
+  sortCurrent(current) {
+    let sorted = current.sort(function(a,b) {
+      var nameA= a.customerName.toLowerCase(), nameB= b.customerName.toLowerCase();
+
+      if (nameA < nameB) 
+       return -1;
+      if (nameA > nameB)
+       return 1;
+      return 0;
+    })
+    console.log('sorted',sorted)
+    return sorted
 
   }
 
@@ -224,6 +244,8 @@ export class StatistikComponent implements OnInit, AfterViewInit {
 
     this.getNumbersToShow(this.currentSection)
     this.getTop5(this.currentSection)
+    this.dataSource = this.sortCurrent(this.currentSection)
+
   }
 
   setTimeSpan(timeSpan) {

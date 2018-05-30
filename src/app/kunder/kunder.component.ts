@@ -48,8 +48,7 @@ export class KunderComponent implements OnInit {
        return 1;
       return 0;
     })
-    console.log(customers)
-    console.log(sorted)
+
     let customersDivided = customers.length / 3
 
     this.left = customers.slice(0, customersDivided)
