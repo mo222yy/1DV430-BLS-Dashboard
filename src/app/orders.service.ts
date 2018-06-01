@@ -45,7 +45,7 @@ export class OrdersService {
     async getOrders() {
       this.clearOrders() // rensar ordrar för att undvika duplicering
       let parseString = require('xml2js').parseString
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHriEZ_CoW12UzGOObqJtHjnTkowrks5bFAB4wA%3D%3D'
+      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHucer95riWaVJ_gclZKk6XTWIS8Iks5bGoVQwA%3D%3D'
       const url2 = 'http://www.borjes.com/pdf/orders.xml'
       let json;
   

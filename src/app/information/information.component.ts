@@ -87,6 +87,8 @@ export class InformationComponent implements OnInit {
 
   addMessage() {
     let message = this.createMessage(this.header, this.message, this.section, this.checked)
+    this.setMessages()
+
   }
   
   createMessage(header, message, section, confirmation) {
@@ -246,14 +248,13 @@ export class InformationComponent implements OnInit {
    } else if (section === 'all') {
      this.currentSection = 'Alla' 
      this.messages.forEach(message => {
-      if(message.section === 'all') {
+    {
         this.messagesToShow.push(message)
       }
     }) 
     this.toDo.forEach(todo => {
-      if(todo.section === 'all') {
         this.toDoToShow.push(todo)
-      }
+      
     })
    }
  }
