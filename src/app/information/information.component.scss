@@ -50,6 +50,8 @@
    width: 100%;
    text-align:center;
    font-size: 24px;
+   font-family: 'Questrial', sans-serif;
+
 }
 
 .sectionDescription {
@@ -63,4 +65,27 @@
 
 .confirmName {
     width: 40%;
+}
+
+.mat-checkbox-inner-container {
+    border: 1px solid blue;
+}
+
+#addMessageButton {
+    margin-left: 20px;
+}
+
+#addMessageButton:hover {
+    background-color: green;
+}
+
+.mat-expansion-panel p {
+    font-family: 'Questrial', sans-serif;
+    width: 90%;
+    overflow-wrap: break-word;
+}
+
+.mat-expansion-panel-header {
+    font-family: 'Questrial', sans-serif;
+
 }

@@ -80,8 +80,6 @@ export class UtleveransComponent implements OnInit {
 
       
       //för "bildspelet"
-      console.log('TS',this.TimeService.playSection)
-
       if(this.TimeService.playSection === undefined || this.TimeService.playSection === 'alla') {
         await this.selectedSection('alla')
       } else {

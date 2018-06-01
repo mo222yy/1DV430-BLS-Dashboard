@@ -42,7 +42,13 @@ export class AppComponent  implements OnInit {
   ngOnInit(): void {
   this.getDate()
   this.getTime()
+  this.redirect()
 }
+
+  redirect() {
+    this.router.navigate(['utleverans'])
+
+  }
 
   play(playStatus) {
     this.TimeService.playSection = playStatus
@@ -76,7 +82,6 @@ export class AppComponent  implements OnInit {
 stopFunction () {
   this.stop = true
   this.TimeService.playSection = undefined
-  console.log('stopfunc',this.TimeService.playSection)
   this.router.navigate(['utleverans'])
   clearTimeout(this.stats)
   clearTimeout(this.info)

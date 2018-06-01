@@ -65,12 +65,21 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     // för "bildspel"
     if(this.TimeService.playSection === undefined || this.TimeService.playSection === 'alla') {
       this.currentSection = this.customerService.customers //startsidan, (alla idag)
-    } else if (this.TimeService.playSection === 'solsidan') {
+      this.currentSectionToShow = 'Alla'
+    } 
+    else if (this.TimeService.playSection === 'solsidan') {
       this.currentSection = this.customerService.solsidan
-    } else if (this.TimeService.playSection === 'dannes') {
+      this.currentSectionToShow = 'Solsidan'
+    } 
+    else if (this.TimeService.playSection === 'dannes') {
       this.currentSection = this.customerService.dannes
-    } else if (this.TimeService.playSection === 'bong') {
+      this.currentSectionToShow = 'Dannes'
+
+    } 
+    else if (this.TimeService.playSection === 'bong') {
       this.currentSection = this.customerService.bong
+      this.currentSectionToShow = 'Bong'
+
     }
     
     await this.getNumbersToShow(this.currentSection)
@@ -102,7 +111,6 @@ export class StatistikComponent implements OnInit, AfterViewInit {
        return 1;
       return 0;
     })
-    console.log('sorted',sorted)
     return sorted
 
   }
@@ -185,7 +193,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
     })
       
       top5orders.sort(function(a,b) {
-        return b.completedMonth.length - a.completedMonth.length
+        return b.completedToday.length - a.completedToday.length
       })
     
     } else if ( this.currentTimeSpan === 'Denna månad') {
@@ -258,12 +266,14 @@ export class StatistikComponent implements OnInit, AfterViewInit {
 
   charts() {
     
-    let labels = this.top5orders.map(x => x.customerName + " " + x.completedMonth.length)
-  
+    let labels 
     let orders;
+
     if(this.currentTimeSpan === 'Idag') {
       orders = this.top5orders.map(x => x.completedToday.length)
+      labels = this.top5orders.map(x => x.customerName + " - " + x.completedToday.length)
     } else if (this.currentTimeSpan === 'Denna månad') {
+      labels = this.top5orders.map(x => x.customerName + " - " + x.completedMonth.length)
       orders = this.top5orders.map(x => x.completedMonth.length)
     }
   
@@ -308,7 +318,7 @@ export class StatistikComponent implements OnInit, AfterViewInit {
       }
     })
 
-    let orderLineLabel = this.top5orders.map(x => x.customerName + " " + x.completedOrderLines )
+    let orderLineLabel = this.top5orderLines.map(x => x.customerName + " - " + x.completedOrderLines )
     let orderLines = this.top5orderLines.map(x => x.completedOrderLines)
 
     this.doughnutChartRight = new Chart('doughnutChartRight', {

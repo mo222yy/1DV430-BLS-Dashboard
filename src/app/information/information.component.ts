@@ -54,6 +54,9 @@ export class InformationComponent implements OnInit {
     if (localStorage.getItem('savedToDos') === null) {
       localStorage.setItem('savedToDos', JSON.stringify(this.toDo))
     }
+    if (localStorage.getItem('savedMessages') === null) {
+      localStorage.setItem('savedMessages', JSON.stringify(this.messages))
+    }
   }
 
   //MESSAGES
@@ -147,7 +150,6 @@ export class InformationComponent implements OnInit {
 
   addTodo(){
     let toDo = this.createToDo(this.headerTodo, this.messageTodo, this.sectionTodo)
-    console.log('this.todo', this.toDo)
   }
 
   createToDo(header,message, section) {

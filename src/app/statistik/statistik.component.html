@@ -16,7 +16,9 @@
     <button mat-menu-item (click)="setTimeSpan('Denna månad')">Denna månad</button>
   </mat-menu>
 
-  <button mat-button id="customerListButton"  class="blueListButtons" (click)="scrollToList()">Visa lista för {{currentSectionToShow}} kunder </button>
+  <p id="blueListHeader">{{ currentSectionToShow }}</p>
+
+  <button mat-button id="customerListButton"  class="blueListButtons" (click)="scrollToList()">Visa kundlista för {{currentSectionToShow }} </button>
 
   <button mat-button id="backToTopButton"  (click)="backToTop()"><div id="upArrow"></div></button>
 

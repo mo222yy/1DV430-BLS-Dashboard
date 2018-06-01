@@ -50,7 +50,7 @@ export class OrdersService {
       let json;
   
       try {
-      let getXml = this.http.get(url2, {responseType: 'text' })
+      let getXml = this.http.get(url, {responseType: 'text' })
      .subscribe( data => {
       
        parseString(data, function(err, result) {
@@ -72,13 +72,20 @@ export class OrdersService {
           */
       //ändrar alla ordrar till dagens datum, för utv syfte.
       
+    
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
-         let today = this.TimeService.dateForOrders + date[1]
+         let today = this.TimeService.dateForOrders + "T" + date[1]
          el.DeliveryDate.splice(0, 1, today)
-       })
-    
-       this.allOrders = orders
+        })
+
+        for(let i = 0; i < orders.length / 1.2; i++) {
+          let date = orders[i].DeliveryDate[0].split("T")
+          let today = this.TimeService.year + "-" + this.TimeService.month + "-00T" + date[1]
+          orders[i].DeliveryDate[0] = today
+        }
+
+        this.allOrders = orders
        return this.allOrders
      })
     } catch (error) {
