@@ -5,6 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RouterModule, Routes } from '@angular/router';
 import { Chart } from 'chart.js'
+import { AngularFireModule } from 'angularfire2'; 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+
 
 
 import { HttpHandler } from '@angular/common/http';
@@ -50,6 +55,7 @@ import { KunderComponent } from './kunder/kunder.component';
 import { SkapakundComponent } from './skapakund/skapakund.component';
 import { EditCustomerComponent } from './editCustomer/editCustomer.component';
 import { ClockComponent } from './clock/clock.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -68,6 +74,8 @@ import { ClockComponent } from './clock/clock.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     HttpClientModule,    
     FormsModule,
@@ -89,7 +97,14 @@ import { ClockComponent } from './clock/clock.component';
     RouterTestingModule,
     MatDividerModule,
     CdkTableModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+  
+   
+   
+   
+    
+ 
+
         
     
   ],

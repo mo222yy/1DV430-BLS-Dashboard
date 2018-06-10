@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
 import { Parser } from 'xml2js';
 import { Observable } from 'rxjs/Observable';
+
 
 
 // Service för att hämta info om ordrar och skapa objekt
@@ -45,34 +46,31 @@ export class OrdersService {
     async getOrders() {
       this.clearOrders() // rensar ordrar för att undvika duplicering
       let parseString = require('xml2js').parseString
-      const url = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders2.xml?token=Ad3tHucer95riWaVJ_gclZKk6XTWIS8Iks5bGoVQwA%3D%3D'
+      const url = 'https://raw.githubusercontent.com/mo222yy/dashboard/master/Orders.xml'
       const url2 = 'http://www.borjes.com/pdf/orders.xml'
       let json;
   
       try {
-      let getXml = this.http.get(url, {responseType: 'text' })
+
+      let getXml = await this.http.get(url, { responseType: 'text' })
      .subscribe( data => {
-      
+    
+      data = data + `</Orders></BorjesDashBoardInfo>`
        parseString(data, function(err, result) {
+
         if(err) {
           console.log('ERROR' + err)
           return;
         } else {
           json = result
-
          }
        })
      
        //filtrerar json till endast ordrar
        let orders =  json.BorjesDashBoardInfo.Orders[0].BorjesDashBoardOrder
-       
-      /*
-      let data = localStorage.getItem('orders')
-      let orders = JSON.parse(data)
-          */
+
       //ändrar alla ordrar till dagens datum, för utv syfte.
-      
-    
+       
        orders.forEach(el =>{
          let date = el.DeliveryDate[0].split("T")
          let today = this.TimeService.dateForOrders + "T" + date[1]
@@ -84,16 +82,15 @@ export class OrdersService {
           let today = this.TimeService.year + "-" + this.TimeService.month + "-00T" + date[1]
           orders[i].DeliveryDate[0] = today
         }
-
+        
         this.allOrders = orders
        return this.allOrders
      })
+   
     } catch (error) {
       console.log(error)
     }
-
-    }
-    
+  }
    
 
     /**

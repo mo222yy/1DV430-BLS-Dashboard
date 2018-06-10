@@ -30,7 +30,7 @@
         ngModel 
         name="header" 
         #header="ngModel"
-        (change)="getHeader(header)">
+        >
       </mat-form-field>
     
       <mat-form-field>
@@ -43,7 +43,6 @@
         ngModel 
         name="message" 
         #message="ngModel"
-        (change)="getMessage(message)"
         matTextareaAutosize
         matAutosizeMinRows="2"
         matAutosizeMaxRows="5"
@@ -53,26 +52,29 @@
   
       <mat-form-field>
         <mat-select
-         placeholder="Avdelning"
-         required>
-          <mat-option value="option" (click)="getSection('all')">Alla</mat-option>
-          <mat-option value="option" (click)="getSection('solsidan')">Solsidan</mat-option>
-          <mat-option value="option" (click)="getSection('dannes')">Dannes</mat-option>
-          <mat-option value="option" (click)="getSection('bong')">Bong</mat-option>
+         matSelect
+         placeholder= "Avdelning"
+         required
+         name="section"
+         ngModel
+         #section="ngModel"
+         >
+          <mat-option value="Alla">Alla</mat-option>
+          <mat-option value="Solsidan">Solsidan</mat-option>
+          <mat-option value="Dannes">Dannes</mat-option>
+          <mat-option value="Bong">Bong</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-checkbox color="primary" (click)="getConfirmation()">Kräv bekräftelse</mat-checkbox>
 
-      <button mat-mini-fab color="primary" (click)="addMessage()" type="submit"  id="addMessageButton" [disabled]="!createMessageForm.form.valid" >+</button>           
+      <button mat-mini-fab color="primary" (click)="addMessage(createMessageForm.value)" type="submit"  id="addMessageButton" [disabled]="!createMessageForm.form.valid" >+</button>           
       </form>
     </div>
   </mat-expansion-panel>
 
   <mat-divider></mat-divider>
-
-
+  
   <mat-accordion>
-    <mat-list class="messageList" *ngFor="let message of messagesToShow">
+    <mat-list class="messageList" *ngFor="let message of messages | async">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            class="panels">
@@ -82,7 +84,7 @@
 
           <mat-panel-title class="messageHeaderTitle">
             <div id="messageHeader">
-              {{message.header}}
+              {{message.header }}
             </div>
           </mat-panel-title>
           <mat-panel-description>
@@ -93,27 +95,7 @@
             <p id="messageContent">{{message.message}}</p>
           </div>
 
-
-        <div class="confirm" *ngIf="message.confirmation">
-          <form #confirmMessageForm="ngForm">
-            <mat-form-field class="confirmName">
-              <input  
-              matInput
-              required
-              placeholder="Bekräfta att du sett meddelandet"
-              name="confirmName"
-              id="confirmName"
-              ngModel 
-              name="confirmName" 
-              #confirmName="ngModel"
-              (change)="getConfirmName(confirmName)">
-            </mat-form-field>
-            <button mat-mini-fab color="primary" (click)="confirm(message)" type="submit"  id="confirmButton" [disabled]="!confirmMessageForm.form.valid" >+</button>           
-            <p class ="shownBy">Visats av:</p>
-            <li class="confirmed" *ngFor="let confirmed of message.confirmed"> {{ confirmed }}</li>
-            </form>
-        </div>
-        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteMessage(message)">-</button>
+        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteMessage(message.key)">-</button>
 
 
       </mat-expansion-panel>
@@ -139,12 +121,12 @@
         matInput
         required
         placeholder="Rubrik"
-        name="headerTodo"
-        id="headerTodo"
+        name="header"
+        id="header"
         ngModel 
-        name="headerTodo" 
-        #headerTodo="ngModel"
-        (change)="getHeaderTodo(headerTodo)">
+        name="header" 
+        #header="ngModel"
+        >
       </mat-form-field>
     
       <mat-form-field>
@@ -152,12 +134,11 @@
         matInput
         required
         placeholder="Meddelande"
-        name="messageTodo"
-        id="messageTodo"
+        name="message"
+        id="message"
         ngModel 
-        name="messageTodo" 
-        #messageTodo="ngModel"
-        (change)="getMessageTodo(messageTodo)"
+        name="message" 
+        #message="ngModel"
         matTextareaAutosize
         matAutosizeMinRows="2"
         matAutosizeMaxRows="5"
@@ -167,16 +148,21 @@
   
       <mat-form-field>
         <mat-select
-         placeholder="Avdelning"
-         required>
-          <mat-option value="option" (click)="getSectionTodo('all')">Alla</mat-option>
-          <mat-option value="option" (click)="getSectionTodo('solsidan')">Solsidan</mat-option>
-          <mat-option value="option" (click)="getSectionTodo('dannes')">Dannes</mat-option>
-          <mat-option value="option" (click)="getSectionTodo('bong')">Bong</mat-option>
+        matSelect
+        placeholder= "Avdelning"
+        required
+        name="section"
+        ngModel
+        #section="ngModel"
+        >
+          <mat-option value="Alla">Alla</mat-option>
+          <mat-option value="Solsidan">Solsidan</mat-option>
+          <mat-option value="Dannes">Dannes</mat-option>
+          <mat-option value="Bong">Bong</mat-option>
         
         </mat-select>
       </mat-form-field>
-      <button mat-mini-fab color="primary" (click)="addTodo()" type="submit"  id="addMessageButton" [disabled]="!createTodoForm.form.valid" >+</button>           
+      <button mat-mini-fab color="primary" (click)="addTodo(createTodoForm.value)" type="submit"  id="addMessageButton" [disabled]="!createTodoForm.form.valid" >+</button>           
       </form>
     </div>
   </mat-expansion-panel>
@@ -185,7 +171,7 @@
 
 
   <mat-accordion>
-    <mat-list class="messageList" *ngFor="let toDo of toDoToShow">
+    <mat-list class="messageList" *ngFor="let toDo of toDos | async">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            class="panels">
@@ -201,7 +187,7 @@
           </mat-panel-description>
         </mat-expansion-panel-header>      
         <p id="messageContent">{{toDo.message}}</p>
-        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteToDos(toDo)">-</button>
+        <button mat-mini-fab color="warn" class="deleteMessageButton" (click)="deleteToDos(toDo.key)">-</button>
 
       </mat-expansion-panel>
     </mat-list>
