@@ -1,5 +1,5 @@
 <div id="blueList">
-    <p id="blueListHeader">Redigera {{customer.customerName}}</p>
+    <p id="blueListHeader">Redigera </p>
 </div>
 
 <div id="newCustomerForm">
@@ -11,15 +11,13 @@
     
     <mat-form-field class="form-group">
     <input 
-     matInput placeholder="{{customer.customerName}}"
-
+     matInput 
+     placeholder="namn"
      required
      minlength="3" 
      ngModel
-     name="CustomerName" 
+     name="customerName" 
      #CustomerName="ngModel" 
-     (change)="getCustomerName(CustomerName)" 
-     id="CustomerNames"
      type="text" 
      class="form-control">
      <mat-error *ngIf="CustomerName.touched && !CustomerName.valid ">
@@ -32,26 +30,18 @@
 
   </mat-form-field>
 
-  
-  
-
-
-
   <!-- CustomerID -->
   <mat-form-field class="form-group">
       <input 
       matInput 
-      placeholder="{{customer.customerID}}"
-
+      placeholder="id"
       required
        minvalue="0"
        minlength="2" 
        maxlength="3" 
        ngModel 
-       name="customerID" 
+       name="customerId" 
        #customerID="ngModel" 
-       (change)="getCustomerId(customerID)" 
-       id="customerID" 
        type="text" 
        class="form-control">
       <mat-error *ngIf="customerID.touched && !customerID.valid">
@@ -60,17 +50,43 @@
    
   </mat-form-field>
   
-  <br>  
+  <!-- SECTIONS -->
+  <mat-form-field>
+    <mat-select 
+    required
+      placeholder="Avdelning"
+      ngModel
+      name="section" 
+      #section="ngModel" 
+      >
+      <mat-option value="Solsidan">Solsidan</mat-option>
+      <mat-option value="Dannes">Dannes</mat-option>
+      <mat-option value="Bong">Bong</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <!-- SECTIONS -->
-    <mat-radio-group class="sectionGroup">
-      <mat-radio-button class="sectionButton" *ngFor="let section of sections" [value]="section" (change)="getSection($event)">
-      <label id="{{section}}" >
-       {{section}}
-      </label>
-      </mat-radio-button>
-    </mat-radio-group>
-    <p id="currentSection">Tidigare vald avdelning: {{customer.section}}</p>
+  <mat-form-field class="form-group">
+    <input 
+      matInput
+      placeholder="Länk till SOP"
+      value=" {{ value }} "
+      ngModel 
+      name="sop" 
+      #sop="ngModel" 
+      >
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <input 
+      matInput
+      placeholder="Länk till logotype"
+      value=" {{ value }}"
+      ngModel 
+      name="sop" 
+      #sop="ngModel" 
+      >
+  </mat-form-field>
+
   </div>
 
 
@@ -91,10 +107,9 @@
          minlength="2" 
          maxlength="20" 
          ngModel 
-         name="contactFirstName" 
+         name="firstname" 
          #contactFirstName="ngModel" 
          (change)="getFirstname(contactFirstName)" 
-         id="contactFirstName" 
          type="text" 
          class="form-control">
         <mat-error
@@ -120,10 +135,8 @@
                  minlength="2" 
                  maxlength="20" 
                  ngModel 
-                 name="contactLastName" 
+                 name="lastname" 
                  #contactLastName="ngModel" 
-                 (change)="getLastname(contactLastName)" 
-                 id="contactLastName" 
                  type="text" 
                  class="form-control">
                 <mat-error
@@ -149,8 +162,6 @@
                  ngModel 
                  name="phone" 
                  #phone="ngModel" 
-                 (change)="getPhone(phone)" 
-                 id="phone" 
                  type="text" 
                  class="form-control">
                 <mat-error
@@ -173,10 +184,8 @@
                        minlength="5" 
                        maxlength="30" 
                        ngModel 
-                       name="eMail" 
-                       #eMail="ngModel" 
-                       (change)="getEmail(eMail)" 
-                       id="eMail" 
+                       name="email" 
+                       #eMail="ngModel"  
                        type="text" 
                        class="form-control">
                       <mat-error
@@ -191,16 +200,6 @@
                   <br>
           
              <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
-
-             <mat-list role="list" *ngFor="let contact of customer.contacts; let i = index">
-                <mat-list-item role="listitem" class="li">
-                    <p id="contactName" class="listElement">{{i+1}}.{{contact.firstname}} {{contact.lastname}}</p>
-                    <p id="listPhone" class="listElement">{{contact.phone}}</p>
-                    <p id="listEmail" class="listElement">{{contact.eMail}}</p>
-                      <button mat-mini-fab color="warn" id="contactDeleteButton" (click)="deleteContact(i)">X</button>
-                    <mat-divider></mat-divider>
-                  </mat-list-item>
-            </mat-list>
     </div>  
   
 
@@ -210,16 +209,15 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="{{customer.cOsweden}}"
+        placeholder="cosv"
          required
          minvalue="0" 
          minlength="4" 
          maxlength="4" 
          ngModel 
-         name="cOsv" 
+         name="cosv" 
          #cOsv="ngModel" 
          (change)="getSweden(cOsv)" 
-         id="cOsv" 
          type="text" 
          class="form-control">
          <mat-hint align="end">Cut off sverige</mat-hint>
@@ -237,16 +235,14 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="{{customer.cOabroad}}"
+        placeholder="coab"
 
          minvalue="0" 
          minlength="4" 
          maxlength="4" 
          ngModel 
-         name="cOab" 
+         name="coab" 
          #cOab="ngModel" 
-         (change)="getAbroad(cOab)" 
-         id="cOab" 
          type="text" 
          class="form-control">
          <mat-hint align="end">Cut off utomlands</mat-hint>
@@ -268,13 +264,10 @@
                 name="comments"
                 matTextareaAutosize matAutosizeMinRows="2"
                 matAutosizeMaxRows="5"
-                id="comments"
                 ngModel 
                 name="comments" 
                 #comments="ngModel"
-                (change)="getComments(comments)"
                 >
-                {{cOcomments}}
               </textarea>
       </mat-form-field>
 

@@ -10,15 +10,13 @@
       <!-- CustomerName  -->
       <mat-form-field class="form-group">
       <input 
-       matInput placeholder="Kundnamn"
-  
+       matInput
+       placeholder="Kundnamn"
        required
        minlength="3" 
        ngModel
-       name="CustomerName" 
+       name="customerName" 
        #CustomerName="ngModel" 
-       (change)="getCustomerName(CustomerName)" 
-       id="CustomerNames"
        type="text" 
        class="form-control">
        <mat-error *ngIf="CustomerName.touched && !CustomerName.valid ">
@@ -30,18 +28,12 @@
       </mat-error>
   
     </mat-form-field>
-  
-    
-    
-  
-  
-  
+
     <!-- CustomerID -->
     <mat-form-field class="form-group">
         <input 
         matInput 
         placeholder="KundID"
-  
         required
          minvalue="0"
          minlength="2" 
@@ -49,8 +41,6 @@
          ngModel 
          name="customerID" 
          #customerID="ngModel" 
-         (change)="getCustomerId(customerID)" 
-         id="customerID" 
          type="text" 
          class="form-control">
         <mat-error *ngIf="customerID.touched && !customerID.valid">
@@ -59,16 +49,46 @@
      
     </mat-form-field>
     
-    <br>  
   
       <!-- SECTIONS -->
-      <mat-radio-group class="sectionGroup">
-        <mat-radio-button class="sectionButton" *ngFor="let section of sections" [value]="section" (change)="getSection($event)">
-        <label id="{{section}}" >
-         {{section}}
-        </label>
-        </mat-radio-button>
-      </mat-radio-group>
+      <mat-form-field>
+        <mat-select 
+        required
+          placeholder="Avdelning"
+          ngModel
+          name="section" 
+          #section="ngModel" 
+          >
+          <mat-option value="Solsidan">Solsidan</mat-option>
+          <mat-option value="Dannes">Dannes</mat-option>
+          <mat-option value="Bong">Bong</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder="Länk till SOP"
+          value=" {{ value }} "
+          ngModel 
+          name="sop" 
+          #sop="ngModel" 
+
+          >
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder="Länk till logotype"
+          value=" {{ value }}"
+          ngModel 
+          name="sop" 
+          #sop="ngModel" 
+
+          >
+      </mat-form-field>
+    
     </div>
   
      <!-- MiddleColumn -->  
@@ -79,16 +99,14 @@
           <input 
           matInput 
           placeholder="Förnamn"
-  
+          (change)="getFirstname(contactFirstName)" 
            required
            minvalue="0" 
            minlength="2" 
            maxlength="20" 
            ngModel 
-           name="contactFirstName" 
+           name="firstname" 
            #contactFirstName="ngModel" 
-           (change)="getFirstname(contactFirstName)" 
-           id="contactFirstName" 
            type="text" 
            class="form-control">
           <mat-error
@@ -108,16 +126,14 @@
                   <input 
                   matInput 
                   placeholder="Efternamn"
-          
+                  (change)="getLastname(contactLastName)" 
                    required
                    minvalue="0" 
                    minlength="2" 
                    maxlength="20" 
                    ngModel 
-                   name="contactLastName" 
+                   name="lastname" 
                    #contactLastName="ngModel" 
-                   (change)="getLastname(contactLastName)" 
-                   id="contactLastName" 
                    type="text" 
                    class="form-control">
                   <mat-error
@@ -135,7 +151,7 @@
                   <input 
                   matInput 
                   placeholder="Telefon"
-          
+                  (change)="getPhone(phone)" 
                    required
                    minvalue="0" 
                    minlength="5" 
@@ -143,8 +159,6 @@
                    ngModel 
                    name="phone" 
                    #phone="ngModel" 
-                   (change)="getPhone(phone)" 
-                   id="phone" 
                    type="text" 
                    class="form-control">
                   <mat-error
@@ -161,16 +175,14 @@
                         <input 
                         matInput 
                         placeholder="Email"
-                
+                        (change)="getEmail(eMail)" 
                          required
                          minvalue="0" 
                          minlength="5" 
                          maxlength="40" 
                          ngModel 
-                         name="eMail" 
+                         name="email" 
                          #eMail="ngModel" 
-                         (change)="getEmail(eMail)" 
-                         id="eMail" 
                          type="text" 
                          class="form-control">
                         <mat-error
@@ -184,7 +196,7 @@
                     
                     <br>
             
-               <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
+               <button mat-mini-fab color="primary" (click)="addContact()" id="contactButton">+</button>
   
                <mat-list role="list" *ngFor="let contact of contacts; let i = index">
                   <mat-list-item role="listitem">
@@ -213,10 +225,8 @@
            minlength="4" 
            maxlength="4" 
            ngModel 
-           name="cOsv" 
+           name="cosv" 
            #cOsv="ngModel" 
-           (change)="getSweden(cOsv)" 
-           id="cOsv" 
            type="text" 
            class="form-control">
           <mat-error
@@ -239,10 +249,8 @@
            minlength="4" 
            maxlength="4" 
            ngModel 
-           name="cOab" 
+           name="coab" 
            #cOab="ngModel" 
-           (change)="getAbroad(cOab)" 
-           id="cOab" 
            type="text" 
            class="form-control">
           <mat-error
@@ -257,23 +265,22 @@
   
   
       <mat-form-field class="form-group">
-          <textarea matInput placeholder="Övrigt om cut off" matTextareaAutosize matAutosizeMinRows="2"
-                    matAutosizeMaxRows="5"
-                    id="comments"
-                    ngModel 
-                    name="comments" 
-                    #comments="ngModel"
-                    (change)="getComments(comments)"
-                    ></textarea>
+          <textarea 
+              matInput 
+              placeholder="Kommentarer" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="5"
+              ngModel 
+              name="comments" 
+              #comments="ngModel"
+          >
+        </textarea>
         </mat-form-field>
-  
-  
       </div>
   
   
       <div id="buttons">
           <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-          <button mat-raised-button type="submit" class="btn btn-success" id="saveCustomer" [disabled]="!createCustomerForm.form.valid" (click)="onSubmit()">Spara kund</button>           
+          <button mat-raised-button type="submit" class="btn btn-success" id="saveCustomer" [disabled]="!createCustomerForm.form.valid" (click)="createCustomer(createCustomerForm.value)">Spara kund</button>           
 
         </div>  
       </div>

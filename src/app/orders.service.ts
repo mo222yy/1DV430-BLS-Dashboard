@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { CustomerService } from './customer.service'
 import { TimeService } from './time.service'
-import { Parser } from 'xml2js';
-import { Observable } from 'rxjs/Observable';
 
 
 
@@ -47,7 +45,7 @@ export class OrdersService {
       this.clearOrders() // rensar ordrar för att undvika duplicering
       let parseString = require('xml2js').parseString
       const url = 'https://raw.githubusercontent.com/mo222yy/dashboard/master/Orders.xml'
-      const url2 = 'http://www.borjes.com/pdf/orders.xml'
+      const url2 = 'gs://borjesdb.appspot.com/Orders2.xml'
       let json;
   
       try {
@@ -55,7 +53,6 @@ export class OrdersService {
       let getXml = await this.http.get(url, { responseType: 'text' })
      .subscribe( data => {
     
-      data = data + `</Orders></BorjesDashBoardInfo>`
        parseString(data, function(err, result) {
 
         if(err) {

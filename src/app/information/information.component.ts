@@ -68,10 +68,6 @@ export class InformationComponent implements OnInit {
   
 
   selectedSection(section) {
-    this.messages = this.messagesRef.snapshotChanges().pipe(
-      map(msgs =>
-       msgs.map(m => console.log(m.payload.child[1]))
-    )
   }
 
 
