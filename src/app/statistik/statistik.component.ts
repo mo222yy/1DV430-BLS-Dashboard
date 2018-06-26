@@ -13,7 +13,7 @@ import {DataSource} from '@angular/cdk/collections';
   templateUrl: './statistik.component.html',
   styleUrls: ['./statistik.component.scss']
 })
-export class StatistikComponent implements OnInit, AfterViewInit {
+export class StatistikComponent implements OnInit {
   allOrders = []
   allCompletedOrders = []
 
@@ -50,6 +50,10 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   ) { }
 
   async ngOnInit() {
+  }
+
+}
+    /*
     this.getOrders()
     this.currentSection = this.customerService.customers  
     this.dataSource = this.sortCurrent(this.currentSection)
@@ -369,3 +373,4 @@ export class StatistikComponent implements OnInit, AfterViewInit {
   
 
   }
+  */

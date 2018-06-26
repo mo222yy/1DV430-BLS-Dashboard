@@ -46,6 +46,12 @@
     </div>
 </div>
 
+<ul>
+    <li *ngFor="let customer of customers | async">{{customer.customerName}} {{ customer.customerID }} </li>
+</ul>
+
+
+
 <div id="orderList">
   <mat-table #table [dataSource]="customerList" matSort>
 

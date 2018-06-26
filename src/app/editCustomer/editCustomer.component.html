@@ -1,9 +1,8 @@
 <div id="blueList">
-    <p id="blueListHeader">Redigera </p>
+    <p id="blueListHeader">Redigera {{ currentCustomer?.customerName }} </p>
 </div>
-
 <div id="newCustomerForm">
-  <form>
+  <form #editCustomerForm="ngForm">
 
     <div id="leftColumn">
     <!-- LeftColumn -->  
@@ -12,14 +11,16 @@
     <mat-form-field class="form-group">
     <input 
      matInput 
-     placeholder="namn"
+     placeholder= {{currentCustomer?.customerName}}
      required
      minlength="3" 
      ngModel
      name="customerName" 
      #CustomerName="ngModel" 
+     (change)="updateCustomerName(CustomerName)"
      type="text" 
      class="form-control">
+
      <mat-error *ngIf="CustomerName.touched && !CustomerName.valid ">
       Fyll i kundnamn
      <mat-error *ngIf="CustomerName.errors.minlength && !CustomerName.valid">
@@ -34,8 +35,9 @@
   <mat-form-field class="form-group">
       <input 
       matInput 
-      placeholder="id"
+      placeholder= {{currentCustomer?.customerID}}
       required
+      (change)="updateCustomerID(customerID)"
        minvalue="0"
        minlength="2" 
        maxlength="3" 
@@ -54,10 +56,12 @@
   <mat-form-field>
     <mat-select 
     required
-      placeholder="Avdelning"
+      placeholder= {{currentCustomer?.section}}
       ngModel
       name="section" 
-      #section="ngModel" 
+      #section="ngModel"
+      (change)="updateSection(section)"
+ 
       >
       <mat-option value="Solsidan">Solsidan</mat-option>
       <mat-option value="Dannes">Dannes</mat-option>
@@ -68,22 +72,26 @@
   <mat-form-field class="form-group">
     <input 
       matInput
-      placeholder="Länk till SOP"
+      placeholder= {{currentCustomer?.sop}}
       value=" {{ value }} "
       ngModel 
       name="sop" 
       #sop="ngModel" 
+      (change)="updateSop(sop)"
+
       >
   </mat-form-field>
 
   <mat-form-field class="form-group">
     <input 
       matInput
-      placeholder="Länk till logotype"
+      placeholder= {{currentCustomer?.logo}}
       value=" {{ value }}"
       ngModel 
-      name="sop" 
-      #sop="ngModel" 
+      name="logo" 
+      #logo="ngModel" 
+      (change)="updateLogo(logo)"
+
       >
   </mat-form-field>
 
@@ -109,9 +117,10 @@
          ngModel 
          name="firstname" 
          #contactFirstName="ngModel" 
-         (change)="getFirstname(contactFirstName)" 
          type="text" 
-         class="form-control">
+         class="form-control"
+         (change)="updateFirstname(contactFirstName)"
+         >
         <mat-error
          *ngIf="contactFirstName.touched && !contactFirstName.valid">
          Fyll i förnamn
@@ -138,12 +147,15 @@
                  name="lastname" 
                  #contactLastName="ngModel" 
                  type="text" 
-                 class="form-control">
+                 class="form-control"
+                 (change)="updateLastname(contactLastName)"
+                 >
                 <mat-error
                  *ngIf="contactLastName.touched && !contactLastName.valid">
                  Fyll i Efternamn
                 <mat-error
-                 *ngIf="contactLastName.errors.minlength">
+                 *ngIf="contactLastName.errors.minlength"
+                 >
                  Efternamn ska innehålla minst {{ contactLastName.errors.minlength.requiredLength }} bokstäver
                 </mat-error>
               </mat-error>
@@ -163,11 +175,14 @@
                  name="phone" 
                  #phone="ngModel" 
                  type="text" 
-                 class="form-control">
+                 class="form-control"
+                 (change)="updatePhone(phone)"
+                 >
                 <mat-error
                  *ngIf="phone.touched && !phone.valid">
                 <mat-error
-                 *ngIf="phone.errors.minlength">
+                 *ngIf="phone.errors.minlength"
+                 >
                  Telefonnumret ska innehålla minst  {{ phone.errors.minlength.requiredLength }} siffror
                 </mat-error>
               </mat-error>
@@ -187,7 +202,10 @@
                        name="email" 
                        #eMail="ngModel"  
                        type="text" 
-                       class="form-control">
+                       class="form-control"
+                       (change)="updateEmail(eMail)"
+                       >
+                     
                       <mat-error
                        *ngIf="eMail.touched && !eMail.valid">
                       <mat-error
@@ -197,9 +215,21 @@
                     </mat-error>
                   </mat-form-field>
                   
-                  <br>
+              
           
-             <button mat-mini-fab color="primary" (click)="newContact()" id="contactButton">+</button>
+             <button mat-mini-fab color="primary" (click)="addContact()" id="contactButton">+</button>
+
+             <mat-list role="list" *ngFor="let contact of contacts; let i = index">
+              <mat-list-item role="listitem">
+                  <span id="contactNumber" class="listElement">{{i+1}}. </span>
+                  <span id="listFirstname" class="listElement">{{contact.firstname}}</span>
+                  <span id="listLastname" class="listElement">{{contact.lastname}}</span>
+                  <span id="listPhone" class="listElement">{{contact.phone}}</span>
+                  <span id="listEmail" class="listElement">{{contact.eMail}}</span>
+                  <button mat-mini-fab color="primary"(click)="deleteContact(i)" id="contactDeleteButton">X</button>
+                </mat-list-item>
+          </mat-list>
+
     </div>  
   
 
@@ -209,7 +239,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="cosv"
+        placeholder= {{currentCustomer?.cosv}}
          required
          minvalue="0" 
          minlength="4" 
@@ -217,7 +247,7 @@
          ngModel 
          name="cosv" 
          #cOsv="ngModel" 
-         (change)="getSweden(cOsv)" 
+         (change)="updateCosv(cOsv)" 
          type="text" 
          class="form-control">
          <mat-hint align="end">Cut off sverige</mat-hint>
@@ -235,7 +265,7 @@
     <mat-form-field class="form-group">
         <input 
         matInput 
-        placeholder="coab"
+        placeholder= {{currentCustomer?.coab}}
 
          minvalue="0" 
          minlength="4" 
@@ -244,7 +274,9 @@
          name="coab" 
          #cOab="ngModel" 
          type="text" 
-         class="form-control">
+         class="form-control"
+         (change)="updateCoab(cOab)" 
+         >
          <mat-hint align="end">Cut off utomlands</mat-hint>
 
         <mat-error
@@ -260,13 +292,15 @@
 
     <mat-form-field class="form-group">
         <textarea matInput
-                placeholder="Övrigt om cut off"
+                placeholder= {{currentCustomer?.comments}}
                 name="comments"
                 matTextareaAutosize matAutosizeMinRows="2"
                 matAutosizeMaxRows="5"
                 ngModel 
                 name="comments" 
                 #comments="ngModel"
+                (change)="updateComments(comments)" 
+
                 >
               </textarea>
       </mat-form-field>
@@ -278,8 +312,7 @@
     <div id="buttons">
         <button mat-raised-button color="primary" (click)="deleteCustomer()" id="deleteCustomer" >Radera kund</button>
         <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()" id="saveCustomer" >Spara kund</button>
-
+        <button mat-raised-button color="primary" (click)="updateCustomer(editCustomerForm.value)" id="saveCustomer" >Spara kund</button>
      </div>  
 
 

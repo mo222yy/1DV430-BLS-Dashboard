@@ -83,8 +83,8 @@
           placeholder="Länk till logotype"
           value=" {{ value }}"
           ngModel 
-          name="sop" 
-          #sop="ngModel" 
+          name="logo" 
+          #logo="ngModel" 
 
           >
       </mat-form-field>
@@ -280,7 +280,7 @@
   
       <div id="buttons">
           <button mat-raised-button color="primary" (click)="stepBack()" >Tillbaka</button>
-          <button mat-raised-button type="submit" class="btn btn-success" id="saveCustomer" [disabled]="!createCustomerForm.form.valid" (click)="createCustomer(createCustomerForm.value)">Spara kund</button>           
+          <button mat-raised-button type="submit" class="btn btn-success" id="saveCustomer" [disabled]="!createCustomerForm.form.valid" (click)="createCustomer(createCustomerForm.value)" (click)="stepBack()">Spara kund</button>           
 
         </div>  
       </div>

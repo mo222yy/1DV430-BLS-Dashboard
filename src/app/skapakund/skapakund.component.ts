@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 
 export class SkapakundComponent{
 
+  orders = {}
+
   contacts = []
   firstname: string;
   lastname: string;
@@ -33,9 +35,36 @@ createCustomer(value) {
  delete value.email
 
  value.contacts = this.contacts
+ value.ordersOpenToday = []
+ value.ordersCompletedToday = []
+ value.ordersLinesCompletedToday = []
+ value.orderLinesOpenToday = []
+ value.abroadOrders = []
+ value.restedOrders = []
+ value.ordersCompletedMonth = []
+ value.ordersLinesCompletedToday = []
+
 
  this.customerService.createCustomer(value)
  console.log(value)
+}
+
+
+addOrders() {
+  
+  let ordersOpenToday = []
+  let ordersCompletedToday = []
+  let orderLinesOpenToday = []
+  let ordersLinesCompletedToday = []
+
+  let abroadOrders = []
+  let rested = []
+
+  let ordersCompletedMonth = []
+  let orderLinesCompletedMonth = []
+  
+
+
 }
 
 addContact() {
@@ -63,7 +92,9 @@ getEmail(email) {
   this.email = email.value
 }
 stepBack() {
-  this.router.navigate(['kunder'])
+  setTimeout(() => {
+    this.router.navigate(['kunder'])
+  }, 0)
 }
 
 

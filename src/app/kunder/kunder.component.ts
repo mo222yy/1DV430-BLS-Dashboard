@@ -24,9 +24,9 @@ export class KunderComponent implements OnInit {
     this.router.navigate(['skapakund'])
   }
 
-  editCustomer(key) {
-    console.log(key)
+  getCustomer(key) {
     this.CustomerService.currentKey = key
+    this.CustomerService.getCustomer(key)
     this.router.navigate(['editCustomer'])
   }
 }

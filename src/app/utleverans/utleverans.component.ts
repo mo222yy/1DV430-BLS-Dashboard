@@ -8,9 +8,8 @@ import { CustomerService } from '../customer.service'
 import { TransporterService } from '../transporter.service'
 import {MatTableModule, MatTableDataSource, MatTable} from '@angular/material/table';
 import {MatSortModule, MatSort} from '@angular/material/sort';
-import {MatMenuModule} from '@angular/material/menu';
-import { CdkTableModule} from '@angular/cdk/table';
-import {DataSource} from '@angular/cdk/collections';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapshot } from 'angularfire2/database'
 
 
 @Component({
@@ -22,26 +21,16 @@ import {DataSource} from '@angular/cdk/collections';
 })
 
 export class UtleveransComponent implements OnInit {
- openOrders: number;
- abroadOrders: number;
- restOrders: number;
- orderLines: number;
 
- todaysOrders = []
+  customers: Observable<any[]>;
+  
+  customerList = [];
+  
 
-   //Customer
-   customers = []
-   customerList = [] // array som ska visas
-
-   //sections
-   currentSection: string = 'Alla';
-   allCustomers = []
-   solsidan = []
-   dannes = []
-   bong = []
 
    nextPickUp = []
 
+   
    dataSource = new MatTableDataSource(this.customerList)
    displayedColumns = ['customerName', 'openOrders', 'abroadOrders', 'restOrders', 'orderLines'];
    
@@ -50,144 +39,22 @@ export class UtleveransComponent implements OnInit {
   constructor( 
                private TimeService: TimeService,
                private ordersService: OrdersService,
-               private customerService: CustomerService,
-               private transporterService: TransporterService) { }
+               private CustomerService: CustomerService,
+               private transporterService: TransporterService,
+               ) { 
+               
+               }
                
    ngOnInit() {
-     if(this.TimeService.playSection !== undefined) {
-       this.currentSection = this.TimeService.playSection.charAt(0).toUpperCase() + this.TimeService.playSection.slice(1)
-       
-     }
-    this.getOrders()
     this.getNextPickUp()  
-
-
-
-    this.dataSource.sort = this.sort;
-  }
-
- 
-    //Hämtar ordrar och kör sedan sortOrders()
-    async getOrders() {
-     try {
-      await this.ordersService.getOrders()
-      await this.getTodaysOrders()
-      await this.filterOrders()
-      this.customerService.getCustomers()
-      await this.distributeCustomerOrders()
-      await this.setCustomers()
-      
-
-      
-      //för "bildspelet"
-      if(this.TimeService.playSection === undefined || this.TimeService.playSection === 'alla') {
-        await this.selectedSection('alla')
-      } else {
-        await this.selectedSection(this.TimeService.playSection)
-      }
-      
-
-     } catch(e) {
-       console.log(e)
-     }
+    this.customers = this.CustomerService.customers
+    this.ordersService.customerOrdersToday()
     }
 
-    getTodaysOrders() {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.todaysOrders = this.ordersService.getTodaysOrders(this.ordersService.allOrders)
-          resolve('resolved')
-        }, 500) // kan behöva ändras vid större mängd data ?
-      }).catch(e => {
-        console.log(e)
-      })
-    }
-
-    filterOrders() {
-      try {
-      this.ordersService.getOrderStatus(this.todaysOrders)
-
-      } catch(error) {
-        console.log(error)
-      }
-    }
-
-    distributeCustomerOrders() {
-      try {
-      this.ordersService.distributeCustomerOrders(this.todaysOrders)
-      } catch(error) {
-        console.log(error)
-      }
-    }
-    
-    setCustomers() {
-      try {
-      this.customers = this.customerService.customers
-      this.solsidan = this.customerService.solsidan
-      this.dannes = this.customerService.dannes
-      this.bong = this.customerService.bong
-      this.allCustomers = this.customerService.customers
-
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-   
-   
-  
-  /**
-   * Uppdaterar alla listor
-   */
-  clearNumbers() {
-    this.openOrders = 0
-    this.abroadOrders = 0
-    this.restOrders = 0
-    this.orderLines = 0
-  }
-
-  async selectedSection(section) {
-    this.clearNumbers()
-
-    if (section === 'solsidan') {
-      this.customerList = this.solsidan
-    } else if (section === 'dannes') {
-      this.customerList = this.dannes
-    } else if (section === 'bong') {
-      this.customerList = this.bong
-    } else if ( section = 'alla') {
-      this.customerList = this.allCustomers
-    }
-
-    this.customerList.forEach(customer => {
-      this.openOrders += customer.openOrders.length
-      this.abroadOrders += customer.abroadOrders.length 
-      this.restOrders += customer.restOrders.length 
-      this.orderLines += customer.orderLines.length
-    })
-
-    let cl = this.customerList.filter(order => order.openOrders.length > 0)
-    
-
-    cl.sort(function(a,b){
-      return b.openOrders.length - a.openOrders.length
-    })
-
-    this.customerList = cl
-}
-
-/**
- * 
- * @param section argument from html
- */
-updateSectionHeader(section) {
-  this.currentSection = section
-  return section
-}
 
 
     //TRANSPORTÖR
-getNextPickUp() {
+    getNextPickUp() {
       this.nextPickUp =  this.transporterService.getNextPickUp()
     }
 }
