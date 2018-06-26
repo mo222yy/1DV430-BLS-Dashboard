@@ -16,6 +16,7 @@ export class EditCustomerComponent implements OnInit {
   customerName: String;
   customerID: String;
   section: String;
+  shortname: String;
   sop: String;
   logo: String;
   contacts = []
@@ -42,7 +43,6 @@ export class EditCustomerComponent implements OnInit {
   }
 
   getCustomer() {
-    this.CustomerService.customers.subscribe(customer => console.log(customer))
     this.CustomerService.customers.subscribe(customer => {
       customer.forEach(c => {
         if(c.key === this.CustomerService.currentKey) {
@@ -50,6 +50,7 @@ export class EditCustomerComponent implements OnInit {
           this.customerName = c.customerName
           this.customerID = c.customerID
           this.section = c.section
+          this.shortname = c.shortname
           this.sop = c.sop
           this.logo = c.logo
           this.cosv = c.cosv
@@ -57,6 +58,8 @@ export class EditCustomerComponent implements OnInit {
           this.comments = c.comments
           if(c.contacts === null) {
             this.contacts = []
+          } else {
+            this.contacts = c.contacts
           }
         }
       })
@@ -69,6 +72,7 @@ export class EditCustomerComponent implements OnInit {
       customerID: this.customerID,
       section: this.section,
       sop: this.sop,
+      shortname: this.shortname,
       logo: this.logo,
       contacts: this.contacts,
       cosv: this.cosv,
@@ -76,6 +80,8 @@ export class EditCustomerComponent implements OnInit {
       comments: this.comments
       })
       console.log('this.contacts')
+      this.router.navigate(['kunder'])
+
 
   }
 
@@ -127,6 +133,10 @@ export class EditCustomerComponent implements OnInit {
     this.firstname = firstname.value
     console.log(this.firstname)
 
+  }
+
+  updateShortname(shortname) {
+    this.shortname = shortname.value
   }
 
   addContact() {

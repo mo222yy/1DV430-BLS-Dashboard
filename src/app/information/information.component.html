@@ -2,12 +2,12 @@
 <div id="blueList">
           <button mat-button id="sectionButton"  [matMenuTriggerFor]="menu">Avdelning </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="selectedSection('solsidan')">Solsidan</button>
-            <button mat-menu-item (click)="selectedSection('dannes')">Dannes</button>
-            <button mat-menu-item (click)="selectedSection('bong')">Bong</button>
-            <button mat-menu-item (click)="selectedSection('all')">Alla</button>
+            <button mat-menu-item (click)="getMessages('Solsidan')">Solsidan</button>
+            <button mat-menu-item (click)="getMessages('Dannes')">Dannes</button>
+            <button mat-menu-item (click)="getMessages('Bong')">Bong</button>
+            <button mat-menu-item (click)="getMessages('All')">Alla</button>
           </mat-menu>
-      <p id="sectionHeader">{{currentSection}}</p>
+      <p id="sectionHeader">{{ currentSection }}</p>
   </div>
 
   <div id="leftSide" class="leftAndRight">
@@ -74,7 +74,7 @@
   <mat-divider></mat-divider>
   
   <mat-accordion>
-    <mat-list class="messageList" *ngFor="let message of messages | async">
+    <mat-list class="messageList" *ngFor="let message of messagesToShow">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            class="panels">
@@ -171,7 +171,7 @@
 
 
   <mat-accordion>
-    <mat-list class="messageList" *ngFor="let toDo of toDos | async">
+    <mat-list class="messageList" *ngFor="let toDo of toDoToShow">
       <mat-expansion-panel (opened)="panelOpenState = true"
                            (closed)="panelOpenState = false"
                            class="panels">

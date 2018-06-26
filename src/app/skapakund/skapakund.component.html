@@ -68,6 +68,18 @@
       <mat-form-field class="form-group">
         <input 
           matInput
+          placeholder="Förkortning"
+          value=" {{ value }} "
+          ngModel 
+          name="shortname" 
+          #shortname="ngModel" 
+          >
+      </mat-form-field>
+
+      <!-- SOP -->
+      <mat-form-field class="form-group">
+        <input 
+          matInput
           placeholder="Länk till SOP"
           value=" {{ value }} "
           ngModel 

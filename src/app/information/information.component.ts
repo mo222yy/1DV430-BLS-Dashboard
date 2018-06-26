@@ -10,13 +10,11 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./information.component.scss']
 })
 export class InformationComponent implements OnInit {
-  currentSection: string = 'Alla';
-  
+  currentSection: string;
 
-  all = []
-  solsidan = []
-  dannes = []
-  bong = []
+
+  messagesToShow = []
+  toDoToShow = []
 
   messagesRef: AngularFireList<any>
   messages: Observable<any[]>;
@@ -41,12 +39,42 @@ export class InformationComponent implements OnInit {
     )   }
 
   ngOnInit() {
+    this.getMessages('Alla')
   }
 
   //MESSAGES 
+  getMessages(section) {
+    this.currentSection = section
+
+    this.messages.subscribe(message => {
+      this.messagesToShow = []
+      message.forEach(m => {
+        if (section === 'Alla') {
+          this.messagesToShow.push(m)
+        }
+        if(m.section === section) {
+          this.messagesToShow.push(m)
+        }
+      })
+    })
+
+    this.toDos.subscribe(todo => {
+      this.toDoToShow = []
+      todo.forEach(t => {
+        if (section === 'Alla') {
+          this.toDoToShow.push(t)
+        }
+        if(t.section === section) {
+          this.toDoToShow.push(t)
+        }
+      })
+    })
+   
+  }
 
   addMessage(value) {
     this.messagesRef.push(value);
+
   }
 
   deleteMessage(key: string) {
@@ -63,12 +91,4 @@ export class InformationComponent implements OnInit {
   deleteToDos(key: string) {
     this.toDoRef.remove(key)
   }
-
-
-  
-
-  selectedSection(section) {
-  }
-
-
 }

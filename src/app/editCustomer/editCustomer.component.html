@@ -72,13 +72,25 @@
   <mat-form-field class="form-group">
     <input 
       matInput
+      placeholder= {{currentCustomer?.shortname}}
+      value=" {{ value }} "
+      ngModel 
+      name="shortname" 
+      #shortname="ngModel" 
+      (change)="updateShortname(shortname)"
+      >
+    </mat-form-field>
+
+
+  <mat-form-field class="form-group">
+    <input 
+      matInput
       placeholder= {{currentCustomer?.sop}}
       value=" {{ value }} "
       ngModel 
       name="sop" 
       #sop="ngModel" 
       (change)="updateSop(sop)"
-
       >
   </mat-form-field>
 
