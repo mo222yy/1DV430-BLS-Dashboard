@@ -46,6 +46,7 @@ export class UtleveransComponent implements OnInit {
                }
                
    ngOnInit() {
+    this.ordersService.getOrders()
     this.getNextPickUp()  
     this.customers = this.CustomerService.customers
     this.ordersService.customerOrdersToday()

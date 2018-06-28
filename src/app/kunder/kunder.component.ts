@@ -29,4 +29,8 @@ export class KunderComponent implements OnInit {
     this.CustomerService.getCustomer(key)
     this.router.navigate(['editCustomer'])
   }
+
+  sop(sop) {
+    console.log(sop)
+  }
 }

@@ -16,6 +16,7 @@
                          class="panels">
     
        <mat-expansion-panel-header>
+      
         <mat-panel-title>
           <div id="customerName">
             {{customer.customerName}}
@@ -24,6 +25,7 @@
       </mat-expansion-panel-header>
       <mat-divider></mat-divider>
 
+      <a href="{{customer.sop}}" id="sop" (click)="sop(customer)">SOP</a>
       <button class="editButton" (click)="getCustomer(customer.key)" >+</button>
       <p class="subHeader">Kontakter</p>
      
@@ -42,6 +44,10 @@
         <p class="coab"><span class="cop">Cut off utomlands:</span> {{customer.coab}}</p>
         <p class="cocomments"><span class="cop">Övrigt:</span> {{customer.comments}}</p>
       </div>  
+        <div *ngIf="customer.logo !== '';else noLogo">
+          <img src="{{customer.logo}}" id="customerLogos">
+        </div>
+        <div id="noLogo"></div>  
     </mat-expansion-panel>
   </mat-list>
 </mat-accordion>

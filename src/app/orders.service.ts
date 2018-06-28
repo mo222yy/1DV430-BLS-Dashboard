@@ -29,18 +29,19 @@ export class OrdersService {
 
    
     async getOrders() {
+      
       let parseString = require('xml2js').parseString
-      const url = 'https://raw.githubusercontent.com/mo222yy/dashboard/master/Orders2.xml'
-      const url2 = 'gs://borjesdb.appspot.com/Orders2.xml'
+      const url = 'https://firebasestorage.googleapis.com/v0/b/borjesdb.appspot.com/o/Orders2.xml?alt=media&token=91410894-430e-4442-b2f6-ee258eacc978'
+      const url2 = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHkYsoNiXmfjEV2TjiGI3DgDaWM5bks5bPhT5wA%3D%3D'
       let json;
   
       try {
 
-      let getXml = await this.http.get(url, { responseType: 'text' })
+      let getXml = await this.http.get(url2, { responseType: 'text' })
      .subscribe( data => {
-    
-       parseString(data, function(err, result) {
+      console.log(data)
 
+       parseString(data, function(err, result) {
         if(err) {
           console.log('ERROR' + err)
           return;
