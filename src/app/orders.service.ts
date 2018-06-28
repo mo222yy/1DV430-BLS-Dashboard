@@ -32,7 +32,7 @@ export class OrdersService {
       
       let parseString = require('xml2js').parseString
       const url = 'https://firebasestorage.googleapis.com/v0/b/borjesdb.appspot.com/o/Orders2.xml?alt=media&token=91410894-430e-4442-b2f6-ee258eacc978'
-      const url2 = 'https://raw.githubusercontent.com/1dv430/mo222yy-project/master/Orders.xml?token=Ad3tHkYsoNiXmfjEV2TjiGI3DgDaWM5bks5bPhT5wA%3D%3D'
+      const url2 = 'https://raw.githubusercontent.com/mo222yy/dashboard/master/Orders.xml'
       let json;
   
       try {
