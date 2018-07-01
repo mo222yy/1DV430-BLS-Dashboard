@@ -8,7 +8,6 @@ import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapsh
 
 
 // Service för att hämta info om ordrar och skapa objekt
-
 @Injectable()
 export class OrdersService {
 

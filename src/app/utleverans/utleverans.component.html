@@ -1,89 +1,75 @@
 <body>
-<div id="sectionTransporter">
+    <div id="sectionTransporter">
+        
+    <div id="sections">
+            <button mat-button id="sectionButton"  [mat-menu-trigger-for]="menu">Avdelning </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="selectedSection('solsidan')" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
+              <button mat-menu-item (click)="selectedSection('dannes')" (click)="updateSectionHeader('Dannes')">Dannes</button>
+              <button mat-menu-item (click)="selectedSection('bong')" (click)="updateSectionHeader('Bong')">Bong</button>
+              <button mat-menu-item (click)="selectedSection('alla')" (click)="updateSectionHeader('Alla')">Alla</button>
+            </mat-menu>
+    </div>
     
-<div id="sections">
-        <button mat-button id="sectionButton"  [mat-menu-trigger-for]="menu">Avdelning </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="selectedSection('solsidan')" (click)="updateSectionHeader('Solsidan')">Solsidan</button>
-          <button mat-menu-item (click)="selectedSection('dannes')" (click)="updateSectionHeader('Dannes')">Dannes</button>
-          <button mat-menu-item (click)="selectedSection('bong')" (click)="updateSectionHeader('Bong')">Bong</button>
-          <button mat-menu-item (click)="selectedSection('alla')" (click)="updateSectionHeader('Alla')">Alla</button>
-        </mat-menu>
-</div>
-
-    <span id="sectionHeader">{{currentSection}}</span>
-
-    <div id="nextPickUp">
-        <ul id="transporterUl">
-            <li class ="transporter" *ngFor="let transporter of nextPickUp">
-                <img id="transporterImage" src="{{transporter.logo}}" alt="transportLogo" >
-            </li>
-            <li class="pickUpTime">Nästa hämtning: <span id="nextPickUpTime">{{nextPickUp[0].time}}</span></li>
-
-        </ul>
+        <span id="sectionHeader">{{currentSection}}</span>
+    
+        <div id="nextPickUp">
+            <ul id="transporterUl">
+                <li class ="transporter" *ngFor="let transporter of nextPickUp">
+                    <img id="transporterImage" src="{{transporter.logo}}" alt="transportLogo" >
+                </li>
+                <li class="pickUpTime">Nästa hämtning: <span id="nextPickUpTime">{{nextPickUp[0].time}}</span></li>
+    
+            </ul>
+        </div>
     </div>
-</div>
-
-
-<div id="orderOverview">
-    <div class="orderOverviewParts" id="OrderOverview1">
-        <p class="orderNumberHeaders">Öppna</p>
-        <p class="orderNumbers"> {{ openOrders }} </p>
+    
+    
+    <div id="orderOverview">
+        <div class="orderOverviewParts" id="OrderOverview1">
+            <p class="orderNumberHeaders">Öppna</p>
+            <p class="orderNumbers"> {{ openOrders }} </p>
+        </div>
+        <div class="orderOverviewParts" id="OrderOverview2">
+            <p class="orderNumberHeaders">Utland</p>
+            <p class="orderNumbers"> {{ abroadOrders }} </p>
+    
+        </div>
+        <div class="orderOverviewParts" id="OrderOverview3">
+            <p class="orderNumberHeaders">Restade</p>
+            <p class="orderNumbers"> {{ restOrders }} </p>
+    
+        </div>
+        <div class="orderOverviewParts" id="OrderOverview4">
+            <p class="orderNumberHeaders">Orderrader</p>
+            <p class="orderNumbers"> {{ orderLines }} </p>
+        </div>
     </div>
-    <div class="orderOverviewParts" id="OrderOverview2">
-        <p class="orderNumberHeaders">Utland</p>
-        <p class="orderNumbers"> {{ abroadOrders }} </p>
-
+   
+    <div id="orderList">
+      <mat-table #table [dataSource]="dataSource" matSort>
+    
+        <ng-container matColumnDef="customerName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
+            <mat-cell class="name" *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
+        </ng-container>
+    
+      
+        <ng-container matColumnDef="customerID">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-cell class="abroad" *matCellDef="let customer"> {{customer.customerID}} </mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="section">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Sektion </mat-header-cell>
+            <mat-cell class="abroad" *matCellDef="let customer"> {{customer.section}} </mat-cell>
+        </ng-container>
+    
+   
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+      </mat-table>
     </div>
-    <div class="orderOverviewParts" id="OrderOverview3">
-        <p class="orderNumberHeaders">Restade</p>
-        <p class="orderNumbers"> {{ restOrders }} </p>
-
-    </div>
-    <div class="orderOverviewParts" id="OrderOverview4">
-        <p class="orderNumberHeaders">Orderrader</p>
-        <p class="orderNumbers"> {{ orderLines }} </p>
-    </div>
-</div>
-
-<ul>
-    <li *ngFor="let customer of customers | async">{{customer.customerName}} {{ customer.customerID }} </li>
-</ul>
-
-
-
-<div id="orderList">
-  <mat-table #table [dataSource]="customerList" matSort>
-
-    <ng-container matColumnDef="customerName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Kund </mat-header-cell>
-        <mat-cell class="name" *matCellDef="let customer"> {{customer.customerName}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="openOrders">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Öppna </mat-header-cell>
-        <mat-cell class="open" *matCellDef="let customer"> {{customer.openOrders.length}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="abroadOrders">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Utlands </mat-header-cell>
-        <mat-cell class="abroad" *matCellDef="let customer"> {{customer.abroadOrders.length}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="restOrders">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Rest </mat-header-cell>
-        <mat-cell class="rest" *matCellDef="let customer"> {{customer.restOrders.length}} </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="orderLines">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Orderrader </mat-header-cell>
-        <mat-cell class="orderLines" *matCellDef="let customer"> {{customer.orderLines.length}} </mat-cell>
-    </ng-container>
-
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-  </mat-table>
-</div>
-</body>
+    </body>

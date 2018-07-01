@@ -21,20 +21,19 @@ import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapsh
 })
 
 export class UtleveransComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
 
   customers: Observable<any[]>;
-  
-  customerList = [];
-  
+  dataSource;
+  displayedColumns: string[] = ['customerName', 'customerID', 'section']
+
+
+  customerList = []  
 
 
    nextPickUp = []
 
-   
-   dataSource = new MatTableDataSource(this.customerList)
-   displayedColumns = ['customerName', 'openOrders', 'abroadOrders', 'restOrders', 'orderLines'];
-   
-   @ViewChild(MatSort) sort: MatSort;
+
    
   constructor( 
                private TimeService: TimeService,
@@ -46,10 +45,18 @@ export class UtleveransComponent implements OnInit {
                }
                
    ngOnInit() {
-    this.ordersService.getOrders()
+    this.CustomerService.customers.subscribe(customer => {
+      if(!customer) {
+        return
+      }
+      this.dataSource = new MatTableDataSource(customer);
+      this.dataSource.sort = this.sort;
+    })
+
+
+
     this.getNextPickUp()  
     this.customers = this.CustomerService.customers
-    this.ordersService.customerOrdersToday()
     }
 
 
@@ -59,4 +66,3 @@ export class UtleveransComponent implements OnInit {
       this.nextPickUp =  this.transporterService.getNextPickUp()
     }
 }
-
