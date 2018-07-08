@@ -76,30 +76,21 @@
           >
       </mat-form-field>
 
-      <!-- SOP -->
-      <mat-form-field class="form-group">
-        <input 
-          matInput
-          placeholder="Länk till SOP"
-          value=" {{ value }} "
-          ngModel 
-          name="sop" 
-          #sop="ngModel" 
-
+      <mat-form-field>
+        <mat-select 
+        required
+         placeholder="Enligt onGoings datum"
+          ngModel
+          name="deliverDate"
+          #deliverDate="ngModel"
           >
+          <mat-option [value]="0">Skickas</mat-option>
+          <mat-option [value]="1">Levereras</mat-option>            
+        </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="form-group">
-        <input 
-          matInput
-          placeholder="Länk till logotype"
-          value=" {{ value }}"
-          ngModel 
-          name="logo" 
-          #logo="ngModel" 
 
-          >
-      </mat-form-field>
+  
     
     </div>
   
@@ -287,6 +278,31 @@
           >
         </textarea>
         </mat-form-field>
+
+            <!-- SOP -->
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder="Länk till SOP"
+          value=" {{ value }} "
+          ngModel 
+          name="sop" 
+          #sop="ngModel" 
+
+          >
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder="Länk till logotype"
+          value=" {{ value }}"
+          ngModel 
+          name="logo" 
+          #logo="ngModel" 
+
+          >
+      </mat-form-field>
       </div>
   
   

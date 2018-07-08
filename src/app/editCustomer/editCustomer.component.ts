@@ -23,6 +23,7 @@ export class EditCustomerComponent implements OnInit {
   cosv: String;
   coab: String;
   comments: String;
+  deliverDate: String;
 
   firstname: String;
   lastname: String;
@@ -55,6 +56,7 @@ export class EditCustomerComponent implements OnInit {
           this.logo = c.logo
           this.cosv = c.cosv
           this.coab = c.coab
+          this.deliverDate = c.deliverDate
           this.comments = c.comments
           if(c.contacts === null) {
             this.contacts = []
@@ -66,7 +68,7 @@ export class EditCustomerComponent implements OnInit {
     })
   }
 
-  updateCustomer() {
+  updateCustomer(value) {
     this.CustomerService.customersRef.update(this.CustomerService.currentKey, {
       customerName: this.customerName,
       customerID: this.customerID,
@@ -77,9 +79,10 @@ export class EditCustomerComponent implements OnInit {
       contacts: this.contacts,
       cosv: this.cosv,
       coab: this.coab,
-      comments: this.comments
+      comments: this.comments,
+      deliverDate: this.deliverDate
       })
-      console.log('this.contacts')
+      console.log(value)
       this.router.navigate(['kunder'])
 
 
@@ -137,6 +140,10 @@ export class EditCustomerComponent implements OnInit {
 
   updateShortname(shortname) {
     this.shortname = shortname.value
+  }
+
+  updateDeliverDate(deliverDate) {
+    this.deliverDate = deliverDate.value
   }
 
   addContact() {

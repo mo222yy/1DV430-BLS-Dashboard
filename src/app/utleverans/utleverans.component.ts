@@ -22,19 +22,15 @@ import { AngularFireDatabase, AngularFireList, AngularFireAction, DatabaseSnapsh
 
 export class UtleveransComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
-
-  customers: Observable<any[]>;
   dataSource;
   displayedColumns: string[] = ['customerName', 'customerID', 'section']
 
+  customers: Observable<any[]>;
 
-  customerList = []  
+  allOrders = []
 
+  nextPickUp = []
 
-   nextPickUp = []
-
-
-   
   constructor( 
                private TimeService: TimeService,
                private ordersService: OrdersService,
@@ -44,25 +40,32 @@ export class UtleveransComponent implements OnInit {
                
                }
                
-   ngOnInit() {
-    this.CustomerService.customers.subscribe(customer => {
-      if(!customer) {
-        return
-      }
-      this.dataSource = new MatTableDataSource(customer);
-      this.dataSource.sort = this.sort;
-    })
+  ngOnInit() {
+    this.getCustomers()
+    this.getOrders()
+   // this.getNextPickUp()  
+  }
 
+  getCustomers() {
+      this.CustomerService.customers.subscribe(customer => {
+        if(!customer) {
+          return
+        }
+        this.dataSource = new MatTableDataSource(customer);
+        this.dataSource.sort = this.sort;
+      })
+    }
 
-
-    this.getNextPickUp()  
-    this.customers = this.CustomerService.customers
+   async getOrders() {
+     this.ordersService.getOrders()
+     await this.ordersService.getOrdersToday()
+     await this.ordersService.distributeTodaysOrders()
+     await this.ordersService.getOrderNumbers()
     }
 
 
-
     //TRANSPORTÖR
-    getNextPickUp() {
+  getNextPickUp() {
       this.nextPickUp =  this.transporterService.getNextPickUp()
     }
 }

@@ -69,6 +69,8 @@
     </mat-select>
   </mat-form-field>
 
+
+
   <mat-form-field class="form-group">
     <input 
       matInput
@@ -81,31 +83,22 @@
       >
     </mat-form-field>
 
-
-  <mat-form-field class="form-group">
-    <input 
-      matInput
-      placeholder= {{currentCustomer?.sop}}
-      value=" {{ value }} "
-      ngModel 
-      name="sop" 
-      #sop="ngModel" 
-      (change)="updateSop(sop)"
+  <!-- DeliverDate -->
+  <mat-form-field>
+    <mat-select 
+    required
+     placeholder="Enligt onGoings datum"
+      ngModel
+      name="deliverDate"
+      #deliverDate="ngModel"
       >
+      <mat-option (change)="updateDeliverDate(value)"[value]="0">Skickas</mat-option>
+      <mat-option (change)="updateDeliverDate(value)"[value]="1">Levereras</mat-option>            
+    </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="form-group">
-    <input 
-      matInput
-      placeholder= {{currentCustomer?.logo}}
-      value=" {{ value }}"
-      ngModel 
-      name="logo" 
-      #logo="ngModel" 
-      (change)="updateLogo(logo)"
 
-      >
-  </mat-form-field>
+  
 
   </div>
 
@@ -315,6 +308,31 @@
 
                 >
               </textarea>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder= {{currentCustomer?.sop}}
+          value=" {{ value }} "
+          ngModel 
+          name="sop" 
+          #sop="ngModel" 
+          (change)="updateSop(sop)"
+          >
+      </mat-form-field>
+    
+      <mat-form-field class="form-group">
+        <input 
+          matInput
+          placeholder= {{currentCustomer?.logo}}
+          value=" {{ value }}"
+          ngModel 
+          name="logo" 
+          #logo="ngModel" 
+          (change)="updateLogo(logo)"
+    
+          >
       </mat-form-field>
 
 

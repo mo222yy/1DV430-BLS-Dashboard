@@ -13,7 +13,7 @@
     
         <span id="sectionHeader">{{currentSection}}</span>
     
-        <div id="nextPickUp">
+        <!--         <div id="nextPickUp">
             <ul id="transporterUl">
                 <li class ="transporter" *ngFor="let transporter of nextPickUp">
                     <img id="transporterImage" src="{{transporter.logo}}" alt="transportLogo" >
@@ -22,6 +22,8 @@
     
             </ul>
         </div>
+        -->
+
     </div>
     
     
@@ -56,7 +58,7 @@
     
       
         <ng-container matColumnDef="customerID">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Öppna </mat-header-cell>
             <mat-cell class="abroad" *matCellDef="let customer"> {{customer.customerID}} </mat-cell>
         </ng-container>
     

@@ -10,7 +10,7 @@
 
 <div id="left" class="columns">
 <mat-accordion>
-  <mat-list class="customer" *ngFor="let customer of customers | async">
+  <mat-list class="customer" *ngFor="let customer of customers | async ">
     <mat-expansion-panel (opened)="panelOpenState = true"
                          (closed)="panelOpenState = false"
                          class="panels">

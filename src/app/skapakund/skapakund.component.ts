@@ -34,6 +34,7 @@ createCustomer(value) {
  delete value.phone
  delete value.email
 
+ 
  value.contacts = this.contacts
  value.ordersOpenToday = []
  value.ordersCompletedToday = []
@@ -49,23 +50,6 @@ createCustomer(value) {
  console.log(value)
 }
 
-
-addOrders() {
-  
-  let ordersOpenToday = []
-  let ordersCompletedToday = []
-  let orderLinesOpenToday = []
-  let ordersLinesCompletedToday = []
-
-  let abroadOrders = []
-  let rested = []
-
-  let ordersCompletedMonth = []
-  let orderLinesCompletedMonth = []
-  
-
-
-}
 
 addContact() {
   let contact = this.createContact()

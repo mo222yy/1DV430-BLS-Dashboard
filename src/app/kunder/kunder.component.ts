@@ -30,7 +30,7 @@ export class KunderComponent implements OnInit {
     this.router.navigate(['editCustomer'])
   }
 
-  sop(sop) {
-    console.log(sop)
-  }
+  
+
+
 }
